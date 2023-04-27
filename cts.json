@@ -1,0 +1,496 @@
+[
+  {
+    "name": "del command",
+    "command": [
+      "set k v",
+      "del k"
+    ],
+    "result": [
+      "OK",
+      1
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "unlink command",
+    "command": [
+      "set k v",
+      "unlink k"
+    ],
+    "result": [
+      "OK",
+      1
+    ],
+    "since": "4.0.0"
+  },
+  {
+    "name": "rename command",
+    "command": [
+      "set k v",
+      "rename k kk"
+    ],
+    "result": [
+      "OK",
+      "OK"
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "renamenx command",
+    "command": [
+      "set k v",
+      "renamenx k kk"
+    ],
+    "result": [
+      "OK",
+      1
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "randomkey command",
+    "command": [
+      "set k v",
+      "randomkey"
+    ],
+    "result": [
+      "OK",
+      "k"
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "exists command",
+    "command": [
+      "set k v",
+      "exists k"
+    ],
+    "result": [
+      "OK",
+      1
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "ttl command",
+    "command": [
+      "ttl non-exists"
+    ],
+    "result": [
+      -2
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "pttl command",
+    "command": [
+      "pttl non-exists"
+    ],
+    "result": [
+      -2
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "expire command",
+    "command": [
+      "expire non-exists 10"
+    ],
+    "result": [
+      0
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "expire with nx/xx",
+    "command": [
+      "set k v",
+      "expire k 10 NX",
+      "expire k 10 XX"
+    ],
+    "result": [
+      "OK",
+      1,
+      1
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "expire with gt/lt",
+    "command": [
+      "set k v",
+      "expire k 10 lt",
+      "expire k 20 gt"
+    ],
+    "result": [
+      "OK",
+      1,
+      1
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "expireat command",
+    "command": [
+      "expireat non-exists 10"
+    ],
+    "result": [
+      0
+    ],
+    "since": "1.2.0"
+  },
+  {
+    "name": "expireat with nx/xx",
+    "command": [
+      "set k v",
+      "expireat k 9999999998 NX",
+      "expireat k 9999999999 XX"
+    ],
+    "result": [
+      "OK",
+      1,
+      1
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "expireat with gt/lt",
+    "command": [
+      "set k v",
+      "expireat k 9999999998 lt",
+      "expireat k 9999999999 gt"
+    ],
+    "result": [
+      "OK",
+      1,
+      1
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "pexpire command",
+    "command": [
+      "pexpire non-exists 10"
+    ],
+    "result": [
+      0
+    ],
+    "since": "2.6.0"
+  },
+  {
+    "name": "pexpire with nx/xx",
+    "command": [
+      "set k v",
+      "pexpire k 1000 NX",
+      "pexpire k 1000 XX"
+    ],
+    "result": [
+      "OK",
+      1,
+      1
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "pexpire with gt/lt",
+    "command": [
+      "set k v",
+      "pexpire k 1000 lt",
+      "pexpire k 2000 gt"
+    ],
+    "result": [
+      "OK",
+      1,
+      1
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "pexpireat command",
+    "command": [
+      "pexpireat non-exists 10"
+    ],
+    "result": [
+      0
+    ],
+    "since": "2.6.0"
+  },
+  {
+    "name": "pexpireat with nx/xx",
+    "command": [
+      "set k v",
+      "pexpireat k 9999999999998 NX",
+      "pexpireat k 9999999999999 XX"
+    ],
+    "result": [
+      "OK",
+      1,
+      1
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "pexpireat with gt/lt",
+    "command": [
+      "set k v",
+      "pexpireat k 9999999999998 lt",
+      "pexpireat k 9999999999999 gt"
+    ],
+    "result": [
+      "OK",
+      1,
+      1
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "expiretime command",
+    "command": [
+      "expiretime non-exists"
+    ],
+    "result": [
+      -2
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "pexpiretime command",
+    "command": [
+      "pexpiretime non-exists"
+    ],
+    "result": [
+      -2
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "persist command",
+    "command": [
+      "persist non-exists"
+    ],
+    "result": [
+      0
+    ],
+    "since": "2.2.0"
+  },
+  {
+    "name": "dump command",
+    "command": [
+      "dump not-exists"
+    ],
+    "result": [
+      null
+    ],
+    "since": "2.6.0"
+  },
+  {
+    "name": "touch command",
+    "command": [
+      "touch not-exists"
+    ],
+    "result": [
+      0
+    ],
+    "since": "3.2.1"
+  },
+  {
+    "name": "restore command",
+    "command": [
+      "restore k 0 \\x00\\x01v\\x06\\x00\\a\\xe5\\xa62\\xecm\\xb6]"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "2.6.0",
+    "command_binary": true
+  },
+  {
+    "name": "restore with replace",
+    "command": [
+      "set k v",
+      "restore k 0 \\x00\\x01v\\x06\\x00\\a\\xe5\\xa62\\xecm\\xb6] REPLACE"
+    ],
+    "result": [
+      "OK",
+      "OK"
+    ],
+    "since": "3.0.0",
+    "command_binary": true
+  },
+  {
+    "name": "restore with absttl",
+    "command": [
+      "restore k 0 \\x00\\x01v\\x06\\x00\\a\\xe5\\xa62\\xecm\\xb6] ABSTTL",
+      "ttl k"
+    ],
+    "result": [
+      "OK",
+      -1
+    ],
+    "since": "5.0.0",
+    "command_binary": true
+  },
+  {
+    "name": "restore with idletime",
+    "command": [
+      "restore k 0 \\x00\\x01v\\x06\\x00\\a\\xe5\\xa62\\xecm\\xb6] IDLETIME 1000"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "5.0.0",
+    "command_binary": true
+  },
+  {
+    "name": "scan command",
+    "command": [
+      "set k v",
+      "scan 0"
+    ],
+    "result": [
+      "OK",
+      [
+        "0",
+        [
+          "k"
+        ]
+      ]
+    ],
+    "since": "2.8.0"
+  },
+  {
+    "name": "scan with type",
+    "command": [
+      "geoadd geokey 0 0 value",
+      "scan 0 type zset"
+    ],
+    "result": [
+      1,
+      [
+        "0",
+        [
+          "geokey"
+        ]
+      ]
+    ],
+    "since": "6.0.0"
+  },
+  {
+    "name": "keys command",
+    "command": [
+      "mset firstname Jack lastname Stuntman age 35",
+      "keys a??"
+    ],
+    "result": [
+      "OK",
+      [
+        "age"
+      ]
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "move command",
+    "command": [
+      "set k v",
+      "move k 1"
+    ],
+    "result": [
+      "OK",
+      1
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "copy command",
+    "command": [
+      "set k v",
+      "copy k kk",
+      "get kk"
+    ],
+    "result": [
+      "OK",
+      1,
+      "v"
+    ],
+    "since": "6.2.0"
+  },
+  {
+    "name": "type command",
+    "command": [
+      "set k v",
+      "type k"
+    ],
+    "result": [
+      "OK",
+      "string"
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "wait command",
+    "command": [
+      "wait 0 1000"
+    ],
+    "result": [
+      0
+    ],
+    "since": "3.0.0"
+  },
+  {
+    "name": "sort command",
+    "command": [
+      "lpush list 5 3 4 1 2",
+      "sort list"
+    ],
+    "result": [
+      5,
+      [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    ],
+    "since": "1.0.0"
+  },
+  {
+    "name": "sort_ro command",
+    "command": [
+      "lpush list 5 3 4 1 2",
+      "sort_ro list"
+    ],
+    "result": [
+      5,
+      [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "migrate command",
+    "command": [
+      "MIGRATE 0.0.0.0 6379 k 0 0"
+    ],
+    "result": [
+      "NOKEY"
+    ],
+    "since": "2.6.0"
+  },
+  {
+    "name": "set command",
+    "command": [
+      "set k v"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "1.0.0"
+  }
+]
