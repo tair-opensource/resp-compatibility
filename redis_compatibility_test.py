@@ -50,6 +50,7 @@ def report_result():
         if args.show_failed and len(failed) != 0:
             print(f"This is failed tests for {args.specific_version}:")
             print(failed)
+            exit(-1)
     else:
         for v, t in sorted(g_results.items()):
             print(f"version: {v}, total tests: {t.total}, passed: {t.passed}, "
@@ -57,6 +58,7 @@ def report_result():
             if args.show_failed and len(t.failed) != 0:
                 print(f"This is failed tests for {v}:")
                 print(t.failed)
+                exit(-1)
 
 
 def is_equal(left, right):
@@ -192,7 +194,7 @@ def parse_args():
     parser.add_argument("--password", help="the redis password", default="")
     parser.add_argument("--testfile", help="the redis compatibility test cases", required=True)
     parser.add_argument("--specific-version", dest="specific_version", help="the redis version",
-                        choices=['1.0.0', '2.8.0', '4.0.0', '5.0.0', '6.0.0', '6.2.0', '7.0.0'])
+                        choices=['1.0.0', '2.8.0', '3.2.0', '4.0.0', '5.0.0', '6.0.0', '6.2.0', '7.0.0', '7.2.0'])
     parser.add_argument("--show-failed", dest="show_failed", help="show details of failed tests", default=False,
                         action="store_true")
     parser.add_argument("--cluster", help="server is a node of the Redis cluster", default=False, action="store_true")
