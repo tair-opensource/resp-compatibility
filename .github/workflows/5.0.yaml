@@ -1,4 +1,4 @@
-name: 7.2.0
+name: 5.0
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  test-with-redis-7-2-0:
+  test-with-redis-5-0:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,7 +16,7 @@ jobs:
           sudo apt-get install git
           git clone https://github.com/redis/redis
           cd redis
-          git checkout 7.2
+          git checkout 5.0
           make -j
 
       - name: start redis
@@ -32,4 +32,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: run test
-        run: python redis_compatibility_test.py --testfile cts.json --specific-version 7.2.0 --show-failed
+        run: python redis_compatibility_test.py --testfile cts.json --specific-version 5.0.0 --show-failed
