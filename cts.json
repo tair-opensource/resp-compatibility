@@ -11,6 +11,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "unlink command",
     "command": [
@@ -23,6 +24,7 @@
     ],
     "since": "4.0.0"
   },
+
   {
     "name": "rename command",
     "command": [
@@ -35,6 +37,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "renamenx command",
     "command": [
@@ -47,6 +50,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "randomkey command",
     "command": [
@@ -59,6 +63,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "exists command",
     "command": [
@@ -71,6 +76,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "ttl command",
     "command": [
@@ -81,6 +87,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "pttl command",
     "command": [
@@ -91,6 +98,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "expire command",
     "command": [
@@ -101,6 +109,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "expire with nx/xx",
     "command": [
@@ -115,6 +124,7 @@
     ],
     "since": "7.0.0"
   },
+
   {
     "name": "expire with gt/lt",
     "command": [
@@ -129,6 +139,7 @@
     ],
     "since": "7.0.0"
   },
+
   {
     "name": "expireat command",
     "command": [
@@ -139,6 +150,7 @@
     ],
     "since": "1.2.0"
   },
+
   {
     "name": "expireat with nx/xx",
     "command": [
@@ -153,6 +165,7 @@
     ],
     "since": "7.0.0"
   },
+
   {
     "name": "expireat with gt/lt",
     "command": [
@@ -167,6 +180,7 @@
     ],
     "since": "7.0.0"
   },
+
   {
     "name": "pexpire command",
     "command": [
@@ -177,6 +191,7 @@
     ],
     "since": "2.6.0"
   },
+
   {
     "name": "pexpire with nx/xx",
     "command": [
@@ -191,6 +206,7 @@
     ],
     "since": "7.0.0"
   },
+
   {
     "name": "pexpire with gt/lt",
     "command": [
@@ -205,6 +221,7 @@
     ],
     "since": "7.0.0"
   },
+
   {
     "name": "pexpireat command",
     "command": [
@@ -215,6 +232,7 @@
     ],
     "since": "2.6.0"
   },
+
   {
     "name": "pexpireat with nx/xx",
     "command": [
@@ -229,6 +247,7 @@
     ],
     "since": "7.0.0"
   },
+
   {
     "name": "pexpireat with gt/lt",
     "command": [
@@ -243,6 +262,7 @@
     ],
     "since": "7.0.0"
   },
+
   {
     "name": "expiretime command",
     "command": [
@@ -253,6 +273,7 @@
     ],
     "since": "7.0.0"
   },
+
   {
     "name": "pexpiretime command",
     "command": [
@@ -263,6 +284,7 @@
     ],
     "since": "7.0.0"
   },
+
   {
     "name": "persist command",
     "command": [
@@ -273,6 +295,7 @@
     ],
     "since": "2.2.0"
   },
+
   {
     "name": "dump command",
     "command": [
@@ -283,6 +306,7 @@
     ],
     "since": "2.6.0"
   },
+
   {
     "name": "touch command",
     "command": [
@@ -293,6 +317,7 @@
     ],
     "since": "3.2.1"
   },
+
   {
     "name": "restore command",
     "command": [
@@ -304,6 +329,7 @@
     "since": "2.6.0",
     "command_binary": true
   },
+
   {
     "name": "restore with replace",
     "command": [
@@ -317,6 +343,7 @@
     "since": "3.0.0",
     "command_binary": true
   },
+
   {
     "name": "restore with absttl",
     "command": [
@@ -330,6 +357,7 @@
     "since": "5.0.0",
     "command_binary": true
   },
+
   {
     "name": "restore with idletime",
     "command": [
@@ -341,6 +369,7 @@
     "since": "5.0.0",
     "command_binary": true
   },
+
   {
     "name": "scan command",
     "command": [
@@ -358,6 +387,7 @@
     ],
     "since": "2.8.0"
   },
+
   {
     "name": "scan with type",
     "command": [
@@ -375,6 +405,7 @@
     ],
     "since": "6.0.0"
   },
+
   {
     "name": "keys command",
     "command": [
@@ -389,6 +420,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "move command",
     "command": [
@@ -401,6 +433,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "copy command",
     "command": [
@@ -415,6 +448,7 @@
     ],
     "since": "6.2.0"
   },
+
   {
     "name": "type command",
     "command": [
@@ -427,6 +461,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "wait command",
     "command": [
@@ -437,6 +472,7 @@
     ],
     "since": "3.0.0"
   },
+
   {
     "name": "sort command",
     "command": [
@@ -455,6 +491,7 @@
     ],
     "since": "1.0.0"
   },
+
   {
     "name": "sort_ro command",
     "command": [
@@ -473,6 +510,7 @@
     ],
     "since": "7.0.0"
   },
+
   {
     "name": "migrate command",
     "command": [
@@ -483,6 +521,7 @@
     ],
     "since": "2.6.0"
   },
+
   {
     "name": "set command",
     "command": [
@@ -492,5 +531,737 @@
       "OK"
     ],
     "since": "1.0.0"
+  },
+
+  {
+    "name": "blmove command",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lpush mylist 2",
+      "lpush mylist1 3",
+      "lpush mylist1 4",
+      "lpush mylist1 5",
+      "blmove mylist mylist1 left right 3.14",
+      "lrange mylist1 0 -1"
+    ],
+    "result": [
+      1,
+      2,
+      3,
+      1,
+      2,
+      3,
+      "2",
+      [
+        "5",
+        "4",
+        "3",
+        "2"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "blmpop command",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "blmpop 3.14 1 mylist LEFT"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "mylist",
+        [
+          "1"
+        ]
+      ]
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "blmpop with count",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lpush mylist 2",
+      "lpush mylist 3",
+      "lpush mylist 4",
+      "lpush mylist1 0",
+      "lpush mylist1 1",
+      "lpush mylist1 2",
+      "lpush mylist1 3",
+      "lpush mylist1 4",
+      "blmpop 3.14 2 mylist mylist1 right count 5",
+      "blmpop 3.14 2 mylist mylist1 right count 2",
+      "exists mylist"
+    ],
+    "result": [
+      1, 2, 3, 4, 5,
+      1, 2, 3, 4, 5,
+      [
+        "mylist",
+        [
+          "0", "1", "2", "3", "4"
+        ]
+      ],
+      [
+        "mylist1",
+        [
+          "0", "1"
+        ]
+      ],
+      0
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "blpop command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist1 2",
+      "rpush mylist1 3",
+      "blpop mylist mylist 0"
+    ],
+    "result": [
+      1, 2,
+      1, 2,
+      [
+        "mylist",
+        "0"
+      ]
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "blpop with double timeout",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist1 2",
+      "rpush mylist1 3",
+      "blpop mylist mylist 3.14"
+    ],
+    "result": [
+      1, 2,
+      1, 2,
+      [
+        "mylist",
+        "0"
+      ]
+    ],
+    "since": "6.0.0"
+  },
+
+  {
+    "name": "brpop command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist1 2",
+      "rpush mylist1 3",
+      "brpop mylist mylist 0"
+    ],
+    "result": [
+      1, 2,
+      1, 2,
+      [
+        "mylist",
+        "1"
+      ]
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "brpop with double timeout",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist1 2",
+      "rpush mylist1 3",
+      "brpop mylist mylist 3.14"
+    ],
+    "result": [
+      1, 2,
+      1, 2,
+      [
+        "mylist",
+        "1"
+      ]
+    ],
+    "since": "6.0.0"
+  },
+
+  {
+    "name": "brpoplpush command",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist1 1",
+      "brpoplpush mylist mylist1 0"
+    ],
+    "result": [
+      1,
+      1,
+      "0"
+    ],
+    "since": "2.2.0"
+  },
+
+  {
+    "name": "brpoplpush with double timeout",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist1 1",
+      "brpoplpush mylist mylist1 3.14"
+    ],
+    "result": [
+      1,
+      1,
+      "0"
+    ],
+    "since": "6.0.0"
+  },
+
+  {
+    "name": "lindex command",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lindex mylist -1"
+    ],
+    "result": [
+      1, 2,
+      "0"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "linsert command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 2",
+      "linsert mylist before 2 1",
+      "lrange mylist 0 -1"
+    ],
+    "result": [
+      1, 2,
+      3,
+      [
+        "0", "1", "2"
+      ]
+    ],
+    "since": "2.2.0"
+  },
+
+  {
+    "name": "llen command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "llen mylist"
+    ],
+    "result": [
+      1, 2, 3,
+      3
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "lmove command",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lpush mylist 2",
+      "lpush mylist1 3",
+      "lpush mylist1 4",
+      "lpush mylist1 5",
+      "lmove mylist mylist1 left right",
+      "lrange mylist1 0 -1"
+    ],
+    "result": [
+      1,
+      2,
+      3,
+      1,
+      2,
+      3,
+      "2",
+      [
+        "5",
+        "4",
+        "3",
+        "2"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "lmpop command",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lmpop 1 mylist LEFT"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "mylist",
+        [
+          "1"
+        ]
+      ]
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "lmpop with count",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lpush mylist 2",
+      "lpush mylist 3",
+      "lpush mylist 4",
+      "lpush mylist1 0",
+      "lpush mylist1 1",
+      "lpush mylist1 2",
+      "lpush mylist1 3",
+      "lpush mylist1 4",
+      "lmpop 2 mylist mylist1 right count 5",
+      "lmpop 2 mylist mylist1 right count 2",
+      "exists mylist"
+    ],
+    "result": [
+      1, 2, 3, 4, 5,
+      1, 2, 3, 4, 5,
+      [
+        "mylist",
+        [
+          "0", "1", "2", "3", "4"
+        ]
+      ],
+      [
+        "mylist1",
+        [
+          "0", "1"
+        ]
+      ],
+      0
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "lpop command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "rpush mylist 3",
+      "rpush mylist 4",
+      "lpop mylist"
+    ],
+    "result": [
+      1, 2, 3, 4, 5,
+      "0"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "lpop with count",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "rpush mylist 3",
+      "rpush mylist 4",
+      "lpop mylist 2"
+    ],
+    "result": [
+      1, 2, 3, 4, 5,
+      [
+        "0", "1"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "lpos command",
+    "command": [
+      "rpush mylist a",
+      "rpush mylist b",
+      "rpush mylist c",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "rpush mylist 3",
+      "rpush mylist c",
+      "rpush mylist c",
+      "lpos mylist c"
+    ],
+    "result": [
+      1, 2, 3, 4, 5, 6, 7, 8,
+      2
+    ],
+    "since": "6.0.6"
+  },
+
+  {
+    "name": "lpos with rank",
+    "command": [
+      "rpush mylist a",
+      "rpush mylist b",
+      "rpush mylist c",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "rpush mylist 3",
+      "rpush mylist c",
+      "rpush mylist c",
+      "lpos mylist c rank -1"
+    ],
+    "result": [
+      1,2, 3, 4, 5, 6, 7, 8,
+      7
+    ],
+    "since": "6.0.6"
+  },
+
+  {
+    "name": "lpos with count",
+    "command": [
+      "rpush mylist a",
+      "rpush mylist b",
+      "rpush mylist c",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "rpush mylist 3",
+      "rpush mylist c",
+      "rpush mylist c",
+      "lpos mylist c count 2"
+    ],
+    "result": [
+      1, 2, 3, 4, 5, 6, 7, 8,
+      [
+        2, 6
+      ]
+    ],
+    "since": "6.0.6"
+  },
+
+  {
+    "name": "lpos with maxlen",
+    "command": [
+      "rpush mylist a",
+      "rpush mylist b",
+      "rpush mylist c",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "rpush mylist 3",
+      "rpush mylist c",
+      "rpush mylist c",
+      "lpos mylist c maxlen 2"
+    ],
+    "result": [
+      1, 2, 3, 4, 5, 6, 7, 8,
+      null
+    ],
+    "since": "6.0.6"
+  },
+
+  {
+    "name": "lpos with rank, count and maxlen",
+    "command": [
+      "rpush mylist a",
+      "rpush mylist b",
+      "rpush mylist c",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "rpush mylist 3",
+      "rpush mylist c",
+      "rpush mylist c",
+      "lpos mylist c rank -1 count 0 maxlen 10"
+    ],
+    "result": [
+      1, 2, 3, 4, 5, 6, 7, 8,
+      [
+        7, 6, 2
+      ]
+    ],
+    "since": "6.0.6"
+  },
+
+  {
+    "name": "lpush command",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lrange mylist 0 -1"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "1", "0"
+      ]
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "lpush with multiple element",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lrange mylist 0 -1"
+    ],
+    "result": [
+      1, 2,
+      [
+        "1", "0"
+      ]
+    ],
+    "since": "2.4.0"
+  },
+
+  {
+    "name": "lpushx command",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lpushx mylist 2",
+      "lpushx myotherlist 0"
+    ],
+    "result": [
+      1, 2,
+      3,
+      0
+    ],
+    "since": "2.2.0"
+  },
+
+  {
+    "name": "lpushx with multiple element",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lpushx mylist 2 3",
+      "lpushx myotherlist 0 1"
+    ],
+    "result": [
+      1, 2,
+      4,
+      0
+    ],
+    "since": "4.0.0"
+  },
+
+  {
+    "name": "lrange command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "lrange mylist 0 -1"
+    ],
+    "result": [
+      1, 2, 3,
+      [
+        "0", "1", "2"
+      ]
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "lrem command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "rpush mylist 3",
+      "rpush mylist 3",
+      "rpush mylist 3",
+      "rpush mylist 4",
+      "rpush mylist 5",
+      "lrem mylist -1 0",
+      "lrem mylist 1 2",
+      "lrem mylist 0 3"
+    ],
+    "result": [
+      1, 2, 3, 4, 5, 6, 7, 8,
+      1,
+      1,
+      3
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "lset command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "lset mylist 0 3",
+      "lrange mylist 0 -1"
+    ],
+    "result": [
+      1, 2, 3,
+      "OK",
+      [
+        "3", "1", "2"
+      ]
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "ltrim command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "ltrim mylist 1 -1",
+      "lrange mylist 0 -1"
+    ],
+    "result": [
+      1, 2, 3,
+      "OK",
+      [
+        "1",
+        "2"
+      ]
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "rpop command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "rpush mylist 3",
+      "rpush mylist 4",
+      "rpop mylist"
+    ],
+    "result": [
+      1, 2, 3, 4, 5,
+      "4"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "rpop with count",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush mylist 2",
+      "rpush mylist 3",
+      "rpush mylist 4",
+      "rpop mylist 2"
+    ],
+    "result": [
+      1, 2, 3, 4, 5,
+      [
+        "4", "3"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "rpoplpush command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpoplpush mylist myotherlist",
+      "lrange myotherlist 0 -1"
+    ],
+    "result": [
+      1, 2,
+      "1",
+      [
+        "1"
+      ]
+    ],
+    "since": "1.2.0"
+  },
+
+  {
+    "name": "rpush command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "lrange mylist 0 -1"
+    ],
+    "result": [
+      1, 2,
+      [
+        "0", "1"
+      ]
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "rpush with multiple element",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "lrange mylist 0 -1"
+    ],
+    "result": [
+      1, 2,
+      [
+        "0", "1"
+      ]
+    ],
+    "since": "2.4.0"
+  },
+
+  {
+    "name": "rpushx command",
+    "command": [
+      "rpush mylist 0",
+      "rpushx mylist 1",
+      "rpushx myotherlist 0"
+    ],
+    "result": [
+      1,
+      2,
+      0
+    ],
+    "since": "2.2.0"
+  },
+
+  {
+    "name": "rpushx with multiple element",
+    "command": [
+      "rpush mylist 0",
+      "rpushx mylist 1 2",
+      "rpushx myotherlist 0 1"
+    ],
+    "result": [
+      1,
+      3,
+      0
+    ],
+    "since": "4.0.0"
   }
 ]

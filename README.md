@@ -22,7 +22,7 @@ optional arguments:
   --port PORT           the redis port
   --password PASSWORD   the redis password
   --testfile TESTFILE   the redis compatibility test cases
-  --specific-version {1.0.0,2.8.0,4.0.0,5.0.0,6.0.0,6.2.0,7.0.0}
+  --specific-version {1.0.0, 2.8.0, 3.2.0, 4.0.0, 5.0.0, 6.0.0, 6.2.0, 7.0.0}
                         the redis version
   --show-failed         show details of failed tests
   --cluster             server is a node of the Redis cluster
@@ -33,11 +33,12 @@ Examples:
 Test whether host:port is compatible with redis 6.2.0 and display failure case: 
 ```
 $ python3 redis_compatibility_test.py -h host -p port --testfile cts.json --specific-version 6.2.0 --show-failed
-test: pexpiretime command version skipped
-test: persist command passed
+Connecting to 127.0.0.1:6379 use standalone client
+test: del command passed
+test: unlink command passed
 ...
-test: set command passed
+test: rpushx with multiple element passed
 -------- The result of tests --------
-version: 6.2.0, total tests: 17, passed: 17, rate: 100.0%
+version: 6.2.0, total tests: 62, passed: 62, rate: 100.0%
 ```
 More examples are shown `python3 redis_compatibility_test.py -h`.
