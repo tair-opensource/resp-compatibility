@@ -111,7 +111,7 @@
   },
 
   {
-    "name": "expire with nx/xx",
+    "name": "expire with NX / XX",
     "command": [
       "set k v",
       "expire k 10 NX",
@@ -126,7 +126,7 @@
   },
 
   {
-    "name": "expire with gt/lt",
+    "name": "expire with GT / LT",
     "command": [
       "set k v",
       "expire k 10 lt",
@@ -152,7 +152,7 @@
   },
 
   {
-    "name": "expireat with nx/xx",
+    "name": "expireat with NX / XX",
     "command": [
       "set k v",
       "expireat k 9999999998 NX",
@@ -167,7 +167,7 @@
   },
 
   {
-    "name": "expireat with gt/lt",
+    "name": "expireat with GT / LT",
     "command": [
       "set k v",
       "expireat k 9999999998 lt",
@@ -193,7 +193,7 @@
   },
 
   {
-    "name": "pexpire with nx/xx",
+    "name": "pexpire with NX / XX",
     "command": [
       "set k v",
       "pexpire k 1000 NX",
@@ -208,7 +208,7 @@
   },
 
   {
-    "name": "pexpire with gt/lt",
+    "name": "pexpire with GT / LT",
     "command": [
       "set k v",
       "pexpire k 1000 lt",
@@ -234,7 +234,7 @@
   },
 
   {
-    "name": "pexpireat with nx/xx",
+    "name": "pexpireat with NX / XX",
     "command": [
       "set k v",
       "pexpireat k 9999999999998 NX",
@@ -249,7 +249,7 @@
   },
 
   {
-    "name": "pexpireat with gt/lt",
+    "name": "pexpireat with GT / LT",
     "command": [
       "set k v",
       "pexpireat k 9999999999998 lt",
@@ -331,7 +331,7 @@
   },
 
   {
-    "name": "restore with replace",
+    "name": "restore with REPLACE",
     "command": [
       "set k v",
       "restore k 0 \\x00\\x01v\\x06\\x00\\a\\xe5\\xa62\\xecm\\xb6] REPLACE"
@@ -345,7 +345,7 @@
   },
 
   {
-    "name": "restore with absttl",
+    "name": "restore with ABSTTL",
     "command": [
       "restore k 0 \\x00\\x01v\\x06\\x00\\a\\xe5\\xa62\\xecm\\xb6] ABSTTL",
       "ttl k"
@@ -359,7 +359,7 @@
   },
 
   {
-    "name": "restore with idletime",
+    "name": "restore with IDLETIME",
     "command": [
       "restore k 0 \\x00\\x01v\\x06\\x00\\a\\xe5\\xa62\\xecm\\xb6] IDLETIME 1000"
     ],
@@ -389,7 +389,7 @@
   },
 
   {
-    "name": "scan with type",
+    "name": "scan with TYPE",
     "command": [
       "geoadd geokey 0 0 value",
       "scan 0 type zset"
@@ -584,7 +584,7 @@
   },
 
   {
-    "name": "blmpop with count",
+    "name": "blmpop with COUNT",
     "command": [
       "lpush mylist 0",
       "lpush mylist 1",
@@ -828,7 +828,7 @@
   },
 
   {
-    "name": "lmpop with count",
+    "name": "lmpop with COUNT",
     "command": [
       "lpush mylist 0",
       "lpush mylist 1",
@@ -882,7 +882,7 @@
   },
 
   {
-    "name": "lpop with count",
+    "name": "lpop with COUNT",
     "command": [
       "rpush mylist 0",
       "rpush mylist 1",
@@ -921,7 +921,7 @@
   },
 
   {
-    "name": "lpos with rank",
+    "name": "lpos with RANK",
     "command": [
       "rpush mylist a",
       "rpush mylist b",
@@ -941,7 +941,7 @@
   },
 
   {
-    "name": "lpos with count",
+    "name": "lpos with COUNT",
     "command": [
       "rpush mylist a",
       "rpush mylist b",
@@ -963,7 +963,7 @@
   },
 
   {
-    "name": "lpos with maxlen",
+    "name": "lpos with MAXLEN",
     "command": [
       "rpush mylist a",
       "rpush mylist b",
@@ -983,7 +983,7 @@
   },
 
   {
-    "name": "lpos with rank, count and maxlen",
+    "name": "lpos with RANK, COUNT and MAXLEN",
     "command": [
       "rpush mylist a",
       "rpush mylist b",
@@ -1167,7 +1167,7 @@
   },
 
   {
-    "name": "rpop with count",
+    "name": "rpop with COUNT",
     "command": [
       "rpush mylist 0",
       "rpush mylist 1",
@@ -1386,7 +1386,7 @@
   },
 
   {
-    "name": "sintercard with limit",
+    "name": "sintercard with LIMIT",
     "command": [
       "sadd myset 0",
       "sadd myset 1",
@@ -1498,7 +1498,7 @@
   },
 
   {
-    "name": "spop with count",
+    "name": "spop with COUNT",
     "command": [
       "sadd myset 0",
       "spop myset 1"
@@ -1526,7 +1526,7 @@
   },
 
   {
-    "name": "srandmember with count",
+    "name": "srandmember with COUNT",
     "command": [
       "sadd myset 0",
       "srandmember myset 1"
@@ -1592,7 +1592,7 @@
   },
 
   {
-    "name": "sscan with match and count",
+    "name": "sscan with MATCH and COUNT",
     "command": [
       "sadd myset 0",
       "sadd myset 1",
@@ -2935,5 +2935,1021 @@
       3
     ],
     "since": "2.0.0"
+  },
+
+  {
+    "name": "append command",
+    "command": [
+      "append mykey real",
+      "append mykey daz",
+      "getrange mykey 0 -1"
+    ],
+    "result": [
+      4,
+      7,
+      "realdaz"
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "decr command",
+    "command": [
+      "set mykey 10",
+      "decr mykey"
+    ],
+    "result": [
+      "OK",
+      9
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "decrby command",
+    "command": [
+      "set mykey 10",
+      "decrby mykey 3"
+    ],
+    "result": [
+      "OK",
+      7
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "get command",
+    "command": [
+      "set mykey 10",
+      "get mykey"
+    ],
+    "result": [
+      "OK",
+      "10"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "getdel command",
+    "command": [
+      "set mykey 10",
+      "getdel mykey",
+      "getdel mykey"
+    ],
+    "result": [
+      "OK",
+      "10",
+      null
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "getex command",
+    "command": [
+      "set mykey hello",
+      "getex mykey",
+      "ttl mykey"
+    ],
+    "result": [
+      "OK",
+      "hello",
+      -1
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "getex with EX",
+    "command": [
+      "set mykey hello",
+      "getex mykey ex 1"
+    ],
+    "result": [
+      "OK",
+      "hello"
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "getex with PX",
+    "command": [
+      "set mykey hello",
+      "getex mykey px 1000"
+    ],
+    "result": [
+      "OK",
+      "hello"
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "getex with EXAT",
+    "command": [
+      "set mykey hello",
+      "getex mykey exat 1",
+      "ttl mykey"
+    ],
+    "result": [
+      "OK",
+      "hello",
+      -2
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "getex with PXAT",
+    "command": [
+      "set mykey hello",
+      "getex mykey pxat 1",
+      "ttl mykey"
+    ],
+    "result": [
+      "OK",
+      "hello",
+      -2
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "getex with PERSIST",
+    "command": [
+      "setex mykey 10 hello",
+      "getex mykey persist",
+      "ttl mykey"
+    ],
+    "result": [
+      "OK",
+      "hello",
+      -1
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "getrange command",
+    "command": [
+      "set mylist abcd",
+      "getrange mylist 0 3"
+    ],
+    "result": [
+      "OK",
+      "abcd"
+    ],
+    "since": "2.4.0"
+  },
+
+  {
+    "name": "getset command",
+    "command": [
+      "set mylist abcd",
+      "getset mylist bcde",
+      "get mylist"
+    ],
+    "result": [
+      "OK",
+      "abcd",
+      "bcde"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "incr command",
+    "command": [
+      "set mykey 10",
+      "incr mykey",
+      "get mykey"
+    ],
+    "result": [
+      "OK",
+      11,
+      "11"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "incrby command",
+    "command": [
+      "set mykey 10",
+      "incrby mykey 5",
+      "get mykey"
+    ],
+    "result": [
+      "OK",
+      15,
+      "15"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "incrbyfloat command",
+    "command": [
+      "set mykey 10.50",
+      "incrbyfloat mykey 0.1",
+      "get mykey"
+    ],
+    "result": [
+      "OK",
+      "10.6",
+      "10.6"
+    ],
+    "since": "2.6.0"
+  },
+
+  {
+    "name": "lcs command",
+    "command": [
+      "mset key1 myoldtext key2 mynewtext",
+      "lcs key1 key2"
+    ],
+    "result": [
+      "OK",
+      "mytext"
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "lcs with LEN",
+    "command": [
+      "mset key1 myoldtext key2 mynewtext",
+      "lcs key1 key2 len"
+    ],
+    "result": [
+      "OK",
+      6
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "lcs with IDX",
+    "command": [
+      "mset key1 oh key2 och",
+      "lcs key1 key2 idx"
+    ],
+    "result": [
+      "OK",
+      [
+        "matches", 
+        [
+          [
+            [1,1],
+            [2,2]
+          ],
+          [
+            [0,0],
+            [0,0]
+          ]
+        ],
+        "len",
+        2
+      ]
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "lcs with MINMATCHLEN",
+    "command": [
+      "mset key1 oh key2 och",
+      "lcs key1 key2 idx minmatchlen 1"
+    ],
+    "result": [
+      "OK",
+      [
+        "matches", 
+        [
+          [
+            [1,1],
+            [2,2]
+          ],
+          [
+            [0,0],
+            [0,0]
+          ]
+        ],
+        "len",
+        2
+      ]
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "lcs with WITHMATCHLEN",
+    "command": [
+      "mset key1 oh key2 och",
+      "lcs key1 key2 idx minmatchlen 1 withmatchlen"
+    ],
+    "result": [
+      "OK",
+      [
+        "matches", 
+        [
+          [
+            [1,1],
+            [2,2],
+            1
+          ],
+          [
+            [0,0],
+            [0,0],
+            1
+          ]
+        ],
+        "len",
+        2
+      ]
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "mget command",
+    "command": [
+      "set mykey0 1",
+      "set mykey1 2",
+      "mget mykey0 mykey1 mykey2"
+    ],
+    "result": [
+      "OK",
+      "OK",
+      [
+        "1",
+        "2",
+        null
+      ]
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "mset command",
+    "command": [
+      "mset mykey0 0 mykey1 1",
+      "get mykey0",
+      "get mykey1"
+    ],
+    "result": [
+      "OK",
+      "0",
+      "1"
+    ],
+    "since": "1.0.1"
+  },
+
+  {
+    "name": "msetnx command",
+    "command": [
+      "msetnx mykey0 0 mykey1 1",
+      "msetnx mykey1 2 mykey2 2",
+      "mget mykey0 mykey1 mykey2"
+    ],
+    "result": [
+      1,
+      0,
+      [
+        "0",
+        "1",
+        null
+      ]
+    ],
+    "since": "1.0.1"
+  },
+
+  {
+    "name": "psetex command",
+    "command": [
+      "psetex mykey 1 hello"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "2.6.0"
+  },
+
+  {
+    "name": "set command",
+    "command": [
+      "set mykey 0",
+      "get mykey"
+    ],
+    "result": [
+      "OK",
+      "0"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "set with EX / PX",
+    "command": [
+      "set mykey0 0 ex 10",
+      "set mykey1 1 px 10"
+    ],
+    "result": [
+      "OK",
+      "OK"
+    ],
+    "since": "2.6.12"
+  },
+
+  {
+    "name": "set with NX / XX",
+    "command": [
+      "set mykey0 0 nx",
+      "set mykey0 1 xx"
+    ],
+    "result": [
+      "OK",
+      "OK"
+    ],
+    "since": "2.6.12"
+  },
+
+  {
+    "name": "set with KEEPTTL",
+    "command": [
+      "set mykey 0 keepttl"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "6.0.0"
+  },
+
+  {
+    "name": "set with GET",
+    "command": [
+      "set mykey 0",
+      "set mykey 1 get"
+    ],
+    "result": [
+      "OK",
+      "0"
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "set with EXAT / PXAT",
+    "command": [
+      "set mykey0 0 exat 1",
+      "set mykey1 1 pxat 1"
+    ],
+    "result": [
+      "OK",
+      "OK"
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "set with NX and GET",
+    "command": [
+      "set mykey 1 nx get"
+    ],
+    "result": [
+      null
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "setex command",
+    "command": [
+      "setex mykey0 10 0"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "setnx command",
+    "command": [
+      "setnx mykey0 0",
+      "setnx mykey0 1"
+    ],
+    "result": [
+      1,
+      0
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "setrange command",
+    "command": [
+      "set mykey 023",
+      "setrange mykey 1 12",
+      "get mykey"
+    ],
+    "result": [
+      "OK",
+      3,
+      "012"
+    ],
+    "since": "2.2.0"
+  },
+
+  {
+    "name": "strlen command",
+    "command": [
+      "set mykey 123",
+      "strlen mykey"
+    ],
+    "result": [
+      "OK",
+      3
+    ],
+    "since": "2.2.0"
+  },
+
+  {
+    "name": "substr command",
+    "command": [
+      "set mykey 012",
+      "substr mykey 0 -1"
+    ],
+    "result": [
+      "OK",
+      "012"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "hdel command",
+    "command": [
+      "hset myhash field1 foo",
+      "hdel myhash field1",
+      "hdel myhash field2"
+    ],
+    "result": [
+      1,
+      1,
+      0
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "hdel with multiple field",
+    "command": [
+      "hset myhash field1 foo",
+      "hdel myhash field1 field2"
+    ],
+    "result": [
+      1,
+      1, 0
+    ],
+    "since": "2.4.0"
+  },
+
+  {
+    "name": "hexists command",
+    "command": [
+      "hset myhash field1 foo",
+      "hexists myhash field1",
+      "hexists myhash field2"
+    ],
+    "result": [
+      1,
+      1,
+      0
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "hget command",
+    "command": [
+      "hset myhash field1 foo",
+      "hget myhash field1",
+      "hget myhash field2"
+    ],
+    "result": [
+      1,
+      "foo",
+      null
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "hgetall command",
+    "command": [
+      "hset myhash field0 0",
+      "hset myhash field1 1",
+      "hgetall myhash"
+    ],
+    "result": [
+      1,
+      1,
+      [
+        "field0", "0",
+        "field1", "1"
+      ]
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "hincrby command",
+    "command": [
+      "hset myhash field 0",
+      "hincrby myhash field 1"
+    ],
+    "result": [
+      1,
+      1
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "hincrbyfloat command",
+    "command": [
+      "hset myhash field 0.5",
+      "hincrbyfloat myhash field 1.123"
+    ],
+    "result": [
+      1,
+      "1.623"
+    ],
+    "since": "2.6.0"
+  },
+
+  {
+    "name": "hkeys command",
+    "command": [
+      "hset myhash field0 0",
+      "hset myhash field1 1",
+      "hkeys myhash"
+    ],
+    "result": [
+      1,
+      1,
+      [
+        "field0",
+        "field1"
+      ]
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "hlen command",
+    "command": [
+      "hset myhash field0 0",
+      "hset myhash field1 1",
+      "hlen myhash"
+    ],
+    "result": [
+      1,
+      1,
+      2
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "hmget command",
+    "command": [
+      "hset myhash field0 0",
+      "hset myhash field1 1",
+      "hmget myhash field0 field1 nonfield"
+    ],
+    "result": [
+      1,
+      1,
+      [
+        "0",
+        "1",
+        null
+      ]
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "hmset command",
+    "command": [
+      "hmset myhash field0 0 field1 1",
+      "hget myhash field0",
+      "hget myhash field1"
+    ],
+    "result": [
+      "OK",
+      "0",
+      "1"
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "hrandfield command",
+    "command": [
+      "hset myhash field0 0",
+      "hrandfield myhash"
+    ],
+    "result": [
+      1,
+      "field0"
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "hrandfield with COUNT",
+    "command": [
+      "hset myhash field0 0",
+      "hrandfield myhash -2"
+    ],
+    "result": [
+      1,
+      [
+        "field0",
+        "field0"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "hrandfield with WITHVALUES",
+    "command": [
+      "hset myhash field0 0",
+      "hrandfield myhash -2 WITHVALUES"
+    ],
+    "result": [
+      1,
+      [
+        "field0", "0",
+        "field0", "0"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "hscan command",
+    "command": [
+      "hmset myhash name daz age 20",
+      "hscan myhash 0"
+    ],
+    "result": [
+      "OK",
+      [
+        "0",
+        [
+          "name", "daz",
+          "age", "20"
+        ]
+      ]
+    ],
+    "since": "2.8.0"
+  },
+
+  {
+    "name": "hscan with MATCH and COUNT",
+    "command": [
+      "hmset myhash name daz age 20",
+      "hscan myhash 0 match * count 10"
+    ],
+    "result": [
+      "OK",
+      [
+        "0",
+        [
+          "name", "daz",
+          "age", "20"
+        ]
+      ]
+    ],
+    "since": "2.8.0"
+  },
+
+  {
+    "name": "hset command",
+    "command": [
+      "hset myhash field0 0",
+      "hget myhash field0"
+    ],
+    "result": [
+      1,
+      "0"
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "hset command with multiple field and value",
+    "command": [
+      "hset myhash field0 0 field1 1",
+      "hget myhash field0",
+      "hgetall myhash"
+    ],
+    "result": [
+      2,
+      "0",
+      [
+        "field0", "0",
+        "field1", "1"
+      ]
+    ],
+    "since": "4.0.0"
+  },
+
+  {
+    "name": "hsetnx command",
+    "command": [
+      "hsetnx myhash field0 0",
+      "hsetnx myhash field0 1",
+      "hget myhash field0"
+    ],
+    "result": [
+      1,
+      0,
+      "0"
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "hstrlen command",
+    "command": [
+      "hmset myhash field0 0123 field1 123456",
+      "hstrlen myhash field0",
+      "hstrlen myhash field1"
+    ],
+    "result": [
+      "OK",
+      4,
+      6
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "hvals command",
+    "command": [
+      "hset myhash field0 0",
+      "hset myhash field1 1",
+      "hvals myhash"
+    ],
+    "result": [
+      1,
+      1,
+      [
+        "0", "1"
+      ]
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "bitcount command",
+    "command": [
+      "set mykey foobar",
+      "bitcount mykey",
+      "bitcount mykey 0 0"
+    ],
+    "result": [
+      "OK",
+      26,
+      4
+    ],
+    "since": "2.6.0"
+  },
+
+  {
+    "name": "bitcount with BYTE / BIT",
+    "command": [
+      "set mykey foobar",
+      "bitcount mykey 1 1 BYTE",
+      "bitcount mykey 5 30 BIT"
+    ],
+    "result": [
+      "OK",
+      6,
+      17
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "bitfield command",
+    "command": [
+      "bitfield mykey incrby u2 100 1 OVERFLOW SAT incrby u2 102 1",
+      "bitfield mykey incrby u2 100 1 OVERFLOW SAT incrby u2 102 1"
+    ],
+    "result": [
+      [
+        1, 1
+      ],
+      [
+        2, 2
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "bitfield_ro command",
+    "command": [
+      "bitfield_ro hello GET i8 16"
+    ],
+    "result": [
+      [
+        0
+      ]
+    ],
+    "since": "6.0.0"
+  },
+
+  {
+    "name": "bitop command",
+    "command": [
+      "set key0 foobar",
+      "set key1 abcdef",
+      "bitop and dest key0 key1",
+      "bitop or dest key0 key1",
+      "bitop xor dest key0 key1"
+    ],
+    "result": [
+      "OK",
+      "OK",
+      6,
+      6,
+      6
+    ],
+    "since": "2.6.0"
+  },
+
+  {
+    "name": "bitpos command",
+    "command": [
+      "SET mykey \\xff\\xf0\\x00",
+      "bitpos mykey 0"
+    ],
+    "result": [
+      "OK",
+      0
+    ],
+    "since": "2.8.7"
+  },
+  
+  {
+    "name": "bitpos with BYTE / BIT",
+    "command": [
+      "SET mykey \\x00\\xff\\xf0",
+      "bitpos mykey 1 2 -1 BYTE",
+      "bitpos mykey 1 7 15 BIT"
+    ],
+    "result": [
+      "OK",
+      18,
+      9
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "getbit command",
+    "command": [
+      "setbit mykey 7 1",
+      "getbit mykey 0"
+    ],
+    "result": [
+      0,
+      0
+    ],
+    "since": "2.2.0"
+  },
+
+  {
+    "name": "setbit command",
+    "command": [
+      "setbit mykey 7 1",
+      "setbit mykey 7 0"
+    ],
+    "result": [
+      0,
+      1
+    ],
+    "since": "2.2.0"
   }
 ]
