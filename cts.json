@@ -3994,5 +3994,976 @@
       4
     ],
     "since": "2.8.9"
+  },
+
+  {
+    "name": "geoadd command",
+    "command": [
+      "GEOADD Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania"
+    ],
+    "result": [
+      2
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "geoadd with CH / NX / XX",
+    "command": [
+      "geoadd Sicily nx ch 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geoadd Sicily xx 13.361389 38.115556 Palermo 15.087269 37.502669 Catania"
+    ],
+    "result": [
+      2,
+      0
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "geodist command",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geodist Sicily Palermo Catania"
+    ],
+    "result": [
+      2,
+      "166274.1516"
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "geodist with M / KM / FT / MI",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geodist Sicily Palermo Catania m",
+      "geodist Sicily Palermo Catania km",
+      "geodist Sicily Palermo Catania ft",
+      "geodist Sicily Palermo Catania mi"
+    ],
+    "result": [
+      2,
+      "166274.1516",
+      "166.2742",
+      "545518.8700",
+      "103.3182",
+      "103.3182"
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "geohash command",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geohash Sicily Palermo Catania"
+    ],
+    "result": [
+      2,
+      [
+        "sqc8b49rny0",
+        "sqdtr74hyu0"
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "geopos command",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geopos Sicily Palermo Catania NonExisting"
+    ],
+    "result": [
+      2,
+      [
+        [
+          "13.36138933897018433",
+          "38.11555639549629859"
+        ],
+        [
+          "15.08726745843887329",
+          "37.50266842333162032"
+        ],
+        null
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadius command",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius Sicily 15 37 200 m",
+      "georadius Sicily 15 37 200 km",
+      "georadius Sicily 15 37 200 ft",
+      "georadius Sicily 15 37 200 mi"
+    ],
+    "result": [
+      2,
+      [],
+      [
+        "Palermo",
+        "Catania"
+      ],
+      [],
+      [
+        "Palermo",
+        "Catania"
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadius with WITHCOORD / WITHDIST / WITHHASH",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius Sicily 15 37 200 km withcoord",
+      "georadius Sicily 15 37 200 km withdist",
+      "georadius Sicily 15 37 200 km withhash"
+    ],
+    "result": [
+      2,
+      [
+        [
+          "Palermo",
+          [
+            "13.36138933897018433",
+            "38.11555639549629859"
+          ]
+        ],
+        [
+          "Catania",
+          [
+            "15.08726745843887329",
+            "37.50266842333162032"
+          ]
+        ]
+      ],
+      [
+        [
+          "Palermo",
+          "190.4424"
+        ],
+        [
+          "Catania",
+          "56.4413"
+        ]
+      ],
+      [
+        [
+          "Palermo",
+          3479099956230698
+        ],
+        [
+          "Catania",
+          3479447370796909
+        ]
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadius with COUNT",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius Sicily 15 37 200 km count 1"
+    ],
+    "result": [
+      2,
+      [
+        "Catania"
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadius with ASC / DESC",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius Sicily 15 37 200 km asc",
+      "georadius Sicily 15 37 200 km desc"
+    ],
+    "result": [
+      2,
+      [
+        "Catania",
+        "Palermo"
+      ],
+      [
+        "Palermo",
+        "Catania"
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadius with STORE / STOREDIST",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius Sicily 15 37 200 km store here",
+      "georadius Sicily 15 37 200 km storedist here"
+    ],
+    "result": [
+      2,
+      2,
+      2
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadius with ANY option for COUNT",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius Sicily 15 37 200 km count 1 any"
+    ],
+    "result": [
+      2,
+      [
+        "Palermo"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "georadius with support for uppercase unit names",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius Sicily 15 37 200 KM count 1"
+    ],
+    "result": [
+      2,
+      [
+        "Catania"
+      ]
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "georadius_ro command",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius_ro Sicily 15 37 200 m",
+      "georadius_ro Sicily 15 37 200 km",
+      "georadius_ro Sicily 15 37 200 ft",
+      "georadius_ro Sicily 15 37 200 mi"
+    ],
+    "result": [
+      2,
+      [],
+      [
+        "Palermo",
+        "Catania"
+      ],
+      [],
+      [
+        "Palermo",
+        "Catania"
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadius_ro with WITHCOORD / WITHDIST / WITHHASH",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius_ro Sicily 15 37 200 km withcoord",
+      "georadius_ro Sicily 15 37 200 km withdist",
+      "georadius_ro Sicily 15 37 200 km withhash"
+    ],
+    "result": [
+      2,
+      [
+        [
+          "Palermo",
+          [
+            "13.36138933897018433",
+            "38.11555639549629859"
+          ]
+        ],
+        [
+          "Catania",
+          [
+            "15.08726745843887329",
+            "37.50266842333162032"
+          ]
+        ]
+      ],
+      [
+        [
+          "Palermo",
+          "190.4424"
+        ],
+        [
+          "Catania",
+          "56.4413"
+        ]
+      ],
+      [
+        [
+          "Palermo",
+          3479099956230698
+        ],
+        [
+          "Catania",
+          3479447370796909
+        ]
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadius_ro with COUNT",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius_ro Sicily 15 37 200 km count 1"
+    ],
+    "result": [
+      2,
+      [
+        "Catania"
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadius_ro with ASC / DESC",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius_ro Sicily 15 37 200 km asc",
+      "georadius_ro Sicily 15 37 200 km desc"
+    ],
+    "result": [
+      2,
+      [
+        "Catania",
+        "Palermo"
+      ],
+      [
+        "Palermo",
+        "Catania"
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadius_ro with ANY option for COUNT",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius_ro Sicily 15 37 200 km count 1 any"
+    ],
+    "result": [
+      2,
+      [
+        "Palermo"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "georadiusbymember command",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember Sicily Agrigento 100 m",
+      "georadiusbymember Sicily Agrigento 100 km",
+      "georadiusbymember Sicily Agrigento 100 ft",
+      "georadiusbymember Sicily Agrigento 100 mi"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "Agrigento"
+      ],
+      [
+        "Agrigento",
+        "Palermo"
+      ],
+      [
+        "Agrigento"
+      ],
+      [
+        "Agrigento",
+        "Palermo",
+        "Catania"
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadiusbymember with WITHCOORD / WITHDIST / WITHHASH",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember Sicily Agrigento 100 km withcoord",
+      "georadiusbymember Sicily Agrigento 100 km withdist",
+      "georadiusbymember Sicily Agrigento 100 km withhash"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        [
+          "Agrigento",
+          [
+            "13.5833314061164856",
+            "37.31666804993816555"
+          ]
+        ],
+        [
+          "Palermo",
+          [
+            "13.36138933897018433",
+            "38.11555639549629859"
+          ]
+        ]
+      ],
+      [
+        [
+          "Agrigento",
+          "0.0000"
+        ],
+        [
+          "Palermo",
+          "90.9778"
+        ]
+      ],
+      [
+        [
+          "Agrigento",
+          3479030013248308
+        ],
+        [
+          "Palermo",
+          3479099956230698
+        ]
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadiusbymember with COUNT",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember Sicily Agrigento 100 km count 1"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "Agrigento"
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadiusbymember with ASC / DESC",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember Sicily Agrigento 100 km asc",
+      "georadiusbymember Sicily Agrigento 100 km desc"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "Agrigento",
+        "Palermo"
+      ],
+      [
+        "Palermo",
+        "Agrigento"
+      ]
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadiusbymember with STORE / STOREDIST",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember Sicily Agrigento 100 km store here",
+      "georadiusbymember Sicily Agrigento 100 km storedist here"
+    ],
+    "result": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "georadiusbymember with ANY option for COUNT",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember Sicily Agrigento 100 km count 1 any"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "Agrigento"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "georadiusbymember with support for uppercase unit names",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember Sicily Agrigento 100 KM"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "Agrigento",
+        "Palermo"
+      ]
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "georadiusbymember_ro command",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember_ro Sicily Agrigento 100 m",
+      "georadiusbymember_ro Sicily Agrigento 100 km",
+      "georadiusbymember_ro Sicily Agrigento 100 ft",
+      "georadiusbymember_ro Sicily Agrigento 100 mi"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "Agrigento"
+      ],
+      [
+        "Agrigento",
+        "Palermo"
+      ],
+      [
+        "Agrigento"
+      ],
+      [
+        "Agrigento",
+        "Palermo",
+        "Catania"
+      ]
+    ],
+    "since": "3.2.10"
+  },
+
+  {
+    "name": "georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember_ro Sicily Agrigento 100 km withcoord",
+      "georadiusbymember_ro Sicily Agrigento 100 km withdist",
+      "georadiusbymember_ro Sicily Agrigento 100 km withhash"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        [
+          "Agrigento",
+          [
+            "13.5833314061164856",
+            "37.31666804993816555"
+          ]
+        ],
+        [
+          "Palermo",
+          [
+            "13.36138933897018433",
+            "38.11555639549629859"
+          ]
+        ]
+      ],
+      [
+        [
+          "Agrigento",
+          "0.0000"
+        ],
+        [
+          "Palermo",
+          "90.9778"
+        ]
+      ],
+      [
+        [
+          "Agrigento",
+          3479030013248308
+        ],
+        [
+          "Palermo",
+          3479099956230698
+        ]
+      ]
+    ],
+    "since": "3.2.10"
+  },
+
+  {
+    "name": "georadiusbymember_ro with COUNT",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember_ro Sicily Agrigento 100 km count 1"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "Agrigento"
+      ]
+    ],
+    "since": "3.2.10"
+  },
+
+  {
+    "name": "georadiusbymember_ro with ASC / DESC",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember_ro Sicily Agrigento 100 km asc",
+      "georadiusbymember_ro Sicily Agrigento 100 km desc"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "Agrigento",
+        "Palermo"
+      ],
+      [
+        "Palermo",
+        "Agrigento"
+      ]
+    ],
+    "since": "3.2.10"
+  },
+
+  {
+    "name": "georadiusbymember_ro with ANY option for COUNT",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember_ro Sicily Agrigento 100 km count 1 any"
+    ],
+    "result": [
+      1,
+      2,
+      [
+        "Agrigento"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "geosearch command",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geoadd Sicily 12.758489 38.788135 edge1 17.241510 38.788135 edge2",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 m",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 km",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 ft",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 mi",
+      "geosearch Sicily fromlonlat 15 37 bybox 400 400 m",
+      "geosearch Sicily fromlonlat 15 37 bybox 400 400 km",
+      "geosearch Sicily fromlonlat 15 37 bybox 400 400 ft",
+      "geosearch Sicily fromlonlat 15 37 bybox 400 400 mi",
+      "geosearch Sicily frommember Palermo byradius 200 m",
+      "geosearch Sicily frommember Palermo byradius 200 km",
+      "geosearch Sicily frommember Palermo byradius 200 ft",
+      "geosearch Sicily frommember Palermo byradius 200 mi",
+      "geosearch Sicily frommember Palermo bybox 400 400 m",
+      "geosearch Sicily frommember Palermo bybox 400 400 km",
+      "geosearch Sicily frommember Palermo bybox 400 400 ft",
+      "geosearch Sicily frommember Palermo bybox 400 400 mi"
+    ],
+    "result": [
+      2,
+      2,
+      [],
+      [
+        "Palermo", "Catania"
+      ],
+      [],
+      [
+        "Palermo", "edge1",
+        "Catania", "edge2"
+      ],
+      [],
+      [
+        "Palermo", "edge1",
+        "Catania", "edge2"
+      ],
+      [],
+      [
+        "Palermo", "edge1",
+        "Catania", "edge2"
+      ],
+      [
+        "Palermo"
+      ],
+      [
+        "Palermo", "edge1", "Catania"
+      ],
+      [
+        "Palermo"
+      ],
+      [
+        "Palermo", "edge1", "Catania"
+      ],
+      [
+        "Palermo"
+      ],
+      [
+        "Palermo", "edge1", "Catania"
+      ],
+      [
+        "Palermo"
+      ],
+      [
+        "Palermo", "edge1", "Catania"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "geosearch with ASC / DESC",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 km asc",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 km desc"
+    ],
+    "result": [
+      2,
+      [
+        "Catania", "Palermo"
+      ],
+      [
+        "Palermo", "Catania"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "geosearch with COUNT",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 km count 1",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 km count 1 any"
+    ],
+    "result": [
+      2,
+      [
+        "Catania"
+      ],
+      [
+        "Palermo"
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "geosearch with WITHCOORD / WITHDIST / WITHHASH",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 km withcoord",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 km withdist",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 km withhash"
+    ],
+    "result": [
+      2,
+      [
+        [
+          "Palermo",
+          [
+            "13.36138933897018433",
+            "38.11555639549629859"
+          ]
+        ],
+        [
+          "Catania",
+          [
+            "15.08726745843887329",
+            "37.50266842333162032"
+          ]
+        ]
+      ],
+      [
+        [
+          "Palermo",
+          "190.4424"
+        ],
+        [
+          "Catania",
+          "56.4413"
+        ]
+      ],
+      [
+        [
+          "Palermo",
+          3479099956230698
+        ],
+        [
+          "Catania",
+          3479447370796909
+        ]
+      ]
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "geosearch with support for uppercase unit names",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearch Sicily fromlonlat 15 37 byradius 200 KM"
+    ],
+    "result": [
+      2,
+      [
+        "Palermo", "Catania"
+      ]
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "geosearchstore command",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geoadd Sicily 12.758489 38.788135 edge1 17.241510 38.788135 edge2",
+      "geosearchstore here Sicily fromlonlat 15 37 byradius 200 m",
+      "geosearchstore here Sicily fromlonlat 15 37 byradius 200 km",
+      "geosearchstore here Sicily fromlonlat 15 37 byradius 200 ft",
+      "geosearchstore here Sicily fromlonlat 15 37 byradius 200 mi",
+      "geosearchstore here Sicily fromlonlat 15 37 bybox 400 400 m",
+      "geosearchstore here Sicily fromlonlat 15 37 bybox 400 400 km",
+      "geosearchstore here Sicily fromlonlat 15 37 bybox 400 400 ft",
+      "geosearchstore here Sicily fromlonlat 15 37 bybox 400 400 mi",
+      "geosearchstore here Sicily frommember Palermo byradius 200 m",
+      "geosearchstore here Sicily frommember Palermo byradius 200 km",
+      "geosearchstore here Sicily frommember Palermo byradius 200 ft",
+      "geosearchstore here icily frommember Palermo byradius 200 mi",
+      "geosearchstore here Sicily frommember Palermo bybox 400 400 m",
+      "geosearchstore here Sicily frommember Palermo bybox 400 400 km",
+      "geosearchstore here Sicily frommember Palermo bybox 400 400 ft",
+      "geosearchstore here Sicily frommember Palermo bybox 400 400 mi"
+    ],
+    "result": [
+      2,
+      2,
+      0,
+      2,
+      0,
+      4,
+      0,
+      4,
+      0,
+      4,
+      1,
+      3,
+      1,
+      0,
+      1,
+      3,
+      1,
+      3
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "geosearchstore with ASC / DESC",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearchstore here Sicily fromlonlat 15 37 byradius 200 km asc",
+      "geosearchstore here  Sicily fromlonlat 15 37 byradius 200 km desc"
+    ],
+    "result": [
+      2,
+      2,
+      2
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "geosearchstore with COUNT",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearchstore here Sicily fromlonlat 15 37 byradius 200 km count 1",
+      "geosearchstore here Sicily fromlonlat 15 37 byradius 200 km count 1 any"
+    ],
+    "result": [
+      2,
+      1,
+      1
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "geosearchstore with STOREDIST",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearchstore here Sicily fromlonlat 15 37 byradius 200 km storedist"
+    ],
+    "result": [
+      2,
+      2
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "geosearchstore with support for uppercase unit names",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearchstore here Sicily fromlonlat 15 37 byradius 200 KM"
+    ],
+    "result": [
+      2,
+      2
+    ],
+    "since": "7.0.0"
   }
 ]
