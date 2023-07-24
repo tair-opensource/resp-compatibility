@@ -49,7 +49,7 @@ def report_result():
               f"rate: {repr(passed / total * 100)}%")
         if args.show_failed and len(failed) != 0:
             print(f"This is failed tests for {args.specific_version}:")
-            print(failed)
+            print('\n'.join(str(fail) for fail in failed))
             exit(-1)
     else:
         for v, t in sorted(g_results.items()):
@@ -57,7 +57,7 @@ def report_result():
                   f"rate: {repr(t.passed / t.total * 100)}%")
             if args.show_failed and len(t.failed) != 0:
                 print(f"This is failed tests for {v}:")
-                print(t.failed)
+                print('\n'.join(str(fail) for fail in t.failed))
                 exit(-1)
 
 
