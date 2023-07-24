@@ -3951,5 +3951,48 @@
       1
     ],
     "since": "2.2.0"
+  },
+
+  {
+    "name": "pfadd command",
+    "command": [
+      "pfadd hll a b c d e",
+      "pfcount hll"
+    ],
+    "result": [
+      1,
+      5
+    ],
+    "since": "2.8.9"
+  },
+
+  {
+    "name": "pfcount command",
+    "command": [
+      "pfadd hll a b c d e",
+      "pfcount hll"
+    ],
+    "result": [
+      1,
+      5
+    ],
+    "since": "2.8.9"
+  },
+
+  {
+    "name": "pfmerge command",
+    "command": [
+      "pfadd hll1 0 1",
+      "pfadd hll2 2 3",
+      "pfmerge hll0 hll1 hll2",
+      "pfcount hll0"
+    ],
+    "result": [
+      1,
+      1,
+      "OK",
+      4
+    ],
+    "since": "2.8.9"
   }
 ]
