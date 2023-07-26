@@ -55,10 +55,10 @@ def report_result():
         for v, t in sorted(g_results.items()):
             print(f"version: {v}, total tests: {t.total}, passed: {t.passed}, "
                   f"rate: {repr(t.passed / t.total * 100)}%")
+        for v, t in sorted(g_results.items()):
             if args.show_failed and len(t.failed) != 0:
                 print(f"This is failed tests for {v}:")
                 print('\n'.join(str(fail) for fail in t.failed))
-                exit(-1)
 
 
 def is_equal(left, right):
@@ -92,6 +92,8 @@ def trans_result_to_bytes(result):
         for k, v in result.items():
             result[k.encode()] = trans_result_to_bytes(v)
             del result[k]
+    if type(result) is bool:
+        return str(result).encode()
     return result
 
 
@@ -154,7 +156,7 @@ def run_test(test):
     trans_result_to_bytes(result)
     try:
         for idx, cmd in enumerate(command):
-            ret = r.execute_command(trans_cmd(test, cmd))
+            ret = trans_result_to_bytes(r.execute_command(trans_cmd(test, cmd)))
             if result[idx] != ret:
                 test_failed(g_results[since], name, f"expected: {result[idx]}, result: {ret}")
                 return

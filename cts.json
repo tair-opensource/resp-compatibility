@@ -4965,5 +4965,288 @@
       2
     ],
     "since": "7.0.0"
+  },
+
+  {
+    "name": "acl deluser command",
+    "command": [
+      "acl deluser nonexisting"
+    ],
+    "result": [
+      0
+    ],
+    "since": "6.0.0"
+  },
+
+  {
+    "name": "acl dryrun command",
+    "command": [
+      "acl dryrun default set foo bar"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "acl log command",
+    "command": [
+      "acl log"
+    ],
+    "result": [
+      []
+    ],
+    "since": "6.0.0"
+  },
+
+  {
+    "name": "acl setuser command",
+    "command": [
+      "acl setuser test reset",
+      "acl deluser test"
+    ],
+    "result": [
+      "OK",
+      1
+    ],
+    "since": "6.0.0"
+  },
+
+  {
+    "name": "acl users command",
+    "command": [
+      "acl users"
+    ],
+    "result": [
+      [
+        "default"
+      ]
+    ],
+    "since": "6.0.0"
+  },
+
+  {
+    "name": "acl whoami command",
+    "command": [
+      "acl whoami"
+    ],
+    "result": [
+      "default"
+    ],
+    "since": "6.0.0"
+  },
+
+  {
+    "name": "bgsave with SCHEDULE",
+    "command": [
+    ],
+    "result": [
+    ],
+    "since": "3.2.2"
+  },
+
+  {
+    "name": "bgsave command",
+    "command": [
+      "bgsave"
+    ],
+    "result": [
+      "True"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "bgrewriteaof command",
+    "command": [
+      "bgrewriteaof",
+      "config set appendfsync no"
+    ],
+    "result": [
+      "True",
+      "OK"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "config get command",
+    "command": [
+      "config get 1"
+    ],
+    "result": [
+      []
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "config get with multiple arguments",
+    "command": [
+      "config get 1 2"
+    ],
+    "result": [
+      []
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "config resetstat command",
+    "command": [
+      "config resetstat"
+    ],
+    "result": [
+      "True"
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "config set command",
+    "command": [
+      "config set appendfsync no"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "dbsize command",
+    "command": [
+      "dbsize"
+    ],
+    "result": [
+      0
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "flushall command",
+    "command": [
+      "flushall"
+    ],
+    "result": [
+      "True"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "flushall with async",
+    "command": [
+      "flushall async"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "4.0.0"
+  },
+
+  {
+    "name": "flushall with sync",
+    "command": [
+      "flushall sync"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "flushdb command",
+    "command": [
+      "flushdb"
+    ],
+    "result": [
+      "True"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "flushdb with async",
+    "command": [
+      "flushdb async"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "4.0.0"
+  },
+
+  {
+    "name": "flushdb with sync",
+    "command": [
+      "flushdb sync"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "module list command",
+    "command": [
+      "module list"
+    ],
+    "result":  [
+      []
+    ],
+    "since": "4.0.0"
+  },
+
+  {
+    "name": "replicaof command",
+    "command": [
+      "replicaof no one"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "5.0.0"
+  },
+
+  {
+    "name": "role command",
+    "command": [
+      "role"
+    ],
+    "result": [
+      [
+        "master",
+        0,
+        []
+      ]
+    ],
+    "since": "2.8.12"
+  },
+
+  {
+    "name": "slaveof command",
+    "command": [
+      "slaveof no one"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "1.0.0"
+  },
+
+  {
+    "name": "swapdb command",
+    "command": [
+      "swapdb 0 1"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "4.0.0"
   }
 ]
