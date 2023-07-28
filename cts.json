@@ -5248,5 +5248,78 @@
       "OK"
     ],
     "since": "4.0.0"
+  },
+
+  {
+    "name": "discard command",
+    "command": [
+      "multi",
+      "set k v",
+      "discard"
+    ],
+    "result": [
+      "OK",
+      "QUEUED",
+      "OK"
+    ],
+    "since": "2.0.0"
+  },
+
+  {
+    "name": "exec command",
+    "command": [
+      "multi",
+      "set k v",
+      "exec"
+    ],
+    "result": [
+      "OK",
+      "QUEUED",
+      [
+        "OK"
+      ]
+    ],
+    "since": "1.2.0"
+  },
+
+  {
+    "name": "multi command",
+    "command": [
+      "multi",
+      "set k v",
+      "discard"
+    ],
+    "result": [
+      "OK",
+      "QUEUED",
+      "OK"
+    ],
+    "since": "1.2.0"
+  },
+
+  {
+    "name": "unwatch command",
+    "command": [
+      "watch key",
+      "unwatch"
+    ],
+    "result": [
+      "OK",
+      "True"
+    ],
+    "since": "2.2.0"
+  },
+
+  {
+    "name": "watch command",
+    "command": [
+      "watch key",
+      "unwatch"
+    ],
+    "result": [
+      "OK",
+      "True"
+    ],
+    "since": "2.2.0"
   }
 ]
