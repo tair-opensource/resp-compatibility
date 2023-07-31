@@ -5038,20 +5038,13 @@
   },
 
   {
-    "name": "bgsave with SCHEDULE",
+    "name": "save & bgsave command",
     "command": [
-    ],
-    "result": [
-    ],
-    "since": "3.2.2"
-  },
-
-  {
-    "name": "bgsave command",
-    "command": [
+      "save",
       "bgsave"
     ],
     "result": [
+      "True",
       "True"
     ],
     "since": "1.0.0"
