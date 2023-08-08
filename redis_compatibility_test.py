@@ -130,6 +130,23 @@ def trans_cmd(test, cmd):
                 array.append(ord(cmd[i]))
                 i += 1
         return bytes(array)
+    elif 'command_split' in test:
+        # split command by ""
+        # input: 'hello "world of python" example'
+        # output: ['hello', 'world of python', 'example']
+        parts = []
+        in_quote = False
+        current_part = ''
+        for char in cmd:
+            if char == '"':
+                in_quote = not in_quote
+            elif char == ' ' and not in_quote:
+                parts.append(current_part)
+                current_part = ''
+            else:
+                current_part += char
+        parts.append(current_part)
+        return parts
     else:
         return cmd
 
@@ -156,7 +173,11 @@ def run_test(test):
     trans_result_to_bytes(result)
     try:
         for idx, cmd in enumerate(command):
-            ret = trans_result_to_bytes(r.execute_command(trans_cmd(test, cmd)))
+            tcmd = trans_cmd(test, cmd)
+            if (isinstance(tcmd, list)):
+                ret = trans_result_to_bytes(r.execute_command(*trans_cmd(test, cmd)))
+            else:
+                ret = trans_result_to_bytes(r.execute_command(trans_cmd(test, cmd)))
             if result[idx] != ret:
                 test_failed(g_results[since], name, f"expected: {result[idx]}, result: {ret}")
                 return
