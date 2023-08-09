@@ -1,0 +1,105 @@
+# config.yaml is used when you need to test the compatibility of multiple Redis-Like
+# systems and generate html reports (--genhtml)
+
+# html report directory
+Dir: "html"
+
+# specify test version
+SpecificVersion:
+  - 4.0.0
+  - 5.0.0
+  - 6.0.0
+  - 7.0.0
+
+# the host, port, password of all the db to be tested
+Database:
+  Redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    ssl: false
+    cluster: false
+
+  DragonflyDB:
+    host: 127.0.0.1
+    port: 6380
+    password:
+    ssl: false
+    cluster: false
+
+  Kvrocks:
+    host: 127.0.0.1
+    port: 6381
+    password:
+    ssl: false
+    cluster: false
+
+  KeyDB:
+    host: 127.0.0.1
+    port: 6382
+    password:
+    ssl: false
+    cluster: false
+
+  Pika:
+    host: 127.0.0.1
+    port: 6383
+    password:
+    ssl: false
+    cluster: false
+
+  Tair:
+    host:
+    port:
+    password:
+    ssl:
+    cluster: false
+
+  Kvstore:
+    host:
+    port:
+    password:
+    ssl:
+    cluster: false
+
+  ElastiCache:
+    host:
+    port:
+    password:
+    ssl:
+    cluster: false
+
+  MemoryDB:
+    host:
+    port:
+    password:
+    ssl:
+    cluster: false
+
+  AzureRedis:
+    host:
+    port:
+    password:
+    ssl:
+    cluster: false
+
+  GoogleMemoryStore:
+    host:
+    port:
+    password:
+    ssl:
+    cluster: false
+
+  TencentRedis:
+    host:
+    port:
+    password:
+    ssl:
+    cluster: false
+
+  GaussDBRedis:
+    host:
+    port:
+    password:
+    ssl:
+    cluster: false
