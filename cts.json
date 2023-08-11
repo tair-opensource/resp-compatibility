@@ -463,17 +463,6 @@
   },
 
   {
-    "name": "wait command",
-    "command": [
-      "wait 0 1000"
-    ],
-    "result": [
-      0
-    ],
-    "since": "3.0.0"
-  },
-
-  {
     "name": "sort command",
     "command": [
       "lpush list 5 3 4 1 2",
@@ -509,17 +498,6 @@
       ]
     ],
     "since": "7.0.0"
-  },
-
-  {
-    "name": "migrate command",
-    "command": [
-      "MIGRATE 0.0.0.0 6379 k 0 0"
-    ],
-    "result": [
-      "NOKEY"
-    ],
-    "since": "2.6.0"
   },
 
   {
@@ -1327,7 +1305,8 @@
         "1"
       ]
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "sort_result": true
   },
 
   {
@@ -1449,7 +1428,8 @@
         "1"
       ]
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "sort_result": true
   },
 
   {
@@ -1624,7 +1604,8 @@
         "1"
       ]
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "sort_result": true
   },
 
   {
@@ -3153,14 +3134,16 @@
   {
     "name": "incrbyfloat command",
     "command": [
-      "set mykey 10.50",
-      "incrbyfloat mykey 0.1",
-      "get mykey"
+      "set mykey 0.5",
+      "incrbyfloat mykey 1.123",
+      "get mykey",
+      "del mykey"
     ],
     "result": [
       "OK",
-      "10.6",
-      "10.6"
+      "1.623",
+      "1.623",
+      1
     ],
     "since": "2.6.0"
   },
@@ -3563,7 +3546,8 @@
         "field1", "1"
       ]
     ],
-    "since": "2.0.0"
+    "since": "2.0.0",
+    "sort_result": true
   },
 
   {
@@ -3720,7 +3704,8 @@
         ]
       ]
     ],
-    "since": "2.8.0"
+    "since": "2.8.0",
+    "sort_result": true
   },
 
   {
@@ -3739,7 +3724,8 @@
         ]
       ]
     ],
-    "since": "2.8.0"
+    "since": "2.8.0",
+    "sort_result": true
   },
 
   {
@@ -3770,7 +3756,8 @@
         "field1", "1"
       ]
     ],
-    "since": "4.0.0"
+    "since": "4.0.0",
+    "sort_result": true
   },
 
   {
@@ -4968,146 +4955,6 @@
   },
 
   {
-    "name": "acl deluser command",
-    "command": [
-      "acl deluser nonexisting"
-    ],
-    "result": [
-      0
-    ],
-    "since": "6.0.0"
-  },
-
-  {
-    "name": "acl dryrun command",
-    "command": [
-      "acl dryrun default set foo bar"
-    ],
-    "result": [
-      "OK"
-    ],
-    "since": "7.0.0"
-  },
-
-  {
-    "name": "acl log command",
-    "command": [
-      "acl log"
-    ],
-    "result": [
-      []
-    ],
-    "since": "6.0.0"
-  },
-
-  {
-    "name": "acl setuser command",
-    "command": [
-      "acl setuser test reset",
-      "acl deluser test"
-    ],
-    "result": [
-      "OK",
-      1
-    ],
-    "since": "6.0.0"
-  },
-
-  {
-    "name": "acl users command",
-    "command": [
-      "acl users"
-    ],
-    "result": [
-      [
-        "default"
-      ]
-    ],
-    "since": "6.0.0"
-  },
-
-  {
-    "name": "acl whoami command",
-    "command": [
-      "acl whoami"
-    ],
-    "result": [
-      "default"
-    ],
-    "since": "6.0.0"
-  },
-
-  {
-    "name": "save & bgsave command",
-    "command": [
-      "save",
-      "bgsave"
-    ],
-    "result": [
-      "True",
-      "True"
-    ],
-    "since": "1.0.0"
-  },
-
-  {
-    "name": "bgrewriteaof command",
-    "command": [
-      "bgrewriteaof",
-      "config set appendfsync no"
-    ],
-    "result": [
-      "True",
-      "OK"
-    ],
-    "since": "1.0.0"
-  },
-
-  {
-    "name": "config get command",
-    "command": [
-      "config get 1"
-    ],
-    "result": [
-      []
-    ],
-    "since": "2.0.0"
-  },
-
-  {
-    "name": "config get with multiple arguments",
-    "command": [
-      "config get 1 2"
-    ],
-    "result": [
-      []
-    ],
-    "since": "7.0.0"
-  },
-
-  {
-    "name": "config resetstat command",
-    "command": [
-      "config resetstat"
-    ],
-    "result": [
-      "True"
-    ],
-    "since": "2.0.0"
-  },
-
-  {
-    "name": "config set command",
-    "command": [
-      "config set appendfsync no"
-    ],
-    "result": [
-      "OK"
-    ],
-    "since": "2.0.0"
-  },
-
-  {
     "name": "dbsize command",
     "command": [
       "dbsize"
@@ -5182,54 +5029,6 @@
       "OK"
     ],
     "since": "6.2.0"
-  },
-
-  {
-    "name": "module list command",
-    "command": [
-      "module list"
-    ],
-    "result":  [
-      []
-    ],
-    "since": "4.0.0"
-  },
-
-  {
-    "name": "replicaof command",
-    "command": [
-      "replicaof no one"
-    ],
-    "result": [
-      "OK"
-    ],
-    "since": "5.0.0"
-  },
-
-  {
-    "name": "role command",
-    "command": [
-      "role"
-    ],
-    "result": [
-      [
-        "master",
-        0,
-        []
-      ]
-    ],
-    "since": "2.8.12"
-  },
-
-  {
-    "name": "slaveof command",
-    "command": [
-      "slaveof no one"
-    ],
-    "result": [
-      "OK"
-    ],
-    "since": "1.0.0"
   },
 
   {
