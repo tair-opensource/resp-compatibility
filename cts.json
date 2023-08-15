@@ -5114,17 +5114,344 @@
     ],
     "since": "2.2.0"
   },
+
+  {
+    "name": "eval command",
+    "command": [
+      "eval return 0 hello"
+    ],
+    "result": [
+      null
+    ],
+    "since": "2.6.0"
+  },
+
+  {
+    "name": "eval_ro command",
+    "command": [
+      "eval_ro return 0 hello"
+    ],
+    "result": [
+      null
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "evalsha command",
+    "command": [
+      "script load return",
+      "evalsha 63143b6f8007b98c53ca2149822777b3566f9241 0",
+      "script flush"
+    ],
+    "result": [
+      "63143b6f8007b98c53ca2149822777b3566f9241",
+      null,
+      "True"
+    ],
+    "since": "2.6.0"
+  },
+
+  {
+    "name": "evalsha_ro command",
+    "command": [
+      "script load return",
+      "evalsha_ro 63143b6f8007b98c53ca2149822777b3566f9241 0",
+      "script flush"
+    ],
+    "result": [
+      "63143b6f8007b98c53ca2149822777b3566f9241",
+      null,
+      "True"
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "fcall command",
+    "command": [
+      "function flush",
+      "function load \"#!lua name=mylib \n redis.register_function('myfunc', function(keys, args) return args[1] end)\"",
+      "fcall myfunc 0 hello",
+      "function flush"
+    ],
+    "result": [
+      "OK",
+      "mylib",
+      "hello",
+      "OK"
+    ],
+    "since": "7.0.0",
+    "command_split": true
+  },
+
+  {
+    "name": "fcall_ro command",
+    "command": [
+      "function flush",
+      "function load \"#!lua name=mylib \n local function ret(keys, args) return args[1] end \n redis.register_function{function_name='ret', callback=ret, flags={ 'no-writes' }}\"",
+      "fcall_ro ret 0 hello",
+      "function flush"
+    ],
+    "result": [
+      "OK",
+      "mylib",
+      "hello",
+      "OK"
+    ],
+    "since": "7.0.0",
+    "command_split": true
+  },
+
+  {
+    "name": "function delete command",
+    "command": [
+      "function flush",
+      "function load \"#!lua name=mylib \n redis.register_function('myfunc', function(keys, args) return args[1] end)\"",
+      "function delete mylib",
+      "function flush"
+    ],
+    "result": [
+      "OK",
+      "mylib",
+      "OK",
+      "OK"
+    ],
+    "since": "7.0.0",
+    "command_split": true
+  },
+
+  {
+    "name": "function dump command",
+    "command": [
+      "function flush",
+      "function load \"#!lua name=mylib \n redis.register_function('myfunc', function(keys, args) return args[1] end)\"",
+      "function dump"
+    ],
+    "result": [
+      "OK",
+      "mylib",
+      "\\xf5\\xc3@X@]\\x1f#!lua name=mylib \\n redis.registe\\rr_function(\\'my@\\x0b\\x02\\', @\\x06`\\x12\\nkeys, args) 6\\x03turn`\\x0c\\x07[1] end)\\x0b\\x00\\x181K\\x11\\x14\\xbbS\\xc7"
+    ],
+    "since": "7.0.0",
+    "result_binary": true,
+    "command_split": true
+  },
+
+  {
+    "name": "function flush command",
+    "command": [
+      "function flush"
+    ],
+    "result": [
+      "True"
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "function kill command",
+    "command": [
+      "function flush",
+      "function kill"
+    ],
+    "command_split": true,
+    "result": [
+      "OK",
+      "NOTBUSY No scripts in execution right now."
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "function list command",
+    "command": [
+      "function flush",
+      "function load \"#!lua name=mylib \n redis.register_function('myfunc', function(keys, args) return args[1] end)\"",
+      "function list",
+      "function flush"
+    ],
+    "result": [
+      "OK",
+      "mylib",
+      [
+        [
+          "library_name", "mylib", "engine", "LUA", "functions",
+          [
+            [
+              "name", "myfunc", "description", null, "flags",
+              []
+            ]
+          ]
+        ]
+      ],
+      "OK"
+    ],
+    "since": "7.0.0",
+    "command_split": true
+  },
+
   {
     "name": "function load command",
     "command": [
       "function flush",
-      "function load \"#!lua name=mylib \n redis.register_function('myfunc', function(keys, args) return args[1] end)\""
+      "function load \"#!lua name=mylib \n redis.register_function('myfunc', function(keys, args) return args[1] end)\"",
+      "fcall myfunc 0 hello",
+      "function flush"
     ],
     "result": [
       "OK",
-      "mylib"
+      "mylib",
+      "hello",
+      "OK"
     ],
     "since": "7.0.0",
     "command_split": true
+  },
+
+  {
+    "name": "function restore command",
+    "command": [
+      "function flush",
+      "function load \"#!lua name=mylib \n redis.register_function('myfunc', function(keys, args) return args[1] end)\"",
+      "function dump",
+      "function restore \"\\xf5\\xc3@X@]\\x1f#!lua name=mylib \\n redis.registe\\rr_function(\\'my@\\x0b\\x02\\', @\\x06`\\x12\\nkeys, args) 6\\x03turn`\\x0c\\x07[1] end)\\x0b\\x00\\x181K\\x11\\x14\\xbbS\\xc7\" flush",
+      "function flush"
+    ],
+    "result": [
+      "OK",
+      "mylib",
+      "\\xf5\\xc3@X@]\\x1f#!lua name=mylib \\n redis.registe\\rr_function(\\'my@\\x0b\\x02\\', @\\x06`\\x12\\nkeys, args) 6\\x03turn`\\x0c\\x07[1] end)\\x0b\\x00\\x181K\\x11\\x14\\xbbS\\xc7",
+      "test",
+      "OK"
+    ],
+    "since": "7.0.0",
+    "command_split": true,
+    "command_binary": true,
+    "result_binary": true
+  },
+
+  {
+    "name": "function stats command",
+    "command": [
+      "function flush",
+      "function stats"
+    ],
+    "result": [
+      "True",
+      [
+        "running_script", null,
+        "engines",
+          [
+            "LUA",
+            [
+              "libraries_count", 0,
+              "functions_count", 0
+            ]
+          ]
+      ]
+    ],
+    "since": "7.0.0"
+  },
+
+  {
+    "name": "script debug command",
+    "command": [
+      "script debug yes",
+      "script debug no",
+      "script debug sync",
+      "script debug no"
+    ],
+    "result": [
+      "OK",
+      "OK",
+      "OK",
+      "OK"
+    ],
+    "since": "3.2.0"
+  },
+
+  {
+    "name": "script exists command",
+    "command": [
+      "script load return",
+      "script exists 63143b6f8007b98c53ca2149822777b3566f9241",
+      "script flush"
+    ],
+    "result": [
+      "63143b6f8007b98c53ca2149822777b3566f9241",
+      [
+        1
+      ],
+      "True"
+    ],
+    "since": "2.6.0"
+  },
+
+  {
+    "name": "script flush command",
+    "command": [
+      "script load return",
+      "script flush"
+    ],
+    "result": [
+      "63143b6f8007b98c53ca2149822777b3566f9241",
+      "True"
+    ],
+    "since": "2.6.0"
+  },
+
+  {
+    "name": "script flush with sync",
+    "command": [
+      "script load return",
+      "script flush sync"
+    ],
+    "result": [
+      "63143b6f8007b98c53ca2149822777b3566f9241",
+      "OK"
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "script flush with async",
+    "command": [
+      "script load return",
+      "script flush async"
+    ],
+    "result": [
+      "63143b6f8007b98c53ca2149822777b3566f9241",
+      "OK"
+    ],
+    "since": "6.2.0"
+  },
+
+  {
+    "name": "scritpt kill command",
+    "command": [
+      "script load return",
+      "evalsha 63143b6f8007b98c53ca2149822777b3566f9241 0",
+      "script flush"
+    ],
+    "result": [
+      "63143b6f8007b98c53ca2149822777b3566f9241",
+      null,
+      "True"
+    ],
+    "since": "2.6.0"
+  },
+
+  {
+    "name": "script load command",
+    "command": [
+      "script load return",
+      "script flush"
+    ],
+    "result": [
+      "63143b6f8007b98c53ca2149822777b3566f9241",
+      "True"
+    ],
+    "since": "2.6.0"
   }
 ]
