@@ -32,4 +32,9 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: run test
-        run: python redis_compatibility_test.py --testfile cts.json --specific-version 4.0.0 --show-failed
+        run: python redis_compatibility_test.py --testfile cts.json --specific-version 4.0.0 --show-failed > test.result
+
+      - name: check fail tests
+        run: |
+          cat test.result
+          grep -q "This is failed tests for" test.result && exit -1 || exit 0
