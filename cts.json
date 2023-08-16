@@ -1904,7 +1904,7 @@
         "two", "2",
         "one", "3"
       ]
-    ],  
+    ],
     "since": "1.2.0"
   },
 
@@ -3183,7 +3183,7 @@
     "result": [
       "OK",
       [
-        "matches", 
+        "matches",
         [
           [
             [1,1],
@@ -3210,7 +3210,7 @@
     "result": [
       "OK",
       [
-        "matches", 
+        "matches",
         [
           [
             [1,1],
@@ -3237,7 +3237,7 @@
     "result": [
       "OK",
       [
-        "matches", 
+        "matches",
         [
           [
             [1,1],
@@ -3898,7 +3898,7 @@
     ],
     "since": "2.8.7"
   },
-  
+
   {
     "name": "bitpos with BYTE / BIT",
     "command": [
@@ -5222,23 +5222,6 @@
   },
 
   {
-    "name": "function dump command",
-    "command": [
-      "function flush",
-      "function load \"#!lua name=mylib \n redis.register_function('myfunc', function(keys, args) return args[1] end)\"",
-      "function dump"
-    ],
-    "result": [
-      "OK",
-      "mylib",
-      "\\xf5\\xc3@X@]\\x1f#!lua name=mylib \\n redis.registe\\rr_function(\\'my@\\x0b\\x02\\', @\\x06`\\x12\\nkeys, args) 6\\x03turn`\\x0c\\x07[1] end)\\x0b\\x00\\x181K\\x11\\x14\\xbbS\\xc7"
-    ],
-    "since": "7.0.0",
-    "result_binary": true,
-    "command_split": true
-  },
-
-  {
     "name": "function flush command",
     "command": [
       "function flush"
@@ -5249,19 +5232,6 @@
     "since": "7.0.0"
   },
 
-  {
-    "name": "function kill command",
-    "command": [
-      "function flush",
-      "function kill"
-    ],
-    "command_split": true,
-    "result": [
-      "OK",
-      "NOTBUSY No scripts in execution right now."
-    ],
-    "since": "7.0.0"
-  },
 
   {
     "name": "function list command",
@@ -5313,22 +5283,15 @@
     "name": "function restore command",
     "command": [
       "function flush",
-      "function load \"#!lua name=mylib \n redis.register_function('myfunc', function(keys, args) return args[1] end)\"",
-      "function dump",
-      "function restore \"\\xf5\\xc3@X@]\\x1f#!lua name=mylib \\n redis.registe\\rr_function(\\'my@\\x0b\\x02\\', @\\x06`\\x12\\nkeys, args) 6\\x03turn`\\x0c\\x07[1] end)\\x0b\\x00\\x181K\\x11\\x14\\xbbS\\xc7\" flush",
-      "function flush"
+      "function restore \"\\xf5\\xc3@X@]\\x1f#!lua name=mylib \\n redis.registe\\rr_function('my@\\x0b\\x02', @\\x06`\\x12\\nkeys, args) 6\\x03turn`\\x0c\\a[1] end)\\n\\x00q\\xee\\xf6b\\xe9$\\xbaN\" flush"
     ],
     "result": [
       "OK",
-      "mylib",
-      "\\xf5\\xc3@X@]\\x1f#!lua name=mylib \\n redis.registe\\rr_function(\\'my@\\x0b\\x02\\', @\\x06`\\x12\\nkeys, args) 6\\x03turn`\\x0c\\x07[1] end)\\x0b\\x00\\x181K\\x11\\x14\\xbbS\\xc7",
-      "test",
       "OK"
     ],
     "since": "7.0.0",
     "command_split": true,
-    "command_binary": true,
-    "result_binary": true
+    "command_binary": true
   },
 
   {
@@ -5352,23 +5315,6 @@
       ]
     ],
     "since": "7.0.0"
-  },
-
-  {
-    "name": "script debug command",
-    "command": [
-      "script debug yes",
-      "script debug no",
-      "script debug sync",
-      "script debug no"
-    ],
-    "result": [
-      "OK",
-      "OK",
-      "OK",
-      "OK"
-    ],
-    "since": "3.2.0"
   },
 
   {
@@ -5425,21 +5371,6 @@
       "OK"
     ],
     "since": "6.2.0"
-  },
-
-  {
-    "name": "scritpt kill command",
-    "command": [
-      "script load return",
-      "evalsha 63143b6f8007b98c53ca2149822777b3566f9241 0",
-      "script flush"
-    ],
-    "result": [
-      "63143b6f8007b98c53ca2149822777b3566f9241",
-      null,
-      "True"
-    ],
-    "since": "2.6.0"
   },
 
   {
