@@ -11,7 +11,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "unlink command",
     "command": [
@@ -24,7 +23,6 @@
     ],
     "since": "4.0.0"
   },
-
   {
     "name": "rename command",
     "command": [
@@ -37,7 +35,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "renamenx command",
     "command": [
@@ -50,7 +47,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "randomkey command",
     "command": [
@@ -63,7 +59,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "exists command",
     "command": [
@@ -76,7 +71,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "ttl command",
     "command": [
@@ -87,7 +81,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "pttl command",
     "command": [
@@ -98,7 +91,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "expire command",
     "command": [
@@ -109,7 +101,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "expire with NX / XX",
     "command": [
@@ -124,7 +115,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "expire with GT / LT",
     "command": [
@@ -139,7 +129,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "expireat command",
     "command": [
@@ -150,7 +139,6 @@
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "expireat with NX / XX",
     "command": [
@@ -165,7 +153,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "expireat with GT / LT",
     "command": [
@@ -180,7 +167,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "pexpire command",
     "command": [
@@ -191,7 +177,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "pexpire with NX / XX",
     "command": [
@@ -206,7 +191,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "pexpire with GT / LT",
     "command": [
@@ -221,7 +205,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "pexpireat command",
     "command": [
@@ -232,7 +215,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "pexpireat with NX / XX",
     "command": [
@@ -247,7 +229,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "pexpireat with GT / LT",
     "command": [
@@ -262,7 +243,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "expiretime command",
     "command": [
@@ -273,7 +253,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "pexpiretime command",
     "command": [
@@ -284,7 +263,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "persist command",
     "command": [
@@ -295,7 +273,6 @@
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "dump command",
     "command": [
@@ -306,7 +283,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "touch command",
     "command": [
@@ -317,7 +293,6 @@
     ],
     "since": "3.2.1"
   },
-
   {
     "name": "restore command",
     "command": [
@@ -329,7 +304,6 @@
     "since": "2.6.0",
     "command_binary": true
   },
-
   {
     "name": "restore with REPLACE",
     "command": [
@@ -343,7 +317,6 @@
     "since": "3.0.0",
     "command_binary": true
   },
-
   {
     "name": "restore with ABSTTL",
     "command": [
@@ -357,7 +330,6 @@
     "since": "5.0.0",
     "command_binary": true
   },
-
   {
     "name": "restore with IDLETIME",
     "command": [
@@ -369,7 +341,6 @@
     "since": "5.0.0",
     "command_binary": true
   },
-
   {
     "name": "scan command",
     "command": [
@@ -387,7 +358,6 @@
     ],
     "since": "2.8.0"
   },
-
   {
     "name": "scan with TYPE",
     "command": [
@@ -405,7 +375,6 @@
     ],
     "since": "6.0.0"
   },
-
   {
     "name": "keys command",
     "command": [
@@ -420,7 +389,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "move command",
     "command": [
@@ -433,7 +401,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "copy command",
     "command": [
@@ -448,7 +415,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "type command",
     "command": [
@@ -461,7 +427,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "sort command",
     "command": [
@@ -480,7 +445,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "sort_ro command",
     "command": [
@@ -499,7 +463,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "set command",
     "command": [
@@ -510,7 +473,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "blmove command",
     "command": [
@@ -540,7 +502,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "blmpop command",
     "command": [
@@ -560,7 +521,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "blmpop with COUNT",
     "command": [
@@ -579,25 +539,37 @@
       "exists mylist"
     ],
     "result": [
-      1, 2, 3, 4, 5,
-      1, 2, 3, 4, 5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      1,
+      2,
+      3,
+      4,
+      5,
       [
         "mylist",
         [
-          "0", "1", "2", "3", "4"
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
         ]
       ],
       [
         "mylist1",
         [
-          "0", "1"
+          "0",
+          "1"
         ]
       ],
       0
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "blpop command",
     "command": [
@@ -608,8 +580,10 @@
       "blpop mylist mylist 0"
     ],
     "result": [
-      1, 2,
-      1, 2,
+      1,
+      2,
+      1,
+      2,
       [
         "mylist",
         "0"
@@ -617,7 +591,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "blpop with double timeout",
     "command": [
@@ -628,8 +601,10 @@
       "blpop mylist mylist 3.14"
     ],
     "result": [
-      1, 2,
-      1, 2,
+      1,
+      2,
+      1,
+      2,
       [
         "mylist",
         "0"
@@ -637,7 +612,6 @@
     ],
     "since": "6.0.0"
   },
-
   {
     "name": "brpop command",
     "command": [
@@ -648,8 +622,10 @@
       "brpop mylist mylist 0"
     ],
     "result": [
-      1, 2,
-      1, 2,
+      1,
+      2,
+      1,
+      2,
       [
         "mylist",
         "1"
@@ -657,7 +633,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "brpop with double timeout",
     "command": [
@@ -668,8 +643,10 @@
       "brpop mylist mylist 3.14"
     ],
     "result": [
-      1, 2,
-      1, 2,
+      1,
+      2,
+      1,
+      2,
       [
         "mylist",
         "1"
@@ -677,7 +654,6 @@
     ],
     "since": "6.0.0"
   },
-
   {
     "name": "brpoplpush command",
     "command": [
@@ -692,7 +668,6 @@
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "brpoplpush with double timeout",
     "command": [
@@ -707,7 +682,6 @@
     ],
     "since": "6.0.0"
   },
-
   {
     "name": "lindex command",
     "command": [
@@ -716,12 +690,12 @@
       "lindex mylist -1"
     ],
     "result": [
-      1, 2,
+      1,
+      2,
       "0"
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "linsert command",
     "command": [
@@ -731,15 +705,17 @@
       "lrange mylist 0 -1"
     ],
     "result": [
-      1, 2,
+      1,
+      2,
       3,
       [
-        "0", "1", "2"
+        "0",
+        "1",
+        "2"
       ]
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "llen command",
     "command": [
@@ -749,12 +725,13 @@
       "llen mylist"
     ],
     "result": [
-      1, 2, 3,
+      1,
+      2,
+      3,
       3
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "lmove command",
     "command": [
@@ -784,7 +761,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "lmpop command",
     "command": [
@@ -804,7 +780,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "lmpop with COUNT",
     "command": [
@@ -823,25 +798,37 @@
       "exists mylist"
     ],
     "result": [
-      1, 2, 3, 4, 5,
-      1, 2, 3, 4, 5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      1,
+      2,
+      3,
+      4,
+      5,
       [
         "mylist",
         [
-          "0", "1", "2", "3", "4"
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
         ]
       ],
       [
         "mylist1",
         [
-          "0", "1"
+          "0",
+          "1"
         ]
       ],
       0
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "lpop command",
     "command": [
@@ -853,12 +840,15 @@
       "lpop mylist"
     ],
     "result": [
-      1, 2, 3, 4, 5,
+      1,
+      2,
+      3,
+      4,
+      5,
       "0"
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "lpop with COUNT",
     "command": [
@@ -870,14 +860,18 @@
       "lpop mylist 2"
     ],
     "result": [
-      1, 2, 3, 4, 5,
+      1,
+      2,
+      3,
+      4,
+      5,
       [
-        "0", "1"
+        "0",
+        "1"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "lpos command",
     "command": [
@@ -892,12 +886,18 @@
       "lpos mylist c"
     ],
     "result": [
-      1, 2, 3, 4, 5, 6, 7, 8,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
       2
     ],
     "since": "6.0.6"
   },
-
   {
     "name": "lpos with RANK",
     "command": [
@@ -912,12 +912,18 @@
       "lpos mylist c rank -1"
     ],
     "result": [
-      1,2, 3, 4, 5, 6, 7, 8,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
       7
     ],
     "since": "6.0.6"
   },
-
   {
     "name": "lpos with COUNT",
     "command": [
@@ -932,14 +938,21 @@
       "lpos mylist c count 2"
     ],
     "result": [
-      1, 2, 3, 4, 5, 6, 7, 8,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
       [
-        2, 6
+        2,
+        6
       ]
     ],
     "since": "6.0.6"
   },
-
   {
     "name": "lpos with MAXLEN",
     "command": [
@@ -954,12 +967,18 @@
       "lpos mylist c maxlen 2"
     ],
     "result": [
-      1, 2, 3, 4, 5, 6, 7, 8,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
       null
     ],
     "since": "6.0.6"
   },
-
   {
     "name": "lpos with RANK, COUNT and MAXLEN",
     "command": [
@@ -974,14 +993,22 @@
       "lpos mylist c rank -1 count 0 maxlen 10"
     ],
     "result": [
-      1, 2, 3, 4, 5, 6, 7, 8,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
       [
-        7, 6, 2
+        7,
+        6,
+        2
       ]
     ],
     "since": "6.0.6"
   },
-
   {
     "name": "lpush command",
     "command": [
@@ -993,12 +1020,12 @@
       1,
       2,
       [
-        "1", "0"
+        "1",
+        "0"
       ]
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "lpush with multiple element",
     "command": [
@@ -1007,14 +1034,15 @@
       "lrange mylist 0 -1"
     ],
     "result": [
-      1, 2,
+      1,
+      2,
       [
-        "1", "0"
+        "1",
+        "0"
       ]
     ],
     "since": "2.4.0"
   },
-
   {
     "name": "lpushx command",
     "command": [
@@ -1024,13 +1052,13 @@
       "lpushx myotherlist 0"
     ],
     "result": [
-      1, 2,
+      1,
+      2,
       3,
       0
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "lpushx with multiple element",
     "command": [
@@ -1040,13 +1068,13 @@
       "lpushx myotherlist 0 1"
     ],
     "result": [
-      1, 2,
+      1,
+      2,
       4,
       0
     ],
     "since": "4.0.0"
   },
-
   {
     "name": "lrange command",
     "command": [
@@ -1056,14 +1084,17 @@
       "lrange mylist 0 -1"
     ],
     "result": [
-      1, 2, 3,
+      1,
+      2,
+      3,
       [
-        "0", "1", "2"
+        "0",
+        "1",
+        "2"
       ]
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "lrem command",
     "command": [
@@ -1080,14 +1111,20 @@
       "lrem mylist 0 3"
     ],
     "result": [
-      1, 2, 3, 4, 5, 6, 7, 8,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
       1,
       1,
       3
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "lset command",
     "command": [
@@ -1098,15 +1135,18 @@
       "lrange mylist 0 -1"
     ],
     "result": [
-      1, 2, 3,
+      1,
+      2,
+      3,
       "OK",
       [
-        "3", "1", "2"
+        "3",
+        "1",
+        "2"
       ]
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "ltrim command",
     "command": [
@@ -1117,7 +1157,9 @@
       "lrange mylist 0 -1"
     ],
     "result": [
-      1, 2, 3,
+      1,
+      2,
+      3,
       "OK",
       [
         "1",
@@ -1126,7 +1168,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "rpop command",
     "command": [
@@ -1138,12 +1179,15 @@
       "rpop mylist"
     ],
     "result": [
-      1, 2, 3, 4, 5,
+      1,
+      2,
+      3,
+      4,
+      5,
       "4"
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "rpop with COUNT",
     "command": [
@@ -1155,14 +1199,18 @@
       "rpop mylist 2"
     ],
     "result": [
-      1, 2, 3, 4, 5,
+      1,
+      2,
+      3,
+      4,
+      5,
       [
-        "4", "3"
+        "4",
+        "3"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "rpoplpush command",
     "command": [
@@ -1172,7 +1220,8 @@
       "lrange myotherlist 0 -1"
     ],
     "result": [
-      1, 2,
+      1,
+      2,
       "1",
       [
         "1"
@@ -1180,7 +1229,6 @@
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "rpush command",
     "command": [
@@ -1189,14 +1237,15 @@
       "lrange mylist 0 -1"
     ],
     "result": [
-      1, 2,
+      1,
+      2,
       [
-        "0", "1"
+        "0",
+        "1"
       ]
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "rpush with multiple element",
     "command": [
@@ -1205,14 +1254,15 @@
       "lrange mylist 0 -1"
     ],
     "result": [
-      1, 2,
+      1,
+      2,
       [
-        "0", "1"
+        "0",
+        "1"
       ]
     ],
     "since": "2.4.0"
   },
-
   {
     "name": "rpushx command",
     "command": [
@@ -1227,7 +1277,6 @@
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "rpushx with multiple element",
     "command": [
@@ -1242,7 +1291,6 @@
     ],
     "since": "4.0.0"
   },
-
   {
     "name": "sadd command",
     "command": [
@@ -1251,12 +1299,12 @@
       "sadd myset 0"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       0
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "sadd command",
     "command": [
@@ -1271,7 +1319,6 @@
     ],
     "since": "2.4.0"
   },
-
   {
     "name": "scard command",
     "command": [
@@ -1280,12 +1327,12 @@
       "scard myset"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       2
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "sdiff command",
     "command": [
@@ -1298,8 +1345,12 @@
       "sdiff myset myset1"
     ],
     "result": [
-      1, 1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
       [
         "0",
         "1"
@@ -1308,7 +1359,6 @@
     "since": "1.0.0",
     "sort_result": true
   },
-
   {
     "name": "sdiffstore command",
     "command": [
@@ -1321,13 +1371,16 @@
       "sdiffstore myset myset1 myset2"
     ],
     "result": [
-      1, 1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
       2
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "sinter command",
     "command": [
@@ -1338,15 +1391,16 @@
       "sinter myset myset1"
     ],
     "result": [
-      1, 1,
-      1, 1,
+      1,
+      1,
+      1,
+      1,
       [
         "1"
       ]
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "sintercard command",
     "command": [
@@ -1357,13 +1411,14 @@
       "sintercard 2 myset myset1"
     ],
     "result": [
-      1, 1,
-      1, 1,
+      1,
+      1,
+      1,
+      1,
       1
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "sintercard with LIMIT",
     "command": [
@@ -1374,13 +1429,14 @@
       "sintercard 2 myset myset1 limit 1"
     ],
     "result": [
-      1, 1,
-      1, 1,
+      1,
+      1,
+      1,
+      1,
       1
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "sinterstore command",
     "command": [
@@ -1391,13 +1447,14 @@
       "sinterstore myset myset1 myset2"
     ],
     "result": [
-      1, 1,
-      1, 1,
+      1,
+      1,
+      1,
+      1,
       1
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "sismember command",
     "command": [
@@ -1412,7 +1469,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "smembers command",
     "command": [
@@ -1431,7 +1487,6 @@
     "since": "1.0.0",
     "sort_result": true
   },
-
   {
     "name": "smismember command",
     "command": [
@@ -1447,7 +1502,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "smove command",
     "command": [
@@ -1457,13 +1511,13 @@
       "smove myset myotherset 1"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       1,
       1
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "spop command",
     "command": [
@@ -1476,7 +1530,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "spop with COUNT",
     "command": [
@@ -1491,7 +1544,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "srandmember command",
     "command": [
@@ -1504,7 +1556,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "srandmember with COUNT",
     "command": [
@@ -1519,7 +1570,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "srem command",
     "command": [
@@ -1529,13 +1579,13 @@
       "srem myset 2"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       1,
       0
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "srem with multiple member",
     "command": [
@@ -1545,13 +1595,13 @@
       "srem myset 2"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       2,
       0
     ],
     "since": "2.4.0"
   },
-
   {
     "name": "sscan command",
     "command": [
@@ -1560,17 +1610,18 @@
       "sscan myset 0"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
         "0",
         [
-          "0", "1"
+          "0",
+          "1"
         ]
       ]
     ],
     "since": "2.8.0"
   },
-
   {
     "name": "sscan with MATCH and COUNT",
     "command": [
@@ -1579,17 +1630,18 @@
       "sscan myset 0 match * count 10"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
         "0",
         [
-          "0", "1"
+          "0",
+          "1"
         ]
       ]
     ],
     "since": "2.8.0"
   },
-
   {
     "name": "sunion command",
     "command": [
@@ -1598,7 +1650,8 @@
       "sunion myset myset1"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
         "0",
         "1"
@@ -1607,7 +1660,6 @@
     "since": "1.0.0",
     "sort_result": true
   },
-
   {
     "name": "sunionstore command",
     "command": [
@@ -1616,12 +1668,12 @@
       "sunionstore myset myset1 myset2"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       2
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "bzmpop command",
     "command": [
@@ -1631,19 +1683,21 @@
       "bzmpop 0 1 myzset MIN"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "myzset",
         [
           [
-            "one", "1"
+            "one",
+            "1"
           ]
         ]
       ]
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "bzmpop with COUNT",
     "command": [
@@ -1653,22 +1707,25 @@
       "bzmpop 3.14 1 myzset MIN count 2"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "myzset",
         [
           [
-            "one", "1"
+            "one",
+            "1"
           ],
           [
-            "two", "2"
+            "two",
+            "2"
           ]
         ]
       ]
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "bzpopmax command",
     "command": [
@@ -1678,15 +1735,17 @@
       "bzpopmax myzset 0"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "myzset",
-        "three", "3"
+        "three",
+        "3"
       ]
     ],
     "since": "5.0.0"
   },
-
   {
     "name": "bzpopmax with double timeout",
     "command": [
@@ -1696,15 +1755,17 @@
       "bzpopmax myzset 3.14"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "myzset",
-        "three", "3"
+        "three",
+        "3"
       ]
     ],
     "since": "6.0.0"
   },
-
   {
     "name": "bzpopmin command",
     "command": [
@@ -1714,15 +1775,17 @@
       "bzpopmin myzset 0"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "myzset",
-        "one", "1"
+        "one",
+        "1"
       ]
     ],
     "since": "5.0.0"
   },
-
   {
     "name": "bzpopmin with double timeout",
     "command": [
@@ -1732,15 +1795,17 @@
       "bzpopmin myzset 1 3.14"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "myzset",
-        "one", "1"
+        "one",
+        "1"
       ]
     ],
     "since": "6.0.0"
   },
-
   {
     "name": "zadd command",
     "command": [
@@ -1758,7 +1823,6 @@
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "zadd with multiple elements",
     "command": [
@@ -1774,8 +1838,6 @@
     ],
     "since": "2.4.0"
   },
-
-
   {
     "name": "zadd with XX / NX / CH / INCR",
     "command": [
@@ -1796,7 +1858,6 @@
     ],
     "since": "3.0.2"
   },
-
   {
     "name": "zadd with GT / LT",
     "command": [
@@ -1812,13 +1873,14 @@
       1,
       0,
       [
-        "uno", "1",
-        "one", "10"
+        "uno",
+        "1",
+        "one",
+        "10"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zcard command",
     "command": [
@@ -1827,12 +1889,12 @@
       "zcard myzset"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       2
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "zcount command",
     "command": [
@@ -1841,12 +1903,12 @@
       "zcount myzset -inf +inf"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       2
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "zdiff command",
     "command": [
@@ -1858,15 +1920,17 @@
       "zdiff 2 myzset1 myzset2"
     ],
     "result": [
-      1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
       [
         "three"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zdiffstore command",
     "command": [
@@ -1879,8 +1943,11 @@
       "zrange myzset 0 -1"
     ],
     "result": [
-      1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
       1,
       [
         "three"
@@ -1888,7 +1955,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zincrby command",
     "command": [
@@ -1898,16 +1964,18 @@
       "zrange myzset 0 -1 withscores"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       "3",
       [
-        "two", "2",
-        "one", "3"
+        "two",
+        "2",
+        "one",
+        "3"
       ]
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "zinter command",
     "command": [
@@ -1919,15 +1987,18 @@
       "zinter 2 myzset1 myzset2"
     ],
     "result": [
-      1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
       [
-        "one", "two"
+        "one",
+        "two"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zinter with WEIGHTS",
     "command": [
@@ -1939,15 +2010,18 @@
       "zinter 2 myzset1 myzset2 weights 2 2"
     ],
     "result": [
-      1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
       [
-        "one", "two"
+        "one",
+        "two"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zinter with AGGREGATE",
     "command": [
@@ -1959,15 +2033,18 @@
       "zinter 2 myzset1 myzset2 aggregate sum"
     ],
     "result": [
-      1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
       [
-        "one", "two"
+        "one",
+        "two"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zinter WITHSCORES",
     "command": [
@@ -1979,16 +2056,20 @@
       "zinter 2 myzset1 myzset2 withscores"
     ],
     "result": [
-      1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
       [
-        "one", "2",
-        "two", "4"
+        "one",
+        "2",
+        "two",
+        "4"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zintercard command",
     "command": [
@@ -2000,13 +2081,15 @@
       "zintercard 2 myzset1 myzset2"
     ],
     "result": [
-      1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
       2
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "zintercard with LIMIT",
     "command": [
@@ -2018,13 +2101,15 @@
       "zintercard 2 myzset1 myzset2 limit 1"
     ],
     "result": [
-      1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
       1
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "zinterstore command",
     "command": [
@@ -2036,13 +2121,15 @@
       "zinterstore myzset 2 myzset1 myzset2"
     ],
     "result": [
-      1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
       2
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "zinterstore with WEIGHTS",
     "command": [
@@ -2054,13 +2141,15 @@
       "zinterstore myzset 2 myzset1 myzset2 weights 2 2"
     ],
     "result": [
-      1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
       2
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "zinterstore with AGGREGATE",
     "command": [
@@ -2072,13 +2161,15 @@
       "zinterstore myzset 2 myzset1 myzset2 aggregate sum"
     ],
     "result": [
-      1, 1,
-      1, 1, 1,
+      1,
+      1,
+      1,
+      1,
+      1,
       2
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "zlexcount command",
     "command": [
@@ -2091,7 +2182,6 @@
     ],
     "since": "2.8.9"
   },
-
   {
     "name": "zmpop command",
     "command": [
@@ -2101,19 +2191,21 @@
       "zmpop 1 myzset MIN"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "myzset",
         [
           [
-            "one", "1"
+            "one",
+            "1"
           ]
         ]
       ]
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "zmpop with COUNT",
     "command": [
@@ -2123,22 +2215,25 @@
       "zmpop 1 myzset MIN count 2"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "myzset",
         [
           [
-            "one", "1"
+            "one",
+            "1"
           ],
           [
-            "two", "2"
+            "two",
+            "2"
           ]
         ]
       ]
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "zmscore command",
     "command": [
@@ -2147,14 +2242,16 @@
       "zmscore myzset one two three"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
-        "1", "2", null
+        "1",
+        "2",
+        null
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zpopmax command",
     "command": [
@@ -2164,14 +2261,16 @@
       "zpopmax myzset"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
-        "three", "3"
+        "three",
+        "3"
       ]
     ],
     "since": "5.0.0"
   },
-
   {
     "name": "zpopmax with COUNT",
     "command": [
@@ -2181,15 +2280,18 @@
       "zpopmax myzset 2"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
-        "three", "3",
-        "two", "2"
+        "three",
+        "3",
+        "two",
+        "2"
       ]
     ],
     "since": "5.0.0"
   },
-
   {
     "name": "zpopmin command",
     "command": [
@@ -2199,14 +2301,16 @@
       "zpopmin myzset"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
-        "one", "1"
+        "one",
+        "1"
       ]
     ],
     "since": "5.0.0"
   },
-
   {
     "name": "zpopmin command",
     "command": [
@@ -2216,15 +2320,18 @@
       "zpopmin myzset 2"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
-        "one", "1",
-        "two", "2"
+        "one",
+        "1",
+        "two",
+        "2"
       ]
     ],
     "since": "5.0.0"
   },
-
   {
     "name": "zrandmember command",
     "command": [
@@ -2237,7 +2344,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zrandmember with COUNT",
     "command": [
@@ -2253,7 +2359,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zrandmember with WITHSCORES",
     "command": [
@@ -2263,12 +2368,12 @@
     "result": [
       1,
       [
-      "a", "0"
+        "a",
+        "0"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zrange command",
     "command": [
@@ -2278,7 +2383,9 @@
       "zrange myzset 0 -1"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "one",
         "two",
@@ -2287,7 +2394,6 @@
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "zrange with WITHSCORES",
     "command": [
@@ -2297,16 +2403,20 @@
       "zrange myzset 0 -1 withscores"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
-        "one", "1",
-        "two", "2",
-        "three", "3"
+        "one",
+        "1",
+        "two",
+        "2",
+        "three",
+        "3"
       ]
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "zrange with BYSCORE / BYLEX",
     "command": [
@@ -2317,17 +2427,19 @@
       "zrange myzset [a [b bylex"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "a"
       ],
       [
-        "a", "b"
+        "a",
+        "b"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zrange with REV",
     "command": [
@@ -2337,9 +2449,12 @@
       "zrange myzset 0 1 rev"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
-        "three", "two"
+        "three",
+        "two"
       ]
     ],
     "since": "6.2.0"
@@ -2353,14 +2468,15 @@
       "zrange myzset 0 1 byscore limit 0 1"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "one"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zrangebylex command",
     "command": [
@@ -2370,12 +2486,13 @@
     "result": [
       5,
       [
-        "a", "b", "c"
+        "a",
+        "b",
+        "c"
       ]
     ],
     "since": "2.8.9"
   },
-
   {
     "name": "zrangebylex with LIMIT",
     "command": [
@@ -2385,12 +2502,13 @@
     "result": [
       5,
       [
-        "a", "b", "c"
+        "a",
+        "b",
+        "c"
       ]
     ],
     "since": "2.8.9"
   },
-
   {
     "name": "zrangebyscore command",
     "command": [
@@ -2400,14 +2518,17 @@
       "zrangebyscore myzset -inf +inf"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
-        "one", "two", "three"
+        "one",
+        "two",
+        "three"
       ]
     ],
     "since": "1.0.5"
   },
-
   {
     "name": "zrangebyscore with LIMIT",
     "command": [
@@ -2417,14 +2538,16 @@
       "zrangebyscore myzset -inf +inf limit 0 2"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
-        "one", "two"
+        "one",
+        "two"
       ]
     ],
     "since": "1.0.5"
   },
-
   {
     "name": "zrangebyscore with WITHSCORES",
     "command": [
@@ -2434,16 +2557,20 @@
       "zrangebyscore myzset -inf +inf withscores"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
-        "one", "1",
-        "two", "2",
-        "three", "3"
+        "one",
+        "1",
+        "two",
+        "2",
+        "three",
+        "3"
       ]
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "zrangestore command",
     "command": [
@@ -2453,12 +2580,13 @@
       "zrangestore myzset myzset1 0 1"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       2
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zrangestore with BYSCORE / BYLEX",
     "command": [
@@ -2469,13 +2597,14 @@
       "zrangestore myzset myzset1 [a [b bylex"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       1,
       2
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zrangestore with REV",
     "command": [
@@ -2485,12 +2614,13 @@
       "zrangestore myzset myzset1 0 1 rev"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       2
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zrangestore with LIMIT",
     "command": [
@@ -2500,12 +2630,13 @@
       "zrangestore myzset myzset1 1 3 byscore limit 1 2"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       2
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zrank command",
     "command": [
@@ -2514,12 +2645,12 @@
       "zrank myzset two"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       1
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "zrank with WITHSCORE",
     "command": [
@@ -2528,14 +2659,15 @@
       "zrank myzset two withscore"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
-        1, "2"
+        1,
+        "2"
       ]
     ],
     "since": "7.2.0"
   },
-
   {
     "name": "zrem command",
     "command": [
@@ -2544,12 +2676,12 @@
       "zrem myzset two"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       1
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "zrem with multiple elements",
     "command": [
@@ -2558,12 +2690,12 @@
       "zrem myzset two one"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       2
     ],
     "since": "2.4.0"
   },
-
   {
     "name": "zremrangebylex command",
     "command": [
@@ -2576,7 +2708,6 @@
     ],
     "since": "2.8.9"
   },
-
   {
     "name": "zremrangebyrank command",
     "command": [
@@ -2589,7 +2720,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "zremrangebyscore command",
     "command": [
@@ -2602,7 +2732,6 @@
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "zrevrange command",
     "command": [
@@ -2612,7 +2741,9 @@
       "zrevrange myzset 0 -1"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
         "three",
         "two",
@@ -2621,7 +2752,6 @@
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "zrevrange with WITHSCORES",
     "command": [
@@ -2631,16 +2761,20 @@
       "zrevrange myzset 0 -1 withscores"
     ],
     "result": [
-      1, 1, 1,
+      1,
+      1,
+      1,
       [
-        "three", "3",
-        "two", "2",
-        "one", "1"
+        "three",
+        "3",
+        "two",
+        "2",
+        "one",
+        "1"
       ]
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "zrevrangebylex command",
     "command": [
@@ -2657,7 +2791,6 @@
     ],
     "since": "2.8.9"
   },
-
   {
     "name": "zrevrangebylex with LIMIT",
     "command": [
@@ -2672,7 +2805,6 @@
     ],
     "since": "2.8.9"
   },
-
   {
     "name": "zrevrangebyscore command",
     "command": [
@@ -2681,7 +2813,8 @@
       "zrevrangebyscore myzset +inf -inf"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
         "two",
         "one"
@@ -2689,7 +2822,6 @@
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "zrevrangebyscore with WITHSCORES",
     "command": [
@@ -2698,15 +2830,17 @@
       "zrevrangebyscore myzset +inf -inf withscores"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
-        "two", "2",
-        "one", "1"
+        "two",
+        "2",
+        "one",
+        "1"
       ]
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "zrevrangebyscore with LIMIT",
     "command": [
@@ -2715,14 +2849,14 @@
       "zrevrangebyscore myzset +inf -inf limit 1 1"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
         "one"
       ]
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "zrevrangebyscore command",
     "command": [
@@ -2731,7 +2865,8 @@
       "zrevrangebyscore myzset +inf -inf"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
         "two",
         "one"
@@ -2739,7 +2874,6 @@
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "zrevrank command",
     "command": [
@@ -2748,12 +2882,12 @@
       "zrevrank myzset one"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       1
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "zrevrank with WITHSCORE",
     "command": [
@@ -2762,14 +2896,15 @@
       "zrevrank myzset one withscore"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
-        1, "1"
+        1,
+        "1"
       ]
     ],
     "since": "7.2.0"
   },
-
   {
     "name": "zscan command",
     "command": [
@@ -2778,18 +2913,20 @@
       "zscan myzset 0"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
         "0",
         [
-          "one", "1",
-          "two", "2"
+          "one",
+          "1",
+          "two",
+          "2"
         ]
       ]
     ],
     "since": "2.8.0"
   },
-
   {
     "name": "zscan with MATCH and COUNT",
     "command": [
@@ -2798,18 +2935,20 @@
       "zscan myzset 0 match * count 10"
     ],
     "result": [
-      1, 1,
+      1,
+      1,
       [
         "0",
         [
-          "one", "1",
-          "two", "2"
+          "one",
+          "1",
+          "two",
+          "2"
         ]
       ]
     ],
     "since": "2.8.0"
   },
-
   {
     "name": "zscore command",
     "command": [
@@ -2822,7 +2961,6 @@
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "zunion command",
     "command": [
@@ -2833,7 +2971,10 @@
       "zunion 2 myzset myzset1"
     ],
     "result": [
-      1, 1, 1, 1,
+      1,
+      1,
+      1,
+      1,
       [
         "one",
         "three",
@@ -2842,7 +2983,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zunion with WEIGHTS and AGGREGATE",
     "command": [
@@ -2853,7 +2993,10 @@
       "zunion 2 myzset myzset1 weights 2 2 aggregate max"
     ],
     "result": [
-      1, 1, 1, 1,
+      1,
+      1,
+      1,
+      1,
       [
         "one",
         "two",
@@ -2862,7 +3005,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zunion with WITHSCORES",
     "command": [
@@ -2873,7 +3015,10 @@
       "zunion 2 myzset myzset1 withscores"
     ],
     "result": [
-      1, 1, 1, 1,
+      1,
+      1,
+      1,
+      1,
       [
         "one",
         "1",
@@ -2885,7 +3030,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "zunionstore command",
     "command": [
@@ -2896,12 +3040,14 @@
       "zunionstore out 2 myzset myzset1"
     ],
     "result": [
-      1, 1, 1, 1,
+      1,
+      1,
+      1,
+      1,
       3
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "zunionstore with WEIGHTS and AGGREGATE",
     "command": [
@@ -2912,12 +3058,14 @@
       "zunionstore out 2 myzset myzset1 weights 1 1 aggregate max"
     ],
     "result": [
-      1, 1, 1, 1,
+      1,
+      1,
+      1,
+      1,
       3
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "append command",
     "command": [
@@ -2932,7 +3080,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "decr command",
     "command": [
@@ -2945,7 +3092,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "decrby command",
     "command": [
@@ -2958,7 +3104,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "get command",
     "command": [
@@ -2971,7 +3116,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "getdel command",
     "command": [
@@ -2986,7 +3130,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "getex command",
     "command": [
@@ -3001,7 +3144,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "getex with EX",
     "command": [
@@ -3014,7 +3156,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "getex with PX",
     "command": [
@@ -3027,7 +3168,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "getex with EXAT",
     "command": [
@@ -3042,7 +3182,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "getex with PXAT",
     "command": [
@@ -3057,7 +3196,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "getex with PERSIST",
     "command": [
@@ -3072,7 +3210,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "getrange command",
     "command": [
@@ -3085,7 +3222,6 @@
     ],
     "since": "2.4.0"
   },
-
   {
     "name": "getset command",
     "command": [
@@ -3100,7 +3236,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "incr command",
     "command": [
@@ -3115,7 +3250,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "incrby command",
     "command": [
@@ -3130,7 +3264,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "incrbyfloat command",
     "command": [
@@ -3147,7 +3280,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "lcs command",
     "command": [
@@ -3160,7 +3292,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "lcs with LEN",
     "command": [
@@ -3173,7 +3304,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "lcs with IDX",
     "command": [
@@ -3186,12 +3316,24 @@
         "matches",
         [
           [
-            [1,1],
-            [2,2]
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              2
+            ]
           ],
           [
-            [0,0],
-            [0,0]
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
           ]
         ],
         "len",
@@ -3200,7 +3342,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "lcs with MINMATCHLEN",
     "command": [
@@ -3213,12 +3354,24 @@
         "matches",
         [
           [
-            [1,1],
-            [2,2]
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              2
+            ]
           ],
           [
-            [0,0],
-            [0,0]
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
           ]
         ],
         "len",
@@ -3227,7 +3380,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "lcs with WITHMATCHLEN",
     "command": [
@@ -3240,13 +3392,25 @@
         "matches",
         [
           [
-            [1,1],
-            [2,2],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              2
+            ],
             1
           ],
           [
-            [0,0],
-            [0,0],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
             1
           ]
         ],
@@ -3256,7 +3420,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "mget command",
     "command": [
@@ -3275,7 +3438,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "mset command",
     "command": [
@@ -3290,7 +3452,6 @@
     ],
     "since": "1.0.1"
   },
-
   {
     "name": "msetnx command",
     "command": [
@@ -3309,7 +3470,6 @@
     ],
     "since": "1.0.1"
   },
-
   {
     "name": "psetex command",
     "command": [
@@ -3320,7 +3480,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "set command",
     "command": [
@@ -3333,7 +3492,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "set with EX / PX",
     "command": [
@@ -3346,7 +3504,6 @@
     ],
     "since": "2.6.12"
   },
-
   {
     "name": "set with NX / XX",
     "command": [
@@ -3359,7 +3516,6 @@
     ],
     "since": "2.6.12"
   },
-
   {
     "name": "set with KEEPTTL",
     "command": [
@@ -3370,7 +3526,6 @@
     ],
     "since": "6.0.0"
   },
-
   {
     "name": "set with GET",
     "command": [
@@ -3383,7 +3538,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "set with EXAT / PXAT",
     "command": [
@@ -3396,7 +3550,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "set with NX and GET",
     "command": [
@@ -3407,7 +3560,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "setex command",
     "command": [
@@ -3418,7 +3570,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "setnx command",
     "command": [
@@ -3431,7 +3582,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "setrange command",
     "command": [
@@ -3446,7 +3596,6 @@
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "strlen command",
     "command": [
@@ -3459,7 +3608,6 @@
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "substr command",
     "command": [
@@ -3472,7 +3620,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "hdel command",
     "command": [
@@ -3487,7 +3634,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "hdel with multiple field",
     "command": [
@@ -3496,11 +3642,11 @@
     ],
     "result": [
       1,
-      1, 0
+      1,
+      0
     ],
     "since": "2.4.0"
   },
-
   {
     "name": "hexists command",
     "command": [
@@ -3515,7 +3661,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "hget command",
     "command": [
@@ -3530,7 +3675,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "hgetall command",
     "command": [
@@ -3542,14 +3686,15 @@
       1,
       1,
       [
-        "field0", "0",
-        "field1", "1"
+        "field0",
+        "0",
+        "field1",
+        "1"
       ]
     ],
     "since": "2.0.0",
     "sort_result": true
   },
-
   {
     "name": "hincrby command",
     "command": [
@@ -3562,7 +3707,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "hincrbyfloat command",
     "command": [
@@ -3575,7 +3719,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "hkeys command",
     "command": [
@@ -3593,7 +3736,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "hlen command",
     "command": [
@@ -3608,7 +3750,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "hmget command",
     "command": [
@@ -3627,7 +3768,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "hmset command",
     "command": [
@@ -3642,7 +3782,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "hrandfield command",
     "command": [
@@ -3655,7 +3794,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "hrandfield with COUNT",
     "command": [
@@ -3671,7 +3809,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "hrandfield with WITHVALUES",
     "command": [
@@ -3681,13 +3818,14 @@
     "result": [
       1,
       [
-        "field0", "0",
-        "field0", "0"
+        "field0",
+        "0",
+        "field0",
+        "0"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "hscan command",
     "command": [
@@ -3699,15 +3837,16 @@
       [
         "0",
         [
-          "name", "daz",
-          "age", "20"
+          "name",
+          "daz",
+          "age",
+          "20"
         ]
       ]
     ],
     "since": "2.8.0",
     "sort_result": true
   },
-
   {
     "name": "hscan with MATCH and COUNT",
     "command": [
@@ -3719,15 +3858,16 @@
       [
         "0",
         [
-          "name", "daz",
-          "age", "20"
+          "name",
+          "daz",
+          "age",
+          "20"
         ]
       ]
     ],
     "since": "2.8.0",
     "sort_result": true
   },
-
   {
     "name": "hset command",
     "command": [
@@ -3740,7 +3880,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "hset command with multiple field and value",
     "command": [
@@ -3752,14 +3891,15 @@
       2,
       "0",
       [
-        "field0", "0",
-        "field1", "1"
+        "field0",
+        "0",
+        "field1",
+        "1"
       ]
     ],
     "since": "4.0.0",
     "sort_result": true
   },
-
   {
     "name": "hsetnx command",
     "command": [
@@ -3774,7 +3914,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "hstrlen command",
     "command": [
@@ -3789,7 +3928,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "hvals command",
     "command": [
@@ -3801,12 +3939,12 @@
       1,
       1,
       [
-        "0", "1"
+        "0",
+        "1"
       ]
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "bitcount command",
     "command": [
@@ -3821,7 +3959,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "bitcount with BYTE / BIT",
     "command": [
@@ -3836,7 +3973,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "bitfield command",
     "command": [
@@ -3845,15 +3981,16 @@
     ],
     "result": [
       [
-        1, 1
+        1,
+        1
       ],
       [
-        2, 2
+        2,
+        2
       ]
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "bitfield_ro command",
     "command": [
@@ -3866,7 +4003,6 @@
     ],
     "since": "6.0.0"
   },
-
   {
     "name": "bitop command",
     "command": [
@@ -3885,7 +4021,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "bitpos command",
     "command": [
@@ -3898,7 +4033,6 @@
     ],
     "since": "2.8.7"
   },
-
   {
     "name": "bitpos with BYTE / BIT",
     "command": [
@@ -3913,7 +4047,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "getbit command",
     "command": [
@@ -3926,7 +4059,6 @@
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "setbit command",
     "command": [
@@ -3939,7 +4071,6 @@
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "pfadd command",
     "command": [
@@ -3952,7 +4083,6 @@
     ],
     "since": "2.8.9"
   },
-
   {
     "name": "pfcount command",
     "command": [
@@ -3965,7 +4095,6 @@
     ],
     "since": "2.8.9"
   },
-
   {
     "name": "pfmerge command",
     "command": [
@@ -3982,7 +4111,6 @@
     ],
     "since": "2.8.9"
   },
-
   {
     "name": "geoadd command",
     "command": [
@@ -3993,7 +4121,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "geoadd with CH / NX / XX",
     "command": [
@@ -4006,7 +4133,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "geodist command",
     "command": [
@@ -4019,7 +4145,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "geodist with M / KM / FT / MI",
     "command": [
@@ -4039,7 +4164,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "geohash command",
     "command": [
@@ -4055,7 +4179,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "geopos command",
     "command": [
@@ -4078,7 +4201,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadius command",
     "command": [
@@ -4103,7 +4225,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadius with WITHCOORD / WITHDIST / WITHHASH",
     "command": [
@@ -4153,7 +4274,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadius with COUNT",
     "command": [
@@ -4168,7 +4288,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadius with ASC / DESC",
     "command": [
@@ -4189,7 +4308,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadius with STORE / STOREDIST",
     "command": [
@@ -4204,7 +4322,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadius with ANY option for COUNT",
     "command": [
@@ -4219,7 +4336,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "georadius with support for uppercase unit names",
     "command": [
@@ -4234,7 +4350,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "georadius_ro command",
     "command": [
@@ -4259,7 +4374,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadius_ro with WITHCOORD / WITHDIST / WITHHASH",
     "command": [
@@ -4309,7 +4423,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadius_ro with COUNT",
     "command": [
@@ -4324,7 +4437,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadius_ro with ASC / DESC",
     "command": [
@@ -4345,7 +4457,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadius_ro with ANY option for COUNT",
     "command": [
@@ -4360,7 +4471,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "georadiusbymember command",
     "command": [
@@ -4392,7 +4502,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadiusbymember with WITHCOORD / WITHDIST / WITHHASH",
     "command": [
@@ -4444,7 +4553,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadiusbymember with COUNT",
     "command": [
@@ -4461,7 +4569,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadiusbymember with ASC / DESC",
     "command": [
@@ -4484,7 +4591,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadiusbymember with STORE / STOREDIST",
     "command": [
@@ -4501,7 +4607,6 @@
     ],
     "since": "3.2.0"
   },
-
   {
     "name": "georadiusbymember with ANY option for COUNT",
     "command": [
@@ -4518,7 +4623,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "georadiusbymember with support for uppercase unit names",
     "command": [
@@ -4536,7 +4640,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "georadiusbymember_ro command",
     "command": [
@@ -4568,7 +4671,6 @@
     ],
     "since": "3.2.10"
   },
-
   {
     "name": "georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH",
     "command": [
@@ -4620,7 +4722,6 @@
     ],
     "since": "3.2.10"
   },
-
   {
     "name": "georadiusbymember_ro with COUNT",
     "command": [
@@ -4637,7 +4738,6 @@
     ],
     "since": "3.2.10"
   },
-
   {
     "name": "georadiusbymember_ro with ASC / DESC",
     "command": [
@@ -4660,7 +4760,6 @@
     ],
     "since": "3.2.10"
   },
-
   {
     "name": "georadiusbymember_ro with ANY option for COUNT",
     "command": [
@@ -4677,7 +4776,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "geosearch command",
     "command": [
@@ -4705,51 +4803,65 @@
       2,
       [],
       [
-        "Palermo", "Catania"
+        "Palermo",
+        "Catania"
       ],
       [],
       [
-        "Palermo", "edge1",
-        "Catania", "edge2"
+        "Palermo",
+        "edge1",
+        "Catania",
+        "edge2"
       ],
       [],
       [
-        "Palermo", "edge1",
-        "Catania", "edge2"
+        "Palermo",
+        "edge1",
+        "Catania",
+        "edge2"
       ],
       [],
       [
-        "Palermo", "edge1",
-        "Catania", "edge2"
+        "Palermo",
+        "edge1",
+        "Catania",
+        "edge2"
       ],
       [
         "Palermo"
       ],
       [
-        "Palermo", "edge1", "Catania"
+        "Palermo",
+        "edge1",
+        "Catania"
       ],
       [
         "Palermo"
       ],
       [
-        "Palermo", "edge1", "Catania"
+        "Palermo",
+        "edge1",
+        "Catania"
       ],
       [
         "Palermo"
       ],
       [
-        "Palermo", "edge1", "Catania"
+        "Palermo",
+        "edge1",
+        "Catania"
       ],
       [
         "Palermo"
       ],
       [
-        "Palermo", "edge1", "Catania"
+        "Palermo",
+        "edge1",
+        "Catania"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "geosearch with ASC / DESC",
     "command": [
@@ -4760,15 +4872,16 @@
     "result": [
       2,
       [
-        "Catania", "Palermo"
+        "Catania",
+        "Palermo"
       ],
       [
-        "Palermo", "Catania"
+        "Palermo",
+        "Catania"
       ]
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "geosearch with COUNT",
     "command": [
@@ -4787,7 +4900,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "geosearch with WITHCOORD / WITHDIST / WITHHASH",
     "command": [
@@ -4837,7 +4949,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "geosearch with support for uppercase unit names",
     "command": [
@@ -4847,12 +4958,12 @@
     "result": [
       2,
       [
-        "Palermo", "Catania"
+        "Palermo",
+        "Catania"
       ]
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "geosearchstore command",
     "command": [
@@ -4897,7 +5008,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "geosearchstore with ASC / DESC",
     "command": [
@@ -4912,7 +5022,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "geosearchstore with COUNT",
     "command": [
@@ -4927,7 +5036,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "geosearchstore with STOREDIST",
     "command": [
@@ -4940,7 +5048,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "geosearchstore with support for uppercase unit names",
     "command": [
@@ -4953,7 +5060,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "dbsize command",
     "command": [
@@ -4964,7 +5070,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "flushall command",
     "command": [
@@ -4975,7 +5080,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "flushall with async",
     "command": [
@@ -4986,7 +5090,6 @@
     ],
     "since": "4.0.0"
   },
-
   {
     "name": "flushall with sync",
     "command": [
@@ -4997,7 +5100,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "flushdb command",
     "command": [
@@ -5008,7 +5110,6 @@
     ],
     "since": "1.0.0"
   },
-
   {
     "name": "flushdb with async",
     "command": [
@@ -5019,7 +5120,6 @@
     ],
     "since": "4.0.0"
   },
-
   {
     "name": "flushdb with sync",
     "command": [
@@ -5030,7 +5130,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "swapdb command",
     "command": [
@@ -5041,7 +5140,6 @@
     ],
     "since": "4.0.0"
   },
-
   {
     "name": "discard command",
     "command": [
@@ -5056,7 +5154,6 @@
     ],
     "since": "2.0.0"
   },
-
   {
     "name": "exec command",
     "command": [
@@ -5073,7 +5170,6 @@
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "multi command",
     "command": [
@@ -5088,7 +5184,6 @@
     ],
     "since": "1.2.0"
   },
-
   {
     "name": "unwatch command",
     "command": [
@@ -5101,7 +5196,6 @@
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "watch command",
     "command": [
@@ -5114,7 +5208,6 @@
     ],
     "since": "2.2.0"
   },
-
   {
     "name": "eval command",
     "command": [
@@ -5125,7 +5218,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "eval_ro command",
     "command": [
@@ -5136,7 +5228,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "evalsha command",
     "command": [
@@ -5151,7 +5242,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "evalsha_ro command",
     "command": [
@@ -5166,7 +5256,6 @@
     ],
     "since": "7.0.0"
   },
-
   {
     "name": "fcall command",
     "command": [
@@ -5184,7 +5273,6 @@
     "since": "7.0.0",
     "command_split": true
   },
-
   {
     "name": "fcall_ro command",
     "command": [
@@ -5202,7 +5290,6 @@
     "since": "7.0.0",
     "command_split": true
   },
-
   {
     "name": "function delete command",
     "command": [
@@ -5220,7 +5307,6 @@
     "since": "7.0.0",
     "command_split": true
   },
-
   {
     "name": "function flush command",
     "command": [
@@ -5231,8 +5317,26 @@
     ],
     "since": "7.0.0"
   },
-
-
+  {
+    "name": "function flush with SYNC",
+    "command": [
+      "function flush sync"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "function flush with ASYNC",
+    "command": [
+      "function flush async"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "7.0.0"
+  },
   {
     "name": "function list command",
     "command": [
@@ -5246,10 +5350,18 @@
       "mylib",
       [
         [
-          "library_name", "mylib", "engine", "LUA", "functions",
+          "library_name",
+          "mylib",
+          "engine",
+          "LUA",
+          "functions",
           [
             [
-              "name", "myfunc", "description", null, "flags",
+              "name",
+              "myfunc",
+              "description",
+              null,
+              "flags",
               []
             ]
           ]
@@ -5260,7 +5372,6 @@
     "since": "7.0.0",
     "command_split": true
   },
-
   {
     "name": "function load command",
     "command": [
@@ -5278,7 +5389,6 @@
     "since": "7.0.0",
     "command_split": true
   },
-
   {
     "name": "function restore command",
     "command": [
@@ -5293,7 +5403,6 @@
     "command_split": true,
     "command_binary": true
   },
-
   {
     "name": "function stats command",
     "command": [
@@ -5303,20 +5412,40 @@
     "result": [
       "True",
       [
-        "running_script", null,
+        "running_script",
+        null,
         "engines",
+        [
+          "LUA",
           [
-            "LUA",
-            [
-              "libraries_count", 0,
-              "functions_count", 0
-            ]
+            "libraries_count",
+            0,
+            "functions_count",
+            0
           ]
+        ]
       ]
     ],
     "since": "7.0.0"
   },
-
+  {
+    "name": "script debug command",
+    "command": [
+      "script flush",
+      "script debug yes",
+      "script debug sync",
+      "script debug no",
+      "script flush"
+    ],
+    "result": [
+      "True",
+      "OK",
+      "OK",
+      "OK",
+      "True"
+    ],
+    "since": "3.2.0"
+  },
   {
     "name": "script exists command",
     "command": [
@@ -5333,7 +5462,6 @@
     ],
     "since": "2.6.0"
   },
-
   {
     "name": "script flush command",
     "command": [
@@ -5346,9 +5474,8 @@
     ],
     "since": "2.6.0"
   },
-
   {
-    "name": "script flush with sync",
+    "name": "script flush with SYNC",
     "command": [
       "script load return",
       "script flush sync"
@@ -5359,9 +5486,8 @@
     ],
     "since": "6.2.0"
   },
-
   {
-    "name": "script flush with async",
+    "name": "script flush with ASYNC",
     "command": [
       "script load return",
       "script flush async"
@@ -5372,7 +5498,6 @@
     ],
     "since": "6.2.0"
   },
-
   {
     "name": "script load command",
     "command": [
