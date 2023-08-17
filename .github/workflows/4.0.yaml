@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: clone and build redis
         run: |
-          sudo apt-get install git
+          sudo apt-get install git ruby
           git clone https://github.com/redis/redis
           cd redis
           git checkout 4.0
@@ -22,6 +22,13 @@ jobs:
       - name: start redis
         run: |
           ./redis/src/redis-server &
+
+      - name: start redis cluster
+        run: |
+          sudo gem install redis
+          cd redis/utils/create-cluster
+          ./create-cluster start
+          echo yes|./create-cluster create
 
       - name: set up python
         uses: actions/setup-python@v4
@@ -38,3 +45,11 @@ jobs:
         run: |
           cat test.result
           grep -q "This is failed tests for" test.result && exit -1 || exit 0
+
+      - name: run cluster test
+        run: python redis_compatibility_test.py --testfile cts.json --port 30001 --specific-version 4.0.0 --cluster --show-failed > cluster.result
+
+      - name: check cluster fail tests
+        run: |
+          cat cluster.result
+          grep -q "This is failed tests for" cluster.result && exit -1 || exit 0      

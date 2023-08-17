@@ -22,6 +22,12 @@ jobs:
         run: |
           ./redis/src/redis-server &
 
+      - name: start redis cluster
+        run: |
+          cd redis/utils/create-cluster
+          ./create-cluster start
+          echo yes|./create-cluster create
+
       - name: set up python
         uses: actions/setup-python@v4
         with:
@@ -37,3 +43,11 @@ jobs:
         run: |
           cat test.result
           grep -q "This is failed tests for" test.result && exit -1 || exit 0
+
+      - name: run cluster test
+        run: python redis_compatibility_test.py --testfile cts.json --port 30001 --cluster --show-failed > cluster.result
+
+      - name: check cluster fail tests
+        run: |
+          cat cluster.result
+          grep -q "This is failed tests for" cluster.result && exit -1 || exit 0

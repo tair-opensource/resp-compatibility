@@ -22,11 +22,12 @@ optional arguments:
   --port PORT           the redis port
   --password PASSWORD   the redis password
   --testfile TESTFILE   the redis compatibility test cases
-  --specific-version {1.0.0, 2.8.0, 3.2.0, 4.0.0, 5.0.0, 6.0.0, 6.2.0, 7.0.0}
+  --specific-version {1.0.0,2.8.0,3.2.0,4.0.0,5.0.0,6.0.0,6.2.0,7.0.0,7.2.0}
                         the redis version
   --show-failed         show details of failed tests
   --cluster             server is a node of the Redis cluster
   --ssl                 open ssl connection
+  --genhtml             generate test report in html format
 ```
 
 Examples:  
