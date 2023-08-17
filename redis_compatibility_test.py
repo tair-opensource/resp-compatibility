@@ -7,6 +7,7 @@ import redis
 import json
 import yaml
 import shutil
+import datetime
 from dataclasses import dataclass
 from typing import List, Dict
 
@@ -245,7 +246,7 @@ def generate_html_report(logdir, configs):
     html.write("<tbody>")
     for config in configs['Database']:
         html.write("<tr>")
-        html.write(f"<td>{config}</td>")
+        html.write(f"<td>{config}({configs['Database'][config]['version']})</td>")
         for version in configs['SpecificVersion']:
             filepath = f"{logdir}/{config}-{version}.html"
             if not os.path.exists(filepath):
@@ -265,6 +266,9 @@ def generate_html_report(logdir, configs):
         html.write("</tr>")
     html.write("</tbody>")
     html.write("</table>")
+    html.write("<br>")
+    time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    html.write(f"This report was generated on {time}.")
     html.write("<style>table {border-collapse: collapse;} th, td {border: 1px solid black; padding: 8px;}</style>")
     html.close()
 

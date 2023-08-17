@@ -19,6 +19,7 @@ Database:
     password:
     ssl: false
     cluster: false
+    version: unstable
 
   DragonflyDB:
     host: 127.0.0.1
@@ -26,6 +27,7 @@ Database:
     password:
     ssl: false
     cluster: false
+    version: latest
 
   Kvrocks:
     host: 127.0.0.1
@@ -33,6 +35,7 @@ Database:
     password:
     ssl: false
     cluster: false
+    version: 2.2.0
 
   KeyDB:
     host: 127.0.0.1
@@ -40,6 +43,7 @@ Database:
     password:
     ssl: false
     cluster: false
+    version: latest
 
   Pika:
     host: 127.0.0.1
@@ -47,6 +51,7 @@ Database:
     password:
     ssl: false
     cluster: false
+    version: latest
 
   Tair:
     host:
@@ -54,6 +59,7 @@ Database:
     password:
     ssl:
     cluster: false
+    version:
 
   Kvstore:
     host:
@@ -61,6 +67,7 @@ Database:
     password:
     ssl:
     cluster: false
+    version:
 
   ElastiCache:
     host:
@@ -68,6 +75,7 @@ Database:
     password:
     ssl:
     cluster: false
+    version:
 
   MemoryDB:
     host:
@@ -75,6 +83,7 @@ Database:
     password:
     ssl:
     cluster: false
+    version:
 
   AzureRedis:
     host:
@@ -82,6 +91,7 @@ Database:
     password:
     ssl:
     cluster: false
+    version:
 
   GoogleMemoryStore:
     host:
@@ -89,6 +99,7 @@ Database:
     password:
     ssl:
     cluster: false
+    version:
 
   TencentRedis:
     host:
@@ -96,6 +107,7 @@ Database:
     password:
     ssl:
     cluster: false
+    version:
 
   GaussDBRedis:
     host:
@@ -103,3 +115,4 @@ Database:
     password:
     ssl:
     cluster: false
+    version:

@@ -5429,24 +5429,6 @@
     "since": "7.0.0"
   },
   {
-    "name": "script debug command",
-    "command": [
-      "script flush",
-      "script debug yes",
-      "script debug sync",
-      "script debug no",
-      "script flush"
-    ],
-    "result": [
-      "True",
-      "OK",
-      "OK",
-      "OK",
-      "True"
-    ],
-    "since": "3.2.0"
-  },
-  {
     "name": "script exists command",
     "command": [
       "script load return",
