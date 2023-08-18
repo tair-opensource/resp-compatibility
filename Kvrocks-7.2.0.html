@@ -147,7 +147,7 @@ test: zrangestore with BYSCORE / BYLEX passed
 test: zrangestore with REV passed
 test: zrangestore with LIMIT passed
 test: zrank command passed
-test: zrank with WITHSCORE version skipped
+test: zrank with WITHSCORE failed
 test: zrem command passed
 test: zrem with multiple elements passed
 test: zremrangebylex command passed
@@ -162,7 +162,7 @@ test: zrevrangebyscore with WITHSCORES passed
 test: zrevrangebyscore with LIMIT passed
 test: zrevrangebyscore command passed
 test: zrevrank command passed
-test: zrevrank with WITHSCORE version skipped
+test: zrevrank with WITHSCORE failed
 test: zscan command passed
 test: zscan with MATCH and COUNT passed
 test: zscore command passed
@@ -314,8 +314,8 @@ test: script flush with SYNC failed
 test: script flush with ASYNC failed
 test: script load command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 312, passed: 201, rate: 64.42%
-This is failed tests for 7.0.0:
+Summary: version: 7.2.0, total tests: 314, passed: 201, rate: 64.01%
+This is failed tests for 7.2.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command rename',))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command renamenx',))
 FailedTest(name='keys command', reason=ResponseError('only keys prefix match was supported',))
@@ -426,5 +426,7 @@ FailedTest(name='georadiusbymember with STORE / STOREDIST', reason="expected: 2,
 FailedTest(name='pfadd command', reason=ResponseError('unknown command pfadd',))
 FailedTest(name='pfcount command', reason=ResponseError('unknown command pfadd',))
 FailedTest(name='pfmerge command', reason=ResponseError('unknown command pfadd',))
+FailedTest(name='zrank with WITHSCORE', reason=ResponseError('wrong number of arguments',))
+FailedTest(name='zrevrank with WITHSCORE', reason=ResponseError('wrong number of arguments',))
 FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [[b'Agrigento', [b'13.5833314061164856', b'37.31666804993816555']], [b'Palermo', [b'13.36138933897018433', b'38.11555639549629859']]], result: [[b'Agrigento', [b'13.583331406116486', b'37.316668049938166']], [b'Palermo', [b'13.361389338970184', b'38.115556395496299']]]")
 </pre>

@@ -28,8 +28,8 @@ test: restore command failed
 test: restore with REPLACE failed
 test: restore with ABSTTL failed
 test: restore with IDLETIME failed
-test: scan command failed
-test: scan with TYPE failed
+test: scan command passed
+test: scan with TYPE passed
 test: keys command failed
 test: move command failed
 test: copy command version skipped
@@ -41,9 +41,9 @@ test: blmove command version skipped
 test: blmpop command version skipped
 test: blmpop with COUNT version skipped
 test: blpop command passed
-test: blpop with double timeout failed
+test: blpop with double timeout passed
 test: brpop command passed
-test: brpop with double timeout failed
+test: brpop with double timeout passed
 test: brpoplpush command failed
 test: brpoplpush with double timeout failed
 test: lindex command passed
@@ -99,10 +99,10 @@ test: sunion command passed
 test: sunionstore command passed
 test: bzmpop command version skipped
 test: bzmpop with COUNT version skipped
-test: bzpopmax command failed
-test: bzpopmax with double timeout failed
-test: bzpopmin command failed
-test: bzpopmin with double timeout failed
+test: bzpopmax command passed
+test: bzpopmax with double timeout passed
+test: bzpopmin command passed
+test: bzpopmin with double timeout passed
 test: zadd command passed
 test: zadd with multiple elements passed
 test: zadd with XX / NX / CH / INCR passed
@@ -207,7 +207,7 @@ test: setex command passed
 test: setnx command passed
 test: setrange command passed
 test: strlen command passed
-test: substr command failed
+test: substr command passed
 test: hdel command passed
 test: hdel with multiple field passed
 test: hexists command passed
@@ -292,8 +292,8 @@ test: swapdb command failed
 test: discard command passed
 test: exec command passed
 test: multi command passed
-test: unwatch command failed
-test: watch command failed
+test: unwatch command passed
+test: watch command passed
 test: eval command passed
 test: eval_ro command version skipped
 test: evalsha command passed
@@ -314,7 +314,7 @@ test: script flush with SYNC version skipped
 test: script flush with ASYNC version skipped
 test: script load command passed
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 204, passed: 160, rate: 78.43%
+Summary: version: 6.0.0, total tests: 204, passed: 171, rate: 83.82%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command rename',))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command renamenx',))
@@ -322,7 +322,6 @@ FailedTest(name='keys command', reason=ResponseError('only keys prefix match was
 FailedTest(name='move command', reason=ResponseError('unknown command move',))
 FailedTest(name='sort command', reason=ResponseError('unknown command sort',))
 FailedTest(name='srandmember command', reason="expected: b'0', result: [b'0']")
-FailedTest(name='substr command', reason=ResponseError('unknown command substr',))
 FailedTest(name='flushall with async', reason=ResponseError('wrong number of arguments',))
 FailedTest(name='flushdb with async', reason=ResponseError('wrong number of arguments',))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command swapdb',))
@@ -331,21 +330,11 @@ FailedTest(name='restore command', reason=ResponseError('unknown command restore
 FailedTest(name='incrbyfloat command', reason="expected: b'1.623', result: b'1.623000'")
 FailedTest(name='bitop command', reason=ResponseError('Invalid argument: WRONGTYPE Operation against a key holding the wrong kind of value',))
 FailedTest(name='brpoplpush command', reason=ResponseError('unknown command brpoplpush',))
-FailedTest(name='unwatch command', reason=ResponseError('unknown command watch',))
-FailedTest(name='watch command', reason=ResponseError('unknown command watch',))
 FailedTest(name='touch command', reason=ResponseError('unknown command touch',))
 FailedTest(name='restore with REPLACE', reason=ResponseError('unknown command restore',))
 FailedTest(name='restore with ABSTTL', reason=ResponseError('unknown command restore',))
 FailedTest(name='restore with IDLETIME', reason=ResponseError('unknown command restore',))
-FailedTest(name='bzpopmax command', reason=ResponseError('unknown command bzpopmax',))
-FailedTest(name='bzpopmin command', reason=ResponseError('unknown command bzpopmin',))
-FailedTest(name='scan command', reason="expected: [b'0', [b'k']], result: [b'_k', [b'k']]")
-FailedTest(name='scan with TYPE', reason="expected: [b'0', [b'geokey']], result: [b'_geokey', [b'geokey']]")
-FailedTest(name='blpop with double timeout', reason=ResponseError('timeout is not an integer or out of range',))
-FailedTest(name='brpop with double timeout', reason=ResponseError('timeout is not an integer or out of range',))
 FailedTest(name='brpoplpush with double timeout', reason=ResponseError('unknown command brpoplpush',))
-FailedTest(name='bzpopmax with double timeout', reason=ResponseError('unknown command bzpopmax',))
-FailedTest(name='bzpopmin with double timeout', reason=ResponseError('unknown command bzpopmin',))
 FailedTest(name='set with KEEPTTL', reason=ResponseError('syntax error',))
 FailedTest(name='bitfield_ro command', reason=ResponseError('unknown command bitfield_ro',))
 FailedTest(name='bitfield command', reason=ResponseError('unknown command bitfield',))

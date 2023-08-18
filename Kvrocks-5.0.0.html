@@ -28,7 +28,7 @@ test: restore command failed
 test: restore with REPLACE failed
 test: restore with ABSTTL failed
 test: restore with IDLETIME failed
-test: scan command failed
+test: scan command passed
 test: scan with TYPE version skipped
 test: keys command failed
 test: move command failed
@@ -99,9 +99,9 @@ test: sunion command passed
 test: sunionstore command passed
 test: bzmpop command version skipped
 test: bzmpop with COUNT version skipped
-test: bzpopmax command failed
+test: bzpopmax command passed
 test: bzpopmax with double timeout version skipped
-test: bzpopmin command failed
+test: bzpopmin command passed
 test: bzpopmin with double timeout version skipped
 test: zadd command passed
 test: zadd with multiple elements passed
@@ -207,7 +207,7 @@ test: setex command passed
 test: setnx command passed
 test: setrange command passed
 test: strlen command passed
-test: substr command failed
+test: substr command passed
 test: hdel command passed
 test: hdel with multiple field passed
 test: hexists command passed
@@ -292,8 +292,8 @@ test: swapdb command failed
 test: discard command passed
 test: exec command passed
 test: multi command passed
-test: unwatch command failed
-test: watch command failed
+test: unwatch command passed
+test: watch command passed
 test: eval command passed
 test: eval_ro command version skipped
 test: evalsha command passed
@@ -314,7 +314,7 @@ test: script flush with SYNC version skipped
 test: script flush with ASYNC version skipped
 test: script load command passed
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 196, passed: 160, rate: 81.63%
+Summary: version: 5.0.0, total tests: 196, passed: 166, rate: 84.69%
 This is failed tests for 5.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command rename',))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command renamenx',))
@@ -322,7 +322,6 @@ FailedTest(name='keys command', reason=ResponseError('only keys prefix match was
 FailedTest(name='move command', reason=ResponseError('unknown command move',))
 FailedTest(name='sort command', reason=ResponseError('unknown command sort',))
 FailedTest(name='srandmember command', reason="expected: b'0', result: [b'0']")
-FailedTest(name='substr command', reason=ResponseError('unknown command substr',))
 FailedTest(name='flushall with async', reason=ResponseError('wrong number of arguments',))
 FailedTest(name='flushdb with async', reason=ResponseError('wrong number of arguments',))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command swapdb',))
@@ -331,15 +330,10 @@ FailedTest(name='restore command', reason=ResponseError('unknown command restore
 FailedTest(name='incrbyfloat command', reason="expected: b'1.623', result: b'1.623000'")
 FailedTest(name='bitop command', reason=ResponseError('Invalid argument: WRONGTYPE Operation against a key holding the wrong kind of value',))
 FailedTest(name='brpoplpush command', reason=ResponseError('unknown command brpoplpush',))
-FailedTest(name='unwatch command', reason=ResponseError('unknown command watch',))
-FailedTest(name='watch command', reason=ResponseError('unknown command watch',))
 FailedTest(name='touch command', reason=ResponseError('unknown command touch',))
 FailedTest(name='restore with REPLACE', reason=ResponseError('unknown command restore',))
 FailedTest(name='restore with ABSTTL', reason=ResponseError('unknown command restore',))
 FailedTest(name='restore with IDLETIME', reason=ResponseError('unknown command restore',))
-FailedTest(name='bzpopmax command', reason=ResponseError('unknown command bzpopmax',))
-FailedTest(name='bzpopmin command', reason=ResponseError('unknown command bzpopmin',))
-FailedTest(name='scan command', reason="expected: [b'0', [b'k']], result: [b'_k', [b'k']]")
 FailedTest(name='bitfield command', reason=ResponseError('unknown command bitfield',))
 FailedTest(name='geodist command', reason="expected: b'166274.1516', result: b'166274.15156960033'")
 FailedTest(name='geodist with M / KM / FT / MI', reason="expected: b'166274.1516', result: b'166274.15156960033'")
