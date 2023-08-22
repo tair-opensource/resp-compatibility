@@ -5491,5 +5491,335 @@
       "True"
     ],
     "since": "2.6.0"
+  },
+  {
+    "name": "xack command",
+    "command": [
+      "XACK mystream mygroup 1526569495631-0"
+    ],
+    "result": [
+      0
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xadd command",
+    "command": [
+      "xadd mystream 1 myfield mydata"
+    ],
+    "result": [
+      "1-0"
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xadd with NOMKSTREAM/MINID/LIMIT",
+    "command": [
+      "xadd mystream nomkstream * message \"test\"",
+      "xadd mystream minid 0 1 message \"test\"",
+      "xadd mystream maxlen ~ 2 2 message \"test\""
+    ],
+    "result": [
+      null,
+      "1-0",
+      "2-0"
+    ],
+    "since": "6.2.0",
+    "command_split": "true"
+  },
+  {
+    "name": "xadd with EXPLICIT ID",
+    "command": [
+      "xadd mystream 1526919030474-0 message \"Hello,\"",
+      "xadd mystream 1526919030474-* message \" World!\""
+    ],
+    "result": [
+      "1526919030474-0",
+      "1526919030474-1"
+    ],
+    "since": "7.0.0",
+    "command_split": "true"
+  },
+  {
+    "name": "xclaim command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xgroup create mystream mygroup 0",
+      "XCLAIM mystream mygroup Alice 3600000 1-0"
+    ],
+    "result": [
+      "1-0",
+      "OK",
+      []
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xdel command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xdel mystream 1-0"
+    ],
+    "result": [
+      "1-0",
+      1
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xgroup create command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xgroup create mystream mygroup 0"
+    ],
+    "result": [
+      "1-0",
+      "OK"
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xgroup create with MKSTREAM",
+    "command": [
+      "xgroup create mystream mygroup 0 mkstream"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xgroup create with ENTRIESREAD",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xgroup create mystream mygroup 1-0 entriesread 1"
+    ],
+    "result": [
+      "1-0",
+      "OK"
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "xgroup createconsumer command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xgroup create mystream mygroup 0",
+      "xgroup createconsumer mystream mygroup myconsumer"
+    ],
+    "result": [
+      "1-0",
+      "OK",
+      1
+    ],
+    "since": "6.2.0"
+  },
+  {
+    "name": "xgroup delconsumer command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xgroup create mystream mygroup 0",
+      "xgroup delconsumer mystream mygroup myconsumer"
+    ],
+    "result": [
+      "1-0",
+      "OK",
+      0
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xgroup destroy command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xgroup create mystream mygroup 0",
+      "xgroup destroy mystream mygroup"
+    ],
+    "result": [
+      "1-0",
+      "OK",
+      1
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xgroup setid command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xgroup create mystream mygroup 0",
+      "xgroup setid mystream mygroup 1-0"
+    ],
+    "result": [
+      "1-0",
+      "OK",
+      "OK"
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xgroup setid with ENTRIESREAD",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xgroup create mystream mygroup 0",
+      "xgroup setid mystream mygroup 1-0 entriesread 0"
+    ],
+    "result": [
+      "1-0",
+      "OK",
+      "OK"
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "xlen command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xlen mystream"
+    ],
+    "result": [
+      "1-0",
+      1
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xpending command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xgroup create mystream mygroup 0",
+      "xreadgroup group mygroup myconsumer streams mystream >",
+      "xpending mystream mygroup"
+    ],
+    "result": [
+      "1-0",
+      "OK",
+      [
+        [
+          "mystream",
+          [
+            [
+              "1-0",
+              [
+                "myfield",
+                "mydata"
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        1,
+        "1-0",
+        "1-0",
+        [
+          [
+            "myconsumer",
+            "1"
+          ]
+        ]
+      ]
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xrange command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xrange mystream - +"
+    ],
+    "result": [
+      "1-0",
+      [
+        [
+          "1-0",
+          [
+            "myfield",
+            "mydata"
+          ]
+        ]
+      ]
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xread command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xread count 2 block 1 streams mystream 1-0"
+    ],
+    "result": [
+      "1-0",
+      null
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xreadgroup command",
+    "command": [
+      "xadd mystream 1 myfield mydata",
+      "xgroup create mystream mygroup 0",
+      "xreadgroup group mygroup myconsumer streams mystream >"
+    ],
+    "result": [
+      "1-0",
+      "OK",
+      [
+        [
+          "mystream",
+          [
+            [
+              "1-0",
+              [
+                "myfield",
+                "mydata"
+              ]
+            ]
+          ]
+        ]
+      ]
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xrevrange command",
+    "command": [
+      "xrevrange somestream + -"
+    ],
+    "result": [
+      []
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xrevrange command with EXCLUSIVE RANGES",
+    "command": [
+      "xrevrange somestream + - count 10"
+    ],
+    "result": [
+      []
+    ],
+    "since": "6.2.0"
+  },
+  {
+    "name": "xtrim command",
+    "command": [
+      "xtrim mystream maxlen ~ 1000"
+    ],
+    "result": [
+      0
+    ],
+    "since": "5.0.0"
+  },
+  {
+    "name": "xtrim command with MINID/LIMIT",
+    "command": [
+      "xtrim mystream minid  ~ 649085820",
+      "xtrim mystream minid ~ 1000 limit 10"
+    ],
+    "result": [
+      0,
+      0
+    ],
+    "since": "6.2.0"
   }
 ]
