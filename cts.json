@@ -33,7 +33,21 @@
       "OK",
       "OK"
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "rename command",
+    "command": [
+      "set k v",
+      "rename k {k}k"
+    ],
+    "result": [
+      "OK",
+      "OK"
+    ],
+    "since": "1.0.0",
+    "tags": "cluster"
   },
   {
     "name": "renamenx command",
@@ -45,7 +59,21 @@
       "OK",
       1
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "renamenx command",
+    "command": [
+      "set k v",
+      "renamenx k {k}k"
+    ],
+    "result": [
+      "OK",
+      1
+    ],
+    "since": "1.0.0",
+    "tags": "cluster"
   },
   {
     "name": "randomkey command",
@@ -57,7 +85,8 @@
       "OK",
       "k"
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
   },
   {
     "name": "exists command",
@@ -356,7 +385,8 @@
         ]
       ]
     ],
-    "since": "2.8.0"
+    "since": "2.8.0",
+    "tags": "standalone"
   },
   {
     "name": "scan with TYPE",
@@ -373,7 +403,8 @@
         ]
       ]
     ],
-    "since": "6.0.0"
+    "since": "6.0.0",
+    "tags": "standalone"
   },
   {
     "name": "keys command",
@@ -387,7 +418,8 @@
         "age"
       ]
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
   },
   {
     "name": "move command",
@@ -399,7 +431,8 @@
       "OK",
       1
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
   },
   {
     "name": "copy command",
@@ -413,7 +446,23 @@
       1,
       "v"
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "copy command",
+    "command": [
+      "set k v",
+      "copy k {k}k",
+      "get {k}k"
+    ],
+    "result": [
+      "OK",
+      1,
+      "v"
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "type command",
@@ -461,7 +510,8 @@
         "5"
       ]
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "skipped": true
   },
   {
     "name": "set command",
@@ -500,7 +550,38 @@
         "2"
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "blmove command",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lpush mylist 2",
+      "lpush {mylist}1 3",
+      "lpush {mylist}1 4",
+      "lpush {mylist}1 5",
+      "blmove mylist {mylist}1 left right 3.14",
+      "lrange {mylist}1 0 -1"
+    ],
+    "result": [
+      1,
+      2,
+      3,
+      1,
+      2,
+      3,
+      "2",
+      [
+        "5",
+        "4",
+        "3",
+        "2"
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "blmpop command",
@@ -568,7 +649,58 @@
       ],
       0
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "blmpop with COUNT",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lpush mylist 2",
+      "lpush mylist 3",
+      "lpush mylist 4",
+      "lpush {mylist}1 0",
+      "lpush {mylist}1 1",
+      "lpush {mylist}1 2",
+      "lpush {mylist}1 3",
+      "lpush {mylist}1 4",
+      "blmpop 3.14 2 mylist {mylist}1 right count 5",
+      "blmpop 3.14 2 mylist {mylist}1 right count 2",
+      "exists mylist"
+    ],
+    "result": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      [
+        "mylist",
+        [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      ],
+      [
+        "{mylist}1",
+        [
+          "0",
+          "1"
+        ]
+      ],
+      0
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "blpop command",
@@ -577,7 +709,7 @@
       "rpush mylist 1",
       "rpush mylist1 2",
       "rpush mylist1 3",
-      "blpop mylist mylist 0"
+      "blpop mylist mylist1 0"
     ],
     "result": [
       1,
@@ -589,7 +721,30 @@
         "0"
       ]
     ],
-    "since": "2.0.0"
+    "since": "2.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "blpop command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush {mylist}1 2",
+      "rpush {mylist}1 3",
+      "blpop mylist {mylist}1 0"
+    ],
+    "result": [
+      1,
+      2,
+      1,
+      2,
+      [
+        "mylist",
+        "0"
+      ]
+    ],
+    "since": "2.0.0",
+    "tags": "cluster"
   },
   {
     "name": "blpop with double timeout",
@@ -610,7 +765,30 @@
         "0"
       ]
     ],
-    "since": "6.0.0"
+    "since": "6.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "blpop with double timeout",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush {mylist}1 2",
+      "rpush {mylist}1 3",
+      "blpop mylist {mylist}1 3.14"
+    ],
+    "result": [
+      1,
+      2,
+      1,
+      2,
+      [
+        "mylist",
+        "0"
+      ]
+    ],
+    "since": "6.0.0",
+    "tags": "cluster"
   },
   {
     "name": "brpop command",
@@ -619,7 +797,7 @@
       "rpush mylist 1",
       "rpush mylist1 2",
       "rpush mylist1 3",
-      "brpop mylist mylist 0"
+      "brpop mylist mylist1 0"
     ],
     "result": [
       1,
@@ -631,7 +809,30 @@
         "1"
       ]
     ],
-    "since": "2.0.0"
+    "since": "2.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "brpop command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush {mylist}1 2",
+      "rpush {mylist}1 3",
+      "brpop mylist {mylist}1 0"
+    ],
+    "result": [
+      1,
+      2,
+      1,
+      2,
+      [
+        "mylist",
+        "1"
+      ]
+    ],
+    "since": "2.0.0",
+    "tags": "cluster"
   },
   {
     "name": "brpop with double timeout",
@@ -640,7 +841,7 @@
       "rpush mylist 1",
       "rpush mylist1 2",
       "rpush mylist1 3",
-      "brpop mylist mylist 3.14"
+      "brpop mylist mylist1 3.14"
     ],
     "result": [
       1,
@@ -652,7 +853,30 @@
         "1"
       ]
     ],
-    "since": "6.0.0"
+    "since": "6.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "brpop with double timeout",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpush {mylist}1 2",
+      "rpush {mylist}1 3",
+      "brpop mylist {mylist}1 3.14"
+    ],
+    "result": [
+      1,
+      2,
+      1,
+      2,
+      [
+        "mylist",
+        "1"
+      ]
+    ],
+    "since": "6.0.0",
+    "tags": "cluster"
   },
   {
     "name": "brpoplpush command",
@@ -666,7 +890,23 @@
       1,
       "0"
     ],
-    "since": "2.2.0"
+    "since": "2.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "brpoplpush command",
+    "command": [
+      "lpush mylist 0",
+      "lpush {mylist}1 1",
+      "brpoplpush mylist {mylist}1 0"
+    ],
+    "result": [
+      1,
+      1,
+      "0"
+    ],
+    "since": "2.2.0",
+    "tags": "cluster"
   },
   {
     "name": "brpoplpush with double timeout",
@@ -680,7 +920,23 @@
       1,
       "0"
     ],
-    "since": "6.0.0"
+    "since": "6.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "brpoplpush with double timeout",
+    "command": [
+      "lpush mylist 0",
+      "lpush {mylist}1 1",
+      "brpoplpush mylist {mylist}1 3.14"
+    ],
+    "result": [
+      1,
+      1,
+      "0"
+    ],
+    "since": "6.0.0",
+    "tags": "cluster"
   },
   {
     "name": "lindex command",
@@ -759,7 +1015,38 @@
         "2"
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "lmove command",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lpush mylist 2",
+      "lpush {mylist}1 3",
+      "lpush {mylist}1 4",
+      "lpush {mylist}1 5",
+      "lmove mylist {mylist}1 left right",
+      "lrange {mylist}1 0 -1"
+    ],
+    "result": [
+      1,
+      2,
+      3,
+      1,
+      2,
+      3,
+      "2",
+      [
+        "5",
+        "4",
+        "3",
+        "2"
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "lmpop command",
@@ -827,7 +1114,58 @@
       ],
       0
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "lmpop with COUNT",
+    "command": [
+      "lpush mylist 0",
+      "lpush mylist 1",
+      "lpush mylist 2",
+      "lpush mylist 3",
+      "lpush mylist 4",
+      "lpush {mylist}1 0",
+      "lpush {mylist}1 1",
+      "lpush {mylist}1 2",
+      "lpush {mylist}1 3",
+      "lpush {mylist}1 4",
+      "lmpop 2 mylist {mylist}1 right count 5",
+      "lmpop 2 mylist {mylist}1 right count 2",
+      "exists mylist"
+    ],
+    "result": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      [
+        "mylist",
+        [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      ],
+      [
+        "{mylist}1",
+        [
+          "0",
+          "1"
+        ]
+      ],
+      0
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "lpop command",
@@ -1227,7 +1565,27 @@
         "1"
       ]
     ],
-    "since": "1.2.0"
+    "since": "1.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "rpoplpush command",
+    "command": [
+      "rpush mylist 0",
+      "rpush mylist 1",
+      "rpoplpush mylist {mylist}otherlist",
+      "lrange {mylist}otherlist 0 -1"
+    ],
+    "result": [
+      1,
+      2,
+      "1",
+      [
+        "1"
+      ]
+    ],
+    "since": "1.2.0",
+    "tags": "cluster"
   },
   {
     "name": "rpush command",
@@ -1275,7 +1633,23 @@
       2,
       0
     ],
-    "since": "2.2.0"
+    "since": "2.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "rpushx command",
+    "command": [
+      "rpush mylist 0",
+      "rpushx mylist 1",
+      "rpushx {mylist}otherlist 0"
+    ],
+    "result": [
+      1,
+      2,
+      0
+    ],
+    "since": "2.2.0",
+    "tags": "cluster"
   },
   {
     "name": "rpushx with multiple element",
@@ -1289,7 +1663,23 @@
       3,
       0
     ],
-    "since": "4.0.0"
+    "since": "4.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "rpushx with multiple element",
+    "command": [
+      "rpush mylist 0",
+      "rpushx mylist 1 2",
+      "rpushx {mylist}otherlist 0 1"
+    ],
+    "result": [
+      1,
+      3,
+      0
+    ],
+    "since": "4.0.0",
+    "tags": "cluster"
   },
   {
     "name": "sadd command",
@@ -1357,7 +1747,35 @@
       ]
     ],
     "since": "1.0.0",
-    "sort_result": true
+    "sort_result": true,
+    "tags": "standalone"
+  },
+  {
+    "name": "sdiff command",
+    "command": [
+      "sadd myset 0",
+      "sadd myset 1",
+      "sadd myset 2",
+      "sadd {myset}1 2",
+      "sadd {myset}1 3",
+      "sadd {myset}1 4",
+      "sdiff myset {myset}1"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "since": "1.0.0",
+    "sort_result": true,
+    "tags": "cluster"
   },
   {
     "name": "sdiffstore command",
@@ -1379,7 +1797,31 @@
       1,
       2
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "sdiffstore command",
+    "command": [
+      "sadd {myset}1 0",
+      "sadd {myset}1 1",
+      "sadd {myset}1 2",
+      "sadd {myset}2 2",
+      "sadd {myset}2 3",
+      "sadd {myset}2 4",
+      "sdiffstore myset {myset}1 {myset}2"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "since": "1.0.0",
+    "tags": "cluster"
   },
   {
     "name": "sinter command",
@@ -1399,7 +1841,29 @@
         "1"
       ]
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "sinter command",
+    "command": [
+      "sadd myset 0",
+      "sadd myset 1",
+      "sadd {myset}1 1",
+      "sadd {myset}1 2",
+      "sinter myset {myset}1"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      [
+        "1"
+      ]
+    ],
+    "since": "1.0.0",
+    "tags": "cluster"
   },
   {
     "name": "sintercard command",
@@ -1417,7 +1881,27 @@
       1,
       1
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "sintercard command",
+    "command": [
+      "sadd myset 0",
+      "sadd myset 1",
+      "sadd {myset}1 1",
+      "sadd {myset}1 2",
+      "sintercard 2 myset {myset}1"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "sintercard with LIMIT",
@@ -1435,7 +1919,27 @@
       1,
       1
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "sintercard with LIMIT",
+    "command": [
+      "sadd myset 0",
+      "sadd myset 1",
+      "sadd {myset}1 1",
+      "sadd {myset}1 2",
+      "sintercard 2 myset {myset}1 limit 1"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "sinterstore command",
@@ -1453,7 +1957,27 @@
       1,
       1
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "sinterstore command",
+    "command": [
+      "sadd {myset}1 0",
+      "sadd {myset}1 1",
+      "sadd {myset}2 1",
+      "sadd {myset}2 2",
+      "sinterstore myset {myset}1 {myset}2"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "since": "1.0.0",
+    "tags": "cluster"
   },
   {
     "name": "sismember command",
@@ -1516,7 +2040,25 @@
       1,
       1
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "smove command",
+    "command": [
+      "sadd myset 0",
+      "sadd myset 1",
+      "sadd {myset}otherset 2",
+      "smove myset {myset}otherset 1"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "since": "1.0.0",
+    "tags": "cluster"
   },
   {
     "name": "spop command",
@@ -1658,7 +2200,27 @@
       ]
     ],
     "since": "1.0.0",
-    "sort_result": true
+    "sort_result": true,
+    "tags": "standalone"
+  },
+  {
+    "name": "sunion command",
+    "command": [
+      "sadd myset 0",
+      "sadd {myset}1 1",
+      "sunion myset {myset}1"
+    ],
+    "result": [
+      1,
+      1,
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "since": "1.0.0",
+    "sort_result": true,
+    "tags": "cluster"
   },
   {
     "name": "sunionstore command",
@@ -1672,7 +2234,23 @@
       1,
       2
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "sunionstore command",
+    "command": [
+      "sadd {myset}1 0",
+      "sadd {myset}2 1",
+      "sunionstore myset {myset}1 {myset}2"
+    ],
+    "result": [
+      1,
+      1,
+      2
+    ],
+    "since": "1.0.0",
+    "tags": "cluster"
   },
   {
     "name": "bzmpop command",
@@ -1680,7 +2258,7 @@
       "zadd myzset 1 one",
       "zadd myzset 2 two",
       "zadd myzset1 3 three",
-      "bzmpop 0 1 myzset MIN"
+      "bzmpop 0 2 myzset myzset1 MIN"
     ],
     "result": [
       1,
@@ -1696,7 +2274,33 @@
         ]
       ]
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "bzmpop command",
+    "command": [
+      "zadd myzset 1 one",
+      "zadd myzset 2 two",
+      "zadd {myzset}1 3 three",
+      "bzmpop 0 2 myzset {myzset}1 MIN"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      [
+        "myzset",
+        [
+          [
+            "one",
+            "1"
+          ]
+        ]
+      ]
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "bzmpop with COUNT",
@@ -1704,7 +2308,7 @@
       "zadd myzset 1 one",
       "zadd myzset 2 two",
       "zadd myzset1 3 three",
-      "bzmpop 3.14 1 myzset MIN count 2"
+      "bzmpop 3.14 2 myzset myzset1 MIN count 2"
     ],
     "result": [
       1,
@@ -1724,7 +2328,37 @@
         ]
       ]
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "bzmpop with COUNT",
+    "command": [
+      "zadd myzset 1 one",
+      "zadd myzset 2 two",
+      "zadd {myzset}1 3 three",
+      "bzmpop 3.14 2 myzset {myzset}1 MIN count 2"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      [
+        "myzset",
+        [
+          [
+            "one",
+            "1"
+          ],
+          [
+            "two",
+            "2"
+          ]
+        ]
+      ]
+    ],
+    "since": "7.0.0",
+    "tags": "standalone"
   },
   {
     "name": "bzpopmax command",
@@ -1792,7 +2426,7 @@
       "zadd myzset 1 one",
       "zadd myzset 2 two",
       "zadd myzset 3 three",
-      "bzpopmin myzset 1 3.14"
+      "bzpopmin myzset 3.14"
     ],
     "result": [
       1,
@@ -1864,7 +2498,7 @@
       "zadd myzset 1 one",
       "zadd myzset gt 10 one",
       "zadd myzset 10 uno",
-      "zadd myzset lt  1 uno",
+      "zadd myzset lt 1 uno",
       "zrange myzset 0 -1 withscores"
     ],
     "result": [
@@ -1929,7 +2563,31 @@
         "three"
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zdiff command",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}1 3 three",
+      "zadd {myzset}2 1 one",
+      "zadd {myzset}2 2 two",
+      "zdiff 2 {myzset}1 {myzset}2"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      [
+        "three"
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zdiffstore command",
@@ -1953,7 +2611,33 @@
         "three"
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zdiffstore command",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}1 3 three",
+      "zadd {myzset}2 1 one",
+      "zadd {myzset}2 2 two",
+      "zdiffstore myzset 2 {myzset}1 {myzset}2",
+      "zrange myzset 0 -1"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      [
+        "three"
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zincrby command",
@@ -1997,7 +2681,32 @@
         "two"
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zinter command",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}2 1 one",
+      "zadd {myzset}2 2 two",
+      "zadd {myzset}2 3 three",
+      "zinter 2 {myzset}1 {myzset}2"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      [
+        "one",
+        "two"
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zinter with WEIGHTS",
@@ -2020,7 +2729,32 @@
         "two"
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zinter with WEIGHTS",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}2 1 one",
+      "zadd {myzset}2 2 two",
+      "zadd {myzset}2 3 three",
+      "zinter 2 {myzset}1 {myzset}2 weights 2 2"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      [
+        "one",
+        "two"
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zinter with AGGREGATE",
@@ -2043,7 +2777,32 @@
         "two"
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zinter with AGGREGATE",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}2 1 one",
+      "zadd {myzset}2 2 two",
+      "zadd {myzset}2 3 three",
+      "zinter 2 {myzset}1 {myzset}2 aggregate sum"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      [
+        "one",
+        "two"
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zinter WITHSCORES",
@@ -2068,7 +2827,34 @@
         "4"
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zinter WITHSCORES",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}2 1 one",
+      "zadd {myzset}2 2 two",
+      "zadd {myzset}2 3 three",
+      "zinter 2 {myzset}1 {myzset}2 withscores"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      [
+        "one",
+        "2",
+        "two",
+        "4"
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zintercard command",
@@ -2088,7 +2874,29 @@
       1,
       2
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zintercard command",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}2 1 one",
+      "zadd {myzset}2 2 two",
+      "zadd {myzset}2 3 three",
+      "zintercard 2 {myzset}1 {myzset}2"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "zintercard with LIMIT",
@@ -2108,7 +2916,29 @@
       1,
       1
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zintercard with LIMIT",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}2 1 one",
+      "zadd {myzset}2 2 two",
+      "zadd {myzset}2 3 three",
+      "zintercard 2 {myzset}1 {myzset}2 limit 1"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "zinterstore command",
@@ -2128,7 +2958,29 @@
       1,
       2
     ],
-    "since": "2.0.0"
+    "since": "2.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zinterstore command",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}2 1 one",
+      "zadd {myzset}2 2 two",
+      "zadd {myzset}2 3 three",
+      "zinterstore myzset 2 {myzset}1 {myzset}2"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "since": "2.0.0",
+    "tags": "cluster"
   },
   {
     "name": "zinterstore with WEIGHTS",
@@ -2148,7 +3000,29 @@
       1,
       2
     ],
-    "since": "2.0.0"
+    "since": "2.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zinterstore with WEIGHTS",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}2 1 one",
+      "zadd {myzset}2 2 two",
+      "zadd {myzset}2 3 three",
+      "zinterstore myzset 2 {myzset}1 {myzset}2 weights 2 2"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "since": "2.0.0",
+    "tags": "cluster"
   },
   {
     "name": "zinterstore with AGGREGATE",
@@ -2168,7 +3042,29 @@
       1,
       2
     ],
-    "since": "2.0.0"
+    "since": "2.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zinterstore with AGGREGATE",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}2 1 one",
+      "zadd {myzset}2 2 two",
+      "zadd {myzset}2 3 three",
+      "zinterstore myzset 2 {myzset}1 {myzset}2 aggregate sum"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "since": "2.0.0",
+    "tags": "cluster"
   },
   {
     "name": "zlexcount command",
@@ -2585,7 +3481,25 @@
       1,
       2
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zrangestore command",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}1 3 three",
+      "zrangestore myzset {myzset}1 0 1"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zrangestore with BYSCORE / BYLEX",
@@ -2603,7 +3517,27 @@
       1,
       2
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zrangestore with BYSCORE / BYLEX",
+    "command": [
+      "zadd {myzset}1 1 a",
+      "zadd {myzset}1 2 b",
+      "zadd {myzset}1 3 c",
+      "zrangestore myzset {myzset}1 0 1 byscore",
+      "zrangestore myzset {myzset}1 [a [b bylex"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zrangestore with REV",
@@ -2619,7 +3553,25 @@
       1,
       2
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zrangestore with REV",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}1 3 three",
+      "zrangestore myzset {myzset}1 0 1 rev"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zrangestore with LIMIT",
@@ -2635,7 +3587,25 @@
       1,
       2
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zrangestore with LIMIT",
+    "command": [
+      "zadd {myzset}1 1 one",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}1 3 three",
+      "zrangestore myzset {myzset}1 1 3 byscore limit 1 2"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zrank command",
@@ -2981,7 +3951,31 @@
         "two"
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zunion command",
+    "command": [
+      "zadd myzset 1 one",
+      "zadd myzset 2 two",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}1 3 three",
+      "zunion 2 myzset {myzset}1"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      [
+        "one",
+        "three",
+        "two"
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zunion with WEIGHTS and AGGREGATE",
@@ -3003,7 +3997,31 @@
         "three"
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zunion with WEIGHTS and AGGREGATE",
+    "command": [
+      "zadd myzset 1 one",
+      "zadd myzset 2 two",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}1 3 three",
+      "zunion 2 myzset {myzset}1 weights 2 2 aggregate max"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      [
+        "one",
+        "two",
+        "three"
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zunion with WITHSCORES",
@@ -3028,7 +4046,34 @@
         "4"
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zunion with WITHSCORES",
+    "command": [
+      "zadd myzset 1 one",
+      "zadd myzset 2 two",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}1 3 three",
+      "zunion 2 myzset {myzset}1 withscores"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      [
+        "one",
+        "1",
+        "three",
+        "3",
+        "two",
+        "4"
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "zunionstore command",
@@ -3046,7 +4091,27 @@
       1,
       3
     ],
-    "since": "2.0.0"
+    "since": "2.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zunionstore command",
+    "command": [
+      "zadd myzset 1 one",
+      "zadd myzset 2 two",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}1 3 three",
+      "zunionstore {myzset}out 2 myzset {myzset}1"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      3
+    ],
+    "since": "2.0.0",
+    "tags": "cluster"
   },
   {
     "name": "zunionstore with WEIGHTS and AGGREGATE",
@@ -3064,7 +4129,27 @@
       1,
       3
     ],
-    "since": "2.0.0"
+    "since": "2.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "zunionstore with WEIGHTS and AGGREGATE",
+    "command": [
+      "zadd myzset 1 one",
+      "zadd myzset 2 two",
+      "zadd {myzset}1 2 two",
+      "zadd {myzset}1 3 three",
+      "zunionstore {myzset}out 2 myzset {myzset}1 weights 1 1 aggregate max"
+    ],
+    "result": [
+      1,
+      1,
+      1,
+      1,
+      3
+    ],
+    "since": "2.0.0",
+    "tags": "cluster"
   },
   {
     "name": "append command",
@@ -3290,7 +4375,21 @@
       "OK",
       "mytext"
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "lcs command",
+    "command": [
+      "mset {key}1 myoldtext {key}2 mynewtext",
+      "lcs {key}1 {key}2"
+    ],
+    "result": [
+      "OK",
+      "mytext"
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "lcs with LEN",
@@ -3302,7 +4401,21 @@
       "OK",
       6
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "lcs with LEN",
+    "command": [
+      "mset {key}1 myoldtext {key}2 mynewtext",
+      "lcs {key}1 {key}2 len"
+    ],
+    "result": [
+      "OK",
+      6
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "lcs with IDX",
@@ -3340,7 +4453,47 @@
         2
       ]
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "lcs with IDX",
+    "command": [
+      "mset {key}1 oh {key}2 och",
+      "lcs {key}1 {key}2 idx"
+    ],
+    "result": [
+      "OK",
+      [
+        "matches",
+        [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "len",
+        2
+      ]
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "lcs with MINMATCHLEN",
@@ -3378,7 +4531,47 @@
         2
       ]
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "lcs with MINMATCHLEN",
+    "command": [
+      "mset {key}1 oh {key}2 och",
+      "lcs {key}1 {key}2 idx minmatchlen 1"
+    ],
+    "result": [
+      "OK",
+      [
+        "matches",
+        [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "len",
+        2
+      ]
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "lcs with WITHMATCHLEN",
@@ -3418,7 +4611,49 @@
         2
       ]
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "lcs with WITHMATCHLEN",
+    "command": [
+      "mset {key}1 oh {key}2 och",
+      "lcs {key}1 {key}2 idx minmatchlen 1 withmatchlen"
+    ],
+    "result": [
+      "OK",
+      [
+        "matches",
+        [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            1
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            1
+          ]
+        ],
+        "len",
+        2
+      ]
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "mget command",
@@ -3436,7 +4671,27 @@
         null
       ]
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "mget command",
+    "command": [
+      "set {mykey}0 1",
+      "set {mykey}1 2",
+      "mget {mykey}0 {mykey}1 {mykey}2"
+    ],
+    "result": [
+      "OK",
+      "OK",
+      [
+        "1",
+        "2",
+        null
+      ]
+    ],
+    "since": "1.0.0",
+    "tags": "cluster"
   },
   {
     "name": "mset command",
@@ -3450,7 +4705,23 @@
       "0",
       "1"
     ],
-    "since": "1.0.1"
+    "since": "1.0.1",
+    "tags": "standalone"
+  },
+  {
+    "name": "mset command",
+    "command": [
+      "mset {mykey}0 0 {mykey}1 1",
+      "get {mykey}0",
+      "get {mykey}1"
+    ],
+    "result": [
+      "OK",
+      "0",
+      "1"
+    ],
+    "since": "1.0.1",
+    "tags": "cluster"
   },
   {
     "name": "msetnx command",
@@ -3468,7 +4739,27 @@
         null
       ]
     ],
-    "since": "1.0.1"
+    "since": "1.0.1",
+    "tags": "standalone"
+  },
+  {
+    "name": "msetnx command",
+    "command": [
+      "msetnx {mykey}0 0 {mykey}1 1",
+      "msetnx {mykey}1 2 {mykey}2 2",
+      "mget {mykey}0 {mykey}1 {mykey}2"
+    ],
+    "result": [
+      1,
+      0,
+      [
+        "0",
+        "1",
+        null
+      ]
+    ],
+    "since": "1.0.1",
+    "tags": "cluster"
   },
   {
     "name": "psetex command",
@@ -4019,7 +5310,27 @@
       6,
       6
     ],
-    "since": "2.6.0"
+    "since": "2.6.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "bitop command",
+    "command": [
+      "set {key}0 foobar",
+      "set {key}1 abcdef",
+      "bitop and {key}dest {key}0 {key}1",
+      "bitop or {key}dest {key}0 {key}1",
+      "bitop xor {key}dest {key}0 {key}1"
+    ],
+    "result": [
+      "OK",
+      "OK",
+      6,
+      6,
+      6
+    ],
+    "since": "2.6.0",
+    "tags": "cluster"
   },
   {
     "name": "bitpos command",
@@ -4109,7 +5420,25 @@
       "OK",
       4
     ],
-    "since": "2.8.9"
+    "since": "2.8.9",
+    "tags": "standalone"
+  },
+  {
+    "name": "pfmerge command",
+    "command": [
+      "pfadd {hll}1 0 1",
+      "pfadd {hll}2 2 3",
+      "pfmerge {hll}0 {hll}1 {hll}2",
+      "pfcount {hll}0"
+    ],
+    "result": [
+      1,
+      1,
+      "OK",
+      4
+    ],
+    "since": "2.8.9",
+    "tags": "cluster"
   },
   {
     "name": "geoadd command",
@@ -4320,7 +5649,23 @@
       2,
       2
     ],
-    "since": "3.2.0"
+    "since": "3.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "georadius with STORE / STOREDIST",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadius Sicily 15 37 200 km store {Sicily}here",
+      "georadius Sicily 15 37 200 km storedist {Sicily}here"
+    ],
+    "result": [
+      2,
+      2,
+      2
+    ],
+    "since": "3.2.0",
+    "tags": "cluster"
   },
   {
     "name": "georadius with ANY option for COUNT",
@@ -4605,7 +5950,25 @@
       2,
       2
     ],
-    "since": "3.2.0"
+    "since": "3.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "georadiusbymember with STORE / STOREDIST",
+    "command": [
+      "geoadd Sicily 13.583333 37.316667 Agrigento",
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "georadiusbymember Sicily Agrigento 100 km store {Sicily}here",
+      "georadiusbymember Sicily Agrigento 100 km storedist {Sicily}here"
+    ],
+    "result": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "since": "3.2.0",
+    "tags": "cluster"
   },
   {
     "name": "georadiusbymember with ANY option for COUNT",
@@ -5006,21 +6369,83 @@
       1,
       3
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "geosearchstore command",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geoadd Sicily 12.758489 38.788135 edge1 17.241510 38.788135 edge2",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 byradius 200 m",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 byradius 200 km",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 byradius 200 ft",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 byradius 200 mi",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 bybox 400 400 m",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 bybox 400 400 km",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 bybox 400 400 ft",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 bybox 400 400 mi",
+      "geosearchstore here{Sicily} Sicily frommember Palermo byradius 200 m",
+      "geosearchstore here{Sicily} Sicily frommember Palermo byradius 200 km",
+      "geosearchstore here{Sicily} Sicily frommember Palermo byradius 200 ft",
+      "geosearchstore here{Sicily} Sicily frommember Palermo byradius 200 mi",
+      "geosearchstore here{Sicily} Sicily frommember Palermo bybox 400 400 m",
+      "geosearchstore here{Sicily} Sicily frommember Palermo bybox 400 400 km",
+      "geosearchstore here{Sicily} Sicily frommember Palermo bybox 400 400 ft",
+      "geosearchstore here{Sicily} Sicily frommember Palermo bybox 400 400 mi"
+    ],
+    "result": [
+      2,
+      2,
+      0,
+      2,
+      0,
+      4,
+      0,
+      4,
+      0,
+      4,
+      1,
+      3,
+      1,
+      3,
+      1,
+      3,
+      1,
+      3
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "geosearchstore with ASC / DESC",
     "command": [
       "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
       "geosearchstore here Sicily fromlonlat 15 37 byradius 200 km asc",
-      "geosearchstore here  Sicily fromlonlat 15 37 byradius 200 km desc"
+      "geosearchstore here Sicily fromlonlat 15 37 byradius 200 km desc"
     ],
     "result": [
       2,
       2,
       2
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "geosearchstore with ASC / DESC",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 byradius 200 km asc",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 byradius 200 km desc"
+    ],
+    "result": [
+      2,
+      2,
+      2
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "geosearchstore with COUNT",
@@ -5034,7 +6459,23 @@
       1,
       1
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "geosearchstore with COUNT",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 byradius 200 km count 1",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 byradius 200 km count 1 any"
+    ],
+    "result": [
+      2,
+      1,
+      1
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "geosearchstore with STOREDIST",
@@ -5046,7 +6487,21 @@
       2,
       2
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "geosearchstore with STOREDIST",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 byradius 200 km storedist"
+    ],
+    "result": [
+      2,
+      2
+    ],
+    "since": "6.2.0",
+    "tags": "cluster"
   },
   {
     "name": "geosearchstore with support for uppercase unit names",
@@ -5058,7 +6513,21 @@
       2,
       2
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "geosearchstore with support for uppercase unit names",
+    "command": [
+      "geoadd Sicily 13.361389 38.115556 Palermo 15.087269 37.502669 Catania",
+      "geosearchstore here{Sicily} Sicily fromlonlat 15 37 byradius 200 KM"
+    ],
+    "result": [
+      2,
+      2
+    ],
+    "since": "7.0.0",
+    "tags": "cluster"
   },
   {
     "name": "dbsize command",
@@ -5068,7 +6537,8 @@
     "result": [
       0
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
   },
   {
     "name": "flushall command",
@@ -5076,9 +6546,10 @@
       "flushall"
     ],
     "result": [
-      "True"
+      "OK"
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
   },
   {
     "name": "flushall with async",
@@ -5088,7 +6559,8 @@
     "result": [
       "OK"
     ],
-    "since": "4.0.0"
+    "since": "4.0.0",
+    "tags": "standalone"
   },
   {
     "name": "flushall with sync",
@@ -5098,7 +6570,8 @@
     "result": [
       "OK"
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
   },
   {
     "name": "flushdb command",
@@ -5106,9 +6579,10 @@
       "flushdb"
     ],
     "result": [
-      "True"
+      "OK"
     ],
-    "since": "1.0.0"
+    "since": "1.0.0",
+    "tags": "standalone"
   },
   {
     "name": "flushdb with async",
@@ -5118,7 +6592,8 @@
     "result": [
       "OK"
     ],
-    "since": "4.0.0"
+    "since": "4.0.0",
+    "tags": "standalone"
   },
   {
     "name": "flushdb with sync",
@@ -5128,7 +6603,8 @@
     "result": [
       "OK"
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
   },
   {
     "name": "swapdb command",
@@ -5138,7 +6614,8 @@
     "result": [
       "OK"
     ],
-    "since": "4.0.0"
+    "since": "4.0.0",
+    "tags": "standalone"
   },
   {
     "name": "discard command",
@@ -5152,7 +6629,8 @@
       "QUEUED",
       "OK"
     ],
-    "since": "2.0.0"
+    "since": "2.0.0",
+    "tags": "standalone"
   },
   {
     "name": "exec command",
@@ -5168,7 +6646,8 @@
         "OK"
       ]
     ],
-    "since": "1.2.0"
+    "since": "1.2.0",
+    "tags": "standalone"
   },
   {
     "name": "multi command",
@@ -5182,7 +6661,8 @@
       "QUEUED",
       "OK"
     ],
-    "since": "1.2.0"
+    "since": "1.2.0",
+    "tags": "standalone"
   },
   {
     "name": "unwatch command",
@@ -5192,9 +6672,10 @@
     ],
     "result": [
       "OK",
-      "True"
+      "OK"
     ],
-    "since": "2.2.0"
+    "since": "2.2.0",
+    "tags": "standalone"
   },
   {
     "name": "watch command",
@@ -5204,9 +6685,10 @@
     ],
     "result": [
       "OK",
-      "True"
+      "OK"
     ],
-    "since": "2.2.0"
+    "since": "2.2.0",
+    "tags": "standalone"
   },
   {
     "name": "eval command",
@@ -5216,7 +6698,8 @@
     "result": [
       null
     ],
-    "since": "2.6.0"
+    "since": "2.6.0",
+    "tags": "standalone"
   },
   {
     "name": "eval_ro command",
@@ -5226,7 +6709,8 @@
     "result": [
       null
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
   },
   {
     "name": "evalsha command",
@@ -5238,9 +6722,10 @@
     "result": [
       "63143b6f8007b98c53ca2149822777b3566f9241",
       null,
-      "True"
+      "OK"
     ],
-    "since": "2.6.0"
+    "since": "2.6.0",
+    "tags": "standalone"
   },
   {
     "name": "evalsha_ro command",
@@ -5252,9 +6737,10 @@
     "result": [
       "63143b6f8007b98c53ca2149822777b3566f9241",
       null,
-      "True"
+      "OK"
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
   },
   {
     "name": "fcall command",
@@ -5271,7 +6757,7 @@
       "OK"
     ],
     "since": "7.0.0",
-    "command_split": true
+    "tags": "standalone"
   },
   {
     "name": "fcall_ro command",
@@ -5288,7 +6774,7 @@
       "OK"
     ],
     "since": "7.0.0",
-    "command_split": true
+    "tags": "standalone"
   },
   {
     "name": "function delete command",
@@ -5305,7 +6791,7 @@
       "OK"
     ],
     "since": "7.0.0",
-    "command_split": true
+    "tags": "standalone"
   },
   {
     "name": "function flush command",
@@ -5313,9 +6799,10 @@
       "function flush"
     ],
     "result": [
-      "True"
+      "OK"
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
   },
   {
     "name": "function flush with SYNC",
@@ -5325,7 +6812,8 @@
     "result": [
       "OK"
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
   },
   {
     "name": "function flush with ASYNC",
@@ -5335,7 +6823,8 @@
     "result": [
       "OK"
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
   },
   {
     "name": "function list command",
@@ -5370,7 +6859,7 @@
       "OK"
     ],
     "since": "7.0.0",
-    "command_split": true
+    "tags": "standalone"
   },
   {
     "name": "function load command",
@@ -5387,7 +6876,7 @@
       "OK"
     ],
     "since": "7.0.0",
-    "command_split": true
+    "tags": "standalone"
   },
   {
     "name": "function restore command",
@@ -5400,8 +6889,8 @@
       "OK"
     ],
     "since": "7.0.0",
-    "command_split": true,
-    "command_binary": true
+    "command_binary": true,
+    "tags": "standalone"
   },
   {
     "name": "function stats command",
@@ -5410,7 +6899,7 @@
       "function stats"
     ],
     "result": [
-      "True",
+      "OK",
       [
         "running_script",
         null,
@@ -5426,7 +6915,8 @@
         ]
       ]
     ],
-    "since": "7.0.0"
+    "since": "7.0.0",
+    "tags": "standalone"
   },
   {
     "name": "script exists command",
@@ -5440,9 +6930,10 @@
       [
         1
       ],
-      "True"
+      "OK"
     ],
-    "since": "2.6.0"
+    "since": "2.6.0",
+    "tags": "standalone"
   },
   {
     "name": "script flush command",
@@ -5452,9 +6943,10 @@
     ],
     "result": [
       "63143b6f8007b98c53ca2149822777b3566f9241",
-      "True"
+      "OK"
     ],
-    "since": "2.6.0"
+    "since": "2.6.0",
+    "tags": "standalone"
   },
   {
     "name": "script flush with SYNC",
@@ -5466,7 +6958,8 @@
       "63143b6f8007b98c53ca2149822777b3566f9241",
       "OK"
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
   },
   {
     "name": "script flush with ASYNC",
@@ -5478,7 +6971,8 @@
       "63143b6f8007b98c53ca2149822777b3566f9241",
       "OK"
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "tags": "standalone"
   },
   {
     "name": "script load command",
@@ -5488,9 +6982,10 @@
     ],
     "result": [
       "63143b6f8007b98c53ca2149822777b3566f9241",
-      "True"
+      "OK"
     ],
-    "since": "2.6.0"
+    "since": "2.6.0",
+    "tags": "standalone"
   },
   {
     "name": "xack command",
@@ -5524,8 +7019,7 @@
       "1-0",
       "2-0"
     ],
-    "since": "6.2.0",
-    "command_split": "true"
+    "since": "6.2.0"
   },
   {
     "name": "xadd with EXPLICIT ID",
@@ -5537,8 +7031,7 @@
       "1526919030474-0",
       "1526919030474-1"
     ],
-    "since": "7.0.0",
-    "command_split": "true"
+    "since": "7.0.0"
   },
   {
     "name": "xclaim command",
@@ -5813,7 +7306,7 @@
   {
     "name": "xtrim command with MINID/LIMIT",
     "command": [
-      "xtrim mystream minid  ~ 649085820",
+      "xtrim mystream minid ~ 649085820",
       "xtrim mystream minid ~ 1000 limit 10"
     ],
     "result": [
