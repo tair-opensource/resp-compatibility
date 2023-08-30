@@ -29,17 +29,46 @@ optional arguments:
   --ssl                 open ssl connection
   --genhtml             generate test report in html format
 ```
-
-Examples:  
-Test whether host:port is compatible with redis 6.2.0 and display failure case: 
+e.g. Test whether host:port is compatible with redis 6.2.0 and display failure case: 
 ```
 $ python3 redis_compatibility_test.py -h host -p port --testfile cts.json --specific-version 6.2.0 --show-failed
 Connecting to 127.0.0.1:6379 use standalone client
 test: del command passed
 test: unlink command passed
 ...
-test: rpushx with multiple element passed
+test: xtrim command with MINID/LIMIT passed
 -------- The result of tests --------
-version: 6.2.0, total tests: 62, passed: 62, rate: 100.0%
+Summary: version: 6.2.0, total tests: 285, passed: 285, rate: 100.00%
 ```
 More examples are shown `python3 redis_compatibility_test.py -h`.
+
+## cluster
+Redis has two modes from the API level, namely `Standalone` (Sentinel has no API restrictions like Standalone) and `Cluster`, where the command support of Standalone does not require Cross slot, but Cluster restricts multi-key commands to be executed in the same slot (e.g. mset/mget ), therefore, we support `--cluster` to test the compatibility of cluster mode, you can test your Redis Cluster cluster compatibility as follows:
+```
+$ python3.9 redis_compatibility_test.py --testfile cts.json --host 127.0.0.1 --port 30001 --cluster --specific-version 6.2.0
+connecting to 127.0.0.1:30001 use cluster client
+test: del command passed
+test: unlink command passed
+...
+test: xtrim command with MINID/LIMIT passed
+-------- The result of tests --------
+Summary: version: 6.2.0, total tests: 260, passed: 260, rate: 100.00%
+```
+
+## genhtml
+You can use `--genhtml` to generate a test report similar to the html of this [website](https://tair-opensource.github.io/compatibility-test-suite-for-redis/). It should be noted that this option will read the configuration in [config.yaml](config.yaml) for testing. Special attention needs to be paid, at this time the `specific-version` specified in your command line will be overwritten by the one in the configuration file.
+```
+$ python3.9 redis_compatibility_test.py --testfile cts.json --genhtml --show-failed
+directory html already exists, will be deleted and renewed.
+start test Redis for version 4.0.0
+connecting to 127.0.0.1:6379 using standalone client
+start test Redis for version 5.0.0
+connecting to 127.0.0.1:6379 using standalone client
+start test Redis for version 6.0.0
+connecting to 127.0.0.1:6379 using standalone client
+start test Redis for version 7.0.0
+connecting to 127.0.0.1:6379 using standalone client
+...
+Visit http://localhost:8000 for the report.
+```
+Then, an Http Server will be started on http://localhost:8000 by default, and you can access it to get reports.
