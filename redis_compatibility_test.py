@@ -3,7 +3,6 @@ import argparse
 import os
 import re
 import http.server
-import socketserver
 
 import redis
 import json
