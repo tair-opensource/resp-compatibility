@@ -7514,5 +7514,40 @@
       ]
     ],
     "since": "2.0.0"
+  },
+  {
+    "name": "cluster reset command",
+    "command": [
+      "cluster reset hard",
+      "cluster reset soft"
+    ],
+    "result": [
+      "OK",
+      "OK"
+    ],
+    "since": "3.0.0",
+    "tags": "cluster"
+  },
+  {
+    "name": "readonly command",
+    "command": [
+      "readonly"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "3.0.0",
+    "tags": "cluster"
+  },
+  {
+    "name": "readwrite command",
+    "command": [
+      "readwrite"
+    ],
+    "result": [
+      "OK"
+    ],
+    "since": "3.0.0",
+    "tags": "cluster"
   }
 ]
