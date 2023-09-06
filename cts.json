@@ -7314,5 +7314,205 @@
       0
     ],
     "since": "6.2.0"
+  },
+  {
+    "name": "psubscribe command",
+    "command": [
+      "psubscribe hello",
+      "quit"
+    ],
+    "result": [
+      [
+        "psubscribe",
+        "hello",
+        1
+      ],
+      "OK"
+    ],
+    "since": "2.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "psubscribe with RESET",
+    "command": [
+      "psubscribe hello RESET"
+    ],
+    "result": [
+      [
+        "psubscribe",
+        "hello",
+        1
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "publish command",
+    "command": [
+      "publish hello world"
+    ],
+    "result": [
+      0
+    ],
+    "since": "2.0.0"
+  },
+  {
+    "name": "pubsub channels command",
+    "command": [
+      "pubsub channels hello"
+    ],
+    "result": [
+      []
+    ],
+    "since": "2.8.0"
+  },
+  {
+    "name": "pubsub numpat command",
+    "command": [
+      "pubsub numpat"
+    ],
+    "result": [
+      0
+    ],
+    "since": "2.8.0"
+  },
+  {
+    "name": "pubsub numsub command",
+    "command": [
+      "pubsub numsub hello"
+    ],
+    "result": [
+      [
+        "hello",
+        0
+      ]
+    ],
+    "since": "2.8.0"
+  },
+  {
+    "name": "pubsub shardchannels command",
+    "command": [
+      "pubsub shardchannels hello"
+    ],
+    "result": [
+      []
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "pubsub shardnumsub command",
+    "command": [
+      "pubsub shardnumsub hello"
+    ],
+    "result": [
+      [
+        "hello",
+        0
+      ]
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "punsubscribe command",
+    "command": [
+      "punsubscribe hello"
+    ],
+    "result": [
+      [
+        "punsubscribe",
+        "hello",
+        0
+      ]
+    ],
+    "since": "2.0.0"
+  },
+  {
+    "name": "spublish command",
+    "command": [
+      "spublish hello world"
+    ],
+    "result": [
+      0
+    ],
+    "since": "7.0.0"
+  },
+  {
+    "name": "ssubscribe command",
+    "command": [
+      "ssubscribe hello",
+      "quit"
+    ],
+    "result": [
+      [
+        "ssubscribe",
+        "hello",
+        1
+      ],
+      "OK"
+    ],
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "subscribe command",
+    "command": [
+      "subscribe hello",
+      "quit"
+    ],
+    "result": [
+      [
+        "subscribe",
+        "hello",
+        1
+      ],
+      "OK"
+    ],
+    "since": "2.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "subscribe with RESET",
+    "command": [
+      "subscribe hello RESET"
+    ],
+    "result": [
+      [
+        "subscribe",
+        "hello",
+        1
+      ]
+    ],
+    "since": "6.2.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "sunsubscribe command",
+    "command": [
+      "sunsubscribe hello"
+    ],
+    "result": [
+      [
+        "sunsubscribe",
+        "hello",
+        0
+      ]
+    ],
+    "since": "7.0.0",
+    "tags": "standalone"
+  },
+  {
+    "name": "unsubscribe command",
+    "command": [
+      "unsubscribe hello"
+    ],
+    "result": [
+      [
+        "unsubscribe",
+        "hello",
+        0
+      ]
+    ],
+    "since": "2.0.0"
   }
 ]
