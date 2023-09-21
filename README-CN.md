@@ -9,6 +9,10 @@
 pip3 install -r requirements.txt
 ```
 
+# 可测试命令
+
+CTS 可以测试的命令及其对应的版本信息可参考[此表](cts_refer.md)
+
 # 如何使用
 
 一些命令行支持的参数如下所示：
@@ -93,12 +97,12 @@ Visit http://localhost:8000 for the report.
 ```
 整体上是一个 JSON数组，包含多条测试 case，每一个都是 JSON Object，`command`和`result`是一一对应的。除过上述示例中的字段，还有一些字段如下：
 
-|name|value| 含义                          |
-|---|---|-----------------------------|
-|tags|standalone,cluster| 只在tags指定的模式下才允许此case        |
-|skipped|true| 跳过此case                     |
-|command_binary|true| 将命令转为二进制，例如命令中包含非可见的ascii字符 |
-|sort_result|true| 对返回结果进行排序                   |
+| name           | value              | 含义                          |
+|----------------|--------------------|-----------------------------|
+| tags           | standalone,cluster | 只在tags指定的模式下才允许此case        |
+| skipped        | true               | 跳过此case                     |
+| command_binary | true               | 将命令转为二进制，例如命令中包含非可见的ascii字符 |
+| sort_result    | true               | 对返回结果进行排序                   |
 
 ### 使用别的编程语言使用此工具
 本项目的主要工作是我们在 `cts.json`中增加了超过 7000 行测试，如果您希望用别的编程语言（例如 Java, Go, Rust等）实现相同功能的测试工具，那么您只需要解析 `cts.json` 的格式，并且将测试依次执行即可，玩的愉快。

@@ -2,7 +2,7 @@
 
 [![4.0](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/4.0.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/4.0.yaml) [![5.0](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/5.0.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/5.0.yaml) [![6.0](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/6.0.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/6.0.yaml) [![6.2](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/6.2.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/6.2.yaml) [![7.0](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/7.0.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/7.0.yaml) [![7.2](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/7.2.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/7.2.yaml) [![unstable](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/unstable.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/unstable.yaml)
 
-compatibility-test-suite-for-redis is used to test whether your redis-like database is compatible with Redis versions (such as
+compatibility-test-suite-for-redis(CTS) is used to test whether your redis-like database is compatible with Redis versions (such as
 6.0, 7.0, etc.)  [中文文档](README-CN.md)
 
 # Install
@@ -12,6 +12,10 @@ requires `Python 3.7` or later.
 ```
 pip3 install -r requirements.txt
 ```
+
+# Testable Commands
+
+Refer to [this table](cts_refer.md) for the commands that CTS can test and their corresponding version information.
 
 # How to use
 
@@ -71,7 +75,7 @@ connecting to 127.0.0.1:6379 using standalone client
 ...
 Visit http://localhost:8000 for the report.
 ```
-Then, an Http Server will be started on http://localhost:8000 by default, and you can access it to get reports.
+Then, a Http Server will be started on http://localhost:8000 by default, and you can access it to get reports.
 
 ## More uses
 
@@ -95,12 +99,12 @@ When you need to migrate the business system from A database to B, in order to p
 ```
 Overall, it is a JSON array, containing multiple test cases, each of which is a JSON Object, and `command` and `result` are in one-to-one correspondence. In addition to the fields in the example, there are some as follows:
 
-| name           | value                 |meaning|
-|---|-----------------------|---|
-| tags           | standalone or cluster |This case is only allowed in the mode specified by tags|
-| skipped        | true                  |skip this case|
-| command_binary | true                  |Convert the command to binary, such as the command contains non-visible ascii characters|
-| sort_result    | true                  |Sort the returned results|
+| name           | value                 | meaning                                                                                  |
+|----------------|-----------------------|------------------------------------------------------------------------------------------|
+| tags           | standalone or cluster | This case is only allowed in the mode specified by tags                                  |
+| skipped        | true                  | skip this case                                                                           |
+| command_binary | true                  | Convert the command to binary, such as the command contains non-visible ascii characters |
+| sort_result    | true                  | Sort the returned results                                                                |
 
 ### Test with another programming language
 The main work of this project is that we have added more than 7000 lines of tests in `cts.json`, if you want to implement tests in other programming languages (such as Java, Go, Rust, etc.), then you only need to parse `cts.json ` format, and execute the tests sequentially, have fun.
