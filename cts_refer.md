@@ -117,8 +117,6 @@
 | hyperloglog | [pfadd](https://redis.io/commands/pfadd/)                 |   | ✗               | ✗               | ✓               | ✓               | ✓               | ✓               | ✓               | ✓               | ✓               |
 |             | [pfcount](https://redis.io/commands/pfcount/)             |   | ✗               | ✗               | ✓               | ✓               | ✓               | ✓               | ✓               | ✓               | ✓               |
 |             | [pfmerge](https://redis.io/commands/pfmerge/)             |   | ✗               | ✗               | ✓               | ✓               | ✓               | ✓               | ✓               | ✓               | ✓               |
-|             | [pfdebug](https://redis.io/commands/pfdebug/) [不支持]       |   | ✗               | ✗               | ✓               | ✓               | ✓               | ✓               | ✓               | ✓               | ✓               |
-|             | [pfselftest](https://redis.io/commands/pfselftest/) [不支持] |   | ✗               | ✗               | ✓               | ✓               | ✓               | ✓               | ✓               | ✓               | ✓               |
 
 
 
