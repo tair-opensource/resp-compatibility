@@ -1,0 +1,3 @@
+redis>=4.4.4
+pyyaml>=6.0
+dataclasses

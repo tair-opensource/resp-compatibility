@@ -1,3 +1,20 @@
+Metadata-Version: 2.1
+Name: redis-compatibility-test
+Version: 0.0.7
+Summary: A tool to detect which version of Redis your Redis-Like database is compatible with.
+Author-email: daz-3ux <daz-3ux@proton.me>, yangbodong22011 <bodong.ybd@alibaba-inc.com>
+Project-URL: Homepage, https://github.com/tair-opensource/compatibility-test-suite-for-redis
+Project-URL: Bug Tracker, https://github.com/tair-opensource/compatibility-test-suite-for-redis/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: redis>=4.4.4
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: dataclasses
+
 # compatibility-test-suite-for-redis
 
 [![4.0](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/4.0.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/4.0.yaml) [![5.0](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/5.0.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/5.0.yaml) [![6.0](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/6.0.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/6.0.yaml) [![6.2](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/6.2.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/6.2.yaml) [![7.0](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/7.0.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/7.0.yaml) [![7.2](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/7.2.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/7.2.yaml) [![unstable](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/unstable.yaml/badge.svg)](https://github.com/tair-opensource/compatibility-test-suite-for-redis/actions/workflows/unstable.yaml)

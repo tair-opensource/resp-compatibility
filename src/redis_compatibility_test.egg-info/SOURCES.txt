@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/redis_compatibility_test/__init__.py
+src/redis_compatibility_test/config.yaml
+src/redis_compatibility_test/cts.json
+src/redis_compatibility_test.egg-info/PKG-INFO
+src/redis_compatibility_test.egg-info/SOURCES.txt
+src/redis_compatibility_test.egg-info/dependency_links.txt
+src/redis_compatibility_test.egg-info/entry_points.txt
+src/redis_compatibility_test.egg-info/requires.txt
+src/redis_compatibility_test.egg-info/top_level.txt

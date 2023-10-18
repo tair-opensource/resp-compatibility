@@ -1,0 +1,2 @@
+[console_scripts]
+redis-compatibility-test = redis_compatibility_test:main

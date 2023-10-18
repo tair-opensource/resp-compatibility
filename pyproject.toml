@@ -1,10 +1,10 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "redis-compatibility-test"
-version = "0.0.2"
+version = "0.0.7"
 authors = [
     { name = "daz-3ux", email = "daz-3ux@proton.me" },
     { name = "yangbodong22011", email = "bodong.ybd@alibaba-inc.com" },
@@ -20,7 +20,10 @@ classifiers = [
 dependencies = ["redis >= 4.4.4", "pyyaml >= 6.0", "dataclasses"]
 
 [project.scripts]
-redis-compatibility-test = "redis_compatibility_test:__main__"
+redis-compatibility-test = "redis_compatibility_test:main"
+
+[tool.setuptools.package-data]
+"redis_compatibility_test" = ["cts.json", "config.yaml"]
 
 [project.urls]
 "Homepage" = "https://github.com/tair-opensource/compatibility-test-suite-for-redis"

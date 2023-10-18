@@ -23,7 +23,7 @@ Run the test for compatibility with Redis 6.2.0
 
 Run the test whether it is compatible with Redis 6.2.0, and print the failure case
     python3 redis_compatibility_test.py --testfile cts.json --specific-version 6.2.0 --show-failed
-    
+
 Run the test for redis cluster
     python3 redis_compatibility_test.py --testfile cts.json --host 127.0.0.1 --port 30001 --cluster
 """
@@ -45,6 +45,7 @@ class TestResult:
 r: redis.Redis = None
 g_results: Dict[str, TestResult] = {}
 logfile = None
+args = None
 
 
 def report_result():
@@ -269,10 +270,10 @@ def start_webserver(logdir):
     httpd.serve_forever()
 
 
-def run_test_by_configfile():
+def run_test_by_configfile(config_file):
     global logfile
     try:
-        with open('config.yaml', 'r') as f:
+        with open(config_file, 'r') as f:
             configs = yaml.load(f, Loader=yaml.FullLoader)
     except FileNotFoundError as e:
         print(f"error {e}")
@@ -345,14 +346,22 @@ def parse_args():
     parser.add_argument("--cluster", help="server is a node of the Redis cluster", default=False, action="store_true")
     parser.add_argument("--ssl", help="open ssl connection", default=False, action="store_true")
     parser.add_argument("--genhtml", help="generate test report in html format", default=False, action="store_true")
+    parser.add_argument("--config-file", dest="config_file", help="test configuration file", default=None)
     return parser.parse_args()
 
 
-if __name__ == '__main__':
+def main():
+    global args
     args = parse_args()
     if args.genhtml:
-        run_test_by_configfile()
+        if args.config is None:
+            raise ValueError("genhtml and config-file must exist at the same time")
+        run_test_by_configfile(args.config_file)
     else:
         create_client(args.host, args.port, args.password, args.ssl, args.cluster)
         run_compatibility_tests(args.testfile)
         report_result()
+
+
+if __name__ == '__main__':
+    main()
