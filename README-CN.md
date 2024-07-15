@@ -1,6 +1,6 @@
-# compatibility-test-suite-for-redis
+#  resp-compatibility
 
-`compatibility-test-suite-for-redis`是一个用来检测你的`Redis-Like`系统兼容到开源`Redis`哪个版本的工具（6.0还是7.0等）。
+` resp-compatibility`是一个用来检测你的`Redis-Like`系统兼容到开源`Redis`哪个版本的工具（6.0还是7.0等）。
 
 # 安装
 
@@ -33,7 +33,7 @@ optional arguments:
 ```
 例如，测试 host:port 对应的服务是否兼容 Redis 6.2.0 版本并显示失败的测试。
 ```
-$ python3 redis_compatibility_test.py -h host -p port --testfile cts.json --specific-version 6.2.0 --show-failed
+$ python3  resp_compatibility.py -h host -p port --testfile cts.json --specific-version 6.2.0 --show-failed
 Connecting to 127.0.0.1:6379 use standalone client
 test: del command passed
 test: unlink command passed
@@ -42,12 +42,12 @@ test: xtrim command with MINID/LIMIT passed
 -------- The result of tests --------
 Summary: version: 6.2.0, total tests: 285, passed: 285, rate: 100.00%
 ```
-更多的示例请参考 `python3 redis_compatibility_test.py -h`。
+更多的示例请参考 `python3  resp_compatibility.py -h`。
 
 ## cluster
 Redis 在 API 层面有两种模式，一个是`Standalone`（Sentinel 模式的 API 兼容性和 Standalone 是一样的），一个是`Cluster`。命令在`Standalone`模式下没有跨 Slot 的限制，但是在集群模式下，要求多 key 的命令（例如 mset/mget命令）必须在同一 Slot 中。因此，我们支持了`--cluster`这个选项来测试系统对于 `Redis Cluster` 模式的兼容性，用法如下：
 ```
-$ python3.9 redis_compatibility_test.py --testfile cts.json --host 127.0.0.1 --port 30001 --cluster --specific-version 6.2.0
+$ python3.9  resp_compatibility.py --testfile cts.json --host 127.0.0.1 --port 30001 --cluster --specific-version 6.2.0
 connecting to 127.0.0.1:30001 use cluster client
 test: del command passed
 test: unlink command passed
@@ -60,7 +60,7 @@ Summary: version: 6.2.0, total tests: 260, passed: 260, rate: 100.00%
 ## genhtml
 您可以使用 `--genhtml` 选项来生成和此[网站](https://tair-opensource.github.io/compatibility-test-suite-for-redis/)相同的 html 报告。 请注意，当使用此选项时候，将会读取 [config.yaml](config.yaml) 文件中的配置进行测试，此时命令行中的 `specific-version` 将会被文件中的覆盖。
 ```
-$ python3.9 redis_compatibility_test.py --testfile cts.json --genhtml --show-failed
+$ python3.9  resp_compatibility.py --testfile cts.json --genhtml --show-failed
 directory html already exists, will be deleted and renewed.
 start test Redis for version 4.0.0
 connecting to 127.0.0.1:6379 using standalone client

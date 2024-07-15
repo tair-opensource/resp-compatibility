@@ -16,16 +16,16 @@ EXAMPLE = """
 Examples:
 
 Run tests without specifying a version
-    python3 redis_compatibility_test.py --testfile cts.json
+    python3  resp_compatibility.py --testfile cts.json
 
 Run the test for compatibility with Redis 6.2.0
-    python3 redis_compatibility_test.py --testfile cts.json --specific-version 6.2.0
+    python3  resp_compatibility.py --testfile cts.json --specific-version 6.2.0
 
 Run the test whether it is compatible with Redis 6.2.0, and print the failure case
-    python3 redis_compatibility_test.py --testfile cts.json --specific-version 6.2.0 --show-failed
+    python3  resp_compatibility.py --testfile cts.json --specific-version 6.2.0 --show-failed
     
 Run the test for redis cluster
-    python3 redis_compatibility_test.py --testfile cts.json --host 127.0.0.1 --port 30001 --cluster
+    python3  resp_compatibility.py --testfile cts.json --host 127.0.0.1 --port 30001 --cluster
 """
 
 
@@ -329,8 +329,8 @@ def create_client(host, port, password, ssl, cluster):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(prog="redis_compatibility_test",
-                                     description="redis_compatibility_test is used to test whether your redis-like "
+    parser = argparse.ArgumentParser(prog=" resp_compatibility",
+                                     description=" resp_compatibility is used to test whether your redis-like "
                                                  "database is compatible with Redis versions (such as 6.0, 7.0, etc.)",
                                      formatter_class=argparse.RawDescriptionHelpFormatter,
                                      epilog=EXAMPLE)

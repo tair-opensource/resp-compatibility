@@ -38,7 +38,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: run test
-        run: python redis_compatibility_test.py --testfile cts.json --specific-version 6.2.0 --show-failed > test.result
+        run: python  resp_compatibility.py --testfile cts.json --specific-version 6.2.0 --show-failed > test.result
 
       - name: check fail tests
         run: |
@@ -46,7 +46,7 @@ jobs:
           grep -q "This is failed tests for" test.result && exit -1 || exit 0
 
       - name: run cluster test
-        run: python redis_compatibility_test.py --testfile cts.json --port 30001 --specific-version 6.2.0 --cluster --show-failed > cluster.result
+        run: python  resp_compatibility.py --testfile cts.json --port 30001 --specific-version 6.2.0 --cluster --show-failed > cluster.result
 
       - name: check cluster fail tests
         run: |
