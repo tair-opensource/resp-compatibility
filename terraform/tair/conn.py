@@ -1,4 +1,7 @@
 import os
+import threading
+from datetime import time
+
 import yaml
 import subprocess
 
@@ -63,13 +66,34 @@ run_test_command = [
     "python3 resp_compatibility.py --testfile cts.json --genhtml --show-failed",
 ]
 
-execute_command(run_test_command)
+def run_test():
+    execute_command(run_test_command)
 
-# 提交测试结果到 GitHub 的命令
+# 启动测试脚本的线程
+test_thread = threading.Thread(target=run_test)
+test_thread.start()
+
+# 主线程等待3分钟
+time.sleep(180)
+
+
+# 提交测试结果到 GitHub
 commit_and_push_commands = [
     "cd root/compatibility-test-suite-for-redis/",
     "git add html/*",
     "git commit -m 'Daily test results'",
-    "git push origin gh-pages"
 ]
 execute_command(commit_and_push_commands)
+
+# 确保 git push 成功的循环
+def git_push_with_retry():
+    while True:
+        result = subprocess.run("cd /root/compatibility-test-suite-for-redis/ && git push origin gh-pages", shell=True, capture_output=True, text=True)
+        if result.returncode == 0:
+            print("Successfully pushed to GitHub.")
+            break
+        else:
+            print(f"Git push failed: {result.stderr}. Retrying in 5 seconds...")
+            time.sleep(5)
+
+git_push_with_retry()
