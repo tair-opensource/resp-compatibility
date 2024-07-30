@@ -10,8 +10,8 @@ def read_temp_file(file_path):
             info[key] = value
     return info
 
-temp_file_path = '/path/to/temp/file'  # 替换为实际的 temp 文件路径
-info = read_temp_file(temp_file_path)
+# temp_file_path = '/path/to/temp/file'
+# info = read_temp_file(temp_file_path)
 
 access_key_id = ''
 access_key_secret = ''
@@ -58,18 +58,16 @@ update_config_file(tair_host, tair_port, tair_password)
 
 # 运行测试脚本
 run_test_command = [
-    "cd compatibility-test-suite-for-redis",
-    "git checkout gh-pages",
-    "source venv/bin/activate",
+    "cd root/compatibility-test-suite-for-redis/",
     "pip3 install -r requirements.txt",
     "python3 resp_compatibility.py --testfile cts.json --genhtml --show-failed",
-    "deactivate",
 ]
 
 execute_command(run_test_command)
 
 # 提交测试结果到 GitHub 的命令
 commit_and_push_commands = [
+    "cd root/compatibility-test-suite-for-redis/",
     "git add html/*",
     "git commit -m 'Daily test results'",
     "git push origin gh-pages"
