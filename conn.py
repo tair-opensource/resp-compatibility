@@ -81,6 +81,7 @@ commit_and_push_commands = [
     "mv html /tmp/test-results",
     "git stash -u",
     "git checkout gh-pages || git checkout -b gh-pages",
+    "git pull origin gh-pages",
     "cp -r /tmp/test-results/html/* .",
     "git add .",
     "git commit -m 'Update test results'",
@@ -90,7 +91,7 @@ execute_command(commit_and_push_commands)
 # 确保 git push 成功的循环
 def git_push_with_retry():
     while True:
-        result = subprocess.run("cd /root/compatibility-test-suite-for-redis/ && git push -u origin gh-pages", shell=True, capture_output=True, text=True)
+        result = subprocess.run("git push -u origin gh-pages", shell=True, capture_output=True, text=True)
         if result.returncode == 0:
             print("Successfully pushed to GitHub.")
             break
