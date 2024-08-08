@@ -79,9 +79,9 @@ time.sleep(180)
 # 提交测试结果到 GitHub
 commit_and_push_commands = [
     "mv html /tmp/test-results",
+    "git stash",
     "git checkout gh-pages || git checkout -b gh-pages",
-    "git rm -r *",
-    "cp -r /tmp/test-results/html/* .",
+    "cp -r /tmp/test-results/* .",
     "git add .",
     "git commit -m 'Update test results'",
 ]
