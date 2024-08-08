@@ -81,7 +81,7 @@ commit_and_push_commands = [
     "mv html /tmp/test-results",
     "git stash -u",
     "git checkout gh-pages || git checkout -b gh-pages",
-    "cp -r /tmp/test-results/* .",
+    "cp -r /tmp/test-results/html/* .",
     "git add .",
     "git commit -m 'Update test results'",
 ]
