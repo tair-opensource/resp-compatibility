@@ -45,7 +45,7 @@ execute_command(commands)
 
 # 更新 config.yaml 文件
 def update_config_file(tair_host, tair_port, tair_password):
-    config_path = '/root/compatibility-test-suite-for-redis/config.yaml'
+    config_path = 'config.yaml'
 
     with open(config_path, 'r') as file:
         config = yaml.safe_load(file)
