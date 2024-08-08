@@ -72,14 +72,14 @@ def run_test():
 test_thread = threading.Thread(target=run_test)
 test_thread.start()
 
-# 主线程等待3分钟
-time.sleep(180)
+# 主线程等待5分钟
+time.sleep(300)
 
 
 # 提交测试结果到 GitHub
 commit_and_push_commands = [
     "mv html /tmp/test-results",
-    "git stash",
+    "git stash -u",
     "git checkout gh-pages || git checkout -b gh-pages",
     "cp -r /tmp/test-results/* .",
     "git add .",
@@ -90,7 +90,7 @@ execute_command(commit_and_push_commands)
 # 确保 git push 成功的循环
 def git_push_with_retry():
     while True:
-        result = subprocess.run("cd /root/compatibility-test-suite-for-redis/ && git push origin gh-pages", shell=True, capture_output=True, text=True)
+        result = subprocess.run("cd /root/compatibility-test-suite-for-redis/ && git push -u origin gh-pages", shell=True, capture_output=True, text=True)
         if result.returncode == 0:
             print("Successfully pushed to GitHub.")
             break
