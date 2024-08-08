@@ -22,7 +22,9 @@ ecs_ip = ''
 tair_host = ''
 tair_port = ''
 tair_password = ''
+tair_version=''
 ecs_password = ''
+
 
 def execute_command(commands):
     for command in commands:
@@ -53,6 +55,7 @@ def update_config_file(tair_host, tair_port, tair_password):
     config['Database']['Tair']['host'] = tair_host
     config['Database']['Tair']['port'] = tair_port
     config['Database']['Tair']['password'] = tair_password
+    config['Database']['Tair']['version'] = tair_version
 
     with open(config_path, 'w') as file:
         yaml.safe_dump(config, file)
