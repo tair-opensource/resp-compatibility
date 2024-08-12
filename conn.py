@@ -47,9 +47,6 @@ def execute_command(commands):
 commands = [
     "apt-get update",
     "apt-get install -y python3-pip",
-    "apt-get install -y python3-venv",
-    "git config --global user.name 'name'",
-    "git config --global user.email 'email'",
 ]
 
 execute_command(commands)
