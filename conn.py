@@ -74,11 +74,12 @@ time.sleep(300)
 
 
 commit_and_push_commands = [
-    "mv html /tmp/test-results",
+    "mv html /root",
     "git stash -u",
     "git checkout gh-pages || git checkout -b gh-pages",
     "git pull origin gh-pages",
-    "cp -r /tmp/test-results/html/* .",
+    "rm -rf -- *",
+    "cp -r /root/html/* .",
     "git add .",
     "git commit -m 'Update test results'",
 ]
