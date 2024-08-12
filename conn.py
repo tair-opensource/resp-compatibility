@@ -5,25 +5,34 @@ import time
 import yaml
 import subprocess
 
-def read_temp_file(file_path):
-    info = {}
-    with open(file_path, 'r') as file:
-        for line in file:
-            key, value = line.strip().split('=')
-            info[key] = value
-    return info
 
-# temp_file_path = '/path/to/temp/file'
-# info = read_temp_file(temp_file_path)
+try:
+    yml_file_path = '/root/db_config.yml'
+    config_file_path = '/root/compatibility-test-suite-for-redis/config.yaml'
 
-access_key_id = ''
-access_key_secret = ''
-ecs_ip = ''
-tair_host = ''
-tair_port = ''
-tair_password = ''
-tair_version=''
-ecs_password = ''
+    with open(yml_file_path, 'r') as yml_file, open(config_file_path, 'r') as config_file:
+        yml_data = yaml.safe_load(yml_file)
+        config_data = yaml.safe_load(config_file)
+
+        for db_name, db_config in yml_data.items():
+            if db_name in config_data['Database']:
+                for key, value in db_config.items():
+                    config_data['Database'][db_name][key] = value
+            else:
+                config_data['Database'][db_name] = db_config
+
+    with open(config_file_path, 'w') as config_file:
+        yaml.dump(config_data, config_file, default_flow_style=False)
+
+    print("Config file updated successfully.")
+
+except FileNotFoundError as e:
+    print(f"Error: {e}. Please check the file paths.")
+except yaml.YAMLError as e:
+    print(f"Error in YAML processing: {e}")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+
 
 
 def execute_command(commands):
@@ -45,24 +54,8 @@ commands = [
 
 execute_command(commands)
 
-# 更新 config.yaml 文件
-def update_config_file(tair_host, tair_port, tair_password):
-    config_path = 'config.yaml'
 
-    with open(config_path, 'r') as file:
-        config = yaml.safe_load(file)
 
-    config['Database']['Tair']['host'] = tair_host
-    config['Database']['Tair']['port'] = tair_port
-    config['Database']['Tair']['password'] = tair_password
-    config['Database']['Tair']['version'] = tair_version
-
-    with open(config_path, 'w') as file:
-        yaml.safe_dump(config, file)
-
-update_config_file(tair_host, tair_port, tair_password)
-
-# 运行测试脚本
 run_test_command = [
     "pip3 install -r requirements.txt",
     "python3 resp_compatibility.py --testfile cts.json --genhtml --show-failed",
@@ -79,7 +72,7 @@ test_thread.start()
 time.sleep(300)
 
 
-# 提交测试结果到 GitHub
+
 commit_and_push_commands = [
     "mv html /tmp/test-results",
     "git stash -u",
@@ -91,7 +84,7 @@ commit_and_push_commands = [
 ]
 execute_command(commit_and_push_commands)
 
-# 确保 git push 成功的循环
+
 def git_push_with_retry():
     while True:
         result = subprocess.run("git push -u origin gh-pages", shell=True, capture_output=True, text=True)
