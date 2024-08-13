@@ -1,11 +1,10 @@
 import os
 import threading
 import time
-
 import yaml
 import subprocess
 
-
+# 更新配置文件
 try:
     yml_file_path = '/root/db_config.yml'
     config_file_path = '/root/compatibility-test-suite-for-redis/config.yaml'
@@ -34,42 +33,47 @@ except Exception as e:
     print(f"An unexpected error occurred: {e}")
 
 
-
+# 执行命令并判断是否成功
 def execute_command(commands):
     for command in commands:
         result = subprocess.run(command, shell=True, capture_output=True, text=True)
         if result.returncode != 0:
             print(f"Error executing command '{command}': {result.stderr}")
+            return False
         else:
             print(f"Successfully executed command '{command}': {result.stdout}")
+    return True
+
 
 
 commands = [
     "apt-get update",
     "apt-get install -y python3-pip",
 ]
+if not execute_command(commands):
+    print("Failed to update or install packages. Exiting...")
+    exit(1)
 
-execute_command(commands)
-
-
-
+# 运行测试命令
 run_test_command = [
     "pip3 install -r requirements.txt",
     "python3 resp_compatibility.py --testfile cts.json --genhtml --show-failed",
 ]
 
 def run_test():
-    execute_command(run_test_command)
+    if not execute_command(run_test_command):
+        print("Test failed. Exiting...")
+        exit(1)
+    else:
+        print("Test completed successfully.")
 
 # 启动测试脚本的线程
 test_thread = threading.Thread(target=run_test)
 test_thread.start()
 
-# 主线程等待5分钟
 time.sleep(300)
 
-
-
+# 提交和推送测试结果
 commit_and_push_commands = [
     "mv html /root",
     "git stash -u",
@@ -80,9 +84,11 @@ commit_and_push_commands = [
     "git add .",
     "git commit -m 'Update test results'",
 ]
-execute_command(commit_and_push_commands)
+if not execute_command(commit_and_push_commands):
+    print("Failed to commit and push changes. Exiting...")
+    exit(1)
 
-
+# 推送到 GitHub 并重试
 def git_push_with_retry():
     while True:
         result = subprocess.run("git push -u origin gh-pages", shell=True, capture_output=True, text=True)
@@ -94,3 +100,4 @@ def git_push_with_retry():
             time.sleep(5)
 
 git_push_with_retry()
+
