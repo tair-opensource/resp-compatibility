@@ -79,8 +79,7 @@ commit_and_push_commands = [
     "git stash -u",
     "git checkout gh-pages || git checkout -b gh-pages",
     "git pull origin gh-pages",
-    "rm -rf -- *",
-    "cp -r /root/html/* .",
+    "cp -r /root/html/* .", #更新直接覆盖原同名文件
     "git add .",
     "git commit -m 'Update test results'",
 ]
