@@ -288,7 +288,7 @@ if [ $RETRY_COUNT -eq $MAX_RETRIES ]; then
   exit 1
 fi
 
-cd compatibility-test-suite-for-redis
+cd resp-compatibility
 python3 conn.py
 EOF
 }
