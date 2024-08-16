@@ -1,3 +1,4 @@
+#secret_key，access_key和github_token从GitHub Secrets中获取
 variable "access_key" {
   description = "Access key for Alicloud provider"
   type        = string
@@ -145,7 +146,7 @@ resource "alicloud_kvstore_instance" "my_redis_cluster" {
 }
 
 
-# 输出实例信息,目前用于验证
+# 输出实例信息,用于验证
 output "tair_standard_instance_address" {
   value = alicloud_kvstore_instance.my_tair_standard.connection_domain
 }
@@ -260,13 +261,13 @@ redis_cluster:
   version: 7.0
 EOT
 
-#填入github用户信息
+#请填入github用户信息
 echo "https://${var.github_token}:x-oauth-basic@github.com" > ~/.git-credentials
 git config --global user.name 'xxx'
 git config --global user.email 'xxx'
 
 # 尝试克隆 Git 仓库，最多尝试 10 次
-REPO_URL="https://github.com/MrHappyEnding/compatibility-test-suite-for-redis.git"
+REPO_URL="https://github.com/tair-opensource/resp-compatibility.git" # 可更改为gitlink链接
 RETRY_COUNT=0
 MAX_RETRIES=10
 SLEEP_DURATION=30
