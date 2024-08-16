@@ -288,6 +288,7 @@ if [ $RETRY_COUNT -eq $MAX_RETRIES ]; then
   exit 1
 fi
 
+git checkout dailyTest
 cd resp-compatibility
 python3 conn.py
 EOF
