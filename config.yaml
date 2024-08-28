@@ -20,6 +20,14 @@ Database:
     ssl: false
     cluster: false
     version: latest
+  
+  Valkey:
+    host: 172.16.0.10
+    port: 6384
+    password:
+    ssl: false
+    cluster: false
+    version: latest
 
   DragonflyDB:
     host: 172.16.0.10
