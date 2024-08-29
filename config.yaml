@@ -13,7 +13,7 @@ SpecificVersion:
 
 # the host, port, password of all the db to be tested
 Database:
-  RedisCommunity:
+  Redis:
     host: 172.16.0.10
     port: 6379
     password:
@@ -21,17 +21,17 @@ Database:
     cluster: false
     version: latest
   
+  RedisCluster:
+    host: 
+    port: 
+    password:
+    ssl: false
+    cluster: true
+    version: latest
+  
   Valkey:
     host: 172.16.0.10
     port: 6384
-    password:
-    ssl: false
-    cluster: false
-    version: latest
-
-  DragonflyDB:
-    host: 172.16.0.10
-    port: 6380
     password:
     ssl: false
     cluster: false
