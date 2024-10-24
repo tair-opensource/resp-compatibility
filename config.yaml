@@ -22,8 +22,8 @@ Database:
     version: latest
   
   RedisCluster:
-    host: 
-    port: 
+    host: 127.0.0.1
+    port: 30000 
     password:
     ssl: false
     cluster: true
