@@ -23,7 +23,7 @@ Database:
   
   RedisCluster:
     host: 127.0.0.1
-    port: 30000 
+    port: 30001 
     password:
     ssl: false
     cluster: true
@@ -54,8 +54,8 @@ Database:
     version: latest
 
   Pika:
-    host: 172.16.0.10
-    port: 6383
+    host: 172.17.0.6
+    port: 9221
     password:
     ssl: false
     cluster: false
