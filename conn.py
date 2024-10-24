@@ -7,7 +7,7 @@ import subprocess
 # 更新配置文件
 try:
     yml_file_path = '/root/db_config.yml'
-    config_file_path = '/compatibility-test-suite-for-redis/config.yaml'
+    config_file_path = 'config.yaml'
 
     with open(yml_file_path, 'r') as yml_file, open(config_file_path, 'r') as config_file:
         yml_data = yaml.safe_load(yml_file)
