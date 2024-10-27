@@ -1,0 +1,79 @@
+name: Terraform in Daily Test
+    
+on:
+  schedule:
+    - cron: '0 18 * * *'  # 每天 UTC 时间 18:00，即中国时间凌晨 2 点
+    
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check GitHub Secrets
+        run: |
+          if [ -z "${{ secrets.MYAPP_GITHUB_TOKEN }}" ]; then
+            echo "GitHub Token is missing"
+          else
+            echo "GitHub Token is set"
+          fi
+
+          if [ -z "${{ secrets.MYAPP_USER_EMAIL }}" ]; then
+            echo "User Email is missing"
+          else
+            echo "User Email is set"
+          fi
+
+          if [ -z "${{ secrets.MYAPP_USER_NAME }}" ]; then
+            echo "User Name is missing"
+          else
+            echo "User Name is set"
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: dailyTest 
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.9.4 
+          
+      - name: Initialize Terraform
+        env:
+          TF_VAR_access_key: ${{ secrets.ALI_ACCESS_KEY }}
+          TF_VAR_secret_key: ${{ secrets.ALI_SECRET_KEY }}
+          TF_VAR_github_token: ${{ secrets.MYAPP_GITHUB_TOKEN }}
+          TF_VAR_user_name: ${{ secrets.MYAPP_USER_NAME }}
+          TF_VAR_user_email: ${{ secrets.MYAPP_USER_EMAIL }}
+        run: terraform -chdir=./Terraform/Aliyun init
+
+      - name: Apply Terraform Configuration
+        env:
+          TF_VAR_access_key: ${{ secrets.ALI_ACCESS_KEY }}
+          TF_VAR_secret_key: ${{ secrets.ALI_SECRET_KEY }}
+          TF_VAR_github_token: ${{ secrets.MYAPP_GITHUB_TOKEN }}
+          TF_VAR_user_name: ${{ secrets.MYAPP_USER_NAME }}
+          TF_VAR_user_email: ${{ secrets.MYAPP_USER_EMAIL }}
+        run: terraform -chdir=./Terraform/Aliyun apply -auto-approve
+        
+      - name: Print current directory and file list
+        run: |
+          cd ./Terraform/Aliyun
+          echo "Current directory:"
+          pwd
+          echo "Files in the current directory:"
+          ls
+
+      - name: Wait for 20 minutes before destroying resources
+        run: sleep 1200 # 等待 20 分钟
+        
+      - name: Destroy Terraform Configuration
+        env:
+          TF_VAR_access_key: ${{ secrets.ALI_ACCESS_KEY }}
+          TF_VAR_secret_key: ${{ secrets.ALI_SECRET_KEY }}
+          TF_VAR_github_token: ${{ secrets.MYAPP_GITHUB_TOKEN }}
+          TF_VAR_user_name: ${{ secrets.MYAPP_USER_NAME }}
+          TF_VAR_user_email: ${{ secrets.MYAPP_USER_EMAIL }}
+        run: terraform -chdir=./Terraform/Aliyun destroy -auto-approve
+

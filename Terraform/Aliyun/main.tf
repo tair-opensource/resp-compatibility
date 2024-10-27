@@ -303,8 +303,8 @@ cd utils/create-cluster
  ./create-cluster start
 yes yes | ./create-cluster create
 
-# 尝试克隆 Git 仓库，最多尝试 10 次
-REPO_URL="https://github.com/MrHappyEnding/compatibility-test-suite-for-redis.git"
+# 可替换为含有dailyTest分支仓库的url
+REPO_URL="https://github.com/tair-opensource/resp-compatibility.git"
 RETRY_COUNT=0
 MAX_RETRIES=10
 SLEEP_DURATION=30
@@ -325,7 +325,7 @@ if [ $RETRY_COUNT -eq $MAX_RETRIES ]; then
   exit 1
 fi
 
-cd compatibility-test-suite-for-redis
+cd resp-compatibility
 git checkout dailyTest
 python3 conn.py
 EOF
