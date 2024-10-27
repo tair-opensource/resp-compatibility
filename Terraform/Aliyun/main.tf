@@ -1,4 +1,3 @@
-#secret_key，access_key和github_token从GitHub Secrets中获取
 variable "access_key" {
   description = "Access key for Alicloud provider"
   type        = string
@@ -11,6 +10,16 @@ variable "secret_key" {
 
 variable "github_token" {
   description = "GitHub token for accessing GitHub API"
+  type        = string
+}
+
+variable "user_name" {
+  description = "GitHub user name"
+  type        = string
+}
+
+variable "user_email" {
+  description = "GitHub user email"
   type        = string
 }
 
@@ -38,7 +47,6 @@ resource "alicloud_vswitch" "my_vswitch" {
   zone_id      = local.selected_zone_id
 }
 
-# 创建 Security Group
 resource "alicloud_security_group" "my_sg" {
   name        = "glcc_test_security_group"
   vpc_id      = alicloud_vpc.my_vpc.id
@@ -84,8 +92,8 @@ resource "alicloud_security_group_rule" "allow_redis" {
   ip_protocol       = "tcp"
   nic_type          = "intranet"
   policy            = "accept"
-  port_range        = "6379/6400"
-  cidr_ip           = "172.16.0.10/32"  # 仅允许特定 ECS 实例的私有 IP 访问
+  port_range        = "6379/17005"
+  cidr_ip           = "172.16.0.10/16"  # 仅允许特定 ECS 实例的私有 IP 访问
   description       = "Allow inbound Redis traffic"
 }
 
@@ -146,7 +154,7 @@ resource "alicloud_kvstore_instance" "my_redis_cluster" {
 }
 
 
-# 输出实例信息,用于验证
+# 输出实例信息,目前用于验证
 output "tair_standard_instance_address" {
   value = alicloud_kvstore_instance.my_tair_standard.connection_domain
 }
@@ -202,12 +210,12 @@ output "redis_cluster_instance_password" {
 # 创建 ECS 实例
 resource "alicloud_instance" "my_ecs" {
   private_ip               = "172.16.0.10"
-  instance_type            = "ecs.n4.large"
+  instance_type            = "ecs.g6.xlarge"
   security_groups          = [alicloud_security_group.my_sg.id]
   instance_charge_type     = "PostPaid"
   internet_charge_type     = "PayByTraffic"
   internet_max_bandwidth_out = 10
-  image_id                 = "ubuntu_20_04_x64_20G_alibase_20240630.vhd"
+  image_id                 = "ubuntu_22_04_x64_20G_alibase_20240130.vhd"
   instance_name            = "glcc_ecs"
   vswitch_id               = alicloud_vswitch.my_vswitch.id
   system_disk_category     = "cloud_efficiency"
@@ -221,14 +229,15 @@ resource "alicloud_instance" "my_ecs" {
 #!/bin/bash
 export HOME=/root
 apt-get update
-apt-get install -y python3-pip git
+apt-get install -y python3-pip git docker.io
+systemctl start docker
 pip install "pyyaml>=6.0"
 git config --global credential.helper 'store'
 source /etc/profile
 
 # 写入数据库配置信息
 cat <<EOT >> /root/db_config.yml
-tair_standard:
+AliyunTair:
   host: ${alicloud_kvstore_instance.my_tair_standard.connection_domain}
   port: ${alicloud_kvstore_instance.my_tair_standard.private_connection_port}
   password: T123456@*
@@ -236,15 +245,15 @@ tair_standard:
   cluster: false
   version: 7.0
 
-tair_cluster:
-    host: ${alicloud_kvstore_instance.my_tair_cluster.connection_domain}
-    port: ${alicloud_kvstore_instance.my_tair_cluster.private_connection_port}
-    password: T123456@*
-    ssl: false
-    cluster: true
-    version: 7.0
+AliyunTairCluster:
+  host: ${alicloud_kvstore_instance.my_tair_cluster.connection_domain}
+  port: ${alicloud_kvstore_instance.my_tair_cluster.private_connection_port}
+  password: T123456@*
+  ssl: false
+  cluster: true
+  version: 7.0
 
-redis_standard:
+AliyunRedis:
   host: ${alicloud_kvstore_instance.my_redis_standard.connection_domain}
   port: ${alicloud_kvstore_instance.my_redis_standard.private_connection_port}
   password: T123456@*
@@ -252,7 +261,7 @@ redis_standard:
   cluster: false
   version: 7.0
 
-redis_cluster:
+AliyunRedisCluster:
   host: ${alicloud_kvstore_instance.my_redis_cluster.connection_domain}
   port: ${alicloud_kvstore_instance.my_redis_cluster.private_connection_port}
   password: T123456@*
@@ -261,13 +270,41 @@ redis_cluster:
   version: 7.0
 EOT
 
-#请填入github用户信息
+
+# 拉取和运行数据库容器
+docker pull docker.io/redis:latest
+docker run --name redis -d -p 6379:6379 redis
+
+docker pull docker.dragonflydb.io/dragonflydb/dragonfly:latest
+docker run --name dragonflydb -d -p 6380:6379 docker.dragonflydb.io/dragonflydb/dragonfly
+
+docker pull apache/kvrocks:latest
+docker run --name kvrocks -d -p 6381:6666 apache/kvrocks
+
+docker pull docker.io/eqalpha/keydb:latest
+docker run --name keydb -d -p 6382:6379 eqalpha/keydb
+
+docker pull docker.io/pikadb/pika:latest
+docker run --name pika -d -p 6383:6383 pikadb/pika
+
+docker pull valkey/valkey:latest
+docker run --name valkey -d -p 6384:6379 valkey/valkey
+
+
+# 配置Git
 echo "https://${var.github_token}:x-oauth-basic@github.com" > ~/.git-credentials
-git config --global user.name 'xxx'
-git config --global user.email 'xxx'
+git config --global user.name "${var.user_name}"
+git config --global user.email "${var.user_email}"
+
+git clone https://github.com/redis/redis.git
+cd redis
+make -j
+cd utils/create-cluster
+ ./create-cluster start
+yes yes | ./create-cluster create
 
 # 尝试克隆 Git 仓库，最多尝试 10 次
-REPO_URL="https://github.com/tair-opensource/resp-compatibility.git" # 可更改为gitlink链接
+REPO_URL="https://github.com/MrHappyEnding/compatibility-test-suite-for-redis.git"
 RETRY_COUNT=0
 MAX_RETRIES=10
 SLEEP_DURATION=30
@@ -288,12 +325,14 @@ if [ $RETRY_COUNT -eq $MAX_RETRIES ]; then
   exit 1
 fi
 
+cd compatibility-test-suite-for-redisa
 git checkout dailyTest
-cd resp-compatibility
 python3 conn.py
 EOF
 }
 
+
 output "ecs_ip_address" {
   value = alicloud_instance.my_ecs.private_ip
 }
+
