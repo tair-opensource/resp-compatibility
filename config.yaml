@@ -14,31 +14,39 @@ SpecificVersion:
 # the host, port, password of all the db to be tested
 Database:
   Redis:
-    host: 127.0.0.1
+    host: 172.16.0.10
     port: 6379
     password:
     ssl: false
     cluster: false
-    version: unstable
-
-  DragonflyDB:
+    version: latest
+  
+  RedisCluster:
     host: 127.0.0.1
-    port: 6380
+    port: 30001 
+    password:
+    ssl: false
+    cluster: true
+    version: latest
+  
+  Valkey:
+    host: 172.16.0.10
+    port: 6384
     password:
     ssl: false
     cluster: false
     version: latest
 
   Kvrocks:
-    host: 127.0.0.1
+    host: 172.16.0.10
     port: 6381
     password:
     ssl: false
     cluster: false
-    version: 2.2.0
+    version: latest
 
   KeyDB:
-    host: 127.0.0.1
+    host: 172.16.0.10
     port: 6382
     password:
     ssl: false
@@ -46,28 +54,12 @@ Database:
     version: latest
 
   Pika:
-    host: 127.0.0.1
-    port: 6383
+    host: 172.17.0.6
+    port: 9221
     password:
     ssl: false
     cluster: false
     version: latest
-
-  Tair:
-    host:
-    port:
-    password:
-    ssl:
-    cluster: false
-    version:
-
-  Kvstore:
-    host:
-    port:
-    password:
-    ssl:
-    cluster: false
-    version:
 
   ElastiCache:
     host:
