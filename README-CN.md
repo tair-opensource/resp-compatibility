@@ -58,7 +58,7 @@ Summary: version: 6.2.0, total tests: 260, passed: 260, rate: 100.00%
 ```
 
 ## genhtml
-您可以使用 `--genhtml` 选项来生成和此[网站](https://tair-opensource.github.io/compatibility-test-suite-for-redis/)相同的 html 报告。 请注意，当使用此选项时候，将会读取 [config.yaml](config.yaml) 文件中的配置进行测试，此时命令行中的 `specific-version` 将会被文件中的覆盖。
+您可以使用 `--genhtml` 选项来生成和此[网站](https://tair-opensource.github.io/resp-compatibility/)相同的 html 报告。 请注意，当使用此选项时候，将会读取 [config.yaml](config.yaml) 文件中的配置进行测试，此时命令行中的 `specific-version` 将会被文件中的覆盖。
 ```
 $ python3.9  resp_compatibility.py --testfile cts.json --genhtml --show-failed
 directory html already exists, will be deleted and renewed.

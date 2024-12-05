@@ -117,7 +117,7 @@ resource "alicloud_kvstore_instance" "my_tair_cluster" {
   instance_class   = "tair.rdb.with.proxy.1g"
   instance_type    = "Redis"
   engine_version   = "7.0"
-  shard_count      = "8"
+  shard_count      = "2"
   zone_id          = local.selected_zone_id
   vswitch_id       = alicloud_vswitch.my_vswitch.id
   payment_type     = "PostPaid"
@@ -145,7 +145,7 @@ resource "alicloud_kvstore_instance" "my_redis_cluster" {
   instance_class   = "redis.shard.with.proxy.small.ce"
   instance_type    = "Redis"
   engine_version   = "7.0"
-  shard_count      = "8"
+  shard_count      = "2"
   zone_id          = local.selected_zone_id
   vswitch_id       = alicloud_vswitch.my_vswitch.id
   payment_type     = "PostPaid"

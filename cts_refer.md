@@ -1,4 +1,4 @@
-> 1. The table content consists of the commands supported by CTS (compatibility-test-suite-for-redis) and their version information
+> 1. The table content consists of the commands supported by CTS (resp-compatibility) and their version information
 > 2. This table is generated based on the command JSON format description of Redis 7.2. If you have any doubts, you can refer to the relevant files
 > 3. If the table information does not match the actual testing, please submit an Issue :)
 - Supported major versions
