@@ -1,4 +1,3 @@
-import threading
 import time
 import yaml
 import subprocess
@@ -113,14 +112,8 @@ def main():
         logging.error("Failed to update or install packages. Exiting...")
         exit(1)
 
-    logging.info("Starting test thread")
-    test_thread = threading.Thread(target=run_tests)
-    test_thread.start()
-    test_thread.join(timeout=300)
-
-    if test_thread.is_alive():
-        logging.error("Test timed out. Exiting...")
-        exit(1)
+    logging.info("Running tests")
+    run_tests()
 
     commit_and_push_results()
     git_push_with_retry()

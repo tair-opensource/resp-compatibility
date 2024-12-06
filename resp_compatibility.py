@@ -329,7 +329,8 @@ def run_test_by_configfile():
             logfile = None
     # now we generate index.html
     generate_html_report(logdir, configs)
-    start_webserver(logdir)
+    if args.webserver:
+        start_webserver(logdir)
 
 
 def create_client(host, port, password, ssl, cluster):
@@ -365,6 +366,8 @@ def parse_args():
     parser.add_argument("--cluster", help="server is a node of the Redis cluster", default=False, action="store_true")
     parser.add_argument("--ssl", help="open ssl connection", default=False, action="store_true")
     parser.add_argument("--genhtml", help="generate test report in html format", default=False, action="store_true")
+    parser.add_argument("--webserver", help="start a web server to show the test report", default=False,
+                        action="store_true")
     return parser.parse_args()
 
 
