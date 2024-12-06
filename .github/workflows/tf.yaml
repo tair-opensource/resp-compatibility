@@ -1,6 +1,7 @@
 name: Terraform in Daily Test
     
 on:
+  workflow_dispatch: #允许手动运行
   schedule:
     - cron: '0 18 * * *'  # 每天 UTC 时间 18:00，即中国时间凌晨 2 点
     
