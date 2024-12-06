@@ -303,9 +303,9 @@ test: geoadd with CH / NX / XX passed
 test: geodist command passed
 test: geodist with M / KM / FT / MI passed
 test: geohash command passed
-test: geopos command passed
+test: geopos command failed
 test: georadius command passed
-test: georadius with WITHCOORD / WITHDIST / WITHHASH passed
+test: georadius with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadius with COUNT passed
 test: georadius with ASC / DESC passed
 test: georadius with STORE / STOREDIST failed
@@ -313,12 +313,12 @@ test: georadius with STORE / STOREDIST tags skipped
 test: georadius with ANY option for COUNT passed
 test: georadius with support for uppercase unit names passed
 test: georadius_ro command passed
-test: georadius_ro with WITHCOORD / WITHDIST / WITHHASH passed
+test: georadius_ro with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadius_ro with COUNT passed
 test: georadius_ro with ASC / DESC passed
 test: georadius_ro with ANY option for COUNT passed
 test: georadiusbymember command passed
-test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH passed
+test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadiusbymember with COUNT passed
 test: georadiusbymember with ASC / DESC passed
 test: georadiusbymember with STORE / STOREDIST failed
@@ -326,14 +326,14 @@ test: georadiusbymember with STORE / STOREDIST tags skipped
 test: georadiusbymember with ANY option for COUNT passed
 test: georadiusbymember with support for uppercase unit names passed
 test: georadiusbymember_ro command passed
-test: georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH passed
+test: georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadiusbymember_ro with COUNT passed
 test: georadiusbymember_ro with ASC / DESC passed
 test: georadiusbymember_ro with ANY option for COUNT passed
 test: geosearch command passed
 test: geosearch with ASC / DESC passed
 test: geosearch with COUNT passed
-test: geosearch with WITHCOORD / WITHDIST / WITHHASH passed
+test: geosearch with WITHCOORD / WITHDIST / WITHHASH failed
 test: geosearch with support for uppercase unit names passed
 test: geosearchstore command failed
 test: geosearchstore command tags skipped
@@ -358,7 +358,7 @@ test: exec command failed
 test: multi command failed
 test: unwatch command failed
 test: watch command failed
-test: eval command failed
+test: eval command passed
 test: eval_ro command failed
 test: evalsha command failed
 test: evalsha_ro command failed
@@ -416,41 +416,41 @@ test: subscribe with RESET run test error Can't execute 'flushall': only (P|S)SU
 test: sunsubscribe command run test error Can't execute 'flushall': only (P|S)SUBSCRIBE / (P|S)UNSUBSCRIBE / PING / QUIT / RESET are allowed in this context
 test: unsubscribe command run test error Can't execute 'flushall': only (P|S)SUBSCRIBE / (P|S)UNSUBSCRIBE / PING / QUIT / RESET are allowed in this context
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 336, passed: 238, rate: 70.83%
+Summary: version: 7.0.0, total tests: 336, passed: 233, rate: 69.35%
 This is failed tests for 7.0.0:
-FailedTest(name='rename command', reason=RedisClusterException('rename - all keys must map to the same key slot',))
-FailedTest(name='renamenx command', reason=RedisClusterException('renamenx - all keys must map to the same key slot',))
+FailedTest(name='rename command', reason=RedisClusterException('rename - all keys must map to the same key slot'))
+FailedTest(name='renamenx command', reason=RedisClusterException('renamenx - all keys must map to the same key slot'))
 FailedTest(name='randomkey command', reason='expected: k, result: None')
-FailedTest(name='keys command', reason=RedisClusterException('mset - all keys must map to the same key slot',))
-FailedTest(name='move command', reason=ResponseError('MOVE is not allowed in cluster mode',))
-FailedTest(name='sdiff command', reason=RedisClusterException('sdiff - all keys must map to the same key slot',))
-FailedTest(name='sdiffstore command', reason=RedisClusterException('sdiffstore - all keys must map to the same key slot',))
-FailedTest(name='sinter command', reason=RedisClusterException('sinter - all keys must map to the same key slot',))
-FailedTest(name='sinterstore command', reason=RedisClusterException('sinterstore - all keys must map to the same key slot',))
-FailedTest(name='smove command', reason=RedisClusterException('smove - all keys must map to the same key slot',))
-FailedTest(name='sunion command', reason=RedisClusterException('sunion - all keys must map to the same key slot',))
-FailedTest(name='sunionstore command', reason=RedisClusterException('sunionstore - all keys must map to the same key slot',))
-FailedTest(name='mget command', reason=RedisClusterException('mget - all keys must map to the same key slot',))
+FailedTest(name='keys command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
+FailedTest(name='move command', reason=ResponseError('MOVE is not allowed in cluster mode'))
+FailedTest(name='sdiff command', reason=RedisClusterException('sdiff - all keys must map to the same key slot'))
+FailedTest(name='sdiffstore command', reason=RedisClusterException('sdiffstore - all keys must map to the same key slot'))
+FailedTest(name='sinter command', reason=RedisClusterException('sinter - all keys must map to the same key slot'))
+FailedTest(name='sinterstore command', reason=RedisClusterException('sinterstore - all keys must map to the same key slot'))
+FailedTest(name='smove command', reason=RedisClusterException('smove - all keys must map to the same key slot'))
+FailedTest(name='sunion command', reason=RedisClusterException('sunion - all keys must map to the same key slot'))
+FailedTest(name='sunionstore command', reason=RedisClusterException('sunionstore - all keys must map to the same key slot'))
+FailedTest(name='mget command', reason=RedisClusterException('mget - all keys must map to the same key slot'))
 FailedTest(name='flushall command', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
 FailedTest(name='flushdb command', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
 FailedTest(name='flushall with async', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
 FailedTest(name='flushdb with async', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
-FailedTest(name='swapdb command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('swapdb', '0', '1')",))
-FailedTest(name='blmpop with COUNT', reason=RedisClusterException('blmpop - all keys must map to the same key slot',))
-FailedTest(name='lmpop with COUNT', reason=RedisClusterException('lmpop - all keys must map to the same key slot',))
-FailedTest(name='sintercard command', reason=RedisClusterException('sintercard - all keys must map to the same key slot',))
-FailedTest(name='sintercard with LIMIT', reason=RedisClusterException('sintercard - all keys must map to the same key slot',))
-FailedTest(name='bzmpop command', reason=RedisClusterException('bzmpop - all keys must map to the same key slot',))
-FailedTest(name='bzmpop with COUNT', reason=RedisClusterException('bzmpop - all keys must map to the same key slot',))
-FailedTest(name='zintercard command', reason=RedisClusterException('zintercard - all keys must map to the same key slot',))
-FailedTest(name='zintercard with LIMIT', reason=RedisClusterException('zintercard - all keys must map to the same key slot',))
-FailedTest(name='lcs command', reason=RedisClusterException('mset - all keys must map to the same key slot',))
-FailedTest(name='lcs with LEN', reason=RedisClusterException('mset - all keys must map to the same key slot',))
-FailedTest(name='lcs with IDX', reason=RedisClusterException('mset - all keys must map to the same key slot',))
-FailedTest(name='lcs with MINMATCHLEN', reason=RedisClusterException('mset - all keys must map to the same key slot',))
-FailedTest(name='lcs with WITHMATCHLEN', reason=RedisClusterException('mset - all keys must map to the same key slot',))
-FailedTest(name='geosearchstore with support for uppercase unit names', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot',))
-FailedTest(name='eval_ro command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('eval_ro', 'return', '0', 'hello')",))
+FailedTest(name='swapdb command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('swapdb', '0', '1')"))
+FailedTest(name='blmpop with COUNT', reason=RedisClusterException('blmpop - all keys must map to the same key slot'))
+FailedTest(name='lmpop with COUNT', reason=RedisClusterException('lmpop - all keys must map to the same key slot'))
+FailedTest(name='sintercard command', reason=RedisClusterException('sintercard - all keys must map to the same key slot'))
+FailedTest(name='sintercard with LIMIT', reason=RedisClusterException('sintercard - all keys must map to the same key slot'))
+FailedTest(name='bzmpop command', reason=RedisClusterException('bzmpop - all keys must map to the same key slot'))
+FailedTest(name='bzmpop with COUNT', reason=RedisClusterException('bzmpop - all keys must map to the same key slot'))
+FailedTest(name='zintercard command', reason=RedisClusterException('zintercard - all keys must map to the same key slot'))
+FailedTest(name='zintercard with LIMIT', reason=RedisClusterException('zintercard - all keys must map to the same key slot'))
+FailedTest(name='lcs command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
+FailedTest(name='lcs with LEN', reason=RedisClusterException('mset - all keys must map to the same key slot'))
+FailedTest(name='lcs with IDX', reason=RedisClusterException('mset - all keys must map to the same key slot'))
+FailedTest(name='lcs with MINMATCHLEN', reason=RedisClusterException('mset - all keys must map to the same key slot'))
+FailedTest(name='lcs with WITHMATCHLEN', reason=RedisClusterException('mset - all keys must map to the same key slot'))
+FailedTest(name='geosearchstore with support for uppercase unit names', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
+FailedTest(name='eval_ro command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('eval_ro', 'return', '0', 'hello')"))
 FailedTest(name='evalsha_ro command', reason="expected: 63143b6f8007b98c53ca2149822777b3566f9241, result: {'127.0.0.1:30001': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30002': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30003': '63143b6f8007b98c53ca2149822777b3566f9241'}")
 FailedTest(name='fcall command', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
 FailedTest(name='fcall_ro command', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
@@ -460,60 +460,65 @@ FailedTest(name='function flush with SYNC', reason="expected: OK, result: {'127.
 FailedTest(name='function flush with ASYNC', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
 FailedTest(name='function list command', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
 FailedTest(name='function load command', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
-FailedTest(name='function restore command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('function', b'flush')",))
+FailedTest(name='function restore command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('function', b'flush')"))
 FailedTest(name='function stats command', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
-FailedTest(name='rpoplpush command', reason=RedisClusterException('rpoplpush - all keys must map to the same key slot',))
-FailedTest(name='exec command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)",))
-FailedTest(name='multi command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)",))
-FailedTest(name='bitop command', reason=RedisClusterException('bitop - all keys must map to the same key slot',))
-FailedTest(name='eval command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('eval', 'return', '0', 'hello')",))
+FailedTest(name='rpoplpush command', reason=RedisClusterException('rpoplpush - all keys must map to the same key slot'))
+FailedTest(name='exec command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
+FailedTest(name='multi command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
+FailedTest(name='bitop command', reason=RedisClusterException('bitop - all keys must map to the same key slot'))
 FailedTest(name='evalsha command', reason="expected: 63143b6f8007b98c53ca2149822777b3566f9241, result: {'127.0.0.1:30001': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30002': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30003': '63143b6f8007b98c53ca2149822777b3566f9241'}")
 FailedTest(name='script exists command', reason="expected: 63143b6f8007b98c53ca2149822777b3566f9241, result: {'127.0.0.1:30001': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30002': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30003': '63143b6f8007b98c53ca2149822777b3566f9241'}")
 FailedTest(name='script flush command', reason="expected: 63143b6f8007b98c53ca2149822777b3566f9241, result: {'127.0.0.1:30001': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30002': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30003': '63143b6f8007b98c53ca2149822777b3566f9241'}")
 FailedTest(name='script load command', reason="expected: 63143b6f8007b98c53ca2149822777b3566f9241, result: {'127.0.0.1:30001': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30002': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30003': '63143b6f8007b98c53ca2149822777b3566f9241'}")
-FailedTest(name='brpoplpush command', reason=RedisClusterException('brpoplpush - all keys must map to the same key slot',))
-FailedTest(name='unwatch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)",))
-FailedTest(name='watch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)",))
+FailedTest(name='brpoplpush command', reason=RedisClusterException('brpoplpush - all keys must map to the same key slot'))
+FailedTest(name='unwatch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
+FailedTest(name='watch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
 FailedTest(name='scan command', reason="expected: ['0', ['k']], result: ({'127.0.0.1:30001': 0, '127.0.0.1:30002': 0, '127.0.0.1:30003': 0}, ['k'])")
 FailedTest(name='scan with TYPE', reason="expected: ['0', ['geokey']], result: ({'127.0.0.1:30001': 0, '127.0.0.1:30002': 0, '127.0.0.1:30003': 0}, ['geokey'])")
-FailedTest(name='brpop with double timeout', reason=RedisClusterException('brpop - all keys must map to the same key slot',))
-FailedTest(name='brpoplpush with double timeout', reason=RedisClusterException('brpoplpush - all keys must map to the same key slot',))
-FailedTest(name='copy command', reason=RedisClusterException('copy - all keys must map to the same key slot',))
-FailedTest(name='blmove command', reason=RedisClusterException('blmove - all keys must map to the same key slot',))
-FailedTest(name='lmove command', reason=RedisClusterException('lmove - all keys must map to the same key slot',))
-FailedTest(name='zdiff command', reason=RedisClusterException('zdiff - all keys must map to the same key slot',))
-FailedTest(name='zdiffstore command', reason=RedisClusterException('zdiffstore - all keys must map to the same key slot',))
-FailedTest(name='zinter command', reason=RedisClusterException('zinter - all keys must map to the same key slot',))
-FailedTest(name='zinter with WEIGHTS', reason=RedisClusterException('zinter - all keys must map to the same key slot',))
-FailedTest(name='zinter with AGGREGATE', reason=RedisClusterException('zinter - all keys must map to the same key slot',))
-FailedTest(name='zinter WITHSCORES', reason=RedisClusterException('zinter - all keys must map to the same key slot',))
-FailedTest(name='zrangestore command', reason=RedisClusterException('zrangestore - all keys must map to the same key slot',))
-FailedTest(name='zrangestore with BYSCORE / BYLEX', reason=RedisClusterException('zrangestore - all keys must map to the same key slot',))
-FailedTest(name='zrangestore with REV', reason=RedisClusterException('zrangestore - all keys must map to the same key slot',))
-FailedTest(name='zrangestore with LIMIT', reason=RedisClusterException('zrangestore - all keys must map to the same key slot',))
-FailedTest(name='zunion command', reason=RedisClusterException('zunion - all keys must map to the same key slot',))
-FailedTest(name='zunion with WEIGHTS and AGGREGATE', reason=RedisClusterException('zunion - all keys must map to the same key slot',))
-FailedTest(name='zunion with WITHSCORES', reason=RedisClusterException('zunion - all keys must map to the same key slot',))
-FailedTest(name='geosearchstore command', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot',))
-FailedTest(name='geosearchstore with ASC / DESC', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot',))
-FailedTest(name='geosearchstore with COUNT', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot',))
-FailedTest(name='geosearchstore with STOREDIST', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot',))
+FailedTest(name='brpop with double timeout', reason=RedisClusterException('brpop - all keys must map to the same key slot'))
+FailedTest(name='brpoplpush with double timeout', reason=RedisClusterException('brpoplpush - all keys must map to the same key slot'))
+FailedTest(name='copy command', reason=RedisClusterException('copy - all keys must map to the same key slot'))
+FailedTest(name='blmove command', reason=RedisClusterException('blmove - all keys must map to the same key slot'))
+FailedTest(name='lmove command', reason=RedisClusterException('lmove - all keys must map to the same key slot'))
+FailedTest(name='zdiff command', reason=RedisClusterException('zdiff - all keys must map to the same key slot'))
+FailedTest(name='zdiffstore command', reason=RedisClusterException('zdiffstore - all keys must map to the same key slot'))
+FailedTest(name='zinter command', reason=RedisClusterException('zinter - all keys must map to the same key slot'))
+FailedTest(name='zinter with WEIGHTS', reason=RedisClusterException('zinter - all keys must map to the same key slot'))
+FailedTest(name='zinter with AGGREGATE', reason=RedisClusterException('zinter - all keys must map to the same key slot'))
+FailedTest(name='zinter WITHSCORES', reason=RedisClusterException('zinter - all keys must map to the same key slot'))
+FailedTest(name='zrangestore command', reason=RedisClusterException('zrangestore - all keys must map to the same key slot'))
+FailedTest(name='zrangestore with BYSCORE / BYLEX', reason=RedisClusterException('zrangestore - all keys must map to the same key slot'))
+FailedTest(name='zrangestore with REV', reason=RedisClusterException('zrangestore - all keys must map to the same key slot'))
+FailedTest(name='zrangestore with LIMIT', reason=RedisClusterException('zrangestore - all keys must map to the same key slot'))
+FailedTest(name='zunion command', reason=RedisClusterException('zunion - all keys must map to the same key slot'))
+FailedTest(name='zunion with WEIGHTS and AGGREGATE', reason=RedisClusterException('zunion - all keys must map to the same key slot'))
+FailedTest(name='zunion with WITHSCORES', reason=RedisClusterException('zunion - all keys must map to the same key slot'))
+FailedTest(name='geosearch with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.1155563954963']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
+FailedTest(name='geosearchstore command', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
+FailedTest(name='geosearchstore with ASC / DESC', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
+FailedTest(name='geosearchstore with COUNT', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
+FailedTest(name='geosearchstore with STOREDIST', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
 FailedTest(name='flushall with sync', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
 FailedTest(name='flushdb with sync', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
 FailedTest(name='script flush with SYNC', reason="expected: 63143b6f8007b98c53ca2149822777b3566f9241, result: {'127.0.0.1:30001': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30002': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30003': '63143b6f8007b98c53ca2149822777b3566f9241'}")
 FailedTest(name='script flush with ASYNC', reason="expected: 63143b6f8007b98c53ca2149822777b3566f9241, result: {'127.0.0.1:30001': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30002': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30003': '63143b6f8007b98c53ca2149822777b3566f9241'}")
-FailedTest(name='blpop command', reason=RedisClusterException('blpop - all keys must map to the same key slot',))
-FailedTest(name='brpop command', reason=RedisClusterException('brpop - all keys must map to the same key slot',))
-FailedTest(name='zinterstore command', reason=RedisClusterException('zinterstore - all keys must map to the same key slot',))
-FailedTest(name='zinterstore with WEIGHTS', reason=RedisClusterException('zinterstore - all keys must map to the same key slot',))
-FailedTest(name='zinterstore with AGGREGATE', reason=RedisClusterException('zinterstore - all keys must map to the same key slot',))
-FailedTest(name='zunionstore command', reason=RedisClusterException('zunionstore - all keys must map to the same key slot',))
-FailedTest(name='zunionstore with WEIGHTS and AGGREGATE', reason=RedisClusterException('zunionstore - all keys must map to the same key slot',))
-FailedTest(name='discard command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)",))
-FailedTest(name='psubscribe command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('quit',)",))
-FailedTest(name='georadius with STORE / STOREDIST', reason=RedisClusterException('georadius - all keys must map to the same key slot',))
-FailedTest(name='georadiusbymember with STORE / STOREDIST', reason=RedisClusterException('georadiusbymember - all keys must map to the same key slot',))
-FailedTest(name='pfmerge command', reason=RedisClusterException('pfmerge - all keys must map to the same key slot',))
-FailedTest(name='mset command', reason=RedisClusterException('mset - all keys must map to the same key slot',))
-FailedTest(name='msetnx command', reason=RedisClusterException('msetnx - all keys must map to the same key slot',))
+FailedTest(name='blpop command', reason=RedisClusterException('blpop - all keys must map to the same key slot'))
+FailedTest(name='brpop command', reason=RedisClusterException('brpop - all keys must map to the same key slot'))
+FailedTest(name='zinterstore command', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
+FailedTest(name='zinterstore with WEIGHTS', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
+FailedTest(name='zinterstore with AGGREGATE', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
+FailedTest(name='zunionstore command', reason=RedisClusterException('zunionstore - all keys must map to the same key slot'))
+FailedTest(name='zunionstore with WEIGHTS and AGGREGATE', reason=RedisClusterException('zunionstore - all keys must map to the same key slot'))
+FailedTest(name='discard command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
+FailedTest(name='psubscribe command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('quit',)"))
+FailedTest(name='geopos command', reason="expected: [['13.36138933897018433', '38.11555639549629859'], ['15.08726745843887329', '37.50266842333162032'], None], result: [['13.361389338970184', '38.1155563954963'], ['15.087267458438873', '37.50266842333162'], None]")
+FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.1155563954963']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
+FailedTest(name='georadius with STORE / STOREDIST', reason=RedisClusterException('georadius - all keys must map to the same key slot'))
+FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.1155563954963']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
+FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.1155563954963']]]")
+FailedTest(name='georadiusbymember with STORE / STOREDIST', reason=RedisClusterException('georadiusbymember - all keys must map to the same key slot'))
+FailedTest(name='pfmerge command', reason=RedisClusterException('pfmerge - all keys must map to the same key slot'))
+FailedTest(name='mset command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
+FailedTest(name='msetnx command', reason=RedisClusterException('msetnx - all keys must map to the same key slot'))
+FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.1155563954963']]]")
 </pre>

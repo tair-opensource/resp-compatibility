@@ -28,12 +28,12 @@ test: dump command passed
 test: touch command passed
 test: restore command passed
 test: restore with REPLACE passed
-test: restore with ABSTTL passed
-test: restore with IDLETIME passed
+test: restore with ABSTTL version skipped
+test: restore with IDLETIME version skipped
 test: scan command failed
 test: scan with TYPE version skipped
 test: keys command failed
-test: move command failed
+test: move command passed
 test: copy command version skipped
 test: copy command tags skipped
 test: type command passed
@@ -126,9 +126,9 @@ test: bzmpop command version skipped
 test: bzmpop command tags skipped
 test: bzmpop with COUNT version skipped
 test: bzmpop with COUNT version skipped
-test: bzpopmax command passed
+test: bzpopmax command version skipped
 test: bzpopmax with double timeout version skipped
-test: bzpopmin command passed
+test: bzpopmin command version skipped
 test: bzpopmin with double timeout version skipped
 test: zadd command passed
 test: zadd with multiple elements passed
@@ -163,10 +163,10 @@ test: zlexcount command passed
 test: zmpop command version skipped
 test: zmpop with COUNT version skipped
 test: zmscore command version skipped
-test: zpopmax command passed
-test: zpopmax with COUNT passed
-test: zpopmin command passed
-test: zpopmin command passed
+test: zpopmax command version skipped
+test: zpopmax with COUNT version skipped
+test: zpopmin command version skipped
+test: zpopmin command version skipped
 test: zrandmember command version skipped
 test: zrandmember with COUNT version skipped
 test: zrandmember with WITHSCORES version skipped
@@ -303,9 +303,9 @@ test: geoadd with CH / NX / XX version skipped
 test: geodist command passed
 test: geodist with M / KM / FT / MI passed
 test: geohash command passed
-test: geopos command failed
+test: geopos command passed
 test: georadius command passed
-test: georadius with WITHCOORD / WITHDIST / WITHHASH failed
+test: georadius with WITHCOORD / WITHDIST / WITHHASH passed
 test: georadius with COUNT passed
 test: georadius with ASC / DESC passed
 test: georadius with STORE / STOREDIST failed
@@ -313,12 +313,12 @@ test: georadius with STORE / STOREDIST tags skipped
 test: georadius with ANY option for COUNT version skipped
 test: georadius with support for uppercase unit names version skipped
 test: georadius_ro command passed
-test: georadius_ro with WITHCOORD / WITHDIST / WITHHASH failed
+test: georadius_ro with WITHCOORD / WITHDIST / WITHHASH passed
 test: georadius_ro with COUNT passed
 test: georadius_ro with ASC / DESC passed
 test: georadius_ro with ANY option for COUNT version skipped
 test: georadiusbymember command passed
-test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH failed
+test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH passed
 test: georadiusbymember with COUNT passed
 test: georadiusbymember with ASC / DESC passed
 test: georadiusbymember with STORE / STOREDIST failed
@@ -326,7 +326,7 @@ test: georadiusbymember with STORE / STOREDIST tags skipped
 test: georadiusbymember with ANY option for COUNT version skipped
 test: georadiusbymember with support for uppercase unit names version skipped
 test: georadiusbymember_ro command passed
-test: georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH failed
+test: georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH passed
 test: georadiusbymember_ro with COUNT passed
 test: georadiusbymember_ro with ASC / DESC passed
 test: georadiusbymember_ro with ANY option for COUNT version skipped
@@ -346,11 +346,11 @@ test: geosearchstore with STOREDIST tags skipped
 test: geosearchstore with support for uppercase unit names version skipped
 test: geosearchstore with support for uppercase unit names tags skipped
 test: dbsize command passed
-test: flushall command failed
-test: flushall with async failed
+test: flushall command passed
+test: flushall with async passed
 test: flushall with sync version skipped
-test: flushdb command failed
-test: flushdb with async failed
+test: flushdb command passed
+test: flushdb with async passed
 test: flushdb with sync version skipped
 test: swapdb command failed
 test: discard command failed
@@ -358,7 +358,7 @@ test: exec command failed
 test: multi command failed
 test: unwatch command failed
 test: watch command failed
-test: eval command passed
+test: eval command failed
 test: eval_ro command version skipped
 test: evalsha command failed
 test: evalsha_ro command version skipped
@@ -372,57 +372,56 @@ test: function list command version skipped
 test: function load command version skipped
 test: function restore command version skipped
 test: function stats command version skipped
-test: script exists command failed
-test: script flush command failed
+test: script exists command passed
+test: script flush command passed
 test: script flush with SYNC version skipped
 test: script flush with ASYNC version skipped
-test: script load command failed
-test: xack command passed
-test: xadd command passed
+test: script load command passed
+test: xack command version skipped
+test: xadd command version skipped
 test: xadd with NOMKSTREAM/MINID/LIMIT version skipped
 test: xadd with EXPLICIT ID version skipped
-test: xclaim command passed
-test: xdel command passed
-test: xgroup create command passed
-test: xgroup create with MKSTREAM passed
+test: xclaim command version skipped
+test: xdel command version skipped
+test: xgroup create command version skipped
+test: xgroup create with MKSTREAM version skipped
 test: xgroup create with ENTRIESREAD version skipped
 test: xgroup createconsumer command version skipped
-test: xgroup delconsumer command passed
-test: xgroup destroy command passed
-test: xgroup setid command passed
+test: xgroup delconsumer command version skipped
+test: xgroup destroy command version skipped
+test: xgroup setid command version skipped
 test: xgroup setid with ENTRIESREAD version skipped
-test: xlen command passed
-test: xpending command passed
-test: xrange command passed
-test: xread command passed
-test: xreadgroup command passed
-test: xrevrange command passed
+test: xlen command version skipped
+test: xpending command version skipped
+test: xrange command version skipped
+test: xread command version skipped
+test: xreadgroup command version skipped
+test: xrevrange command version skipped
 test: xrevrange command with EXCLUSIVE RANGES version skipped
-test: xtrim command passed
+test: xtrim command version skipped
 test: xtrim command with MINID/LIMIT version skipped
 test: psubscribe command failed
 test: psubscribe with RESET version skipped
-test: publish command run test error Can't execute 'flushall': only (P|S)SUBSCRIBE / (P|S)UNSUBSCRIBE / PING / QUIT / RESET are allowed in this context
-test: pubsub channels command run test error Can't execute 'flushall': only (P|S)SUBSCRIBE / (P|S)UNSUBSCRIBE / PING / QUIT / RESET are allowed in this context
-test: pubsub numpat command run test error Can't execute 'flushall': only (P|S)SUBSCRIBE / (P|S)UNSUBSCRIBE / PING / QUIT / RESET are allowed in this context
-test: pubsub numsub command run test error Can't execute 'flushall': only (P|S)SUBSCRIBE / (P|S)UNSUBSCRIBE / PING / QUIT / RESET are allowed in this context
+test: publish command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
+test: pubsub channels command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
+test: pubsub numpat command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
+test: pubsub numsub command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
 test: pubsub shardchannels command version skipped
 test: pubsub shardnumsub command version skipped
-test: punsubscribe command run test error Can't execute 'flushall': only (P|S)SUBSCRIBE / (P|S)UNSUBSCRIBE / PING / QUIT / RESET are allowed in this context
+test: punsubscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
 test: spublish command version skipped
 test: ssubscribe command version skipped
-test: subscribe command run test error Can't execute 'flushall': only (P|S)SUBSCRIBE / (P|S)UNSUBSCRIBE / PING / QUIT / RESET are allowed in this context
+test: subscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
 test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
-test: unsubscribe command run test error Can't execute 'flushall': only (P|S)SUBSCRIBE / (P|S)UNSUBSCRIBE / PING / QUIT / RESET are allowed in this context
+test: unsubscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 213, passed: 164, rate: 77.00%
-This is failed tests for 5.0.0:
+Summary: version: 4.0.0, total tests: 189, passed: 152, rate: 80.42%
+This is failed tests for 4.0.0:
 FailedTest(name='rename command', reason=RedisClusterException('rename - all keys must map to the same key slot'))
 FailedTest(name='renamenx command', reason=RedisClusterException('renamenx - all keys must map to the same key slot'))
 FailedTest(name='randomkey command', reason='expected: k, result: None')
 FailedTest(name='keys command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
-FailedTest(name='move command', reason=ResponseError('MOVE is not allowed in cluster mode'))
 FailedTest(name='sdiff command', reason=RedisClusterException('sdiff - all keys must map to the same key slot'))
 FailedTest(name='sdiffstore command', reason=RedisClusterException('sdiffstore - all keys must map to the same key slot'))
 FailedTest(name='sinter command', reason=RedisClusterException('sinter - all keys must map to the same key slot'))
@@ -431,23 +430,17 @@ FailedTest(name='smove command', reason=RedisClusterException('smove - all keys 
 FailedTest(name='sunion command', reason=RedisClusterException('sunion - all keys must map to the same key slot'))
 FailedTest(name='sunionstore command', reason=RedisClusterException('sunionstore - all keys must map to the same key slot'))
 FailedTest(name='mget command', reason=RedisClusterException('mget - all keys must map to the same key slot'))
-FailedTest(name='flushall command', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
-FailedTest(name='flushdb command', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
-FailedTest(name='flushall with async', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
-FailedTest(name='flushdb with async', reason="expected: OK, result: {'127.0.0.1:30001': 'OK', '127.0.0.1:30002': 'OK', '127.0.0.1:30003': 'OK'}")
 FailedTest(name='swapdb command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('swapdb', '0', '1')"))
 FailedTest(name='rpoplpush command', reason=RedisClusterException('rpoplpush - all keys must map to the same key slot'))
 FailedTest(name='exec command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
 FailedTest(name='multi command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
 FailedTest(name='bitop command', reason=RedisClusterException('bitop - all keys must map to the same key slot'))
-FailedTest(name='evalsha command', reason="expected: 63143b6f8007b98c53ca2149822777b3566f9241, result: {'127.0.0.1:30001': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30002': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30003': '63143b6f8007b98c53ca2149822777b3566f9241'}")
-FailedTest(name='script exists command', reason="expected: 63143b6f8007b98c53ca2149822777b3566f9241, result: {'127.0.0.1:30001': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30002': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30003': '63143b6f8007b98c53ca2149822777b3566f9241'}")
-FailedTest(name='script flush command', reason="expected: 63143b6f8007b98c53ca2149822777b3566f9241, result: {'127.0.0.1:30001': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30002': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30003': '63143b6f8007b98c53ca2149822777b3566f9241'}")
-FailedTest(name='script load command', reason="expected: 63143b6f8007b98c53ca2149822777b3566f9241, result: {'127.0.0.1:30001': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30002': '63143b6f8007b98c53ca2149822777b3566f9241', '127.0.0.1:30003': '63143b6f8007b98c53ca2149822777b3566f9241'}")
+FailedTest(name='eval command', reason=ResponseError("for redis cluster, eval/evalsha/fcall number of keys can't be negative or zero"))
+FailedTest(name='evalsha command', reason=ResponseError("for redis cluster, eval/evalsha/fcall number of keys can't be negative or zero"))
 FailedTest(name='brpoplpush command', reason=RedisClusterException('brpoplpush - all keys must map to the same key slot'))
 FailedTest(name='unwatch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
 FailedTest(name='watch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
-FailedTest(name='scan command', reason="expected: ['0', ['k']], result: ({'127.0.0.1:30001': 0, '127.0.0.1:30002': 0, '127.0.0.1:30003': 0}, ['k'])")
+FailedTest(name='scan command', reason="expected: ['0', ['k']], result: ({'172.16.0.175:6379': 72057594037927936}, ['k'])")
 FailedTest(name='blpop command', reason=RedisClusterException('blpop - all keys must map to the same key slot'))
 FailedTest(name='brpop command', reason=RedisClusterException('brpop - all keys must map to the same key slot'))
 FailedTest(name='zinterstore command', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
@@ -457,14 +450,9 @@ FailedTest(name='zunionstore command', reason=RedisClusterException('zunionstore
 FailedTest(name='zunionstore with WEIGHTS and AGGREGATE', reason=RedisClusterException('zunionstore - all keys must map to the same key slot'))
 FailedTest(name='discard command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
 FailedTest(name='psubscribe command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('quit',)"))
-FailedTest(name='geopos command', reason="expected: [['13.36138933897018433', '38.11555639549629859'], ['15.08726745843887329', '37.50266842333162032'], None], result: [['13.361389338970184', '38.1155563954963'], ['15.087267458438873', '37.50266842333162'], None]")
-FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.1155563954963']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
 FailedTest(name='georadius with STORE / STOREDIST', reason=RedisClusterException('georadius - all keys must map to the same key slot'))
-FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.1155563954963']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
-FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.1155563954963']]]")
 FailedTest(name='georadiusbymember with STORE / STOREDIST', reason=RedisClusterException('georadiusbymember - all keys must map to the same key slot'))
 FailedTest(name='pfmerge command', reason=RedisClusterException('pfmerge - all keys must map to the same key slot'))
 FailedTest(name='mset command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
 FailedTest(name='msetnx command', reason=RedisClusterException('msetnx - all keys must map to the same key slot'))
-FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.1155563954963']]]")
 </pre>
