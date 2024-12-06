@@ -1,102 +1,132 @@
-import os
 import threading
 import time
 import yaml
 import subprocess
+import logging
 
-# 更新配置文件
-try:
+# 配置日志记录
+logging.basicConfig(
+    filename='/tmp/conn.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+
+def update_config():
     yml_file_path = '/root/db_config.yml'
     config_file_path = 'config.yaml'
 
-    with open(yml_file_path, 'r') as yml_file, open(config_file_path, 'r') as config_file:
-        yml_data = yaml.safe_load(yml_file)
-        config_data = yaml.safe_load(config_file)
+    try:
+        logging.info(f"Reading YAML file from {yml_file_path} and config file from {config_file_path}")
+        with open(yml_file_path, 'r') as yml_file, open(config_file_path, 'r') as config_file:
+            yml_data = yaml.safe_load(yml_file)
+            config_data = yaml.safe_load(config_file)
 
-        for db_name, db_config in yml_data.items():
-            if db_name in config_data['Database']:
-                for key, value in db_config.items():
-                    config_data['Database'][db_name][key] = value
-            else:
-                config_data['Database'][db_name] = db_config
+            logging.info("Merging YAML data into config data")
+            for db_name, db_config in yml_data.items():
+                if db_name in config_data['Database']:
+                    for key, value in db_config.items():
+                        config_data['Database'][db_name][key] = value
+                else:
+                    config_data['Database'][db_name] = db_config
 
-    with open(config_file_path, 'w') as config_file:
-        yaml.dump(config_data, config_file, default_flow_style=False)
+        logging.info(f"Writing updated config data to {config_file_path}")
+        with open(config_file_path, 'w') as config_file:
+            yaml.dump(config_data, config_file, default_flow_style=False)
 
-    print("Config file updated successfully.")
+        logging.info("Config file updated successfully.")
 
-except FileNotFoundError as e:
-    print(f"Error: {e}. Please check the file paths.")
-except yaml.YAMLError as e:
-    print(f"Error in YAML processing: {e}")
-except Exception as e:
-    print(f"An unexpected error occurred: {e}")
+    except FileNotFoundError as e:
+        logging.error(f"Error: {e}. Please check the file paths.")
+    except yaml.YAMLError as e:
+        logging.error(f"Error in YAML processing: {e}")
+    except Exception as e:
+        logging.error(f"An unexpected error occurred: {e}")
 
 
-# 执行命令并判断是否成功
 def execute_command(commands):
     for command in commands:
+        logging.info(f"Executing command: {command}")
         result = subprocess.run(command, shell=True, capture_output=True, text=True)
         if result.returncode != 0:
-            print(f"Error executing command '{command}': {result.stderr}")
+            logging.error(f"Error executing command '{command}': {result.stderr}")
             return False
         else:
-            print(f"Successfully executed command '{command}': {result.stdout}")
+            logging.info(f"Successfully executed command '{command}': {result.stdout}")
     return True
 
 
+def run_tests():
+    run_test_command = [
+        "pip3 install -r requirements.txt",
+        "python3 resp_compatibility.py --testfile cts.json --genhtml --show-failed",
+    ]
 
-commands = [
-    "apt-get update",
-    "apt-get install -y python3-pip",
-]
-if not execute_command(commands):
-    print("Failed to update or install packages. Exiting...")
-    exit(1)
-
-# 运行测试命令
-run_test_command = [
-    "pip3 install -r requirements.txt",
-    "python3 resp_compatibility.py --testfile cts.json --genhtml --show-failed",
-]
-
-def run_test():
+    logging.info("Starting test execution")
     if not execute_command(run_test_command):
-        print("Test failed. Exiting...")
+        logging.error("Test failed. Exiting...")
         exit(1)
     else:
-        print("Test completed successfully.")
+        logging.info("Test completed successfully.")
 
-# 启动测试脚本的线程
-test_thread = threading.Thread(target=run_test)
-test_thread.start()
 
-time.sleep(300)
+def commit_and_push_results():
+    commit_and_push_commands = [
+        "mv html /root",
+        "git stash -u",
+        "git checkout gh-pages || git checkout -b gh-pages",
+        "git pull origin gh-pages",
+        "cp -r /root/html/* .",
+        "git add .",
+        "git commit -m 'Update test results'",
+    ]
 
-# 提交和推送测试结果
-commit_and_push_commands = [
-    "mv html /root",
-    "git stash -u",
-    "git checkout gh-pages || git checkout -b gh-pages",
-    "git pull origin gh-pages",
-    "cp -r /root/html/* .", 
-    "git add .",
-    "git commit -m 'Update test results'",
-]
-if not execute_command(commit_and_push_commands):
-    print("Failed to commit and push changes. Exiting...")
-    exit(1)
+    logging.info("Starting commit and push process")
+    if not execute_command(commit_and_push_commands):
+        logging.error("Failed to commit and push changes. Exiting...")
+        exit(1)
 
-# 推送到 GitHub 并重试
+
 def git_push_with_retry():
+    logging.info("Starting git push with retry")
     while True:
         result = subprocess.run("git push -u origin gh-pages", shell=True, capture_output=True, text=True)
         if result.returncode == 0:
-            print("Successfully pushed to GitHub.")
+            logging.info("Successfully pushed to GitHub.")
             break
         else:
-            print(f"Git push failed: {result.stderr}. Retrying in 5 seconds...")
+            logging.error(f"Git push failed: {result.stderr}. Retrying in 5 seconds...")
             time.sleep(5)
 
-git_push_with_retry()
 
+def main():
+    logging.info("Starting main function")
+
+    update_config()
+
+    package_update_commands = [
+        "apt-get update",
+        "apt-get install -y python3-pip",
+    ]
+    logging.info("Updating packages")
+    if not execute_command(package_update_commands):
+        logging.error("Failed to update or install packages. Exiting...")
+        exit(1)
+
+    logging.info("Starting test thread")
+    test_thread = threading.Thread(target=run_tests)
+    test_thread.start()
+    test_thread.join(timeout=300)
+
+    if test_thread.is_alive():
+        logging.error("Test timed out. Exiting...")
+        exit(1)
+
+    commit_and_push_results()
+    git_push_with_retry()
+
+    logging.info("Main function completed successfully")
+
+
+if __name__ == "__main__":
+    main()

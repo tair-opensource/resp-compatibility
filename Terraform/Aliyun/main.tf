@@ -296,6 +296,7 @@ echo "https://${var.github_token}:x-oauth-basic@github.com" > ~/.git-credentials
 git config --global user.name "${var.user_name}"
 git config --global user.email "${var.user_email}"
 
+cd ~
 git clone https://github.com/redis/redis.git
 cd redis
 make -j
@@ -304,6 +305,7 @@ cd utils/create-cluster
 yes yes | ./create-cluster create
 
 # 可替换为含有dailyTest分支仓库的url
+cd ~
 REPO_URL="https://github.com/tair-opensource/resp-compatibility.git"
 RETRY_COUNT=0
 MAX_RETRIES=10
@@ -326,7 +328,6 @@ if [ $RETRY_COUNT -eq $MAX_RETRIES ]; then
 fi
 
 cd resp-compatibility
-git checkout dailyTest
 python3 conn.py
 EOF
 }
