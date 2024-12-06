@@ -31,8 +31,6 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          ref: dailyTest 
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
