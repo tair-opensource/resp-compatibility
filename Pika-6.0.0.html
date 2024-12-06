@@ -31,7 +31,7 @@ test: restore with REPLACE failed
 test: restore with ABSTTL failed
 test: restore with IDLETIME failed
 test: scan command passed
-test: scan with TYPE version skipped
+test: scan with TYPE passed
 test: keys command passed
 test: move command failed
 test: copy command version skipped
@@ -47,15 +47,15 @@ test: blmpop with COUNT version skipped
 test: blmpop with COUNT tags skipped
 test: blpop command passed
 test: blpop command tags skipped
-test: blpop with double timeout version skipped
+test: blpop with double timeout failed
 test: blpop with double timeout tags skipped
 test: brpop command passed
 test: brpop command tags skipped
-test: brpop with double timeout version skipped
+test: brpop with double timeout failed
 test: brpop with double timeout tags skipped
 test: brpoplpush command failed
 test: brpoplpush command tags skipped
-test: brpoplpush with double timeout version skipped
+test: brpoplpush with double timeout failed
 test: brpoplpush with double timeout tags skipped
 test: lindex command passed
 test: linsert command passed
@@ -127,9 +127,9 @@ test: bzmpop command tags skipped
 test: bzmpop with COUNT version skipped
 test: bzmpop with COUNT version skipped
 test: bzpopmax command failed
-test: bzpopmax with double timeout version skipped
+test: bzpopmax with double timeout failed
 test: bzpopmin command failed
-test: bzpopmin with double timeout version skipped
+test: bzpopmin with double timeout failed
 test: zadd command passed
 test: zadd with multiple elements passed
 test: zadd with XX / NX / CH / INCR failed
@@ -254,7 +254,7 @@ test: psetex command failed
 test: set command passed
 test: set with EX / PX failed
 test: set with NX / XX passed
-test: set with KEEPTTL version skipped
+test: set with KEEPTTL failed
 test: set with GET version skipped
 test: set with EXAT / PXAT version skipped
 test: set with NX and GET version skipped
@@ -287,7 +287,7 @@ test: hvals command passed
 test: bitcount command passed
 test: bitcount with BYTE / BIT version skipped
 test: bitfield command failed
-test: bitfield_ro command version skipped
+test: bitfield_ro command failed
 test: bitop command passed
 test: bitop command tags skipped
 test: bitpos command passed
@@ -416,8 +416,8 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 213, passed: 155, rate: 72.77%
-This is failed tests for 5.0.0:
+Summary: version: 6.0.0, total tests: 221, passed: 156, rate: 70.59%
+This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
 FailedTest(name='randomkey command', reason=ResponseError('unknown command "randomkey"'))
@@ -460,6 +460,13 @@ FailedTest(name='xread command', reason=ResponseError('unknown command "xadd"'))
 FailedTest(name='xreadgroup command', reason=ResponseError('unknown command "xadd"'))
 FailedTest(name='xrevrange command', reason=ResponseError('unknown command "xrevrange"'))
 FailedTest(name='xtrim command', reason=ResponseError('unknown command "xtrim"'))
+FailedTest(name='blpop with double timeout', reason=ResponseError('value is not an integer or out of range'))
+FailedTest(name='brpop with double timeout', reason=ResponseError('value is not an integer or out of range'))
+FailedTest(name='brpoplpush with double timeout', reason=ResponseError('unknown command "brpoplpush"'))
+FailedTest(name='bzpopmax with double timeout', reason=ResponseError('unknown command "bzpopmax"'))
+FailedTest(name='bzpopmin with double timeout', reason=ResponseError('unknown command "bzpopmin"'))
+FailedTest(name='set with KEEPTTL', reason=ResponseError('syntax error'))
+FailedTest(name='bitfield_ro command', reason=ResponseError('unknown command "bitfield_ro"'))
 FailedTest(name='psubscribe command', reason=ResponseError('only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context'))
 FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfield"'))
 FailedTest(name='geopos command', reason="expected: [['13.36138933897018433', '38.11555639549629859'], ['15.08726745843887329', '37.50266842333162032'], None], result: [['13.361389338970184', '38.115556395496299'], ['15.087267458438873', '37.50266842333162'], None]")
