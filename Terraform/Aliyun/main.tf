@@ -296,15 +296,15 @@ echo "https://${var.github_token}:x-oauth-basic@github.com" > ~/.git-credentials
 git config --global user.name "${var.user_name}"
 git config --global user.email "${var.user_email}"
 
+# 启动Redis Cluster
 cd ~
 git clone https://github.com/redis/redis.git
 cd redis
 make -j
 cd utils/create-cluster
  ./create-cluster start
-yes yes | ./create-cluster create
+echo yes | ./create-cluster create
 
-# 可替换为含有dailyTest分支仓库的url
 cd ~
 REPO_URL="https://github.com/tair-opensource/resp-compatibility.git"
 RETRY_COUNT=0
@@ -331,9 +331,3 @@ cd resp-compatibility
 python3 conn.py
 EOF
 }
-
-
-output "ecs_ip_address" {
-  value = alicloud_instance.my_ecs.private_ip
-}
-
