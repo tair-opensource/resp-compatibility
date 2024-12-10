@@ -285,7 +285,7 @@ docker pull docker.io/eqalpha/keydb:latest
 docker run --name keydb -d -p 6382:6379 eqalpha/keydb
 
 docker pull docker.io/pikadb/pika:latest
-docker run --name pika -d -p 6383:6383 pikadb/pika
+docker run --name pika -d -p 6383:9221 pikadb/pika
 
 docker pull valkey/valkey:latest
 docker run --name valkey -d -p 6384:6379 valkey/valkey
