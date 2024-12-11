@@ -402,7 +402,7 @@ test: xtrim command passed
 test: xtrim command with MINID/LIMIT version skipped
 test: psubscribe command passed
 test: psubscribe with RESET version skipped
-test: publish command run test error Connection closed by server.
+test: publish command passed
 test: pubsub channels command passed
 test: pubsub numpat command passed
 test: pubsub numsub command passed
@@ -414,9 +414,10 @@ test: ssubscribe command version skipped
 test: subscribe command passed
 test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
-test: unsubscribe command run test error Connection closed by server.
+test: unsubscribe command failed
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 226, passed: 225, rate: 99.56%
+Summary: version: 6.0.0, total tests: 228, passed: 226, rate: 99.12%
 This is failed tests for 6.0.0:
 FailedTest(name='punsubscribe command', reason=ResponseError("NOSUB 'punsubscribe' command executed not in subscribed mode"))
+FailedTest(name='unsubscribe command', reason=ResponseError("NOSUB 'unsubscribe' command executed not in subscribed mode"))
 </pre>
