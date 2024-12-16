@@ -31,7 +31,7 @@ def update_config():
 
         logging.info(f"Writing updated config data to {config_file_path}")
         with open(config_file_path, 'w') as config_file:
-            yaml.dump(config_data, config_file, default_flow_style=False)
+            yaml.dump(config_data, config_file, sort_keys=False, default_flow_style=False)
 
         logging.info("Config file updated successfully.")
 
