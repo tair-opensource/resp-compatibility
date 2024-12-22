@@ -321,7 +321,7 @@ test: georadiusbymember command failed
 test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadiusbymember with COUNT failed
 test: georadiusbymember with ASC / DESC failed
-test: georadiusbymember with STORE / STOREDIST failed
+test: georadiusbymember with STORE / STOREDIST passed
 test: georadiusbymember with STORE / STOREDIST tags skipped
 test: georadiusbymember with ANY option for COUNT failed
 test: georadiusbymember with support for uppercase unit names failed
@@ -359,9 +359,9 @@ test: multi command passed
 test: unwatch command passed
 test: watch command passed
 test: eval command passed
-test: eval_ro command failed
+test: eval_ro command passed
 test: evalsha command passed
-test: evalsha_ro command failed
+test: evalsha_ro command passed
 test: fcall command failed
 test: fcall_ro command failed
 test: function delete command failed
@@ -416,7 +416,7 @@ test: subscribe with RESET passed
 test: sunsubscribe command failed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 265, rate: 75.71%
+Summary: version: 7.0.0, total tests: 350, passed: 268, rate: 76.57%
 This is failed tests for 7.0.0:
 FailedTest(name='flushdb with async', reason=ResponseError("wrong number of arguments for 'flushdb' command"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command `SWAPDB`'))
@@ -446,8 +446,6 @@ FailedTest(name='georadius with support for uppercase unit names', reason=Respon
 FailedTest(name='georadiusbymember with support for uppercase unit names', reason="expected: ['Agrigento', 'Palermo'], result: [['Agrigento'], ['Palermo']]")
 FailedTest(name='geosearch with support for uppercase unit names', reason="expected: ['Palermo', 'Catania'], result: [['Palermo'], ['Catania']]")
 FailedTest(name='geosearchstore with support for uppercase unit names', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
-FailedTest(name='eval_ro command', reason=ResponseError('unknown command `EVAL_RO`'))
-FailedTest(name='evalsha_ro command', reason=ResponseError('unknown command `EVALSHA_RO`'))
 FailedTest(name='fcall command', reason=ResponseError("wrong number of arguments for 'function' command"))
 FailedTest(name='fcall_ro command', reason=ResponseError("wrong number of arguments for 'function' command"))
 FailedTest(name='function delete command', reason=ResponseError("wrong number of arguments for 'function' command"))
@@ -470,12 +468,12 @@ FailedTest(name='zdiffstore command', reason=ResponseError('unknown command `ZDI
 FailedTest(name='zrandmember command', reason="expected: a, result: ['a']")
 FailedTest(name='georadius with ANY option for COUNT', reason=ResponseError('unknown command `GEORADIUS`'))
 FailedTest(name='georadius_ro with ANY option for COUNT', reason=ResponseError('unknown command `GEORADIUS_RO`'))
-FailedTest(name='georadiusbymember with ANY option for COUNT', reason=ResponseError('unsupported unit provided. please use M, KM, FT, MI'))
+FailedTest(name='georadiusbymember with ANY option for COUNT', reason=ResponseError('syntax error'))
 FailedTest(name='georadiusbymember_ro with ANY option for COUNT', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
-FailedTest(name='geosearch command', reason=ResponseError('unsupported unit provided. please use M, KM, FT, MI'))
-FailedTest(name='geosearch with ASC / DESC', reason=ResponseError('unsupported unit provided. please use M, KM, FT, MI'))
-FailedTest(name='geosearch with COUNT', reason=ResponseError('unsupported unit provided. please use M, KM, FT, MI'))
-FailedTest(name='geosearch with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unsupported unit provided. please use M, KM, FT, MI'))
+FailedTest(name='geosearch command', reason="expected: ['Palermo', 'Catania'], result: [['Palermo'], ['Catania']]")
+FailedTest(name='geosearch with ASC / DESC', reason="expected: ['Catania', 'Palermo'], result: [['Catania'], ['Palermo']]")
+FailedTest(name='geosearch with COUNT', reason="expected: ['Catania'], result: [['Palermo'], ['Catania']]")
+FailedTest(name='geosearch with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.1155563954963']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
 FailedTest(name='geosearchstore command', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
 FailedTest(name='geosearchstore with ASC / DESC', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
 FailedTest(name='geosearchstore with COUNT', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
@@ -494,11 +492,10 @@ FailedTest(name='georadius_ro command', reason=ResponseError('unknown command `G
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command `GEORADIUS_RO`'))
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command `GEORADIUS_RO`'))
 FailedTest(name='georadius_ro with ASC / DESC', reason=ResponseError('unknown command `GEORADIUS_RO`'))
-FailedTest(name='georadiusbymember command', reason=ResponseError('unsupported unit provided. please use M, KM, FT, MI'))
-FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unsupported unit provided. please use M, KM, FT, MI'))
-FailedTest(name='georadiusbymember with COUNT', reason=ResponseError('unsupported unit provided. please use M, KM, FT, MI'))
-FailedTest(name='georadiusbymember with ASC / DESC', reason=ResponseError('unsupported unit provided. please use M, KM, FT, MI'))
-FailedTest(name='georadiusbymember with STORE / STOREDIST', reason=ResponseError('unsupported unit provided. please use M, KM, FT, MI'))
+FailedTest(name='georadiusbymember command', reason="expected: ['Agrigento'], result: [['Agrigento']]")
+FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.1155563954963']]]")
+FailedTest(name='georadiusbymember with COUNT', reason="expected: ['Agrigento'], result: [['Agrigento'], ['Palermo']]")
+FailedTest(name='georadiusbymember with ASC / DESC', reason="expected: ['Agrigento', 'Palermo'], result: [['Agrigento'], ['Palermo']]")
 FailedTest(name='georadiusbymember_ro command', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
 FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
 FailedTest(name='georadiusbymember_ro with COUNT', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
