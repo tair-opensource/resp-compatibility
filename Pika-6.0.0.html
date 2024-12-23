@@ -481,6 +481,6 @@ FailedTest(name='zadd with XX / NX / CH / INCR', reason=ResponseError('syntax er
 FailedTest(name='set with EX / PX', reason=ResponseError('Invalid argument: invalid expire time'))
 FailedTest(name='georadiusbymember_ro command', reason=ResponseError('unknown command "georadiusbymember_ro"'))
 FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadiusbymember_ro"'))
-FailedTest(name='georadiusbymember_ro with COUNT', reason=ResponseError('unknown command "georadiusbymember_ro"'))
+FailedTest(name='georadiusbymember_ro with COUNT', reason='expected: 1, result: 0')
 FailedTest(name='georadiusbymember_ro with ASC / DESC', reason=ResponseError('unknown command "georadiusbymember_ro"'))
 </pre>
