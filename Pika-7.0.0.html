@@ -58,7 +58,7 @@ test: brpoplpush command tags skipped
 test: brpoplpush with double timeout failed
 test: brpoplpush with double timeout tags skipped
 test: lindex command passed
-test: linsert command passed
+test: linsert command failed
 test: llen command passed
 test: lmove command failed
 test: lmove command tags skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / P
 test: sunsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 336, passed: 158, rate: 47.02%
+Summary: version: 7.0.0, total tests: 336, passed: 157, rate: 46.73%
 This is failed tests for 7.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -488,6 +488,7 @@ FailedTest(name='script exists command', reason=ResponseError('unknown command "
 FailedTest(name='script flush command', reason=ResponseError('unknown command "script"'))
 FailedTest(name='script load command', reason=ResponseError('unknown command "script"'))
 FailedTest(name='brpoplpush command', reason=ResponseError('unknown command "brpoplpush"'))
+FailedTest(name='linsert command', reason="expected: ['0', '1', '2'], result: ['1', '0', '0', '1', '2']")
 FailedTest(name='touch command', reason=ResponseError('unknown command "touch"'))
 FailedTest(name='restore with REPLACE', reason=ResponseError('unknown command "restore"'))
 FailedTest(name='restore with ABSTTL', reason=ResponseError('unknown command "restore"'))
