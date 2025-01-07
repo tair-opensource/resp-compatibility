@@ -414,9 +414,10 @@ test: ssubscribe command version skipped
 test: subscribe command passed
 test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
-test: unsubscribe command run test error Connection closed by server.
+test: unsubscribe command failed
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 219, passed: 218, rate: 99.54%
+Summary: version: 5.0.0, total tests: 220, passed: 218, rate: 99.09%
 This is failed tests for 5.0.0:
 FailedTest(name='punsubscribe command', reason=ResponseError("NOSUB 'punsubscribe' command executed not in subscribed mode"))
+FailedTest(name='unsubscribe command', reason=ResponseError("NOSUB 'unsubscribe' command executed not in subscribed mode"))
 </pre>
