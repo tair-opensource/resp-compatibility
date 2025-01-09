@@ -408,16 +408,13 @@ test: pubsub numpat command passed
 test: pubsub numsub command passed
 test: pubsub shardchannels command version skipped
 test: pubsub shardnumsub command version skipped
-test: punsubscribe command failed
+test: punsubscribe command passed
 test: spublish command version skipped
 test: ssubscribe command version skipped
 test: subscribe command passed
 test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
-test: unsubscribe command failed
+test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 4.0.0, total tests: 196, passed: 194, rate: 98.98%
-This is failed tests for 4.0.0:
-FailedTest(name='punsubscribe command', reason=ResponseError("NOSUB 'punsubscribe' command executed not in subscribed mode"))
-FailedTest(name='unsubscribe command', reason=ResponseError("NOSUB 'unsubscribe' command executed not in subscribed mode"))
+Summary: version: 4.0.0, total tests: 196, passed: 196, rate: 100.00%
 </pre>
