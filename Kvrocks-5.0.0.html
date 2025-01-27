@@ -32,7 +32,7 @@ test: restore with ABSTTL passed
 test: restore with IDLETIME passed
 test: scan command passed
 test: scan with TYPE version skipped
-test: keys command failed
+test: keys command passed
 test: move command passed
 test: copy command version skipped
 test: copy command tags skipped
@@ -416,9 +416,8 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 220, passed: 203, rate: 92.27%
+Summary: version: 5.0.0, total tests: 220, passed: 204, rate: 92.73%
 This is failed tests for 5.0.0:
-FailedTest(name='keys command', reason=ResponseError('only keys prefix match was supported'))
 FailedTest(name='srandmember command', reason="expected: 0, result: ['0']")
 FailedTest(name='flushall with async', reason=ResponseError('wrong number of arguments'))
 FailedTest(name='flushdb with async', reason=ResponseError('wrong number of arguments'))
