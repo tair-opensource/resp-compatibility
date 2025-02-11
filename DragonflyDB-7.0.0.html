@@ -62,8 +62,8 @@ test: linsert command passed
 test: llen command passed
 test: lmove command passed
 test: lmove command tags skipped
-test: lmpop command failed
-test: lmpop with COUNT failed
+test: lmpop command passed
+test: lmpop with COUNT passed
 test: lmpop with COUNT tags skipped
 test: lpop command passed
 test: lpop with COUNT passed
@@ -160,8 +160,8 @@ test: zinterstore with WEIGHTS tags skipped
 test: zinterstore with AGGREGATE passed
 test: zinterstore with AGGREGATE tags skipped
 test: zlexcount command passed
-test: zmpop command failed
-test: zmpop with COUNT failed
+test: zmpop command passed
+test: zmpop with COUNT passed
 test: zmscore command passed
 test: zpopmax command passed
 test: zpopmax with COUNT passed
@@ -317,24 +317,24 @@ test: georadius_ro with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadius_ro with COUNT failed
 test: georadius_ro with ASC / DESC failed
 test: georadius_ro with ANY option for COUNT failed
-test: georadiusbymember command failed
+test: georadiusbymember command passed
 test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadiusbymember with COUNT failed
-test: georadiusbymember with ASC / DESC failed
+test: georadiusbymember with ASC / DESC passed
 test: georadiusbymember with STORE / STOREDIST passed
 test: georadiusbymember with STORE / STOREDIST tags skipped
 test: georadiusbymember with ANY option for COUNT failed
-test: georadiusbymember with support for uppercase unit names failed
+test: georadiusbymember with support for uppercase unit names passed
 test: georadiusbymember_ro command failed
 test: georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadiusbymember_ro with COUNT failed
 test: georadiusbymember_ro with ASC / DESC failed
 test: georadiusbymember_ro with ANY option for COUNT failed
-test: geosearch command failed
-test: geosearch with ASC / DESC failed
+test: geosearch command passed
+test: geosearch with ASC / DESC passed
 test: geosearch with COUNT failed
 test: geosearch with WITHCOORD / WITHDIST / WITHHASH failed
-test: geosearch with support for uppercase unit names failed
+test: geosearch with support for uppercase unit names passed
 test: geosearchstore command failed
 test: geosearchstore command tags skipped
 test: geosearchstore with ASC / DESC failed
@@ -416,7 +416,7 @@ test: subscribe with RESET passed
 test: sunsubscribe command failed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 268, rate: 76.57%
+Summary: version: 7.0.0, total tests: 350, passed: 278, rate: 79.43%
 This is failed tests for 7.0.0:
 FailedTest(name='flushdb with async', reason=ResponseError("wrong number of arguments for 'flushdb' command"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command `SWAPDB`'))
@@ -428,23 +428,17 @@ FailedTest(name='pexpireat with NX / XX', reason=ResponseError("wrong number of 
 FailedTest(name='pexpireat with GT / LT', reason=ResponseError("wrong number of arguments for 'pexpireat' command"))
 FailedTest(name='blmpop command', reason=ResponseError('unknown command `BLMPOP`'))
 FailedTest(name='blmpop with COUNT', reason=ResponseError('unknown command `BLMPOP`'))
-FailedTest(name='lmpop command', reason=ResponseError('unknown command `LMPOP`'))
-FailedTest(name='lmpop with COUNT', reason=ResponseError('unknown command `LMPOP`'))
 FailedTest(name='sintercard with LIMIT', reason=ResponseError('syntax error'))
 FailedTest(name='bzmpop command', reason=ResponseError('unknown command `BZMPOP`'))
 FailedTest(name='bzmpop with COUNT', reason=ResponseError('unknown command `BZMPOP`'))
 FailedTest(name='bzmpop with COUNT', reason=ResponseError('unknown command `BZMPOP`'))
 FailedTest(name='zintercard with LIMIT', reason=ResponseError('syntax error'))
-FailedTest(name='zmpop command', reason=ResponseError('unknown command `ZMPOP`'))
-FailedTest(name='zmpop with COUNT', reason=ResponseError('unknown command `ZMPOP`'))
 FailedTest(name='lcs command', reason=ResponseError('unknown command `LCS`'))
 FailedTest(name='lcs with LEN', reason=ResponseError('unknown command `LCS`'))
 FailedTest(name='lcs with IDX', reason=ResponseError('unknown command `LCS`'))
 FailedTest(name='lcs with MINMATCHLEN', reason=ResponseError('unknown command `LCS`'))
 FailedTest(name='lcs with WITHMATCHLEN', reason=ResponseError('unknown command `LCS`'))
 FailedTest(name='georadius with support for uppercase unit names', reason=ResponseError('unknown command `GEORADIUS`'))
-FailedTest(name='georadiusbymember with support for uppercase unit names', reason="expected: ['Agrigento', 'Palermo'], result: [['Agrigento'], ['Palermo']]")
-FailedTest(name='geosearch with support for uppercase unit names', reason="expected: ['Palermo', 'Catania'], result: [['Palermo'], ['Catania']]")
 FailedTest(name='geosearchstore with support for uppercase unit names', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
 FailedTest(name='fcall command', reason=ResponseError("wrong number of arguments for 'function' command"))
 FailedTest(name='fcall_ro command', reason=ResponseError("wrong number of arguments for 'function' command"))
@@ -470,9 +464,7 @@ FailedTest(name='georadius with ANY option for COUNT', reason=ResponseError('unk
 FailedTest(name='georadius_ro with ANY option for COUNT', reason=ResponseError('unknown command `GEORADIUS_RO`'))
 FailedTest(name='georadiusbymember with ANY option for COUNT', reason=ResponseError('syntax error'))
 FailedTest(name='georadiusbymember_ro with ANY option for COUNT', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
-FailedTest(name='geosearch command', reason="expected: ['Palermo', 'Catania'], result: [['Palermo'], ['Catania']]")
-FailedTest(name='geosearch with ASC / DESC', reason="expected: ['Catania', 'Palermo'], result: [['Catania'], ['Palermo']]")
-FailedTest(name='geosearch with COUNT', reason="expected: ['Catania'], result: [['Palermo'], ['Catania']]")
+FailedTest(name='geosearch with COUNT', reason="expected: ['Catania'], result: ['Palermo', 'Catania']")
 FailedTest(name='geosearch with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.1155563954963']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
 FailedTest(name='geosearchstore command', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
 FailedTest(name='geosearchstore with ASC / DESC', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
@@ -492,10 +484,8 @@ FailedTest(name='georadius_ro command', reason=ResponseError('unknown command `G
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command `GEORADIUS_RO`'))
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command `GEORADIUS_RO`'))
 FailedTest(name='georadius_ro with ASC / DESC', reason=ResponseError('unknown command `GEORADIUS_RO`'))
-FailedTest(name='georadiusbymember command', reason="expected: ['Agrigento'], result: [['Agrigento']]")
 FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.1155563954963']]]")
-FailedTest(name='georadiusbymember with COUNT', reason="expected: ['Agrigento'], result: [['Agrigento'], ['Palermo']]")
-FailedTest(name='georadiusbymember with ASC / DESC', reason="expected: ['Agrigento', 'Palermo'], result: [['Agrigento'], ['Palermo']]")
+FailedTest(name='georadiusbymember with COUNT', reason="expected: ['Agrigento'], result: ['Agrigento', 'Palermo']")
 FailedTest(name='georadiusbymember_ro command', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
 FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
 FailedTest(name='georadiusbymember_ro with COUNT', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
