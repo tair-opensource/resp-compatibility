@@ -79,7 +79,7 @@ test: lpushx with multiple element passed
 test: lrange command passed
 test: lrem command passed
 test: lset command passed
-test: ltrim command failed
+test: ltrim command passed
 test: rpop command passed
 test: rpop with COUNT version skipped
 test: rpoplpush command passed
@@ -307,7 +307,7 @@ test: geopos command failed
 test: georadius command passed
 test: georadius with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadius with COUNT failed
-test: georadius with ASC / DESC failed
+test: georadius with ASC / DESC passed
 test: georadius with STORE / STOREDIST passed
 test: georadius with STORE / STOREDIST tags skipped
 test: georadius with ANY option for COUNT version skipped
@@ -416,14 +416,13 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 154, rate: 69.68%
+Summary: version: 6.0.0, total tests: 221, passed: 156, rate: 70.59%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
 FailedTest(name='randomkey command', reason=ResponseError('unknown command "randomkey"'))
 FailedTest(name='move command', reason=ResponseError('unknown command "move"'))
 FailedTest(name='sort command', reason=ResponseError('unknown command "sort"'))
-FailedTest(name='ltrim command', reason="expected: ['1', '2'], result: ['1', '2', '0', '1', '2']")
 FailedTest(name='spop command', reason="expected: 0, result: ['0']")
 FailedTest(name='substr command', reason=ResponseError('unknown command "substr"'))
 FailedTest(name='hset command with multiple field and value', reason=ResponseError("wrong number of arguments for 'hset' command"))
@@ -473,7 +472,6 @@ FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfi
 FailedTest(name='geopos command', reason="expected: [['13.36138933897018433', '38.11555639549629859'], ['15.08726745843887329', '37.50266842333162032'], None], result: [['13.361389338970184', '38.115556395496299'], ['15.087267458438873', '37.50266842333162'], None]")
 FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.115556395496299']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
 FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
-FailedTest(name='georadius with ASC / DESC', reason='expected: 2, result: 0')
 FailedTest(name='georadius_ro command', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
