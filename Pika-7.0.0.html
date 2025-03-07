@@ -423,7 +423,7 @@ FailedTest(name='renamenx command', reason=ResponseError('unknown command "renam
 FailedTest(name='randomkey command', reason=ResponseError('unknown command "randomkey"'))
 FailedTest(name='move command', reason=ResponseError('unknown command "move"'))
 FailedTest(name='sort command', reason=ResponseError('unknown command "sort"'))
-FailedTest(name='spop command', reason='expected: 1, result: 0')
+FailedTest(name='spop command', reason="expected: 0, result: ['0']")
 FailedTest(name='substr command', reason=ResponseError('unknown command "substr"'))
 FailedTest(name='hset command with multiple field and value', reason=ResponseError("wrong number of arguments for 'hset' command"))
 FailedTest(name='flushall with async', reason=ResponseError("wrong number of arguments for 'flushall' command"))
