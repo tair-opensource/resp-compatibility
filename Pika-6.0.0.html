@@ -166,7 +166,7 @@ test: zmscore command version skipped
 test: zpopmax command passed
 test: zpopmax with COUNT passed
 test: zpopmin command passed
-test: zpopmin command passed
+test: zpopmin command failed
 test: zrandmember command version skipped
 test: zrandmember with COUNT version skipped
 test: zrandmember with WITHSCORES version skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 156, rate: 70.59%
+Summary: version: 6.0.0, total tests: 221, passed: 155, rate: 70.14%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -444,6 +444,7 @@ FailedTest(name='restore with ABSTTL', reason=ResponseError('unknown command "re
 FailedTest(name='restore with IDLETIME', reason=ResponseError('unknown command "restore"'))
 FailedTest(name='bzpopmax command', reason=ResponseError('unknown command "bzpopmax"'))
 FailedTest(name='bzpopmin command', reason=ResponseError('unknown command "bzpopmin"'))
+FailedTest(name='zpopmin command', reason='expected: 1, result: 0')
 FailedTest(name='xack command', reason=ResponseError('unknown command "xack"'))
 FailedTest(name='xadd command', reason=ResponseError('unknown command "xadd"'))
 FailedTest(name='xclaim command', reason=ResponseError('unknown command "xadd"'))
