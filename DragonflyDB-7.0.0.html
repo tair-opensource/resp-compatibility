@@ -138,7 +138,7 @@ test: zcard command passed
 test: zcount command passed
 test: zdiff command passed
 test: zdiff command tags skipped
-test: zdiffstore command failed
+test: zdiffstore command passed
 test: zdiffstore command tags skipped
 test: zincrby command passed
 test: zinter command passed
@@ -409,14 +409,14 @@ test: pubsub numsub command passed
 test: pubsub shardchannels command failed
 test: pubsub shardnumsub command failed
 test: punsubscribe command passed
-test: spublish command failed
+test: spublish command passed
 test: ssubscribe command failed
 test: subscribe command passed
 test: subscribe with RESET passed
 test: sunsubscribe command failed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 278, rate: 79.43%
+Summary: version: 7.0.0, total tests: 350, passed: 280, rate: 80.00%
 This is failed tests for 7.0.0:
 FailedTest(name='flushdb with async', reason=ResponseError("wrong number of arguments for 'flushdb' command"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command `SWAPDB`'))
@@ -450,15 +450,13 @@ FailedTest(name='function load command', reason=ResponseError("wrong number of a
 FailedTest(name='function restore command', reason=ResponseError("wrong number of arguments for 'function' command"))
 FailedTest(name='function stats command', reason=ResponseError("Unknown subcommand or wrong number of arguments for 'STATS'. Try FUNCTION HELP."))
 FailedTest(name='xgroup setid with ENTRIESREAD', reason=ResponseError('syntax error'))
-FailedTest(name='pubsub shardchannels command', reason=ResponseError("Unknown subcommand or wrong number of arguments for 'SHARDCHANNELS'. Try PUBSUB HELP."))
-FailedTest(name='pubsub shardnumsub command', reason=ResponseError("Unknown subcommand or wrong number of arguments for 'SHARDNUMSUB'. Try PUBSUB HELP."))
-FailedTest(name='spublish command', reason=ResponseError('unknown command `SPUBLISH`'))
-FailedTest(name='ssubscribe command', reason=ResponseError('unknown command `SSUBSCRIBE`'))
-FailedTest(name='sunsubscribe command', reason=ResponseError('unknown command `SUNSUBSCRIBE`'))
+FailedTest(name='pubsub shardchannels command', reason=ResponseError('PUBSUB SHARDCHANNELS is not supported in non cluster mode'))
+FailedTest(name='pubsub shardnumsub command', reason=ResponseError('PUBSUB SHARDNUMSUB is not supported in non cluster mode'))
+FailedTest(name='ssubscribe command', reason="expected: ['ssubscribe', 'hello', 1], result: ['subscribe', 'hello', 1]")
+FailedTest(name='sunsubscribe command', reason="expected: ['sunsubscribe', 'hello', 0], result: ['unsubscribe', 'hello', 0]")
 FailedTest(name='xpending command', reason="expected: [1, '1-0', '1-0', [['myconsumer', '1']]], result: [1, '1-0', '1-0', [['myconsumer', 1]]]")
 FailedTest(name='bitfield_ro command', reason='expected: [0], result: [None]')
 FailedTest(name='copy command', reason=ResponseError('unknown command `COPY`'))
-FailedTest(name='zdiffstore command', reason=ResponseError('unknown command `ZDIFFSTORE`'))
 FailedTest(name='zrandmember command', reason="expected: a, result: ['a']")
 FailedTest(name='georadius with ANY option for COUNT', reason=ResponseError('unknown command `GEORADIUS`'))
 FailedTest(name='georadius_ro with ANY option for COUNT', reason=ResponseError('unknown command `GEORADIUS_RO`'))
