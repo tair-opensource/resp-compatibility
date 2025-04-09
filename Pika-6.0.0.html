@@ -117,7 +117,7 @@ test: srandmember with COUNT passed
 test: srem command passed
 test: srem with multiple member passed
 test: sscan command passed
-test: sscan with MATCH and COUNT passed
+test: sscan with MATCH and COUNT failed
 test: sunion command passed
 test: sunion command tags skipped
 test: sunionstore command passed
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 156, rate: 70.59%
+Summary: version: 6.0.0, total tests: 221, passed: 155, rate: 70.14%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -460,6 +460,7 @@ FailedTest(name='xread command', reason=ResponseError('unknown command "xadd"'))
 FailedTest(name='xreadgroup command', reason=ResponseError('unknown command "xadd"'))
 FailedTest(name='xrevrange command', reason=ResponseError('unknown command "xrevrange"'))
 FailedTest(name='xtrim command', reason=ResponseError('unknown command "xtrim"'))
+FailedTest(name='sscan with MATCH and COUNT', reason='expected: 1, result: 0')
 FailedTest(name='blpop with double timeout', reason=ResponseError('value is not an integer or out of range'))
 FailedTest(name='brpop with double timeout', reason=ResponseError('value is not an integer or out of range'))
 FailedTest(name='brpoplpush with double timeout', reason=ResponseError('unknown command "brpoplpush"'))
