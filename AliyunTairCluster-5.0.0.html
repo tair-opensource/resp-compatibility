@@ -447,7 +447,7 @@ FailedTest(name='xgroup destroy command', reason=RedisClusterException("No way t
 FailedTest(name='xgroup setid command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
 FailedTest(name='xpending command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
 FailedTest(name='xreadgroup command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='scan command', reason="expected: ['0', ['k']], result: ({'172.16.0.48:6379': 72057594037927936}, ['k'])")
+FailedTest(name='scan command', reason="expected: ['0', ['k']], result: ({'172.16.0.176:6379': 72057594037927936}, ['k'])")
 FailedTest(name='blpop command', reason=RedisClusterException('blpop - all keys must map to the same key slot'))
 FailedTest(name='brpop command', reason=RedisClusterException('brpop - all keys must map to the same key slot'))
 FailedTest(name='zinterstore command', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
