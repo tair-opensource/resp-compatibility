@@ -65,7 +65,7 @@ test: lmove command tags skipped
 test: lmpop command version skipped
 test: lmpop with COUNT version skipped
 test: lmpop with COUNT tags skipped
-test: lpop command passed
+test: lpop command failed
 test: lpop with COUNT version skipped
 test: lpos command version skipped
 test: lpos with RANK version skipped
@@ -118,7 +118,7 @@ test: srem command passed
 test: srem with multiple member passed
 test: sscan command passed
 test: sscan with MATCH and COUNT passed
-test: sunion command passed
+test: sunion command failed
 test: sunion command tags skipped
 test: sunionstore command passed
 test: sunionstore command tags skipped
@@ -320,7 +320,7 @@ test: georadius_ro with ANY option for COUNT version skipped
 test: georadiusbymember command passed
 test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadiusbymember with COUNT passed
-test: georadiusbymember with ASC / DESC passed
+test: georadiusbymember with ASC / DESC failed
 test: georadiusbymember with STORE / STOREDIST passed
 test: georadiusbymember with STORE / STOREDIST tags skipped
 test: georadiusbymember with ANY option for COUNT version skipped
@@ -416,14 +416,16 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 156, rate: 70.59%
+Summary: version: 6.0.0, total tests: 221, passed: 153, rate: 69.23%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
 FailedTest(name='randomkey command', reason=ResponseError('unknown command "randomkey"'))
 FailedTest(name='move command', reason=ResponseError('unknown command "move"'))
 FailedTest(name='sort command', reason=ResponseError('unknown command "sort"'))
+FailedTest(name='lpop command', reason='expected: 1, result: 4')
 FailedTest(name='spop command', reason="expected: 0, result: ['0']")
+FailedTest(name='sunion command', reason='expected: 1, result: 0')
 FailedTest(name='substr command', reason=ResponseError('unknown command "substr"'))
 FailedTest(name='hset command with multiple field and value', reason=ResponseError("wrong number of arguments for 'hset' command"))
 FailedTest(name='flushall with async', reason=ResponseError("wrong number of arguments for 'flushall' command"))
@@ -477,6 +479,7 @@ FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=Resp
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with ASC / DESC', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.115556395496299']]]")
+FailedTest(name='georadiusbymember with ASC / DESC', reason='expected: 1, result: 0')
 FailedTest(name='zadd with XX / NX / CH / INCR', reason=ResponseError('syntax error'))
 FailedTest(name='set with EX / PX', reason=ResponseError('Invalid argument: invalid expire time'))
 FailedTest(name='georadiusbymember_ro command', reason=ResponseError('unknown command "georadiusbymember_ro"'))
