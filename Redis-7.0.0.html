@@ -303,9 +303,9 @@ test: geoadd with CH / NX / XX passed
 test: geodist command passed
 test: geodist with M / KM / FT / MI passed
 test: geohash command passed
-test: geopos command passed
+test: geopos command failed
 test: georadius command passed
-test: georadius with WITHCOORD / WITHDIST / WITHHASH passed
+test: georadius with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadius with COUNT passed
 test: georadius with ASC / DESC passed
 test: georadius with STORE / STOREDIST passed
@@ -313,12 +313,12 @@ test: georadius with STORE / STOREDIST tags skipped
 test: georadius with ANY option for COUNT passed
 test: georadius with support for uppercase unit names passed
 test: georadius_ro command passed
-test: georadius_ro with WITHCOORD / WITHDIST / WITHHASH passed
+test: georadius_ro with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadius_ro with COUNT passed
 test: georadius_ro with ASC / DESC passed
 test: georadius_ro with ANY option for COUNT passed
 test: georadiusbymember command passed
-test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH passed
+test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadiusbymember with COUNT passed
 test: georadiusbymember with ASC / DESC passed
 test: georadiusbymember with STORE / STOREDIST passed
@@ -326,14 +326,14 @@ test: georadiusbymember with STORE / STOREDIST tags skipped
 test: georadiusbymember with ANY option for COUNT passed
 test: georadiusbymember with support for uppercase unit names passed
 test: georadiusbymember_ro command passed
-test: georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH passed
+test: georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadiusbymember_ro with COUNT passed
 test: georadiusbymember_ro with ASC / DESC passed
 test: georadiusbymember_ro with ANY option for COUNT passed
 test: geosearch command passed
 test: geosearch with ASC / DESC passed
 test: geosearch with COUNT passed
-test: geosearch with WITHCOORD / WITHDIST / WITHHASH passed
+test: geosearch with WITHCOORD / WITHDIST / WITHHASH failed
 test: geosearch with support for uppercase unit names passed
 test: geosearchstore command passed
 test: geosearchstore command tags skipped
@@ -416,5 +416,12 @@ test: subscribe with RESET passed
 test: sunsubscribe command passed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 350, rate: 100.00%
+Summary: version: 7.0.0, total tests: 350, passed: 344, rate: 98.29%
+This is failed tests for 7.0.0:
+FailedTest(name='geosearch with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.1155563954963']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
+FailedTest(name='geopos command', reason="expected: [['13.36138933897018433', '38.11555639549629859'], ['15.08726745843887329', '37.50266842333162032'], None], result: [['13.361389338970184', '38.1155563954963'], ['15.087267458438873', '37.50266842333162'], None]")
+FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.1155563954963']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
+FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.1155563954963']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
+FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.1155563954963']]]")
+FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.1155563954963']]]")
 </pre>
