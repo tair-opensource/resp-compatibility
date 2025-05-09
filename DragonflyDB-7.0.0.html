@@ -16,8 +16,8 @@ test: expireat command passed
 test: expireat with NX / XX failed
 test: expireat with GT / LT failed
 test: pexpire command passed
-test: pexpire with NX / XX failed
-test: pexpire with GT / LT failed
+test: pexpire with NX / XX passed
+test: pexpire with GT / LT passed
 test: pexpireat command passed
 test: pexpireat with NX / XX failed
 test: pexpireat with GT / LT failed
@@ -286,8 +286,8 @@ test: hstrlen command passed
 test: hvals command passed
 test: bitcount command passed
 test: bitcount with BYTE / BIT passed
-test: bitfield command failed
-test: bitfield_ro command failed
+test: bitfield command passed
+test: bitfield_ro command passed
 test: bitop command passed
 test: bitop command tags skipped
 test: bitpos command passed
@@ -416,16 +416,14 @@ test: subscribe with RESET passed
 test: sunsubscribe command failed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 280, rate: 80.00%
+Summary: version: 7.0.0, total tests: 350, passed: 284, rate: 81.14%
 This is failed tests for 7.0.0:
 FailedTest(name='flushdb with async', reason=ResponseError("wrong number of arguments for 'flushdb' command"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command `SWAPDB`'))
-FailedTest(name='expireat with NX / XX', reason=ResponseError("wrong number of arguments for 'expireat' command"))
-FailedTest(name='expireat with GT / LT', reason=ResponseError("wrong number of arguments for 'expireat' command"))
-FailedTest(name='pexpire with NX / XX', reason=ResponseError("wrong number of arguments for 'pexpire' command"))
-FailedTest(name='pexpire with GT / LT', reason=ResponseError("wrong number of arguments for 'pexpire' command"))
-FailedTest(name='pexpireat with NX / XX', reason=ResponseError("wrong number of arguments for 'pexpireat' command"))
-FailedTest(name='pexpireat with GT / LT', reason=ResponseError("wrong number of arguments for 'pexpireat' command"))
+FailedTest(name='expireat with NX / XX', reason=ResponseError('expiry is out of range'))
+FailedTest(name='expireat with GT / LT', reason=ResponseError('expiry is out of range'))
+FailedTest(name='pexpireat with NX / XX', reason=ResponseError('expiry is out of range'))
+FailedTest(name='pexpireat with GT / LT', reason=ResponseError('expiry is out of range'))
 FailedTest(name='blmpop command', reason=ResponseError('unknown command `BLMPOP`'))
 FailedTest(name='blmpop with COUNT', reason=ResponseError('unknown command `BLMPOP`'))
 FailedTest(name='sintercard with LIMIT', reason=ResponseError('syntax error'))
@@ -455,8 +453,7 @@ FailedTest(name='pubsub shardnumsub command', reason=ResponseError('PUBSUB SHARD
 FailedTest(name='ssubscribe command', reason="expected: ['ssubscribe', 'hello', 1], result: ['subscribe', 'hello', 1]")
 FailedTest(name='sunsubscribe command', reason="expected: ['sunsubscribe', 'hello', 0], result: ['unsubscribe', 'hello', 0]")
 FailedTest(name='xpending command', reason="expected: [1, '1-0', '1-0', [['myconsumer', '1']]], result: [1, '1-0', '1-0', [['myconsumer', 1]]]")
-FailedTest(name='bitfield_ro command', reason='expected: [0], result: [None]')
-FailedTest(name='copy command', reason=ResponseError('unknown command `COPY`'))
+FailedTest(name='copy command', reason='expected: 1, result: OK')
 FailedTest(name='zrandmember command', reason="expected: a, result: ['a']")
 FailedTest(name='georadius with ANY option for COUNT', reason=ResponseError('unknown command `GEORADIUS`'))
 FailedTest(name='georadius_ro with ANY option for COUNT', reason=ResponseError('unknown command `GEORADIUS_RO`'))
@@ -469,7 +466,6 @@ FailedTest(name='geosearchstore with ASC / DESC', reason=ResponseError('unknown 
 FailedTest(name='geosearchstore with COUNT', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
 FailedTest(name='geosearchstore with STOREDIST', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
 FailedTest(name='flushdb with sync', reason=ResponseError("wrong number of arguments for 'flushdb' command"))
-FailedTest(name='bitfield command', reason='expected: [1, 1], result: [0, 1]')
 FailedTest(name='geodist command', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='geodist with M / KM / FT / MI', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='geopos command', reason="expected: [['13.36138933897018433', '38.11555639549629859'], ['15.08726745843887329', '37.50266842333162032'], None], result: [['13.361389338970184', '38.1155563954963'], ['15.087267458438873', '37.50266842333162'], None]")
