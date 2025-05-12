@@ -585,7 +585,7 @@ FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfi
 FailedTest(name='geopos command', reason="expected: [['13.36138933897018433', '38.11555639549629859'], ['15.08726745843887329', '37.50266842333162032'], None], result: [['13.361389338970184', '38.115556395496299'], ['15.087267458438873', '37.50266842333162'], None]")
 FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.115556395496299']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
 FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
-FailedTest(name='georadius_ro command', reason='expected: 2, result: 0')
+FailedTest(name='georadius_ro command', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with ASC / DESC', reason=ResponseError('unknown command "georadius_ro"'))
