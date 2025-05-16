@@ -177,7 +177,7 @@ test: zrange with REV version skipped
 test: zrange with LIMIT version skipped
 test: zrangebylex command passed
 test: zrangebylex with LIMIT passed
-test: zrangebyscore command failed
+test: zrangebyscore command passed
 test: zrangebyscore with LIMIT passed
 test: zrangebyscore with WITHSCORES passed
 test: zrangestore command version skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 155, rate: 70.14%
+Summary: version: 6.0.0, total tests: 221, passed: 156, rate: 70.59%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -478,7 +478,6 @@ FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command
 FailedTest(name='georadius_ro with ASC / DESC', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.115556395496299']]]")
 FailedTest(name='zadd with XX / NX / CH / INCR', reason=ResponseError('syntax error'))
-FailedTest(name='zrangebyscore command', reason="expected: ['one', 'two', 'three'], result: ['a', 'b', 'c', 'd', 'e', 'one', 'two', 'three']")
 FailedTest(name='set with EX / PX', reason=ResponseError('Invalid argument: invalid expire time'))
 FailedTest(name='georadiusbymember_ro command', reason=ResponseError('unknown command "georadiusbymember_ro"'))
 FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadiusbymember_ro"'))
