@@ -130,7 +130,7 @@ test: bzpopmax command failed
 test: bzpopmax with double timeout failed
 test: bzpopmin command failed
 test: bzpopmin with double timeout failed
-test: zadd command passed
+test: zadd command failed
 test: zadd with multiple elements passed
 test: zadd with XX / NX / CH / INCR failed
 test: zadd with GT / LT version skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 156, rate: 70.59%
+Summary: version: 6.0.0, total tests: 221, passed: 155, rate: 70.14%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -429,6 +429,7 @@ FailedTest(name='hset command with multiple field and value', reason=ResponseErr
 FailedTest(name='flushall with async', reason=ResponseError("wrong number of arguments for 'flushall' command"))
 FailedTest(name='flushdb with async', reason=ResponseError("invalid DB for ''"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command "swapdb"'))
+FailedTest(name='zadd command', reason='expected: 1, result: 0')
 FailedTest(name='dump command', reason=ResponseError('unknown command "dump"'))
 FailedTest(name='restore command', reason=ResponseError('unknown command "restore"'))
 FailedTest(name='psetex command', reason=ResponseError('Invalid argument: invalid expire time'))
