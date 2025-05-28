@@ -5,7 +5,7 @@ test: rename command failed
 test: rename command tags skipped
 test: renamenx command failed
 test: renamenx command tags skipped
-test: randomkey command passed
+test: randomkey command failed
 test: exists command passed
 test: ttl command passed
 test: pttl command passed
@@ -381,21 +381,21 @@ test: xack command passed
 test: xadd command passed
 test: xadd with NOMKSTREAM/MINID/LIMIT passed
 test: xadd with EXPLICIT ID passed
-test: xclaim command failed
+test: xclaim command passed
 test: xdel command passed
-test: xgroup create command failed
-test: xgroup create with MKSTREAM failed
-test: xgroup create with ENTRIESREAD failed
-test: xgroup createconsumer command failed
-test: xgroup delconsumer command failed
-test: xgroup destroy command failed
-test: xgroup setid command failed
-test: xgroup setid with ENTRIESREAD failed
+test: xgroup create command passed
+test: xgroup create with MKSTREAM passed
+test: xgroup create with ENTRIESREAD passed
+test: xgroup createconsumer command passed
+test: xgroup delconsumer command passed
+test: xgroup destroy command passed
+test: xgroup setid command passed
+test: xgroup setid with ENTRIESREAD passed
 test: xlen command passed
-test: xpending command failed
+test: xpending command passed
 test: xrange command passed
 test: xread command passed
-test: xreadgroup command failed
+test: xreadgroup command passed
 test: xrevrange command passed
 test: xrevrange command with EXCLUSIVE RANGES passed
 test: xtrim command passed
@@ -416,10 +416,11 @@ test: subscribe with RESET run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE
 test: sunsubscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
 test: unsubscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 336, passed: 244, rate: 72.62%
+Summary: version: 7.0.0, total tests: 336, passed: 254, rate: 75.60%
 This is failed tests for 7.0.0:
 FailedTest(name='rename command', reason=RedisClusterException('rename - all keys must map to the same key slot'))
 FailedTest(name='renamenx command', reason=RedisClusterException('renamenx - all keys must map to the same key slot'))
+FailedTest(name='randomkey command', reason='expected: k, result: None')
 FailedTest(name='keys command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
 FailedTest(name='sdiff command', reason=RedisClusterException('sdiff - all keys must map to the same key slot'))
 FailedTest(name='sdiffstore command', reason=RedisClusterException('sdiffstore - all keys must map to the same key slot'))
@@ -451,8 +452,6 @@ FailedTest(name='fcall_ro command', reason=ResponseError("for redis cluster, eva
 FailedTest(name='function load command', reason=ResponseError("for redis cluster, eval/evalsha/fcall number of keys can't be negative or zero"))
 FailedTest(name='function restore command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('function', b'flush')"))
 FailedTest(name='function stats command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('function', 'stats')"))
-FailedTest(name='xgroup create with ENTRIESREAD', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '1-0', 'entriesread', '1')"))
-FailedTest(name='xgroup setid with ENTRIESREAD', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
 FailedTest(name='rpoplpush command', reason=RedisClusterException('rpoplpush - all keys must map to the same key slot'))
 FailedTest(name='exec command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
 FailedTest(name='multi command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
@@ -462,16 +461,8 @@ FailedTest(name='evalsha command', reason=ResponseError("for redis cluster, eval
 FailedTest(name='brpoplpush command', reason=RedisClusterException('brpoplpush - all keys must map to the same key slot'))
 FailedTest(name='unwatch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
 FailedTest(name='watch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
-FailedTest(name='xclaim command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup create command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup create with MKSTREAM', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0', 'mkstream')"))
-FailedTest(name='xgroup delconsumer command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup destroy command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup setid command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xpending command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xreadgroup command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='scan command', reason="expected: ['0', ['k']], result: ({'172.16.0.15:6379': 72057594037927936}, ['k'])")
-FailedTest(name='scan with TYPE', reason="expected: ['0', ['geokey']], result: ({'172.16.0.15:6379': 72057594037927936}, ['geokey'])")
+FailedTest(name='scan command', reason="expected: ['0', ['k']], result: ({'172.16.0.208:6379': 72057594037927936}, ['k'])")
+FailedTest(name='scan with TYPE', reason="expected: ['0', ['geokey']], result: ({'172.16.0.208:6379': 72057594037927936}, ['geokey'])")
 FailedTest(name='brpop with double timeout', reason=RedisClusterException('brpop - all keys must map to the same key slot'))
 FailedTest(name='brpoplpush with double timeout', reason=RedisClusterException('brpoplpush - all keys must map to the same key slot'))
 FailedTest(name='bitfield_ro command', reason=ResponseError("unknown command 'BITFIELD_RO'"))
@@ -495,7 +486,6 @@ FailedTest(name='geosearchstore command', reason=RedisClusterException('geosearc
 FailedTest(name='geosearchstore with ASC / DESC', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
 FailedTest(name='geosearchstore with COUNT', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
 FailedTest(name='geosearchstore with STOREDIST', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
-FailedTest(name='xgroup createconsumer command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
 FailedTest(name='blpop command', reason=RedisClusterException('blpop - all keys must map to the same key slot'))
 FailedTest(name='brpop command', reason=RedisClusterException('brpop - all keys must map to the same key slot'))
 FailedTest(name='zinterstore command', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
