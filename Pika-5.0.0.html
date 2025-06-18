@@ -320,7 +320,7 @@ test: georadius_ro with ANY option for COUNT version skipped
 test: georadiusbymember command passed
 test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadiusbymember with COUNT passed
-test: georadiusbymember with ASC / DESC failed
+test: georadiusbymember with ASC / DESC passed
 test: georadiusbymember with STORE / STOREDIST passed
 test: georadiusbymember with STORE / STOREDIST tags skipped
 test: georadiusbymember with ANY option for COUNT version skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 213, passed: 154, rate: 72.30%
+Summary: version: 5.0.0, total tests: 213, passed: 155, rate: 72.77%
 This is failed tests for 5.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -470,7 +470,6 @@ FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=Resp
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with ASC / DESC', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.115556395496299']]]")
-FailedTest(name='georadiusbymember with ASC / DESC', reason='expected: 1, result: 0')
 FailedTest(name='zadd with XX / NX / CH / INCR', reason=ResponseError('syntax error'))
 FailedTest(name='set with EX / PX', reason=ResponseError('Invalid argument: invalid expire time'))
 FailedTest(name='georadiusbymember_ro command', reason=ResponseError('unknown command "georadiusbymember_ro"'))
