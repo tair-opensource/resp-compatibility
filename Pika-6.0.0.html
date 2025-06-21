@@ -468,7 +468,7 @@ FailedTest(name='bzpopmin with double timeout', reason=ResponseError('unknown co
 FailedTest(name='set with KEEPTTL', reason=ResponseError('syntax error'))
 FailedTest(name='bitfield_ro command', reason=ResponseError('unknown command "bitfield_ro"'))
 FailedTest(name='psubscribe command', reason=ResponseError('only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context'))
-FailedTest(name='rpush with multiple element', reason="expected: ['0', '1'], result: ['0', '1', '0', '1']")
+FailedTest(name='rpush with multiple element', reason='expected: 1, result: 3')
 FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfield"'))
 FailedTest(name='geopos command', reason="expected: [['13.36138933897018433', '38.11555639549629859'], ['15.08726745843887329', '37.50266842333162032'], None], result: [['13.361389338970184', '38.115556395496299'], ['15.087267458438873', '37.50266842333162'], None]")
 FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.115556395496299']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
