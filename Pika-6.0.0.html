@@ -97,7 +97,7 @@ test: sdiff command passed
 test: sdiff command tags skipped
 test: sdiffstore command passed
 test: sdiffstore command tags skipped
-test: sinter command failed
+test: sinter command passed
 test: sinter command tags skipped
 test: sintercard command version skipped
 test: sintercard command tags skipped
@@ -416,14 +416,13 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 155, rate: 70.14%
+Summary: version: 6.0.0, total tests: 221, passed: 156, rate: 70.59%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
 FailedTest(name='randomkey command', reason=ResponseError('unknown command "randomkey"'))
 FailedTest(name='move command', reason=ResponseError('unknown command "move"'))
 FailedTest(name='sort command', reason=ResponseError('unknown command "sort"'))
-FailedTest(name='sinter command', reason='expected: 1, result: 0')
 FailedTest(name='spop command', reason="expected: 0, result: ['0']")
 FailedTest(name='substr command', reason=ResponseError('unknown command "substr"'))
 FailedTest(name='hset command with multiple field and value', reason=ResponseError("wrong number of arguments for 'hset' command"))
