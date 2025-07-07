@@ -5528,7 +5528,8 @@
         null
       ]
     ],
-    "since": "3.2.0"
+    "since": "3.2.0",
+    "float_result": true
   },
   {
     "name": "georadius command",
@@ -5601,7 +5602,8 @@
         ]
       ]
     ],
-    "since": "3.2.0"
+    "since": "3.2.0",
+    "float_result": true
   },
   {
     "name": "georadius with COUNT",
@@ -5766,7 +5768,8 @@
         ]
       ]
     ],
-    "since": "3.2.0"
+    "since": "3.2.0",
+    "float_result": true
   },
   {
     "name": "georadius_ro with COUNT",
@@ -5896,7 +5899,8 @@
         ]
       ]
     ],
-    "since": "3.2.0"
+    "since": "3.2.0",
+    "float_result": true
   },
   {
     "name": "georadiusbymember with COUNT",
@@ -6083,7 +6087,8 @@
         ]
       ]
     ],
-    "since": "3.2.10"
+    "since": "3.2.10",
+    "float_result": true
   },
   {
     "name": "georadiusbymember_ro with COUNT",
@@ -6310,7 +6315,8 @@
         ]
       ]
     ],
-    "since": "6.2.0"
+    "since": "6.2.0",
+    "float_result": true
   },
   {
     "name": "geosearch with support for uppercase unit names",

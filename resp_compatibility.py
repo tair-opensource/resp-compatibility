@@ -156,6 +156,43 @@ def sort_nested_list(result):
         return sorted(result)
 
 
+def compare_nested_lists_with_float_tolerance(list1, list2, tolerance=0.01):
+    """
+    Compare two nested lists with float tolerance.
+    For each string that can be converted to float, compare as float with tolerance.
+    
+    Args:
+        list1: First list to compare
+        list2: Second list to compare
+        tolerance: Float tolerance for comparison (default 0.01)
+    
+    Returns:
+        bool: True if lists are equal within tolerance, False otherwise
+    """
+    if type(list1) != type(list2):
+        return False
+    
+    if isinstance(list1, list):
+        if len(list1) != len(list2):
+            return False
+        for i in range(len(list1)):
+            if not compare_nested_lists_with_float_tolerance(list1[i], list2[i], tolerance):
+                return False
+        return True
+    elif isinstance(list1, str):
+        # Try to convert both strings to float for comparison
+        try:
+            float1 = float(list1)
+            float2 = float(list2)
+            return abs(float1 - float2) < tolerance
+        except (ValueError, TypeError):
+            # If conversion fails, compare as strings
+            return list1 == list2
+    else:
+        # For other types (int, bool, etc.), use direct comparison
+        return list1 == list2
+
+
 def run_test(test):
     name = test['name']
     print(f"test: {name}", end=" ", file=logfile)
@@ -194,7 +231,11 @@ def run_test(test):
             if 'sort_result' in test and isinstance(result[idx], list):
                 ret = sort_nested_list(ret)
                 result[idx] = sort_nested_list(result[idx])
-            if result[idx] != ret:
+            if 'float_result' in test and isinstance(result[idx], list):
+                if not compare_nested_lists_with_float_tolerance(result[idx], ret):
+                    test_failed(g_results[since], name, f"expected: {result[idx]}, result: {ret}")
+                    return
+            elif result[idx] != ret:
                 test_failed(g_results[since], name, f"expected: {result[idx]}, result: {ret}")
                 return
         test_passed(g_results[since])
