@@ -303,7 +303,7 @@ test: geoadd with CH / NX / XX version skipped
 test: geodist command failed
 test: geodist with M / KM / FT / MI failed
 test: geohash command passed
-test: geopos command failed
+test: geopos command passed
 test: georadius command passed
 test: georadius with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadius with COUNT passed
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 220, passed: 204, rate: 92.73%
+Summary: version: 5.0.0, total tests: 220, passed: 205, rate: 93.18%
 This is failed tests for 5.0.0:
 FailedTest(name='srandmember command', reason="expected: 0, result: ['0']")
 FailedTest(name='flushall with async', reason=ResponseError('wrong number of arguments'))
@@ -429,9 +429,8 @@ FailedTest(name='touch command', reason=ResponseError('unknown command `touch`, 
 FailedTest(name='xtrim command', reason=ResponseError('value is not an integer or out of range'))
 FailedTest(name='geodist command', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='geodist with M / KM / FT / MI', reason='expected: 166274.1516, result: 166274.15156960033')
-FailedTest(name='geopos command', reason="expected: [['13.36138933897018433', '38.11555639549629859'], ['15.08726745843887329', '37.50266842333162032'], None], result: [['13.361389338970184', '38.115556395496299'], ['15.087267458438873', '37.50266842333162'], None]")
-FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.115556395496299']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
-FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Palermo', ['13.361389338970184', '38.115556395496299']], ['Catania', ['15.087267458438873', '37.50266842333162']]]")
-FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.115556395496299']]]")
-FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', ['13.5833314061164856', '37.31666804993816555']], ['Palermo', ['13.36138933897018433', '38.11555639549629859']]], result: [['Agrigento', ['13.583331406116486', '37.316668049938166']], ['Palermo', ['13.361389338970184', '38.115556395496299']]]")
+FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', 3479099956230698], ['Catania', 3479447370796909]], result: [['Palermo', '3479099956230698'], ['Catania', '3479447370796909']]")
+FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', 3479099956230698], ['Catania', 3479447370796909]], result: [['Palermo', '3479099956230698'], ['Catania', '3479447370796909']]")
+FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', 3479030013248308], ['Palermo', 3479099956230698]], result: [['Agrigento', '3479030013248308'], ['Palermo', '3479099956230698']]")
+FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', 3479030013248308], ['Palermo', 3479099956230698]], result: [['Agrigento', '3479030013248308'], ['Palermo', '3479099956230698']]")
 </pre>
