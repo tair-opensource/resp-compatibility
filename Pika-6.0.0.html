@@ -272,7 +272,7 @@ test: hincrby command passed
 test: hincrbyfloat command passed
 test: hkeys command passed
 test: hlen command passed
-test: hmget command passed
+test: hmget command failed
 test: hmset command passed
 test: hrandfield command version skipped
 test: hrandfield with COUNT version skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 159, rate: 71.95%
+Summary: version: 6.0.0, total tests: 221, passed: 158, rate: 71.49%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -467,6 +467,7 @@ FailedTest(name='bzpopmax with double timeout', reason=ResponseError('unknown co
 FailedTest(name='bzpopmin with double timeout', reason=ResponseError('unknown command "bzpopmin"'))
 FailedTest(name='set with KEEPTTL', reason=ResponseError('syntax error'))
 FailedTest(name='bitfield_ro command', reason=ResponseError('unknown command "bitfield_ro"'))
+FailedTest(name='hmget command', reason='expected: 1, result: 0')
 FailedTest(name='psubscribe command', reason=ResponseError('only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context'))
 FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfield"'))
 FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
