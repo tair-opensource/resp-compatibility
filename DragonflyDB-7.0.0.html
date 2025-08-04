@@ -42,8 +42,8 @@ test: sort_ro command skipped
 test: set command passed
 test: blmove command passed
 test: blmove command tags skipped
-test: blmpop command failed
-test: blmpop with COUNT failed
+test: blmpop command passed
+test: blmpop with COUNT passed
 test: blmpop with COUNT tags skipped
 test: blpop command passed
 test: blpop command tags skipped
@@ -122,10 +122,10 @@ test: sunion command passed
 test: sunion command tags skipped
 test: sunionstore command passed
 test: sunionstore command tags skipped
-test: bzmpop command failed
+test: bzmpop command passed
 test: bzmpop command tags skipped
-test: bzmpop with COUNT failed
-test: bzmpop with COUNT failed
+test: bzmpop with COUNT passed
+test: bzmpop with COUNT passed
 test: bzpopmax command passed
 test: bzpopmax with double timeout passed
 test: bzpopmin command passed
@@ -416,7 +416,7 @@ test: subscribe with RESET passed
 test: sunsubscribe command failed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 290, rate: 82.86%
+Summary: version: 7.0.0, total tests: 350, passed: 295, rate: 84.29%
 This is failed tests for 7.0.0:
 FailedTest(name='flushdb with async', reason=ResponseError("wrong number of arguments for 'flushdb' command"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command `SWAPDB`'))
@@ -424,12 +424,7 @@ FailedTest(name='expireat with NX / XX', reason=ResponseError('expiry is out of 
 FailedTest(name='expireat with GT / LT', reason=ResponseError('expiry is out of range'))
 FailedTest(name='pexpireat with NX / XX', reason=ResponseError('expiry is out of range'))
 FailedTest(name='pexpireat with GT / LT', reason=ResponseError('expiry is out of range'))
-FailedTest(name='blmpop command', reason=ResponseError('unknown command `BLMPOP`'))
-FailedTest(name='blmpop with COUNT', reason=ResponseError('unknown command `BLMPOP`'))
 FailedTest(name='sintercard with LIMIT', reason=ResponseError('syntax error'))
-FailedTest(name='bzmpop command', reason=ResponseError('unknown command `BZMPOP`'))
-FailedTest(name='bzmpop with COUNT', reason=ResponseError('unknown command `BZMPOP`'))
-FailedTest(name='bzmpop with COUNT', reason=ResponseError('unknown command `BZMPOP`'))
 FailedTest(name='zintercard with LIMIT', reason=ResponseError('syntax error'))
 FailedTest(name='lcs command', reason=ResponseError('unknown command `LCS`'))
 FailedTest(name='lcs with LEN', reason=ResponseError('unknown command `LCS`'))
