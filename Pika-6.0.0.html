@@ -201,7 +201,7 @@ test: zrevrangebylex command passed
 test: zrevrangebylex with LIMIT passed
 test: zrevrangebyscore command passed
 test: zrevrangebyscore with WITHSCORES passed
-test: zrevrangebyscore with LIMIT passed
+test: zrevrangebyscore with LIMIT failed
 test: zrevrangebyscore command passed
 test: zrevrank command passed
 test: zrevrank with WITHSCORE version skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 159, rate: 71.95%
+Summary: version: 6.0.0, total tests: 221, passed: 158, rate: 71.49%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -438,6 +438,7 @@ FailedTest(name='script exists command', reason=ResponseError('unknown command "
 FailedTest(name='script flush command', reason=ResponseError('unknown command "script"'))
 FailedTest(name='script load command', reason=ResponseError('unknown command "script"'))
 FailedTest(name='brpoplpush command', reason=ResponseError('unknown command "brpoplpush"'))
+FailedTest(name='zrevrangebyscore with LIMIT', reason='expected: 1, result: 0')
 FailedTest(name='touch command', reason=ResponseError('unknown command "touch"'))
 FailedTest(name='restore with REPLACE', reason=ResponseError('unknown command "restore"'))
 FailedTest(name='restore with ABSTTL', reason=ResponseError('unknown command "restore"'))
