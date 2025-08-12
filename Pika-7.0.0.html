@@ -555,7 +555,7 @@ FailedTest(name='hrandfield command', reason=ResponseError('unknown command "hra
 FailedTest(name='hrandfield with COUNT', reason=ResponseError('unknown command "hrandfield"'))
 FailedTest(name='hrandfield with WITHVALUES', reason=ResponseError('unknown command "hrandfield"'))
 FailedTest(name='geoadd with CH / NX / XX', reason=ResponseError("wrong number of arguments for 'geoadd' command"))
-FailedTest(name='georadius with ANY option for COUNT', reason=ResponseError('syntax error'))
+FailedTest(name='georadius with ANY option for COUNT', reason='expected: 2, result: 0')
 FailedTest(name='georadius_ro with ANY option for COUNT', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadiusbymember with ANY option for COUNT', reason=ResponseError('syntax error'))
 FailedTest(name='georadiusbymember_ro with ANY option for COUNT', reason=ResponseError('unknown command "georadiusbymember_ro"'))
