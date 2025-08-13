@@ -162,12 +162,12 @@ test: zinterstore with AGGREGATE tags skipped
 test: zlexcount command passed
 test: zmpop command failed
 test: zmpop with COUNT failed
-test: zmscore command failed
+test: zmscore command passed
 test: zpopmax command passed
 test: zpopmax with COUNT passed
 test: zpopmin command passed
 test: zpopmin command passed
-test: zrandmember command failed
+test: zrandmember command passed
 test: zrandmember with COUNT passed
 test: zrandmember with WITHSCORES passed
 test: zrange command passed
@@ -416,7 +416,7 @@ test: subscribe with RESET passed
 test: sunsubscribe command passed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 291, rate: 83.14%
+Summary: version: 7.0.0, total tests: 350, passed: 293, rate: 83.71%
 This is failed tests for 7.0.0:
 FailedTest(name='srandmember command', reason="expected: 0, result: ['0']")
 FailedTest(name='flushall with async', reason=ResponseError('wrong number of arguments'))
@@ -452,8 +452,6 @@ FailedTest(name='brpoplpush command', reason=ResponseError('unknown command `brp
 FailedTest(name='touch command', reason=ResponseError('unknown command `touch`, with args beginning with: `not-exists`'))
 FailedTest(name='xtrim command', reason=ResponseError('value is not an integer or out of range'))
 FailedTest(name='brpoplpush with double timeout', reason=ResponseError('unknown command `brpoplpush`, with args beginning with: `mylist`, `mylist1`, `3.14`'))
-FailedTest(name='zmscore command', reason="expected: ['1', '2', None], result: ['$1\\r\\n1\\r\\n', '$1\\r\\n2\\r\\n', '$-1\\r\\n']")
-FailedTest(name='zrandmember command', reason='expected: a, result: $1\r\na\r\n')
 FailedTest(name='geoadd with CH / NX / XX', reason=ResponseError('wrong number of arguments'))
 FailedTest(name='georadius with ANY option for COUNT', reason=ResponseError('syntax error'))
 FailedTest(name='georadius_ro with ANY option for COUNT', reason=ResponseError('syntax error'))
