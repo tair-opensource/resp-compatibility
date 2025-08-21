@@ -317,7 +317,7 @@ test: georadius_ro with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadius_ro with COUNT failed
 test: georadius_ro with ASC / DESC failed
 test: georadius_ro with ANY option for COUNT version skipped
-test: georadiusbymember command passed
+test: georadiusbymember command failed
 test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH passed
 test: georadiusbymember with COUNT passed
 test: georadiusbymember with ASC / DESC passed
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 159, rate: 71.95%
+Summary: version: 6.0.0, total tests: 221, passed: 158, rate: 71.49%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -474,6 +474,7 @@ FailedTest(name='georadius_ro command', reason=ResponseError('unknown command "g
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with ASC / DESC', reason=ResponseError('unknown command "georadius_ro"'))
+FailedTest(name='georadiusbymember command', reason='expected: 2, result: 0')
 FailedTest(name='zadd with XX / NX / CH / INCR', reason=ResponseError('syntax error'))
 FailedTest(name='set with EX / PX', reason=ResponseError('Invalid argument: invalid expire time'))
 FailedTest(name='georadiusbymember_ro command', reason=ResponseError('unknown command "georadiusbymember_ro"'))
