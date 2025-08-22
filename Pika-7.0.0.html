@@ -85,7 +85,7 @@ test: rpop with COUNT passed
 test: rpoplpush command passed
 test: rpoplpush command tags skipped
 test: rpush command passed
-test: rpush with multiple element failed
+test: rpush with multiple element passed
 test: rpushx command passed
 test: rpushx command tags skipped
 test: rpushx with multiple element passed
@@ -416,7 +416,7 @@ test: subscribe with RESET run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / P
 test: sunsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 336, passed: 160, rate: 47.62%
+Summary: version: 7.0.0, total tests: 336, passed: 161, rate: 47.92%
 This is failed tests for 7.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -581,7 +581,6 @@ FailedTest(name='lpos with RANK', reason=ResponseError('unknown command "lpos"')
 FailedTest(name='lpos with COUNT', reason=ResponseError('unknown command "lpos"'))
 FailedTest(name='lpos with MAXLEN', reason=ResponseError('unknown command "lpos"'))
 FailedTest(name='lpos with RANK, COUNT and MAXLEN', reason=ResponseError('unknown command "lpos"'))
-FailedTest(name='rpush with multiple element', reason="expected: ['0', '1'], result: ['0', '1', '0', '1']")
 FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfield"'))
 FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
 FailedTest(name='georadius_ro command', reason=ResponseError('unknown command "georadius_ro"'))
