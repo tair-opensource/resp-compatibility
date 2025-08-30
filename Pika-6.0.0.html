@@ -73,8 +73,8 @@ test: lpos with COUNT version skipped
 test: lpos with MAXLEN version skipped
 test: lpos with RANK, COUNT and MAXLEN version skipped
 test: lpush command passed
-test: lpush with multiple element passed
-test: lpushx command passed
+test: lpush with multiple element failed
+test: lpushx command failed
 test: lpushx with multiple element passed
 test: lrange command passed
 test: lrem command passed
@@ -134,7 +134,7 @@ test: zadd command passed
 test: zadd with multiple elements passed
 test: zadd with XX / NX / CH / INCR failed
 test: zadd with GT / LT version skipped
-test: zcard command passed
+test: zcard command failed
 test: zcount command passed
 test: zdiff command version skipped
 test: zdiff command tags skipped
@@ -191,7 +191,7 @@ test: zrangestore with LIMIT tags skipped
 test: zrank command passed
 test: zrank with WITHSCORE version skipped
 test: zrem command passed
-test: zrem with multiple elements failed
+test: zrem with multiple elements passed
 test: zremrangebylex command passed
 test: zremrangebyrank command passed
 test: zremrangebyscore command passed
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 158, rate: 71.49%
+Summary: version: 6.0.0, total tests: 221, passed: 156, rate: 70.59%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -429,6 +429,7 @@ FailedTest(name='hset command with multiple field and value', reason=ResponseErr
 FailedTest(name='flushall with async', reason=ResponseError("wrong number of arguments for 'flushall' command"))
 FailedTest(name='flushdb with async', reason=ResponseError("invalid DB for ''"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command "swapdb"'))
+FailedTest(name='zcard command', reason='expected: 1, result: 0')
 FailedTest(name='dump command', reason=ResponseError('unknown command "dump"'))
 FailedTest(name='restore command', reason=ResponseError('unknown command "restore"'))
 FailedTest(name='psetex command', reason=ResponseError('Invalid argument: invalid expire time'))
@@ -438,6 +439,7 @@ FailedTest(name='script exists command', reason=ResponseError('unknown command "
 FailedTest(name='script flush command', reason=ResponseError('unknown command "script"'))
 FailedTest(name='script load command', reason=ResponseError('unknown command "script"'))
 FailedTest(name='brpoplpush command', reason=ResponseError('unknown command "brpoplpush"'))
+FailedTest(name='lpushx command', reason='expected: 1, result: 3')
 FailedTest(name='touch command', reason=ResponseError('unknown command "touch"'))
 FailedTest(name='restore with REPLACE', reason=ResponseError('unknown command "restore"'))
 FailedTest(name='restore with ABSTTL', reason=ResponseError('unknown command "restore"'))
@@ -468,7 +470,7 @@ FailedTest(name='bzpopmin with double timeout', reason=ResponseError('unknown co
 FailedTest(name='set with KEEPTTL', reason=ResponseError('syntax error'))
 FailedTest(name='bitfield_ro command', reason=ResponseError('unknown command "bitfield_ro"'))
 FailedTest(name='psubscribe command', reason=ResponseError('only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context'))
-FailedTest(name='zrem with multiple elements', reason='expected: 1, result: 0')
+FailedTest(name='lpush with multiple element', reason="expected: ['1', '0'], result: ['1', '0', '1', '0']")
 FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfield"'))
 FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
 FailedTest(name='georadius_ro command', reason=ResponseError('unknown command "georadius_ro"'))
