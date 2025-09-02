@@ -307,7 +307,7 @@ test: geopos command passed
 test: georadius command passed
 test: georadius with WITHCOORD / WITHDIST / WITHHASH passed
 test: georadius with COUNT failed
-test: georadius with ASC / DESC failed
+test: georadius with ASC / DESC passed
 test: georadius with STORE / STOREDIST passed
 test: georadius with STORE / STOREDIST tags skipped
 test: georadius with ANY option for COUNT version skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 213, passed: 157, rate: 73.71%
+Summary: version: 5.0.0, total tests: 213, passed: 158, rate: 74.18%
 This is failed tests for 5.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -463,7 +463,6 @@ FailedTest(name='xtrim command', reason=ResponseError('unknown command "xtrim"')
 FailedTest(name='psubscribe command', reason=ResponseError('only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context'))
 FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfield"'))
 FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
-FailedTest(name='georadius with ASC / DESC', reason='expected: 2, result: 0')
 FailedTest(name='georadius_ro command', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
