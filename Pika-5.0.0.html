@@ -110,7 +110,7 @@ test: smembers command passed
 test: smismember command version skipped
 test: smove command passed
 test: smove command tags skipped
-test: spop command failed
+test: spop command passed
 test: spop with COUNT passed
 test: srandmember command passed
 test: srandmember with COUNT passed
@@ -202,7 +202,7 @@ test: zrevrangebylex with LIMIT passed
 test: zrevrangebyscore command passed
 test: zrevrangebyscore with WITHSCORES passed
 test: zrevrangebyscore with LIMIT passed
-test: zrevrangebyscore command passed
+test: zrevrangebyscore command failed
 test: zrevrank command passed
 test: zrevrank with WITHSCORE version skipped
 test: zscan command passed
@@ -280,7 +280,7 @@ test: hrandfield with WITHVALUES version skipped
 test: hscan command passed
 test: hscan with MATCH and COUNT passed
 test: hset command passed
-test: hset command with multiple field and value failed
+test: hset command with multiple field and value passed
 test: hsetnx command passed
 test: hstrlen command passed
 test: hvals command passed
@@ -304,9 +304,9 @@ test: geodist command passed
 test: geodist with M / KM / FT / MI passed
 test: geohash command passed
 test: geopos command passed
-test: georadius command passed
-test: georadius with WITHCOORD / WITHDIST / WITHHASH passed
-test: georadius with COUNT failed
+test: georadius command failed
+test: georadius with WITHCOORD / WITHDIST / WITHHASH failed
+test: georadius with COUNT passed
 test: georadius with ASC / DESC passed
 test: georadius with STORE / STOREDIST passed
 test: georadius with STORE / STOREDIST tags skipped
@@ -378,11 +378,11 @@ test: script flush with SYNC version skipped
 test: script flush with ASYNC version skipped
 test: script load command failed
 test: xack command failed
-test: xadd command failed
+test: xadd command passed
 test: xadd with NOMKSTREAM/MINID/LIMIT version skipped
 test: xadd with EXPLICIT ID version skipped
 test: xclaim command failed
-test: xdel command failed
+test: xdel command passed
 test: xgroup create command failed
 test: xgroup create with MKSTREAM failed
 test: xgroup create with ENTRIESREAD version skipped
@@ -391,14 +391,14 @@ test: xgroup delconsumer command failed
 test: xgroup destroy command failed
 test: xgroup setid command failed
 test: xgroup setid with ENTRIESREAD version skipped
-test: xlen command failed
+test: xlen command passed
 test: xpending command failed
-test: xrange command failed
+test: xrange command passed
 test: xread command failed
 test: xreadgroup command failed
-test: xrevrange command failed
+test: xrevrange command passed
 test: xrevrange command with EXCLUSIVE RANGES version skipped
-test: xtrim command failed
+test: xtrim command passed
 test: xtrim command with MINID/LIMIT version skipped
 test: psubscribe command failed
 test: psubscribe with RESET version skipped
@@ -416,16 +416,14 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 213, passed: 158, rate: 74.18%
+Summary: version: 5.0.0, total tests: 213, passed: 164, rate: 77.00%
 This is failed tests for 5.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
 FailedTest(name='randomkey command', reason=ResponseError('unknown command "randomkey"'))
 FailedTest(name='move command', reason=ResponseError('unknown command "move"'))
 FailedTest(name='sort command', reason=ResponseError('unknown command "sort"'))
-FailedTest(name='spop command', reason="expected: 0, result: ['0']")
 FailedTest(name='substr command', reason=ResponseError('unknown command "substr"'))
-FailedTest(name='hset command with multiple field and value', reason=ResponseError("wrong number of arguments for 'hset' command"))
 FailedTest(name='flushall with async', reason=ResponseError("wrong number of arguments for 'flushall' command"))
 FailedTest(name='flushdb with async', reason=ResponseError("invalid DB for ''"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command "swapdb"'))
@@ -438,6 +436,7 @@ FailedTest(name='script exists command', reason=ResponseError('unknown command "
 FailedTest(name='script flush command', reason=ResponseError('unknown command "script"'))
 FailedTest(name='script load command', reason=ResponseError('unknown command "script"'))
 FailedTest(name='brpoplpush command', reason=ResponseError('unknown command "brpoplpush"'))
+FailedTest(name='zrevrangebyscore command', reason='expected: 1, result: 0')
 FailedTest(name='touch command', reason=ResponseError('unknown command "touch"'))
 FailedTest(name='restore with REPLACE', reason=ResponseError('unknown command "restore"'))
 FailedTest(name='restore with ABSTTL', reason=ResponseError('unknown command "restore"'))
@@ -445,24 +444,19 @@ FailedTest(name='restore with IDLETIME', reason=ResponseError('unknown command "
 FailedTest(name='bzpopmax command', reason=ResponseError('unknown command "bzpopmax"'))
 FailedTest(name='bzpopmin command', reason=ResponseError('unknown command "bzpopmin"'))
 FailedTest(name='xack command', reason=ResponseError('unknown command "xack"'))
-FailedTest(name='xadd command', reason=ResponseError('unknown command "xadd"'))
-FailedTest(name='xclaim command', reason=ResponseError('unknown command "xadd"'))
-FailedTest(name='xdel command', reason=ResponseError('unknown command "xadd"'))
-FailedTest(name='xgroup create command', reason=ResponseError('unknown command "xadd"'))
+FailedTest(name='xclaim command', reason=ResponseError('unknown command "xgroup"'))
+FailedTest(name='xgroup create command', reason=ResponseError('unknown command "xgroup"'))
 FailedTest(name='xgroup create with MKSTREAM', reason=ResponseError('unknown command "xgroup"'))
-FailedTest(name='xgroup delconsumer command', reason=ResponseError('unknown command "xadd"'))
-FailedTest(name='xgroup destroy command', reason=ResponseError('unknown command "xadd"'))
-FailedTest(name='xgroup setid command', reason=ResponseError('unknown command "xadd"'))
-FailedTest(name='xlen command', reason=ResponseError('unknown command "xadd"'))
-FailedTest(name='xpending command', reason=ResponseError('unknown command "xadd"'))
-FailedTest(name='xrange command', reason=ResponseError('unknown command "xadd"'))
-FailedTest(name='xread command', reason=ResponseError('unknown command "xadd"'))
-FailedTest(name='xreadgroup command', reason=ResponseError('unknown command "xadd"'))
-FailedTest(name='xrevrange command', reason=ResponseError('unknown command "xrevrange"'))
-FailedTest(name='xtrim command', reason=ResponseError('unknown command "xtrim"'))
+FailedTest(name='xgroup delconsumer command', reason=ResponseError('unknown command "xgroup"'))
+FailedTest(name='xgroup destroy command', reason=ResponseError('unknown command "xgroup"'))
+FailedTest(name='xgroup setid command', reason=ResponseError('unknown command "xgroup"'))
+FailedTest(name='xpending command', reason=ResponseError('unknown command "xgroup"'))
+FailedTest(name='xread command', reason="expected: None, result: [['mystream', []]]")
+FailedTest(name='xreadgroup command', reason=ResponseError('unknown command "xgroup"'))
 FailedTest(name='psubscribe command', reason=ResponseError('only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context'))
 FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfield"'))
-FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
+FailedTest(name='georadius command', reason="expected: ['Palermo', 'Catania'], result: ['Catania', 'Palermo']")
+FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Catania', ['15.087267458438873', '37.50266842333162']], ['Palermo', ['13.361389338970184', '38.115556395496299']]]")
 FailedTest(name='georadius_ro command', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))

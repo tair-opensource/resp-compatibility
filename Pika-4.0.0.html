@@ -110,7 +110,7 @@ test: smembers command passed
 test: smismember command version skipped
 test: smove command passed
 test: smove command tags skipped
-test: spop command failed
+test: spop command passed
 test: spop with COUNT passed
 test: srandmember command passed
 test: srandmember with COUNT passed
@@ -280,7 +280,7 @@ test: hrandfield with WITHVALUES version skipped
 test: hscan command passed
 test: hscan with MATCH and COUNT passed
 test: hset command passed
-test: hset command with multiple field and value failed
+test: hset command with multiple field and value passed
 test: hsetnx command passed
 test: hstrlen command passed
 test: hvals command passed
@@ -304,9 +304,9 @@ test: geodist command passed
 test: geodist with M / KM / FT / MI passed
 test: geohash command passed
 test: geopos command passed
-test: georadius command passed
-test: georadius with WITHCOORD / WITHDIST / WITHHASH passed
-test: georadius with COUNT failed
+test: georadius command failed
+test: georadius with WITHCOORD / WITHDIST / WITHHASH failed
+test: georadius with COUNT passed
 test: georadius with ASC / DESC passed
 test: georadius with STORE / STOREDIST passed
 test: georadius with STORE / STOREDIST tags skipped
@@ -416,16 +416,14 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 4.0.0, total tests: 189, passed: 154, rate: 81.48%
+Summary: version: 4.0.0, total tests: 189, passed: 155, rate: 82.01%
 This is failed tests for 4.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
 FailedTest(name='randomkey command', reason=ResponseError('unknown command "randomkey"'))
 FailedTest(name='move command', reason=ResponseError('unknown command "move"'))
 FailedTest(name='sort command', reason=ResponseError('unknown command "sort"'))
-FailedTest(name='spop command', reason="expected: 0, result: ['0']")
 FailedTest(name='substr command', reason=ResponseError('unknown command "substr"'))
-FailedTest(name='hset command with multiple field and value', reason=ResponseError("wrong number of arguments for 'hset' command"))
 FailedTest(name='flushall with async', reason=ResponseError("wrong number of arguments for 'flushall' command"))
 FailedTest(name='flushdb with async', reason=ResponseError("invalid DB for ''"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command "swapdb"'))
@@ -442,7 +440,8 @@ FailedTest(name='touch command', reason=ResponseError('unknown command "touch"')
 FailedTest(name='restore with REPLACE', reason=ResponseError('unknown command "restore"'))
 FailedTest(name='psubscribe command', reason=ResponseError('only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context'))
 FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfield"'))
-FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
+FailedTest(name='georadius command', reason="expected: ['Palermo', 'Catania'], result: ['Catania', 'Palermo']")
+FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Catania', ['15.087267458438873', '37.50266842333162']], ['Palermo', ['13.361389338970184', '38.115556395496299']]]")
 FailedTest(name='georadius_ro command', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
