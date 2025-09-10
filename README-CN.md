@@ -108,7 +108,7 @@ Visit http://localhost:8000 for the report.
 本项目的主要工作是我们在 `cts.json`中增加了超过 7000 行测试，如果您希望用别的编程语言（例如 Java, Go, Rust等）实现相同功能的测试工具，那么您只需要解析 `cts.json` 的格式，并且将测试依次执行即可，玩的愉快。
 
 ## 版本升级兼容性指南
-如果您正在计划升级 Redis 版本，我们建议您查阅这份 **[兼容性报告](compatibility_report_en_US.md)**。该报告梳理了 Redis 大版本之间的破坏性改动以及一些重要 Bug 的修复情况，旨在帮助您快速评估版本升级的风险，并提前规避已知问题。
+如果您正在计划升级 Redis 版本，我们建议您查阅这份 **[兼容性报告](compatibility_report_zh_CN.md)**。该报告梳理了 Redis 大版本之间的破坏性改动以及一些重要 Bug 的修复情况，旨在帮助您快速评估版本升级的风险，并提前规避已知问题。
 
 ## License
 [MIT](LICENSE)
