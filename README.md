@@ -109,5 +109,9 @@ Overall, it is a JSON array, containing multiple test cases, each of which is a 
 ### Test with another programming language
 The main work of this project is that we have added more than 7000 lines of tests in `cts.json`, if you want to implement tests in other programming languages (such as Java, Go, Rust, etc.), then you only need to parse `cts.json ` format, and execute the tests sequentially, have fun.
 
+## Upgrade Compatibility Guide
+
+Planning a major version upgrade? To prevent unexpected issues, please check our **[Compatibility Report](compatibility_report_en_US.md)** for a list of breaking changes and important bug fixes.
+
 ## License
 [MIT](LICENSE)
