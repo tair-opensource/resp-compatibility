@@ -205,7 +205,7 @@ test: zrevrangebyscore with LIMIT passed
 test: zrevrangebyscore command passed
 test: zrevrank command passed
 test: zrevrank with WITHSCORE version skipped
-test: zscan command passed
+test: zscan command failed
 test: zscan with MATCH and COUNT passed
 test: zscore command passed
 test: zunion command version skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 166, rate: 75.11%
+Summary: version: 6.0.0, total tests: 221, passed: 165, rate: 74.66%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -452,6 +452,7 @@ FailedTest(name='xgroup setid command', reason=ResponseError('unknown command "x
 FailedTest(name='xpending command', reason=ResponseError('unknown command "xgroup"'))
 FailedTest(name='xread command', reason="expected: None, result: [['mystream', []]]")
 FailedTest(name='xreadgroup command', reason=ResponseError('unknown command "xgroup"'))
+FailedTest(name='zscan command', reason='expected: 1, result: 0')
 FailedTest(name='blpop with double timeout', reason=ResponseError('value is not an integer or out of range'))
 FailedTest(name='brpop with double timeout', reason=ResponseError('value is not an integer or out of range'))
 FailedTest(name='brpoplpush with double timeout', reason=ResponseError('unknown command "brpoplpush"'))
