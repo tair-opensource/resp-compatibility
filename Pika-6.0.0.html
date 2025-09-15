@@ -205,7 +205,7 @@ test: zrevrangebyscore with LIMIT passed
 test: zrevrangebyscore command passed
 test: zrevrank command passed
 test: zrevrank with WITHSCORE version skipped
-test: zscan command failed
+test: zscan command passed
 test: zscan with MATCH and COUNT passed
 test: zscore command passed
 test: zunion command version skipped
@@ -306,7 +306,7 @@ test: geohash command passed
 test: geopos command passed
 test: georadius command failed
 test: georadius with WITHCOORD / WITHDIST / WITHHASH failed
-test: georadius with COUNT passed
+test: georadius with COUNT failed
 test: georadius with ASC / DESC passed
 test: georadius with STORE / STOREDIST passed
 test: georadius with STORE / STOREDIST tags skipped
@@ -452,7 +452,6 @@ FailedTest(name='xgroup setid command', reason=ResponseError('unknown command "x
 FailedTest(name='xpending command', reason=ResponseError('unknown command "xgroup"'))
 FailedTest(name='xread command', reason="expected: None, result: [['mystream', []]]")
 FailedTest(name='xreadgroup command', reason=ResponseError('unknown command "xgroup"'))
-FailedTest(name='zscan command', reason='expected: 1, result: 0')
 FailedTest(name='blpop with double timeout', reason=ResponseError('value is not an integer or out of range'))
 FailedTest(name='brpop with double timeout', reason=ResponseError('value is not an integer or out of range'))
 FailedTest(name='brpoplpush with double timeout', reason=ResponseError('unknown command "brpoplpush"'))
@@ -464,6 +463,7 @@ FailedTest(name='psubscribe command', reason=ResponseError('only (P)SUBSCRIBE / 
 FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfield"'))
 FailedTest(name='georadius command', reason="expected: ['Palermo', 'Catania'], result: ['Catania', 'Palermo']")
 FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Catania', ['15.087267458438873', '37.50266842333162']], ['Palermo', ['13.361389338970184', '38.115556395496299']]]")
+FailedTest(name='georadius with COUNT', reason='expected: 2, result: 0')
 FailedTest(name='georadius_ro command', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
