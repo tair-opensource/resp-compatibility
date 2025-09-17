@@ -408,7 +408,7 @@ This document is compiled from the official Release Notes of the Redis community
 17. **Denial of Service via Random Commands:** Fixed vulnerabilities where maliciously crafted `KEYS`, `HRANDFIELD`, `SRANDMEMBER`, and `ZRANDMEMBER` commands could cause the server to hang. (`KEYS` may still causes a hang in 6.2 and earlier)
     -   PR: [https://github.com/redis/redis/pull/11676](https://github.com/redis/redis/pull/11676)
 
-18. **Lua Global Variable Security:** As a security enhancement, creating global variables in Lua scripts is now prohibited. All variables must be declared with `local`. Scripts that violate this will now fail. (Backported to all supported versions, old scripts may report an error after upgrading)
+18. **Lua Readonly Table:** As a security enhancement, prohibiting modification of existing global variables and standard library functions.(Backported to 6.2; affects 6.0 and earlier)
     -   PR: [https://github.com/redis/redis/pull/10651](https://github.com/redis/redis/pull/10651)
 
 ## Version 7.2
