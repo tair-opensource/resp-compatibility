@@ -312,23 +312,23 @@ test: georadius with STORE / STOREDIST passed
 test: georadius with STORE / STOREDIST tags skipped
 test: georadius with ANY option for COUNT version skipped
 test: georadius with support for uppercase unit names version skipped
-test: georadius_ro command failed
+test: georadius_ro command passed
 test: georadius_ro with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadius_ro with COUNT failed
-test: georadius_ro with ASC / DESC failed
+test: georadius_ro with ASC / DESC passed
 test: georadius_ro with ANY option for COUNT version skipped
 test: georadiusbymember command passed
 test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH failed
-test: georadiusbymember with COUNT failed
+test: georadiusbymember with COUNT passed
 test: georadiusbymember with ASC / DESC passed
 test: georadiusbymember with STORE / STOREDIST passed
 test: georadiusbymember with STORE / STOREDIST tags skipped
 test: georadiusbymember with ANY option for COUNT version skipped
 test: georadiusbymember with support for uppercase unit names version skipped
-test: georadiusbymember_ro command failed
+test: georadiusbymember_ro command passed
 test: georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH failed
-test: georadiusbymember_ro with COUNT failed
-test: georadiusbymember_ro with ASC / DESC failed
+test: georadiusbymember_ro with COUNT passed
+test: georadiusbymember_ro with ASC / DESC passed
 test: georadiusbymember_ro with ANY option for COUNT version skipped
 test: geosearch command version skipped
 test: geosearch with ASC / DESC version skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 228, passed: 211, rate: 92.54%
+Summary: version: 6.0.0, total tests: 228, passed: 217, rate: 95.18%
 This is failed tests for 6.0.0:
 FailedTest(name='flushdb with async', reason=ResponseError("wrong number of arguments for 'flushdb' command"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command `SWAPDB`'))
@@ -424,15 +424,9 @@ FailedTest(name='xpending command', reason="expected: [1, '1-0', '1-0', [['mycon
 FailedTest(name='geodist command', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='geodist with M / KM / FT / MI', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', 3479099956230698], ['Catania', 3479447370796909]], result: [['Palermo', '3479099956230698'], ['Catania', '3479447370796909']]")
-FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo', 'Catania']")
-FailedTest(name='georadius_ro command', reason=ResponseError('unknown command `GEORADIUS_RO`'))
-FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command `GEORADIUS_RO`'))
-FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command `GEORADIUS_RO`'))
-FailedTest(name='georadius_ro with ASC / DESC', reason=ResponseError('unknown command `GEORADIUS_RO`'))
+FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
+FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', 3479099956230698], ['Catania', 3479447370796909]], result: [['Palermo', '3479099956230698'], ['Catania', '3479447370796909']]")
+FailedTest(name='georadius_ro with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
 FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', 3479030013248308], ['Palermo', 3479099956230698]], result: [['Agrigento', '3479030013248308'], ['Palermo', '3479099956230698']]")
-FailedTest(name='georadiusbymember with COUNT', reason="expected: ['Agrigento'], result: ['Agrigento', 'Palermo']")
-FailedTest(name='georadiusbymember_ro command', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
-FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
-FailedTest(name='georadiusbymember_ro with COUNT', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
-FailedTest(name='georadiusbymember_ro with ASC / DESC', reason=ResponseError('unknown command `GEORADIUSBYMEMBER_RO`'))
+FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', 3479030013248308], ['Palermo', 3479099956230698]], result: [['Agrigento', '3479030013248308'], ['Palermo', '3479099956230698']]")
 </pre>
