@@ -230,7 +230,7 @@ test: getex with EXAT version skipped
 test: getex with PXAT version skipped
 test: getex with PERSIST version skipped
 test: getrange command passed
-test: getset command passed
+test: getset command failed
 test: incr command passed
 test: incrby command passed
 test: incrbyfloat command passed
@@ -416,13 +416,14 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 4.0.0, total tests: 189, passed: 155, rate: 82.01%
+Summary: version: 4.0.0, total tests: 189, passed: 154, rate: 81.48%
 This is failed tests for 4.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
 FailedTest(name='randomkey command', reason=ResponseError('unknown command "randomkey"'))
 FailedTest(name='move command', reason=ResponseError('unknown command "move"'))
 FailedTest(name='sort command', reason=ResponseError('unknown command "sort"'))
+FailedTest(name='getset command', reason='expected: bcde, result: abcd')
 FailedTest(name='substr command', reason=ResponseError('unknown command "substr"'))
 FailedTest(name='flushall with async', reason=ResponseError("wrong number of arguments for 'flushall' command"))
 FailedTest(name='flushdb with async', reason=ResponseError("invalid DB for ''"))
