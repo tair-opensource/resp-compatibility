@@ -306,7 +306,7 @@ test: geohash command passed
 test: geopos command passed
 test: georadius command failed
 test: georadius with WITHCOORD / WITHDIST / WITHHASH failed
-test: georadius with COUNT failed
+test: georadius with COUNT passed
 test: georadius with ASC / DESC passed
 test: georadius with STORE / STOREDIST passed
 test: georadius with STORE / STOREDIST tags skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 213, passed: 164, rate: 77.00%
+Summary: version: 5.0.0, total tests: 213, passed: 165, rate: 77.46%
 This is failed tests for 5.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -456,7 +456,6 @@ FailedTest(name='psubscribe command', reason=ResponseError('only (P)SUBSCRIBE / 
 FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfield"'))
 FailedTest(name='georadius command', reason="expected: ['Palermo', 'Catania'], result: ['Catania', 'Palermo']")
 FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Catania', ['15.087267458438873', '37.50266842333162']], ['Palermo', ['13.361389338970184', '38.115556395496299']]]")
-FailedTest(name='georadius with COUNT', reason='expected: 2, result: 0')
 FailedTest(name='georadius_ro command', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
