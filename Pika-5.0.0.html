@@ -233,7 +233,7 @@ test: getrange command passed
 test: getset command passed
 test: incr command passed
 test: incrby command passed
-test: incrbyfloat command failed
+test: incrbyfloat command passed
 test: lcs command version skipped
 test: lcs command tags skipped
 test: lcs with LEN version skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error Error 111 connecting to 127.0.0.1:6383. Connection refused.
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 134, passed: 115, rate: 85.82%
+Summary: version: 5.0.0, total tests: 134, passed: 116, rate: 86.57%
 This is failed tests for 5.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -426,7 +426,6 @@ FailedTest(name='sort command', reason=ResponseError('unknown command "sort"'))
 FailedTest(name='substr command', reason=ResponseError('unknown command "substr"'))
 FailedTest(name='dump command', reason=ResponseError('unknown command "dump"'))
 FailedTest(name='restore command', reason=ResponseError('unknown command "restore"'))
-FailedTest(name='incrbyfloat command', reason='expected: 1.623, result: 15')
 FailedTest(name='psetex command', reason=ResponseError('Invalid argument: invalid expire time'))
 FailedTest(name='brpoplpush command', reason=ResponseError('unknown command "brpoplpush"'))
 FailedTest(name='touch command', reason=ResponseError('unknown command "touch"'))
