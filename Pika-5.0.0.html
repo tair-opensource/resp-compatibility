@@ -106,7 +106,7 @@ test: sintercard with LIMIT tags skipped
 test: sinterstore command passed
 test: sinterstore command tags skipped
 test: sismember command passed
-test: smembers command passed
+test: smembers command failed
 test: smismember command version skipped
 test: smove command passed
 test: smove command tags skipped
@@ -233,7 +233,7 @@ test: getrange command passed
 test: getset command passed
 test: incr command passed
 test: incrby command passed
-test: incrbyfloat command failed
+test: incrbyfloat command passed
 test: lcs command version skipped
 test: lcs command tags skipped
 test: lcs with LEN version skipped
@@ -423,13 +423,13 @@ FailedTest(name='renamenx command', reason=ResponseError('unknown command "renam
 FailedTest(name='randomkey command', reason=ResponseError('unknown command "randomkey"'))
 FailedTest(name='move command', reason=ResponseError('unknown command "move"'))
 FailedTest(name='sort command', reason=ResponseError('unknown command "sort"'))
+FailedTest(name='smembers command', reason='expected: 1, result: 0')
 FailedTest(name='substr command', reason=ResponseError('unknown command "substr"'))
 FailedTest(name='flushall with async', reason=ResponseError("wrong number of arguments for 'flushall' command"))
 FailedTest(name='flushdb with async', reason=ResponseError("invalid DB for ''"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command "swapdb"'))
 FailedTest(name='dump command', reason=ResponseError('unknown command "dump"'))
 FailedTest(name='restore command', reason=ResponseError('unknown command "restore"'))
-FailedTest(name='incrbyfloat command', reason='expected: 1.623, result: 15')
 FailedTest(name='psetex command', reason=ResponseError('Invalid argument: invalid expire time'))
 FailedTest(name='eval command', reason=ResponseError('unknown command "eval"'))
 FailedTest(name='evalsha command', reason=ResponseError('unknown command "script"'))
