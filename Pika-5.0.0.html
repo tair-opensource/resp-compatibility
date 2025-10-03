@@ -106,7 +106,7 @@ test: sintercard with LIMIT tags skipped
 test: sinterstore command passed
 test: sinterstore command tags skipped
 test: sismember command passed
-test: smembers command failed
+test: smembers command passed
 test: smismember command version skipped
 test: smove command passed
 test: smove command tags skipped
@@ -293,7 +293,7 @@ test: bitop command tags skipped
 test: bitpos command passed
 test: bitpos with BYTE / BIT version skipped
 test: getbit command passed
-test: setbit command passed
+test: setbit command failed
 test: pfadd command passed
 test: pfcount command passed
 test: pfmerge command passed
@@ -423,7 +423,6 @@ FailedTest(name='renamenx command', reason=ResponseError('unknown command "renam
 FailedTest(name='randomkey command', reason=ResponseError('unknown command "randomkey"'))
 FailedTest(name='move command', reason=ResponseError('unknown command "move"'))
 FailedTest(name='sort command', reason=ResponseError('unknown command "sort"'))
-FailedTest(name='smembers command', reason='expected: 1, result: 0')
 FailedTest(name='substr command', reason=ResponseError('unknown command "substr"'))
 FailedTest(name='flushall with async', reason=ResponseError("wrong number of arguments for 'flushall' command"))
 FailedTest(name='flushdb with async', reason=ResponseError("invalid DB for ''"))
@@ -437,6 +436,7 @@ FailedTest(name='script exists command', reason=ResponseError('unknown command "
 FailedTest(name='script flush command', reason=ResponseError('unknown command "script"'))
 FailedTest(name='script load command', reason=ResponseError('unknown command "script"'))
 FailedTest(name='brpoplpush command', reason=ResponseError('unknown command "brpoplpush"'))
+FailedTest(name='setbit command', reason='expected: 0, result: 1')
 FailedTest(name='touch command', reason=ResponseError('unknown command "touch"'))
 FailedTest(name='restore with REPLACE', reason=ResponseError('unknown command "restore"'))
 FailedTest(name='restore with ABSTTL', reason=ResponseError('unknown command "restore"'))
