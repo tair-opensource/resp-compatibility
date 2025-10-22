@@ -195,7 +195,7 @@ test: zrem with multiple elements passed
 test: zremrangebylex command passed
 test: zremrangebyrank command passed
 test: zremrangebyscore command passed
-test: zrevrange command passed
+test: zrevrange command failed
 test: zrevrange with WITHSCORES passed
 test: zrevrangebylex command passed
 test: zrevrangebylex with LIMIT passed
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 213, passed: 165, rate: 77.46%
+Summary: version: 5.0.0, total tests: 213, passed: 164, rate: 77.00%
 This is failed tests for 5.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -427,6 +427,7 @@ FailedTest(name='substr command', reason=ResponseError('unknown command "substr"
 FailedTest(name='flushall with async', reason=ResponseError("wrong number of arguments for 'flushall' command"))
 FailedTest(name='flushdb with async', reason=ResponseError("invalid DB for ''"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command "swapdb"'))
+FailedTest(name='zrevrange command', reason="expected: ['three', 'two', 'one'], result: ['e', 'three', 'd', 'two', 'c', 'one']")
 FailedTest(name='dump command', reason=ResponseError('unknown command "dump"'))
 FailedTest(name='restore command', reason=ResponseError('unknown command "restore"'))
 FailedTest(name='psetex command', reason=ResponseError('Invalid argument: invalid expire time'))
