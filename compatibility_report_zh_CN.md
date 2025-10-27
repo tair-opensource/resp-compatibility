@@ -83,20 +83,17 @@
 1.  当 AOF fsync 的策略是 'always' 时，fsync 失败会直接让进程退出。
     -   社区 PR：[https://github.com/redis/redis/pull/8347](https://github.com/redis/redis/pull/8347)
 
-2.  命令的执行时间统计包含 Block 的时间，影响 `INFO commandstats`、 `LATENCY` 族命令以及 `SLOWLOG` 族命令的统计。
-    -   社区 PR：[https://github.com/redis/redis/pull/7491](https://github.com/redis/redis/pull/7491)
-
-3.  将 `SRANDMEMBER` 命令在 RESP 3 协议下的返回值类型从 Set 改为 Array，因为当使用负数的 `COUNT` 参数时，可以允许执行结果包含重复元素。
+2.  将 `SRANDMEMBER` 命令在 RESP 3 协议下的返回值类型从 Set 改为 Array，因为当使用负数的 `COUNT` 参数时，可以允许执行结果包含重复元素。
     -   社区 PR：[https://github.com/redis/redis/pull/8504](https://github.com/redis/redis/pull/8504)
 
-4.  `PUBSUB NUMPAT` 命令返回值含义改变，6.0 及以前版本返回的是所有 pattern 的订阅总数（客户端数量），6.2 版本开始返回 pattern 总数（pattern 数量）。
+3.  `PUBSUB NUMPAT` 命令返回值含义改变，6.0 及以前版本返回的是所有 pattern 的订阅总数（客户端数量），6.2 版本开始返回 pattern 总数（pattern 数量）。
     -   社区 PR：[https://github.com/redis/redis/pull/8472](https://github.com/redis/redis/pull/8472)
     -   命令文档：[https://redis.io/docs/latest/commands/pubsub-numpat/](https://redis.io/docs/latest/commands/pubsub-numpat/)
 
-5.  `CLIENT TRACKING` 如果订阅了相互包含的前缀会返回错误，用于防止客户端收到重复的消息。
+4.  `CLIENT TRACKING` 如果订阅了相互包含的前缀会返回错误，用于防止客户端收到重复的消息。
     -   社区 PR：[https://github.com/redis/redis/pull/8176](https://github.com/redis/redis/pull/8176)
 
-6.  `SWAPDB` 命令会 touch 两个 DB 中的所有 watch keys，让事务失败。
+5.  `SWAPDB` 命令会 touch 两个 DB 中的所有 watch keys，让事务失败。
     -   社区 PR：[https://github.com/redis/redis/pull/8239](https://github.com/redis/redis/pull/8239)
     
     ```plaintext
@@ -129,13 +126,13 @@
     (nil)
     ```
 
-7.  `FLUSHDB` 会清除 server 上所有客户端的所有 tracking key 记录。
+6.  `FLUSHDB` 会清除 server 上所有客户端的所有 tracking key 记录。
     -   社区 PR：[https://github.com/redis/redis/pull/8039](https://github.com/redis/redis/pull/8039)
 
-8.  BIT 操作最大限制长度由确定的 512MB 修改为使用配置 `proto_max_bulk_len` 控制（`proto_max_bulk_len` 默认值仍为 512MB）。
+7.  BIT 操作最大限制长度由确定的 512MB 修改为使用配置 `proto_max_bulk_len` 控制（`proto_max_bulk_len` 默认值仍为 512MB）。
     -   社区 PR：[https://github.com/redis/redis/pull/8096](https://github.com/redis/redis/pull/8096)
 
-9.  `bind` 配置在启动 server 时需要指明 `-` 前缀，有 `-` 前缀的地址会自动忽略 `EADDRNOTAVAIL` 错误，否则不忽略；之前的版本默认会忽略 `EADDRNOTAVAIL` 错误。同时支持使用 `bind *` 来监听所有地址，之前的版本只能通过省略 `bind` 配置来实现。
+8.  `bind` 配置在启动 server 时需要指明 `-` 前缀，有 `-` 前缀的地址会自动忽略 `EADDRNOTAVAIL` 错误，否则不忽略；之前的版本默认会忽略 `EADDRNOTAVAIL` 错误。同时支持使用 `bind *` 来监听所有地址，之前的版本只能通过省略 `bind` 配置来实现。
     -   社区 PR：[https://github.com/redis/redis/pull/7936](https://github.com/redis/redis/pull/7936)
     
     ```plaintext
@@ -147,7 +144,7 @@
     bind 指定'-' + 非默认地址(如 -192.168.1.100)，该地址绑定失败不会影响 Redis 启动，不加'-'的非默认地址失败会导致 Redis 启动失败
     ```
 
-10. 使用参数启动 `redis-server` 不再重置 `save` 配置，之前的版本只要使用了额外的参数，无论是否包括 `save`，就会导致 `save` 配置先被重置为 `""`，然后再加载其他额外参数。
+9. 使用参数启动 `redis-server` 不再重置 `save` 配置，之前的版本只要使用了额外的参数，无论是否包括 `save`，就会导致 `save` 配置先被重置为 `""`，然后再加载其他额外参数。
     -   社区 PR：[https://github.com/redis/redis/pull/7092](https://github.com/redis/redis/pull/7092)
     
     ```plaintext
@@ -162,7 +159,7 @@
     redis-server                                   --> save "3600 1 300 100 60 10000"
     ```
 
-11. `SLOWLOG` 中记录原始命令而不是 rewrite 之后的命令。
+10. `SLOWLOG` 中记录原始命令而不是 rewrite 之后的命令。
     -   社区 PR：[https://github.com/redis/redis/pull/8006](https://github.com/redis/redis/pull/8006)
     
     ```plaintext

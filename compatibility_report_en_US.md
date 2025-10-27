@@ -84,20 +84,17 @@ This document is compiled from the official Release Notes of the Redis community
 1.  **AOF `fsync=always` Error Handling:** When `appendfsync` is set to `always`, a failed `fsync` operation will now cause the Redis process to terminate immediately.
     -   PR: [https://github.com/redis/redis/pull/8347](https://github.com/redis/redis/pull/8347)
 
-2.  **Command Latency Statistics:** Latency statistics now include the time a command spends blocked, which affects `INFO commandstats`, `LATENCY` commands and `SLOWLOG` commands outputs.
-    -   PR: [https://github.com/redis/redis/pull/7491](https://github.com/redis/redis/pull/7491)
-
-3.  **`SRANDMEMBER` RESP3 Return Type:** The RESP3 return type for `SRANDMEMBER` has been changed from a Set to an Array to accommodate duplicate elements, which can be returned when a negative `count` is provided.
+2.  **`SRANDMEMBER` RESP3 Return Type:** The RESP3 return type for `SRANDMEMBER` has been changed from a Set to an Array to accommodate duplicate elements, which can be returned when a negative `count` is provided.
     -   PR: [https://github.com/redis/redis/pull/8504](https://github.com/redis/redis/pull/8504)
 
-4.  **`PUBSUB NUMPAT` Return Value:** The meaning of the value returned by `PUBSUB NUMPAT` has changed. It now returns the count of unique subscribed patterns, whereas previously it returned the total number of subscribed clients for all patterns.
+3.  **`PUBSUB NUMPAT` Return Value:** The meaning of the value returned by `PUBSUB NUMPAT` has changed. It now returns the count of unique subscribed patterns, whereas previously it returned the total number of subscribed clients for all patterns.
     -   PR: [https://github.com/redis/redis/pull/8472](https://github.com/redis/redis/pull/8472)
     -   Doc: [https://redis.io/docs/latest/commands/pubsub-numpat/](https://redis.io/docs/latest/commands/pubsub-numpat/)
 
-5.  **`CLIENT TRACKING` with Overlapping Prefixes:** `CLIENT TRACKING` now returns an error if a client attempts to track overlapping prefixes, which prevents duplicate invalidation messages.
+4.  **`CLIENT TRACKING` with Overlapping Prefixes:** `CLIENT TRACKING` now returns an error if a client attempts to track overlapping prefixes, which prevents duplicate invalidation messages.
     -   PR: [https://github.com/redis/redis/pull/8176](https://github.com/redis/redis/pull/8176)
 
-6.  **`SWAPDB` and `WATCH`:** The `SWAPDB` command now touches all keys being watched in both of the swapped databases, causing any transactions watching those keys to fail.
+5.  **`SWAPDB` and `WATCH`:** The `SWAPDB` command now touches all keys being watched in both of the swapped databases, causing any transactions watching those keys to fail.
     -   PR: [https://github.com/redis/redis/pull/8239](https://github.com/redis/redis/pull/8239)
 
     ```plaintext
@@ -130,13 +127,13 @@ This document is compiled from the official Release Notes of the Redis community
     (nil)
     ```
 
-7.  **`FLUSHDB` and Client Tracking:** `FLUSHDB` now invalidates all keys for all clients that have tracking enabled.
+6.  **`FLUSHDB` and Client Tracking:** `FLUSHDB` now invalidates all keys for all clients that have tracking enabled.
     -   PR: [https://github.com/redis/redis/pull/8039](https://github.com/redis/redis/pull/8039)
 
-8.  **BIT ops Length Limit:** The maximum result size for bit ops is now controlled by `proto_max_bulk_len` (default 512MB), not a hardcoded 512MB limit.
+7.  **BIT ops Length Limit:** The maximum result size for bit ops is now controlled by `proto_max_bulk_len` (default 512MB), not a hardcoded 512MB limit.
     -   PR: [https://github.com/redis/redis/pull/8096](https://github.com/redis/redis/pull/8096)
 
-9.  **`bind` Configuration Syntax:** A `-` prefix on an IP address in the `bind` directive now signifies that an `EADDRNOTAVAIL` error for that address should be ignored. Without the prefix, such an error on a non-default address will cause startup to fail. Additionally, `bind *` is now supported as an explicit way to bind to all available network interfaces.
+8.  **`bind` Configuration Syntax:** A `-` prefix on an IP address in the `bind` directive now signifies that an `EADDRNOTAVAIL` error for that address should be ignored. Without the prefix, such an error on a non-default address will cause startup to fail. Additionally, `bind *` is now supported as an explicit way to bind to all available network interfaces.
     -   PR: [https://github.com/redis/redis/pull/7936](https://github.com/redis/redis/pull/7936)
 
     ```plaintext
@@ -148,7 +145,7 @@ This document is compiled from the official Release Notes of the Redis community
     Binding to a non-default address (e.g., -192.168.1.100) with a '-' prefix will not affect Redis startup if the address fails to bind. Failure to bind to the non-default address without the '-' prefix will cause Redis startup to fail.
     ```
 
-10. **`save` Configuration with Command-Line Arguments:** Launching `redis-server` with parameters no longer resets the `save` configuration. Previously, using additional parameters, regardless of whether `save` was included, would cause the save configuration to be reset to "" before loading other additional parameters.
+9. **`save` Configuration with Command-Line Arguments:** Launching `redis-server` with parameters no longer resets the `save` configuration. Previously, using additional parameters, regardless of whether `save` was included, would cause the save configuration to be reset to "" before loading other additional parameters.
     -   PR: [https://github.com/redis/redis/pull/7092](https://github.com/redis/redis/pull/7092)
 
     ```plaintext
@@ -163,7 +160,7 @@ This document is compiled from the official Release Notes of the Redis community
     redis-server                                   --> save "3600 1 300 100 60 10000"
     ```
 
-11. **`SLOWLOG` Command Representation:** `SLOWLOG` now records the original command as executed by the client, not the rewritten version (e.g., `SPOP` is logged as `SPOP`, not `DEL`).
+10. **`SLOWLOG` Command Representation:** `SLOWLOG` now records the original command as executed by the client, not the rewritten version (e.g., `SPOP` is logged as `SPOP`, not `DEL`).
     -   PR: [https://github.com/redis/redis/pull/8006](https://github.com/redis/redis/pull/8006)
 
 ## Upgrading from Version 6.2 to 7.0
