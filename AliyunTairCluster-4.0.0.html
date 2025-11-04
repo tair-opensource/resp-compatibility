@@ -5,7 +5,7 @@ test: rename command failed
 test: rename command tags skipped
 test: renamenx command failed
 test: renamenx command tags skipped
-test: randomkey command failed
+test: randomkey command passed
 test: exists command passed
 test: ttl command passed
 test: pttl command passed
@@ -416,11 +416,10 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 4.0.0, total tests: 189, passed: 152, rate: 80.42%
+Summary: version: 4.0.0, total tests: 189, passed: 153, rate: 80.95%
 This is failed tests for 4.0.0:
 FailedTest(name='rename command', reason=RedisClusterException('rename - all keys must map to the same key slot'))
 FailedTest(name='renamenx command', reason=RedisClusterException('renamenx - all keys must map to the same key slot'))
-FailedTest(name='randomkey command', reason='expected: k, result: None')
 FailedTest(name='keys command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
 FailedTest(name='sdiff command', reason=RedisClusterException('sdiff - all keys must map to the same key slot'))
 FailedTest(name='sdiffstore command', reason=RedisClusterException('sdiffstore - all keys must map to the same key slot'))
