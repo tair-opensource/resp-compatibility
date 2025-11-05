@@ -439,7 +439,7 @@ FailedTest(name='evalsha command', reason=ResponseError("for redis cluster, eval
 FailedTest(name='brpoplpush command', reason=RedisClusterException('brpoplpush - all keys must map to the same key slot'))
 FailedTest(name='unwatch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
 FailedTest(name='watch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
-FailedTest(name='scan command', reason="expected: ['0', ['k']], result: ({'172.16.0.59:6379': 72057594037927936}, ['k'])")
+FailedTest(name='scan command', reason="expected: ['0', ['k']], result: ({'172.16.0.231:6379': 72057594037927936}, ['k'])")
 FailedTest(name='blpop command', reason=RedisClusterException('blpop - all keys must map to the same key slot'))
 FailedTest(name='brpop command', reason=RedisClusterException('brpop - all keys must map to the same key slot'))
 FailedTest(name='zinterstore command', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
