@@ -365,9 +365,9 @@ test: evalsha_ro command passed
 test: fcall command failed
 test: fcall_ro command failed
 test: function delete command failed
-test: function flush command failed
-test: function flush with SYNC failed
-test: function flush with ASYNC failed
+test: function flush command passed
+test: function flush with SYNC passed
+test: function flush with ASYNC passed
 test: function list command failed
 test: function load command failed
 test: function restore command failed
@@ -416,7 +416,7 @@ test: subscribe with RESET passed
 test: sunsubscribe command passed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 293, rate: 83.71%
+Summary: version: 7.0.0, total tests: 350, passed: 296, rate: 84.57%
 This is failed tests for 7.0.0:
 FailedTest(name='srandmember command', reason="expected: 0, result: ['0']")
 FailedTest(name='flushall with async', reason=ResponseError('wrong number of arguments'))
@@ -435,14 +435,11 @@ FailedTest(name='bzmpop with COUNT', reason="expected: ['myzset', [['one', '1'],
 FailedTest(name='bzmpop with COUNT', reason="expected: ['myzset', [['one', '1'], ['two', '2']]], result: ['myzset', ['one', '1', 'two', '2']]")
 FailedTest(name='zmpop command', reason="expected: ['myzset', [['one', '1']]], result: ['myzset', ['one', '1']]")
 FailedTest(name='zmpop with COUNT', reason="expected: ['myzset', [['one', '1'], ['two', '2']]], result: ['myzset', ['one', '1', 'two', '2']]")
-FailedTest(name='fcall command', reason=ResponseError('no such subcommand'))
-FailedTest(name='fcall_ro command', reason=ResponseError('no such subcommand'))
-FailedTest(name='function delete command', reason=ResponseError('no such subcommand'))
-FailedTest(name='function flush command', reason=ResponseError('no such subcommand'))
-FailedTest(name='function flush with SYNC', reason=ResponseError('no such subcommand'))
-FailedTest(name='function flush with ASYNC', reason=ResponseError('no such subcommand'))
-FailedTest(name='function list command', reason=ResponseError('no such subcommand'))
-FailedTest(name='function load command', reason=ResponseError('no such subcommand'))
+FailedTest(name='fcall command', reason='expected: mylib, result: ')
+FailedTest(name='fcall_ro command', reason=ResponseError('Error while running new function lib: wrong number of arguments to redis.register_function().'))
+FailedTest(name='function delete command', reason='expected: mylib, result: ')
+FailedTest(name='function list command', reason='expected: mylib, result: ')
+FailedTest(name='function load command', reason='expected: mylib, result: ')
 FailedTest(name='function restore command', reason=ResponseError('no such subcommand'))
 FailedTest(name='function stats command', reason=ResponseError('no such subcommand'))
 FailedTest(name='spublish command', reason=ResponseError('unknown command `spublish`, with args beginning with: `hello`, `world`'))
