@@ -350,8 +350,8 @@ test: flushall command passed
 test: flushall with async passed
 test: flushall with sync passed
 test: flushdb command passed
-test: flushdb with async failed
-test: flushdb with sync failed
+test: flushdb with async passed
+test: flushdb with sync passed
 test: swapdb command failed
 test: discard command passed
 test: exec command passed
@@ -410,15 +410,14 @@ test: pubsub shardchannels command failed
 test: pubsub shardnumsub command failed
 test: punsubscribe command passed
 test: spublish command passed
-test: ssubscribe command failed
+test: ssubscribe command passed
 test: subscribe command passed
 test: subscribe with RESET passed
-test: sunsubscribe command failed
+test: sunsubscribe command passed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 302, rate: 86.29%
+Summary: version: 7.0.0, total tests: 350, passed: 306, rate: 87.43%
 This is failed tests for 7.0.0:
-FailedTest(name='flushdb with async', reason=ResponseError("wrong number of arguments for 'flushdb' command"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command `SWAPDB`'))
 FailedTest(name='expireat with NX / XX', reason=ResponseError('expiry is out of range'))
 FailedTest(name='expireat with GT / LT', reason=ResponseError('expiry is out of range'))
@@ -445,8 +444,6 @@ FailedTest(name='function stats command', reason=ResponseError("Unknown subcomma
 FailedTest(name='xgroup setid with ENTRIESREAD', reason=ResponseError('syntax error'))
 FailedTest(name='pubsub shardchannels command', reason=ResponseError('PUBSUB SHARDCHANNELS is not supported in non cluster mode'))
 FailedTest(name='pubsub shardnumsub command', reason=ResponseError('PUBSUB SHARDNUMSUB is not supported in non cluster mode'))
-FailedTest(name='ssubscribe command', reason="expected: ['ssubscribe', 'hello', 1], result: ['subscribe', 'hello', 1]")
-FailedTest(name='sunsubscribe command', reason="expected: ['sunsubscribe', 'hello', 0], result: ['unsubscribe', 'hello', 0]")
 FailedTest(name='xpending command', reason="expected: [1, '1-0', '1-0', [['myconsumer', '1']]], result: [1, '1-0', '1-0', [['myconsumer', 1]]]")
 FailedTest(name='zrandmember command', reason="expected: a, result: ['a']")
 FailedTest(name='georadiusbymember with ANY option for COUNT', reason=ResponseError('syntax error'))
@@ -457,7 +454,6 @@ FailedTest(name='geosearchstore command', reason=ResponseError('unknown command 
 FailedTest(name='geosearchstore with ASC / DESC', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
 FailedTest(name='geosearchstore with COUNT', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
 FailedTest(name='geosearchstore with STOREDIST', reason=ResponseError('unknown command `GEOSEARCHSTORE`'))
-FailedTest(name='flushdb with sync', reason=ResponseError("wrong number of arguments for 'flushdb' command"))
 FailedTest(name='geodist command', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='geodist with M / KM / FT / MI', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', 3479099956230698], ['Catania', 3479447370796909]], result: [['Palermo', '3479099956230698'], ['Catania', '3479447370796909']]")

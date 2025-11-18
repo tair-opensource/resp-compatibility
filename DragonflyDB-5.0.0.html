@@ -350,7 +350,7 @@ test: flushall command passed
 test: flushall with async passed
 test: flushall with sync version skipped
 test: flushdb command passed
-test: flushdb with async failed
+test: flushdb with async passed
 test: flushdb with sync version skipped
 test: swapdb command failed
 test: discard command passed
@@ -416,9 +416,8 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 220, passed: 209, rate: 95.00%
+Summary: version: 5.0.0, total tests: 220, passed: 210, rate: 95.45%
 This is failed tests for 5.0.0:
-FailedTest(name='flushdb with async', reason=ResponseError("wrong number of arguments for 'flushdb' command"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command `SWAPDB`'))
 FailedTest(name='xpending command', reason="expected: [1, '1-0', '1-0', [['myconsumer', '1']]], result: [1, '1-0', '1-0', [['myconsumer', 1]]]")
 FailedTest(name='geodist command', reason='expected: 166274.1516, result: 166274.15156960033')
