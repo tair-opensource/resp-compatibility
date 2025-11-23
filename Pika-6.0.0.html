@@ -246,7 +246,7 @@ test: lcs with WITHMATCHLEN version skipped
 test: lcs with WITHMATCHLEN tags skipped
 test: mget command passed
 test: mget command tags skipped
-test: mset command passed
+test: mset command failed
 test: mset command tags skipped
 test: msetnx command passed
 test: msetnx command tags skipped
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 166, rate: 75.11%
+Summary: version: 6.0.0, total tests: 221, passed: 165, rate: 74.66%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -468,6 +468,7 @@ FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=Resp
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with ASC / DESC', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='zadd with XX / NX / CH / INCR', reason=ResponseError('syntax error'))
+FailedTest(name='mset command', reason='expected: 0, result: 1')
 FailedTest(name='set with EX / PX', reason=ResponseError('Invalid argument: invalid expire time'))
 FailedTest(name='georadiusbymember_ro command', reason=ResponseError('unknown command "georadiusbymember_ro"'))
 FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadiusbymember_ro"'))
