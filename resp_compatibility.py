@@ -361,6 +361,7 @@ def run_test_by_configfile():
             logfile = open(filepath, "w")
             args.specific_version = version
             args.show_failed = True
+            args.cluster = configs['Database'][config]['cluster']
             g_results.clear()
             print("<pre>", file=logfile)
             run_compatibility_tests(args.testfile)
