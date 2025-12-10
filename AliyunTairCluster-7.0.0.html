@@ -1,11 +1,11 @@
 <pre>
 test: del command passed
 test: unlink command passed
-test: rename command failed
 test: rename command tags skipped
-test: renamenx command failed
+test: rename command passed
 test: renamenx command tags skipped
-test: randomkey command passed
+test: renamenx command passed
+test: randomkey command tags skipped
 test: exists command passed
 test: ttl command passed
 test: pttl command passed
@@ -30,41 +30,41 @@ test: restore command passed
 test: restore with REPLACE passed
 test: restore with ABSTTL passed
 test: restore with IDLETIME passed
-test: scan command failed
-test: scan with TYPE failed
-test: keys command failed
-test: move command passed
-test: copy command failed
+test: scan command tags skipped
+test: scan with TYPE tags skipped
+test: keys command tags skipped
+test: move command tags skipped
 test: copy command tags skipped
+test: copy command passed
 test: type command passed
 test: sort command passed
 test: sort_ro command skipped
 test: set command passed
-test: blmove command failed
 test: blmove command tags skipped
+test: blmove command passed
 test: blmpop command passed
-test: blmpop with COUNT failed
 test: blmpop with COUNT tags skipped
-test: blpop command failed
+test: blmpop with COUNT passed
 test: blpop command tags skipped
-test: blpop with double timeout passed
+test: blpop command passed
 test: blpop with double timeout tags skipped
-test: brpop command failed
+test: blpop with double timeout passed
 test: brpop command tags skipped
-test: brpop with double timeout failed
+test: brpop command passed
 test: brpop with double timeout tags skipped
-test: brpoplpush command failed
+test: brpop with double timeout passed
 test: brpoplpush command tags skipped
-test: brpoplpush with double timeout failed
+test: brpoplpush command passed
 test: brpoplpush with double timeout tags skipped
+test: brpoplpush with double timeout passed
 test: lindex command passed
 test: linsert command passed
 test: llen command passed
-test: lmove command failed
 test: lmove command tags skipped
+test: lmove command passed
 test: lmpop command passed
-test: lmpop with COUNT failed
 test: lmpop with COUNT tags skipped
+test: lmpop with COUNT passed
 test: lpop command passed
 test: lpop with COUNT passed
 test: lpos command passed
@@ -82,34 +82,34 @@ test: lset command passed
 test: ltrim command passed
 test: rpop command passed
 test: rpop with COUNT passed
-test: rpoplpush command failed
 test: rpoplpush command tags skipped
+test: rpoplpush command passed
 test: rpush command passed
 test: rpush with multiple element passed
-test: rpushx command passed
 test: rpushx command tags skipped
-test: rpushx with multiple element passed
+test: rpushx command passed
 test: rpushx with multiple element tags skipped
+test: rpushx with multiple element passed
 test: sadd command passed
 test: sadd command passed
 test: scard command passed
-test: sdiff command failed
 test: sdiff command tags skipped
-test: sdiffstore command failed
+test: sdiff command passed
 test: sdiffstore command tags skipped
-test: sinter command failed
+test: sdiffstore command passed
 test: sinter command tags skipped
-test: sintercard command failed
+test: sinter command passed
 test: sintercard command tags skipped
-test: sintercard with LIMIT failed
+test: sintercard command passed
 test: sintercard with LIMIT tags skipped
-test: sinterstore command failed
+test: sintercard with LIMIT passed
 test: sinterstore command tags skipped
+test: sinterstore command passed
 test: sismember command passed
 test: smembers command passed
 test: smismember command passed
-test: smove command failed
 test: smove command tags skipped
+test: smove command passed
 test: spop command passed
 test: spop with COUNT passed
 test: srandmember command passed
@@ -118,14 +118,14 @@ test: srem command passed
 test: srem with multiple member passed
 test: sscan command passed
 test: sscan with MATCH and COUNT passed
-test: sunion command failed
 test: sunion command tags skipped
-test: sunionstore command failed
+test: sunion command passed
 test: sunionstore command tags skipped
-test: bzmpop command failed
+test: sunionstore command passed
 test: bzmpop command tags skipped
-test: bzmpop with COUNT failed
-test: bzmpop with COUNT passed
+test: bzmpop command passed
+test: bzmpop with COUNT tags skipped
+test: bzmpop with COUNT tags skipped
 test: bzpopmax command passed
 test: bzpopmax with double timeout passed
 test: bzpopmin command passed
@@ -136,29 +136,29 @@ test: zadd with XX / NX / CH / INCR passed
 test: zadd with GT / LT passed
 test: zcard command passed
 test: zcount command passed
-test: zdiff command failed
 test: zdiff command tags skipped
-test: zdiffstore command failed
+test: zdiff command passed
 test: zdiffstore command tags skipped
+test: zdiffstore command passed
 test: zincrby command passed
-test: zinter command failed
 test: zinter command tags skipped
-test: zinter with WEIGHTS failed
+test: zinter command passed
 test: zinter with WEIGHTS tags skipped
-test: zinter with AGGREGATE failed
+test: zinter with WEIGHTS passed
 test: zinter with AGGREGATE tags skipped
-test: zinter WITHSCORES failed
+test: zinter with AGGREGATE passed
 test: zinter WITHSCORES tags skipped
-test: zintercard command failed
+test: zinter WITHSCORES passed
 test: zintercard command tags skipped
-test: zintercard with LIMIT failed
+test: zintercard command passed
 test: zintercard with LIMIT tags skipped
-test: zinterstore command failed
+test: zintercard with LIMIT passed
 test: zinterstore command tags skipped
-test: zinterstore with WEIGHTS failed
+test: zinterstore command passed
 test: zinterstore with WEIGHTS tags skipped
-test: zinterstore with AGGREGATE failed
+test: zinterstore with WEIGHTS passed
 test: zinterstore with AGGREGATE tags skipped
+test: zinterstore with AGGREGATE passed
 test: zlexcount command passed
 test: zmpop command passed
 test: zmpop with COUNT passed
@@ -180,14 +180,14 @@ test: zrangebylex with LIMIT passed
 test: zrangebyscore command passed
 test: zrangebyscore with LIMIT passed
 test: zrangebyscore with WITHSCORES passed
-test: zrangestore command failed
 test: zrangestore command tags skipped
-test: zrangestore with BYSCORE / BYLEX failed
+test: zrangestore command passed
 test: zrangestore with BYSCORE / BYLEX tags skipped
-test: zrangestore with REV failed
+test: zrangestore with BYSCORE / BYLEX passed
 test: zrangestore with REV tags skipped
-test: zrangestore with LIMIT failed
+test: zrangestore with REV passed
 test: zrangestore with LIMIT tags skipped
+test: zrangestore with LIMIT passed
 test: zrank command passed
 test: zrank with WITHSCORE version skipped
 test: zrem command passed
@@ -208,16 +208,16 @@ test: zrevrank with WITHSCORE version skipped
 test: zscan command passed
 test: zscan with MATCH and COUNT passed
 test: zscore command passed
-test: zunion command failed
 test: zunion command tags skipped
-test: zunion with WEIGHTS and AGGREGATE failed
+test: zunion command passed
 test: zunion with WEIGHTS and AGGREGATE tags skipped
-test: zunion with WITHSCORES failed
+test: zunion with WEIGHTS and AGGREGATE passed
 test: zunion with WITHSCORES tags skipped
-test: zunionstore command failed
+test: zunion with WITHSCORES passed
 test: zunionstore command tags skipped
-test: zunionstore with WEIGHTS and AGGREGATE failed
+test: zunionstore command passed
 test: zunionstore with WEIGHTS and AGGREGATE tags skipped
+test: zunionstore with WEIGHTS and AGGREGATE passed
 test: append command passed
 test: decr command passed
 test: decrby command passed
@@ -234,22 +234,22 @@ test: getset command passed
 test: incr command passed
 test: incrby command passed
 test: incrbyfloat command passed
-test: lcs command failed
 test: lcs command tags skipped
-test: lcs with LEN failed
+test: lcs command passed
 test: lcs with LEN tags skipped
-test: lcs with IDX failed
+test: lcs with LEN passed
 test: lcs with IDX tags skipped
-test: lcs with MINMATCHLEN failed
+test: lcs with IDX passed
 test: lcs with MINMATCHLEN tags skipped
-test: lcs with WITHMATCHLEN failed
+test: lcs with MINMATCHLEN passed
 test: lcs with WITHMATCHLEN tags skipped
-test: mget command failed
+test: lcs with WITHMATCHLEN passed
 test: mget command tags skipped
-test: mset command failed
+test: mget command passed
 test: mset command tags skipped
-test: msetnx command failed
+test: mset command passed
 test: msetnx command tags skipped
+test: msetnx command passed
 test: psetex command passed
 test: set command passed
 test: set with EX / PX passed
@@ -288,16 +288,16 @@ test: bitcount command passed
 test: bitcount with BYTE / BIT passed
 test: bitfield command passed
 test: bitfield_ro command failed
-test: bitop command failed
 test: bitop command tags skipped
+test: bitop command passed
 test: bitpos command passed
 test: bitpos with BYTE / BIT passed
 test: getbit command passed
 test: setbit command passed
 test: pfadd command passed
 test: pfcount command passed
-test: pfmerge command failed
 test: pfmerge command tags skipped
+test: pfmerge command passed
 test: geoadd command passed
 test: geoadd with CH / NX / XX passed
 test: geodist command passed
@@ -308,8 +308,8 @@ test: georadius command passed
 test: georadius with WITHCOORD / WITHDIST / WITHHASH passed
 test: georadius with COUNT passed
 test: georadius with ASC / DESC passed
-test: georadius with STORE / STOREDIST failed
 test: georadius with STORE / STOREDIST tags skipped
+test: georadius with STORE / STOREDIST passed
 test: georadius with ANY option for COUNT passed
 test: georadius with support for uppercase unit names passed
 test: georadius_ro command passed
@@ -321,8 +321,8 @@ test: georadiusbymember command passed
 test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH passed
 test: georadiusbymember with COUNT passed
 test: georadiusbymember with ASC / DESC passed
-test: georadiusbymember with STORE / STOREDIST failed
 test: georadiusbymember with STORE / STOREDIST tags skipped
+test: georadiusbymember with STORE / STOREDIST passed
 test: georadiusbymember with ANY option for COUNT passed
 test: georadiusbymember with support for uppercase unit names passed
 test: georadiusbymember_ro command passed
@@ -335,48 +335,48 @@ test: geosearch with ASC / DESC passed
 test: geosearch with COUNT passed
 test: geosearch with WITHCOORD / WITHDIST / WITHHASH passed
 test: geosearch with support for uppercase unit names passed
-test: geosearchstore command failed
 test: geosearchstore command tags skipped
-test: geosearchstore with ASC / DESC failed
+test: geosearchstore command passed
 test: geosearchstore with ASC / DESC tags skipped
-test: geosearchstore with COUNT failed
+test: geosearchstore with ASC / DESC passed
 test: geosearchstore with COUNT tags skipped
-test: geosearchstore with STOREDIST failed
+test: geosearchstore with COUNT passed
 test: geosearchstore with STOREDIST tags skipped
-test: geosearchstore with support for uppercase unit names failed
+test: geosearchstore with STOREDIST passed
 test: geosearchstore with support for uppercase unit names tags skipped
-test: dbsize command passed
-test: flushall command passed
-test: flushall with async passed
-test: flushall with sync passed
-test: flushdb command passed
-test: flushdb with async passed
-test: flushdb with sync passed
-test: swapdb command failed
-test: discard command failed
-test: exec command failed
-test: multi command failed
-test: unwatch command failed
-test: watch command failed
-test: eval command failed
-test: eval_ro command failed
-test: evalsha command failed
-test: evalsha_ro command failed
-test: fcall command failed
-test: fcall_ro command failed
-test: function delete command passed
-test: function flush command passed
-test: function flush with SYNC passed
-test: function flush with ASYNC passed
-test: function list command passed
-test: function load command failed
-test: function restore command failed
-test: function stats command failed
-test: script exists command passed
-test: script flush command passed
-test: script flush with SYNC passed
-test: script flush with ASYNC passed
-test: script load command passed
+test: geosearchstore with support for uppercase unit names passed
+test: dbsize command tags skipped
+test: flushall command tags skipped
+test: flushall with async tags skipped
+test: flushall with sync tags skipped
+test: flushdb command tags skipped
+test: flushdb with async tags skipped
+test: flushdb with sync tags skipped
+test: swapdb command tags skipped
+test: discard command tags skipped
+test: exec command tags skipped
+test: multi command tags skipped
+test: unwatch command tags skipped
+test: watch command tags skipped
+test: eval command tags skipped
+test: eval_ro command tags skipped
+test: evalsha command tags skipped
+test: evalsha_ro command tags skipped
+test: fcall command tags skipped
+test: fcall_ro command tags skipped
+test: function delete command tags skipped
+test: function flush command tags skipped
+test: function flush with SYNC tags skipped
+test: function flush with ASYNC tags skipped
+test: function list command tags skipped
+test: function load command tags skipped
+test: function restore command tags skipped
+test: function stats command tags skipped
+test: script exists command tags skipped
+test: script flush command tags skipped
+test: script flush with SYNC tags skipped
+test: script flush with ASYNC tags skipped
+test: script load command tags skipped
 test: xack command passed
 test: xadd command passed
 test: xadd with NOMKSTREAM/MINID/LIMIT passed
@@ -400,68 +400,26 @@ test: xrevrange command passed
 test: xrevrange command with EXCLUSIVE RANGES passed
 test: xtrim command passed
 test: xtrim command with MINID/LIMIT passed
-test: psubscribe command failed
-test: psubscribe with RESET run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: publish command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: pubsub channels command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: pubsub numpat command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: pubsub numsub command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: pubsub shardchannels command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: pubsub shardnumsub command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: punsubscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: spublish command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: ssubscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: subscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: subscribe with RESET run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: sunsubscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: unsubscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
+test: psubscribe command tags skipped
+test: psubscribe with RESET tags skipped
+test: publish command passed
+test: pubsub channels command passed
+test: pubsub numpat command passed
+test: pubsub numsub command passed
+test: pubsub shardchannels command passed
+test: pubsub shardnumsub command passed
+test: punsubscribe command passed
+test: spublish command passed
+test: ssubscribe command tags skipped
+test: subscribe command tags skipped
+test: subscribe with RESET tags skipped
+test: sunsubscribe command tags skipped
+test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 336, passed: 244, rate: 72.62%
+Summary: version: 7.0.0, total tests: 305, passed: 293, rate: 96.07%
 This is failed tests for 7.0.0:
-FailedTest(name='rename command', reason=RedisClusterException('rename - all keys must map to the same key slot'))
-FailedTest(name='renamenx command', reason=RedisClusterException('renamenx - all keys must map to the same key slot'))
-FailedTest(name='keys command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
-FailedTest(name='sdiff command', reason=RedisClusterException('sdiff - all keys must map to the same key slot'))
-FailedTest(name='sdiffstore command', reason=RedisClusterException('sdiffstore - all keys must map to the same key slot'))
-FailedTest(name='sinter command', reason=RedisClusterException('sinter - all keys must map to the same key slot'))
-FailedTest(name='sinterstore command', reason=RedisClusterException('sinterstore - all keys must map to the same key slot'))
-FailedTest(name='smove command', reason=RedisClusterException('smove - all keys must map to the same key slot'))
-FailedTest(name='sunion command', reason=RedisClusterException('sunion - all keys must map to the same key slot'))
-FailedTest(name='sunionstore command', reason=RedisClusterException('sunionstore - all keys must map to the same key slot'))
-FailedTest(name='mget command', reason=RedisClusterException('mget - all keys must map to the same key slot'))
-FailedTest(name='swapdb command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('swapdb', '0', '1')"))
-FailedTest(name='blmpop with COUNT', reason=RedisClusterException('blmpop - all keys must map to the same key slot'))
-FailedTest(name='lmpop with COUNT', reason=RedisClusterException('lmpop - all keys must map to the same key slot'))
-FailedTest(name='sintercard command', reason=RedisClusterException('sintercard - all keys must map to the same key slot'))
-FailedTest(name='sintercard with LIMIT', reason=RedisClusterException('sintercard - all keys must map to the same key slot'))
-FailedTest(name='bzmpop command', reason=RedisClusterException('bzmpop - all keys must map to the same key slot'))
-FailedTest(name='bzmpop with COUNT', reason=RedisClusterException('bzmpop - all keys must map to the same key slot'))
-FailedTest(name='zintercard command', reason=RedisClusterException('zintercard - all keys must map to the same key slot'))
-FailedTest(name='zintercard with LIMIT', reason=RedisClusterException('zintercard - all keys must map to the same key slot'))
-FailedTest(name='lcs command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
-FailedTest(name='lcs with LEN', reason=RedisClusterException('mset - all keys must map to the same key slot'))
-FailedTest(name='lcs with IDX', reason=RedisClusterException('mset - all keys must map to the same key slot'))
-FailedTest(name='lcs with MINMATCHLEN', reason=RedisClusterException('mset - all keys must map to the same key slot'))
-FailedTest(name='lcs with WITHMATCHLEN', reason=RedisClusterException('mset - all keys must map to the same key slot'))
-FailedTest(name='geosearchstore with support for uppercase unit names', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
-FailedTest(name='eval_ro command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('eval_ro', 'return', '0', 'hello')"))
-FailedTest(name='evalsha_ro command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('evalsha_ro', '63143b6f8007b98c53ca2149822777b3566f9241', '0')"))
-FailedTest(name='fcall command', reason=ResponseError("for redis cluster, eval/evalsha/fcall number of keys can't be negative or zero"))
-FailedTest(name='fcall_ro command', reason=ResponseError("for redis cluster, eval/evalsha/fcall number of keys can't be negative or zero"))
-FailedTest(name='function load command', reason=ResponseError("for redis cluster, eval/evalsha/fcall number of keys can't be negative or zero"))
-FailedTest(name='function restore command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('function', b'flush')"))
-FailedTest(name='function stats command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('function', 'stats')"))
 FailedTest(name='xgroup create with ENTRIESREAD', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '1-0', 'entriesread', '1')"))
 FailedTest(name='xgroup setid with ENTRIESREAD', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='rpoplpush command', reason=RedisClusterException('rpoplpush - all keys must map to the same key slot'))
-FailedTest(name='exec command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
-FailedTest(name='multi command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
-FailedTest(name='bitop command', reason=RedisClusterException('bitop - all keys must map to the same key slot'))
-FailedTest(name='eval command', reason=ResponseError("for redis cluster, eval/evalsha/fcall number of keys can't be negative or zero"))
-FailedTest(name='evalsha command', reason=ResponseError("for redis cluster, eval/evalsha/fcall number of keys can't be negative or zero"))
-FailedTest(name='brpoplpush command', reason=RedisClusterException('brpoplpush - all keys must map to the same key slot'))
-FailedTest(name='unwatch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
-FailedTest(name='watch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
 FailedTest(name='xclaim command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
 FailedTest(name='xgroup create command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
 FailedTest(name='xgroup create with MKSTREAM', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0', 'mkstream')"))
@@ -470,44 +428,6 @@ FailedTest(name='xgroup destroy command', reason=RedisClusterException("No way t
 FailedTest(name='xgroup setid command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
 FailedTest(name='xpending command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
 FailedTest(name='xreadgroup command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='scan command', reason="expected: ['0', ['k']], result: ({'172.16.0.231:6379': 72057594037927936}, ['k'])")
-FailedTest(name='scan with TYPE', reason="expected: ['0', ['geokey']], result: ({'172.16.0.231:6379': 72057594037927936}, ['geokey'])")
-FailedTest(name='brpop with double timeout', reason=RedisClusterException('brpop - all keys must map to the same key slot'))
-FailedTest(name='brpoplpush with double timeout', reason=RedisClusterException('brpoplpush - all keys must map to the same key slot'))
-FailedTest(name='bitfield_ro command', reason=ResponseError("unknown command 'BITFIELD_RO'"))
-FailedTest(name='copy command', reason=RedisClusterException('copy - all keys must map to the same key slot'))
-FailedTest(name='blmove command', reason=RedisClusterException('blmove - all keys must map to the same key slot'))
-FailedTest(name='lmove command', reason=RedisClusterException('lmove - all keys must map to the same key slot'))
-FailedTest(name='zdiff command', reason=RedisClusterException('zdiff - all keys must map to the same key slot'))
-FailedTest(name='zdiffstore command', reason=RedisClusterException('zdiffstore - all keys must map to the same key slot'))
-FailedTest(name='zinter command', reason=RedisClusterException('zinter - all keys must map to the same key slot'))
-FailedTest(name='zinter with WEIGHTS', reason=RedisClusterException('zinter - all keys must map to the same key slot'))
-FailedTest(name='zinter with AGGREGATE', reason=RedisClusterException('zinter - all keys must map to the same key slot'))
-FailedTest(name='zinter WITHSCORES', reason=RedisClusterException('zinter - all keys must map to the same key slot'))
-FailedTest(name='zrangestore command', reason=RedisClusterException('zrangestore - all keys must map to the same key slot'))
-FailedTest(name='zrangestore with BYSCORE / BYLEX', reason=RedisClusterException('zrangestore - all keys must map to the same key slot'))
-FailedTest(name='zrangestore with REV', reason=RedisClusterException('zrangestore - all keys must map to the same key slot'))
-FailedTest(name='zrangestore with LIMIT', reason=RedisClusterException('zrangestore - all keys must map to the same key slot'))
-FailedTest(name='zunion command', reason=RedisClusterException('zunion - all keys must map to the same key slot'))
-FailedTest(name='zunion with WEIGHTS and AGGREGATE', reason=RedisClusterException('zunion - all keys must map to the same key slot'))
-FailedTest(name='zunion with WITHSCORES', reason=RedisClusterException('zunion - all keys must map to the same key slot'))
-FailedTest(name='geosearchstore command', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
-FailedTest(name='geosearchstore with ASC / DESC', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
-FailedTest(name='geosearchstore with COUNT', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
-FailedTest(name='geosearchstore with STOREDIST', reason=RedisClusterException('geosearchstore - all keys must map to the same key slot'))
 FailedTest(name='xgroup createconsumer command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='blpop command', reason=RedisClusterException('blpop - all keys must map to the same key slot'))
-FailedTest(name='brpop command', reason=RedisClusterException('brpop - all keys must map to the same key slot'))
-FailedTest(name='zinterstore command', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
-FailedTest(name='zinterstore with WEIGHTS', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
-FailedTest(name='zinterstore with AGGREGATE', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
-FailedTest(name='zunionstore command', reason=RedisClusterException('zunionstore - all keys must map to the same key slot'))
-FailedTest(name='zunionstore with WEIGHTS and AGGREGATE', reason=RedisClusterException('zunionstore - all keys must map to the same key slot'))
-FailedTest(name='discard command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
-FailedTest(name='psubscribe command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('quit',)"))
-FailedTest(name='georadius with STORE / STOREDIST', reason=RedisClusterException('georadius - all keys must map to the same key slot'))
-FailedTest(name='georadiusbymember with STORE / STOREDIST', reason=RedisClusterException('georadiusbymember - all keys must map to the same key slot'))
-FailedTest(name='pfmerge command', reason=RedisClusterException('pfmerge - all keys must map to the same key slot'))
-FailedTest(name='mset command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
-FailedTest(name='msetnx command', reason=RedisClusterException('msetnx - all keys must map to the same key slot'))
+FailedTest(name='bitfield_ro command', reason=ResponseError("unknown command 'BITFIELD_RO'"))
 </pre>

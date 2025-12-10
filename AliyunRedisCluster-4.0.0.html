@@ -1,11 +1,11 @@
 <pre>
 test: del command passed
 test: unlink command passed
-test: rename command failed
 test: rename command tags skipped
-test: renamenx command failed
+test: rename command passed
 test: renamenx command tags skipped
-test: randomkey command passed
+test: renamenx command passed
+test: randomkey command tags skipped
 test: exists command passed
 test: ttl command passed
 test: pttl command passed
@@ -30,41 +30,41 @@ test: restore command passed
 test: restore with REPLACE passed
 test: restore with ABSTTL version skipped
 test: restore with IDLETIME version skipped
-test: scan command failed
-test: scan with TYPE version skipped
-test: keys command failed
-test: move command passed
-test: copy command version skipped
+test: scan command tags skipped
+test: scan with TYPE tags skipped
+test: keys command tags skipped
+test: move command tags skipped
 test: copy command tags skipped
+test: copy command version skipped
 test: type command passed
 test: sort command passed
 test: sort_ro command skipped
 test: set command passed
-test: blmove command version skipped
 test: blmove command tags skipped
+test: blmove command version skipped
 test: blmpop command version skipped
-test: blmpop with COUNT version skipped
 test: blmpop with COUNT tags skipped
-test: blpop command failed
+test: blmpop with COUNT version skipped
 test: blpop command tags skipped
-test: blpop with double timeout version skipped
+test: blpop command passed
 test: blpop with double timeout tags skipped
-test: brpop command failed
+test: blpop with double timeout version skipped
 test: brpop command tags skipped
-test: brpop with double timeout version skipped
+test: brpop command passed
 test: brpop with double timeout tags skipped
-test: brpoplpush command failed
+test: brpop with double timeout version skipped
 test: brpoplpush command tags skipped
-test: brpoplpush with double timeout version skipped
+test: brpoplpush command passed
 test: brpoplpush with double timeout tags skipped
+test: brpoplpush with double timeout version skipped
 test: lindex command passed
 test: linsert command passed
 test: llen command passed
-test: lmove command version skipped
 test: lmove command tags skipped
+test: lmove command version skipped
 test: lmpop command version skipped
-test: lmpop with COUNT version skipped
 test: lmpop with COUNT tags skipped
+test: lmpop with COUNT version skipped
 test: lpop command passed
 test: lpop with COUNT version skipped
 test: lpos command version skipped
@@ -82,34 +82,34 @@ test: lset command passed
 test: ltrim command passed
 test: rpop command passed
 test: rpop with COUNT version skipped
-test: rpoplpush command failed
 test: rpoplpush command tags skipped
+test: rpoplpush command passed
 test: rpush command passed
 test: rpush with multiple element passed
-test: rpushx command passed
 test: rpushx command tags skipped
-test: rpushx with multiple element passed
+test: rpushx command passed
 test: rpushx with multiple element tags skipped
+test: rpushx with multiple element passed
 test: sadd command passed
 test: sadd command passed
 test: scard command passed
-test: sdiff command failed
 test: sdiff command tags skipped
-test: sdiffstore command failed
+test: sdiff command passed
 test: sdiffstore command tags skipped
-test: sinter command failed
+test: sdiffstore command passed
 test: sinter command tags skipped
-test: sintercard command version skipped
+test: sinter command passed
 test: sintercard command tags skipped
-test: sintercard with LIMIT version skipped
+test: sintercard command version skipped
 test: sintercard with LIMIT tags skipped
-test: sinterstore command failed
+test: sintercard with LIMIT version skipped
 test: sinterstore command tags skipped
+test: sinterstore command passed
 test: sismember command passed
 test: smembers command passed
 test: smismember command version skipped
-test: smove command failed
 test: smove command tags skipped
+test: smove command passed
 test: spop command passed
 test: spop with COUNT passed
 test: srandmember command passed
@@ -118,14 +118,14 @@ test: srem command passed
 test: srem with multiple member passed
 test: sscan command passed
 test: sscan with MATCH and COUNT passed
-test: sunion command failed
 test: sunion command tags skipped
-test: sunionstore command failed
+test: sunion command passed
 test: sunionstore command tags skipped
-test: bzmpop command version skipped
+test: sunionstore command passed
 test: bzmpop command tags skipped
-test: bzmpop with COUNT version skipped
-test: bzmpop with COUNT version skipped
+test: bzmpop command version skipped
+test: bzmpop with COUNT tags skipped
+test: bzmpop with COUNT tags skipped
 test: bzpopmax command version skipped
 test: bzpopmax with double timeout version skipped
 test: bzpopmin command version skipped
@@ -136,29 +136,29 @@ test: zadd with XX / NX / CH / INCR passed
 test: zadd with GT / LT version skipped
 test: zcard command passed
 test: zcount command passed
-test: zdiff command version skipped
 test: zdiff command tags skipped
-test: zdiffstore command version skipped
+test: zdiff command version skipped
 test: zdiffstore command tags skipped
+test: zdiffstore command version skipped
 test: zincrby command passed
-test: zinter command version skipped
 test: zinter command tags skipped
-test: zinter with WEIGHTS version skipped
+test: zinter command version skipped
 test: zinter with WEIGHTS tags skipped
-test: zinter with AGGREGATE version skipped
+test: zinter with WEIGHTS version skipped
 test: zinter with AGGREGATE tags skipped
-test: zinter WITHSCORES version skipped
+test: zinter with AGGREGATE version skipped
 test: zinter WITHSCORES tags skipped
-test: zintercard command version skipped
+test: zinter WITHSCORES version skipped
 test: zintercard command tags skipped
-test: zintercard with LIMIT version skipped
+test: zintercard command version skipped
 test: zintercard with LIMIT tags skipped
-test: zinterstore command failed
+test: zintercard with LIMIT version skipped
 test: zinterstore command tags skipped
-test: zinterstore with WEIGHTS failed
+test: zinterstore command passed
 test: zinterstore with WEIGHTS tags skipped
-test: zinterstore with AGGREGATE failed
+test: zinterstore with WEIGHTS passed
 test: zinterstore with AGGREGATE tags skipped
+test: zinterstore with AGGREGATE passed
 test: zlexcount command passed
 test: zmpop command version skipped
 test: zmpop with COUNT version skipped
@@ -180,14 +180,14 @@ test: zrangebylex with LIMIT passed
 test: zrangebyscore command passed
 test: zrangebyscore with LIMIT passed
 test: zrangebyscore with WITHSCORES passed
-test: zrangestore command version skipped
 test: zrangestore command tags skipped
-test: zrangestore with BYSCORE / BYLEX version skipped
+test: zrangestore command version skipped
 test: zrangestore with BYSCORE / BYLEX tags skipped
-test: zrangestore with REV version skipped
+test: zrangestore with BYSCORE / BYLEX version skipped
 test: zrangestore with REV tags skipped
-test: zrangestore with LIMIT version skipped
+test: zrangestore with REV version skipped
 test: zrangestore with LIMIT tags skipped
+test: zrangestore with LIMIT version skipped
 test: zrank command passed
 test: zrank with WITHSCORE version skipped
 test: zrem command passed
@@ -208,16 +208,16 @@ test: zrevrank with WITHSCORE version skipped
 test: zscan command passed
 test: zscan with MATCH and COUNT passed
 test: zscore command passed
-test: zunion command version skipped
 test: zunion command tags skipped
-test: zunion with WEIGHTS and AGGREGATE version skipped
+test: zunion command version skipped
 test: zunion with WEIGHTS and AGGREGATE tags skipped
-test: zunion with WITHSCORES version skipped
+test: zunion with WEIGHTS and AGGREGATE version skipped
 test: zunion with WITHSCORES tags skipped
-test: zunionstore command failed
+test: zunion with WITHSCORES version skipped
 test: zunionstore command tags skipped
-test: zunionstore with WEIGHTS and AGGREGATE failed
+test: zunionstore command passed
 test: zunionstore with WEIGHTS and AGGREGATE tags skipped
+test: zunionstore with WEIGHTS and AGGREGATE passed
 test: append command passed
 test: decr command passed
 test: decrby command passed
@@ -234,22 +234,22 @@ test: getset command passed
 test: incr command passed
 test: incrby command passed
 test: incrbyfloat command passed
-test: lcs command version skipped
 test: lcs command tags skipped
-test: lcs with LEN version skipped
+test: lcs command version skipped
 test: lcs with LEN tags skipped
-test: lcs with IDX version skipped
+test: lcs with LEN version skipped
 test: lcs with IDX tags skipped
-test: lcs with MINMATCHLEN version skipped
+test: lcs with IDX version skipped
 test: lcs with MINMATCHLEN tags skipped
-test: lcs with WITHMATCHLEN version skipped
+test: lcs with MINMATCHLEN version skipped
 test: lcs with WITHMATCHLEN tags skipped
-test: mget command failed
+test: lcs with WITHMATCHLEN version skipped
 test: mget command tags skipped
-test: mset command failed
+test: mget command passed
 test: mset command tags skipped
-test: msetnx command failed
+test: mset command passed
 test: msetnx command tags skipped
+test: msetnx command passed
 test: psetex command passed
 test: set command passed
 test: set with EX / PX passed
@@ -288,16 +288,16 @@ test: bitcount command passed
 test: bitcount with BYTE / BIT version skipped
 test: bitfield command passed
 test: bitfield_ro command version skipped
-test: bitop command failed
 test: bitop command tags skipped
+test: bitop command passed
 test: bitpos command passed
 test: bitpos with BYTE / BIT version skipped
 test: getbit command passed
 test: setbit command passed
 test: pfadd command passed
 test: pfcount command passed
-test: pfmerge command failed
 test: pfmerge command tags skipped
+test: pfmerge command passed
 test: geoadd command passed
 test: geoadd with CH / NX / XX version skipped
 test: geodist command passed
@@ -308,8 +308,8 @@ test: georadius command passed
 test: georadius with WITHCOORD / WITHDIST / WITHHASH passed
 test: georadius with COUNT passed
 test: georadius with ASC / DESC passed
-test: georadius with STORE / STOREDIST failed
 test: georadius with STORE / STOREDIST tags skipped
+test: georadius with STORE / STOREDIST passed
 test: georadius with ANY option for COUNT version skipped
 test: georadius with support for uppercase unit names version skipped
 test: georadius_ro command passed
@@ -321,8 +321,8 @@ test: georadiusbymember command passed
 test: georadiusbymember with WITHCOORD / WITHDIST / WITHHASH passed
 test: georadiusbymember with COUNT passed
 test: georadiusbymember with ASC / DESC passed
-test: georadiusbymember with STORE / STOREDIST failed
 test: georadiusbymember with STORE / STOREDIST tags skipped
+test: georadiusbymember with STORE / STOREDIST passed
 test: georadiusbymember with ANY option for COUNT version skipped
 test: georadiusbymember with support for uppercase unit names version skipped
 test: georadiusbymember_ro command passed
@@ -335,48 +335,48 @@ test: geosearch with ASC / DESC version skipped
 test: geosearch with COUNT version skipped
 test: geosearch with WITHCOORD / WITHDIST / WITHHASH version skipped
 test: geosearch with support for uppercase unit names version skipped
-test: geosearchstore command version skipped
 test: geosearchstore command tags skipped
-test: geosearchstore with ASC / DESC version skipped
+test: geosearchstore command version skipped
 test: geosearchstore with ASC / DESC tags skipped
-test: geosearchstore with COUNT version skipped
+test: geosearchstore with ASC / DESC version skipped
 test: geosearchstore with COUNT tags skipped
-test: geosearchstore with STOREDIST version skipped
+test: geosearchstore with COUNT version skipped
 test: geosearchstore with STOREDIST tags skipped
-test: geosearchstore with support for uppercase unit names version skipped
+test: geosearchstore with STOREDIST version skipped
 test: geosearchstore with support for uppercase unit names tags skipped
-test: dbsize command passed
-test: flushall command passed
-test: flushall with async passed
-test: flushall with sync version skipped
-test: flushdb command passed
-test: flushdb with async passed
-test: flushdb with sync version skipped
-test: swapdb command failed
-test: discard command failed
-test: exec command failed
-test: multi command failed
-test: unwatch command failed
-test: watch command failed
-test: eval command failed
-test: eval_ro command version skipped
-test: evalsha command failed
-test: evalsha_ro command version skipped
-test: fcall command version skipped
-test: fcall_ro command version skipped
-test: function delete command version skipped
-test: function flush command version skipped
-test: function flush with SYNC version skipped
-test: function flush with ASYNC version skipped
-test: function list command version skipped
-test: function load command version skipped
-test: function restore command version skipped
-test: function stats command version skipped
-test: script exists command passed
-test: script flush command passed
-test: script flush with SYNC version skipped
-test: script flush with ASYNC version skipped
-test: script load command passed
+test: geosearchstore with support for uppercase unit names version skipped
+test: dbsize command tags skipped
+test: flushall command tags skipped
+test: flushall with async tags skipped
+test: flushall with sync tags skipped
+test: flushdb command tags skipped
+test: flushdb with async tags skipped
+test: flushdb with sync tags skipped
+test: swapdb command tags skipped
+test: discard command tags skipped
+test: exec command tags skipped
+test: multi command tags skipped
+test: unwatch command tags skipped
+test: watch command tags skipped
+test: eval command tags skipped
+test: eval_ro command tags skipped
+test: evalsha command tags skipped
+test: evalsha_ro command tags skipped
+test: fcall command tags skipped
+test: fcall_ro command tags skipped
+test: function delete command tags skipped
+test: function flush command tags skipped
+test: function flush with SYNC tags skipped
+test: function flush with ASYNC tags skipped
+test: function list command tags skipped
+test: function load command tags skipped
+test: function restore command tags skipped
+test: function stats command tags skipped
+test: script exists command tags skipped
+test: script flush command tags skipped
+test: script flush with SYNC tags skipped
+test: script flush with ASYNC tags skipped
+test: script load command tags skipped
 test: xack command version skipped
 test: xadd command version skipped
 test: xadd with NOMKSTREAM/MINID/LIMIT version skipped
@@ -400,58 +400,21 @@ test: xrevrange command version skipped
 test: xrevrange command with EXCLUSIVE RANGES version skipped
 test: xtrim command version skipped
 test: xtrim command with MINID/LIMIT version skipped
-test: psubscribe command failed
-test: psubscribe with RESET version skipped
-test: publish command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: pubsub channels command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: pubsub numpat command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: pubsub numsub command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
+test: psubscribe command tags skipped
+test: psubscribe with RESET tags skipped
+test: publish command passed
+test: pubsub channels command passed
+test: pubsub numpat command passed
+test: pubsub numsub command passed
 test: pubsub shardchannels command version skipped
 test: pubsub shardnumsub command version skipped
-test: punsubscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
+test: punsubscribe command passed
 test: spublish command version skipped
-test: ssubscribe command version skipped
-test: subscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
-test: subscribe with RESET version skipped
-test: sunsubscribe command version skipped
-test: unsubscribe command run test error only (P/S)SUBSCRIBE / (P/S)UNSUBSCRIBE / PING / QUIT allowed in this context
+test: ssubscribe command tags skipped
+test: subscribe command tags skipped
+test: subscribe with RESET tags skipped
+test: sunsubscribe command tags skipped
+test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 4.0.0, total tests: 189, passed: 153, rate: 80.95%
-This is failed tests for 4.0.0:
-FailedTest(name='rename command', reason=RedisClusterException('rename - all keys must map to the same key slot'))
-FailedTest(name='renamenx command', reason=RedisClusterException('renamenx - all keys must map to the same key slot'))
-FailedTest(name='keys command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
-FailedTest(name='sdiff command', reason=RedisClusterException('sdiff - all keys must map to the same key slot'))
-FailedTest(name='sdiffstore command', reason=RedisClusterException('sdiffstore - all keys must map to the same key slot'))
-FailedTest(name='sinter command', reason=RedisClusterException('sinter - all keys must map to the same key slot'))
-FailedTest(name='sinterstore command', reason=RedisClusterException('sinterstore - all keys must map to the same key slot'))
-FailedTest(name='smove command', reason=RedisClusterException('smove - all keys must map to the same key slot'))
-FailedTest(name='sunion command', reason=RedisClusterException('sunion - all keys must map to the same key slot'))
-FailedTest(name='sunionstore command', reason=RedisClusterException('sunionstore - all keys must map to the same key slot'))
-FailedTest(name='mget command', reason=RedisClusterException('mget - all keys must map to the same key slot'))
-FailedTest(name='swapdb command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('swapdb', '0', '1')"))
-FailedTest(name='rpoplpush command', reason=RedisClusterException('rpoplpush - all keys must map to the same key slot'))
-FailedTest(name='exec command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
-FailedTest(name='multi command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
-FailedTest(name='bitop command', reason=RedisClusterException('bitop - all keys must map to the same key slot'))
-FailedTest(name='eval command', reason=ResponseError("for redis cluster, eval/evalsha/fcall number of keys can't be negative or zero"))
-FailedTest(name='evalsha command', reason=ResponseError("for redis cluster, eval/evalsha/fcall number of keys can't be negative or zero"))
-FailedTest(name='brpoplpush command', reason=RedisClusterException('brpoplpush - all keys must map to the same key slot'))
-FailedTest(name='unwatch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
-FailedTest(name='watch command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('unwatch',)"))
-FailedTest(name='scan command', reason="expected: ['0', ['k']], result: ({'172.16.0.232:6379': 72057594037927936}, ['k'])")
-FailedTest(name='blpop command', reason=RedisClusterException('blpop - all keys must map to the same key slot'))
-FailedTest(name='brpop command', reason=RedisClusterException('brpop - all keys must map to the same key slot'))
-FailedTest(name='zinterstore command', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
-FailedTest(name='zinterstore with WEIGHTS', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
-FailedTest(name='zinterstore with AGGREGATE', reason=RedisClusterException('zinterstore - all keys must map to the same key slot'))
-FailedTest(name='zunionstore command', reason=RedisClusterException('zunionstore - all keys must map to the same key slot'))
-FailedTest(name='zunionstore with WEIGHTS and AGGREGATE', reason=RedisClusterException('zunionstore - all keys must map to the same key slot'))
-FailedTest(name='discard command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('multi',)"))
-FailedTest(name='psubscribe command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('quit',)"))
-FailedTest(name='georadius with STORE / STOREDIST', reason=RedisClusterException('georadius - all keys must map to the same key slot'))
-FailedTest(name='georadiusbymember with STORE / STOREDIST', reason=RedisClusterException('georadiusbymember - all keys must map to the same key slot'))
-FailedTest(name='pfmerge command', reason=RedisClusterException('pfmerge - all keys must map to the same key slot'))
-FailedTest(name='mset command', reason=RedisClusterException('mset - all keys must map to the same key slot'))
-FailedTest(name='msetnx command', reason=RedisClusterException('msetnx - all keys must map to the same key slot'))
+Summary: version: 4.0.0, total tests: 174, passed: 174, rate: 100.00%
 </pre>
