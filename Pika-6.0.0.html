@@ -176,7 +176,7 @@ test: zrange with BYSCORE / BYLEX version skipped
 test: zrange with REV version skipped
 test: zrange with LIMIT version skipped
 test: zrangebylex command passed
-test: zrangebylex with LIMIT failed
+test: zrangebylex with LIMIT passed
 test: zrangebyscore command passed
 test: zrangebyscore with LIMIT passed
 test: zrangebyscore with WITHSCORES passed
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 221, passed: 165, rate: 74.66%
+Summary: version: 6.0.0, total tests: 221, passed: 166, rate: 75.11%
 This is failed tests for 6.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -468,7 +468,6 @@ FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=Resp
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with ASC / DESC', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='zadd with XX / NX / CH / INCR', reason=ResponseError('syntax error'))
-FailedTest(name='zrangebylex with LIMIT', reason='expected: 5, result: 0')
 FailedTest(name='set with EX / PX', reason=ResponseError('Invalid argument: invalid expire time'))
 FailedTest(name='georadiusbymember_ro command', reason=ResponseError('unknown command "georadiusbymember_ro"'))
 FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadiusbymember_ro"'))
