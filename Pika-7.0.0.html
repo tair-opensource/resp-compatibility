@@ -233,7 +233,7 @@ test: getrange command passed
 test: getset command passed
 test: incr command passed
 test: incrby command passed
-test: incrbyfloat command passed
+test: incrbyfloat command failed
 test: lcs command failed
 test: lcs command tags skipped
 test: lcs with LEN failed
@@ -416,7 +416,7 @@ test: subscribe with RESET run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / P
 test: sunsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 336, passed: 170, rate: 50.60%
+Summary: version: 7.0.0, total tests: 336, passed: 169, rate: 50.30%
 This is failed tests for 7.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -478,6 +478,7 @@ FailedTest(name='xgroup create with ENTRIESREAD', reason=ResponseError('unknown 
 FailedTest(name='xgroup setid with ENTRIESREAD', reason=ResponseError('unknown command "xgroup"'))
 FailedTest(name='dump command', reason=ResponseError('unknown command "dump"'))
 FailedTest(name='restore command', reason=ResponseError('unknown command "restore"'))
+FailedTest(name='incrbyfloat command', reason='expected: 1.623, result: 15')
 FailedTest(name='psetex command', reason=ResponseError('Invalid argument: invalid expire time'))
 FailedTest(name='eval command', reason=ResponseError('unknown command "eval"'))
 FailedTest(name='evalsha command', reason=ResponseError('unknown command "script"'))
