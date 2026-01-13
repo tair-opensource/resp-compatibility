@@ -82,7 +82,7 @@ test: lset command passed
 test: ltrim command passed
 test: rpop command passed
 test: rpop with COUNT version skipped
-test: rpoplpush command passed
+test: rpoplpush command failed
 test: rpoplpush command tags skipped
 test: rpush command passed
 test: rpush with multiple element passed
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 213, passed: 165, rate: 77.46%
+Summary: version: 5.0.0, total tests: 213, passed: 164, rate: 77.00%
 This is failed tests for 5.0.0:
 FailedTest(name='rename command', reason=ResponseError('unknown command "rename"'))
 FailedTest(name='renamenx command', reason=ResponseError('unknown command "renamenx"'))
@@ -427,6 +427,7 @@ FailedTest(name='substr command', reason=ResponseError('unknown command "substr"
 FailedTest(name='flushall with async', reason=ResponseError("wrong number of arguments for 'flushall' command"))
 FailedTest(name='flushdb with async', reason=ResponseError("invalid DB for ''"))
 FailedTest(name='swapdb command', reason=ResponseError('unknown command "swapdb"'))
+FailedTest(name='rpoplpush command', reason='expected: 1, result: 5')
 FailedTest(name='dump command', reason=ResponseError('unknown command "dump"'))
 FailedTest(name='restore command', reason=ResponseError('unknown command "restore"'))
 FailedTest(name='psetex command', reason=ResponseError('Invalid argument: invalid expire time'))
@@ -454,12 +455,12 @@ FailedTest(name='xread command', reason="expected: None, result: [['mystream', [
 FailedTest(name='xreadgroup command', reason=ResponseError('unknown command "xgroup"'))
 FailedTest(name='psubscribe command', reason=ResponseError('only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context'))
 FailedTest(name='bitfield command', reason=ResponseError('unknown command "bitfield"'))
-FailedTest(name='georadius command', reason="expected: ['Palermo', 'Catania'], result: ['Catania', 'Palermo']")
+FailedTest(name='georadius command', reason='expected: 2, result: 0')
 FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', ['13.36138933897018433', '38.11555639549629859']], ['Catania', ['15.08726745843887329', '37.50266842333162032']]], result: [['Catania', ['15.087267458438873', '37.50266842333162']], ['Palermo', ['13.361389338970184', '38.115556395496299']]]")
 FailedTest(name='georadius_ro command', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=ResponseError('unknown command "georadius_ro"'))
 FailedTest(name='georadius_ro with COUNT', reason=ResponseError('unknown command "georadius_ro"'))
-FailedTest(name='georadius_ro with ASC / DESC', reason=ResponseError('unknown command "georadius_ro"'))
+FailedTest(name='georadius_ro with ASC / DESC', reason='expected: 2, result: 0')
 FailedTest(name='zadd with XX / NX / CH / INCR', reason=ResponseError('syntax error'))
 FailedTest(name='set with EX / PX', reason=ResponseError('Invalid argument: invalid expire time'))
 FailedTest(name='georadiusbymember_ro command', reason=ResponseError('unknown command "georadiusbymember_ro"'))
