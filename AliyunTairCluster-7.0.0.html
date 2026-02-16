@@ -418,16 +418,16 @@ test: unsubscribe command passed
 -------- The result of tests --------
 Summary: version: 7.0.0, total tests: 305, passed: 293, rate: 96.07%
 This is failed tests for 7.0.0:
-FailedTest(name='xgroup create with ENTRIESREAD', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '1-0', 'entriesread', '1')"))
-FailedTest(name='xgroup setid with ENTRIESREAD', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xclaim command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup create command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup create with MKSTREAM', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0', 'mkstream')"))
-FailedTest(name='xgroup delconsumer command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup destroy command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup setid command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xpending command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xreadgroup command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup createconsumer command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='bitfield_ro command', reason=ResponseError("unknown command 'BITFIELD_RO'"))
+FailedTest(name='xgroup create with ENTRIESREAD', reason=server:RedisClusterException)
+FailedTest(name='xgroup setid with ENTRIESREAD', reason=server:RedisClusterException)
+FailedTest(name='xclaim command', reason=server:RedisClusterException)
+FailedTest(name='xgroup create command', reason=server:RedisClusterException)
+FailedTest(name='xgroup create with MKSTREAM', reason=server:RedisClusterException)
+FailedTest(name='xgroup delconsumer command', reason=server:RedisClusterException)
+FailedTest(name='xgroup destroy command', reason=server:RedisClusterException)
+FailedTest(name='xgroup setid command', reason=server:RedisClusterException)
+FailedTest(name='xpending command', reason=server:RedisClusterException)
+FailedTest(name='xreadgroup command', reason=server:RedisClusterException)
+FailedTest(name='xgroup createconsumer command', reason=server:RedisClusterException)
+FailedTest(name='bitfield_ro command', reason=server:ResponseError)
 </pre>

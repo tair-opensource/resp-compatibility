@@ -418,7 +418,7 @@ test: unsubscribe command passed
 -------- The result of tests --------
 Summary: version: 6.0.0, total tests: 228, passed: 218, rate: 95.61%
 This is failed tests for 6.0.0:
-FailedTest(name='swapdb command', reason=ResponseError('unknown command `SWAPDB`'))
+FailedTest(name='swapdb command', reason=server:ResponseError)
 FailedTest(name='xpending command', reason="expected: [1, '1-0', '1-0', [['myconsumer', '1']]], result: [1, '1-0', '1-0', [['myconsumer', 1]]]")
 FailedTest(name='geodist command', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='geodist with M / KM / FT / MI', reason='expected: 166274.1516, result: 166274.15156960033')

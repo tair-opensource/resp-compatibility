@@ -418,12 +418,12 @@ test: unsubscribe command passed
 -------- The result of tests --------
 Summary: version: 5.0.0, total tests: 198, passed: 190, rate: 95.96%
 This is failed tests for 5.0.0:
-FailedTest(name='xclaim command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup create command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup create with MKSTREAM', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0', 'mkstream')"))
-FailedTest(name='xgroup delconsumer command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup destroy command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xgroup setid command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xpending command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
-FailedTest(name='xreadgroup command', reason=RedisClusterException("No way to dispatch this command to Redis Cluster. Missing key.\nYou can execute the command by specifying target nodes.\nCommand: ('xgroup', 'create', 'mystream', 'mygroup', '0')"))
+FailedTest(name='xclaim command', reason=server:RedisClusterException)
+FailedTest(name='xgroup create command', reason=server:RedisClusterException)
+FailedTest(name='xgroup create with MKSTREAM', reason=server:RedisClusterException)
+FailedTest(name='xgroup delconsumer command', reason=server:RedisClusterException)
+FailedTest(name='xgroup destroy command', reason=server:RedisClusterException)
+FailedTest(name='xgroup setid command', reason=server:RedisClusterException)
+FailedTest(name='xpending command', reason=server:RedisClusterException)
+FailedTest(name='xreadgroup command', reason=server:RedisClusterException)
 </pre>
