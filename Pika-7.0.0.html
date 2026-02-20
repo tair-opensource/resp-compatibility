@@ -230,7 +230,7 @@ test: getex with EXAT failed
 test: getex with PXAT failed
 test: getex with PERSIST failed
 test: getrange command passed
-test: getset command passed
+test: getset command failed
 test: incr command passed
 test: incrby command passed
 test: incrbyfloat command passed
@@ -246,7 +246,7 @@ test: lcs with WITHMATCHLEN failed
 test: lcs with WITHMATCHLEN tags skipped
 test: mget command passed
 test: mget command tags skipped
-test: mset command failed
+test: mset command passed
 test: mset command tags skipped
 test: msetnx command passed
 test: msetnx command tags skipped
@@ -423,6 +423,7 @@ FailedTest(name='renamenx command', reason=server:ResponseError)
 FailedTest(name='randomkey command', reason=server:ResponseError)
 FailedTest(name='move command', reason=server:ResponseError)
 FailedTest(name='sort command', reason=server:ResponseError)
+FailedTest(name='getset command', reason='expected: bcde, result: abcd')
 FailedTest(name='substr command', reason=server:ResponseError)
 FailedTest(name='flushall with async', reason=server:ResponseError)
 FailedTest(name='flushdb with async', reason=server:ResponseError)
@@ -579,7 +580,6 @@ FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=serv
 FailedTest(name='georadius_ro with COUNT', reason=server:ResponseError)
 FailedTest(name='georadius_ro with ASC / DESC', reason=server:ResponseError)
 FailedTest(name='zadd with XX / NX / CH / INCR', reason=server:ResponseError)
-FailedTest(name='mset command', reason='expected: 0, result: 1')
 FailedTest(name='set with EX / PX', reason=server:ResponseError)
 FailedTest(name='georadiusbymember_ro command', reason=server:ResponseError)
 FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason=server:ResponseError)
