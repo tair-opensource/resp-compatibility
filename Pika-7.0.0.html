@@ -230,7 +230,7 @@ test: getex with EXAT failed
 test: getex with PXAT failed
 test: getex with PERSIST failed
 test: getrange command passed
-test: getset command failed
+test: getset command passed
 test: incr command passed
 test: incrby command passed
 test: incrbyfloat command passed
@@ -416,14 +416,13 @@ test: subscribe with RESET run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / P
 test: sunsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 336, passed: 169, rate: 50.30%
+Summary: version: 7.0.0, total tests: 336, passed: 170, rate: 50.60%
 This is failed tests for 7.0.0:
 FailedTest(name='rename command', reason=server:ResponseError)
 FailedTest(name='renamenx command', reason=server:ResponseError)
 FailedTest(name='randomkey command', reason=server:ResponseError)
 FailedTest(name='move command', reason=server:ResponseError)
 FailedTest(name='sort command', reason=server:ResponseError)
-FailedTest(name='getset command', reason='expected: bcde, result: abcd')
 FailedTest(name='substr command', reason=server:ResponseError)
 FailedTest(name='flushall with async', reason=server:ResponseError)
 FailedTest(name='flushdb with async', reason=server:ResponseError)
