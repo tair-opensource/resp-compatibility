@@ -390,7 +390,7 @@ test: xgroup createconsumer command passed
 test: xgroup delconsumer command passed
 test: xgroup destroy command passed
 test: xgroup setid command passed
-test: xgroup setid with ENTRIESREAD failed
+test: xgroup setid with ENTRIESREAD passed
 test: xlen command passed
 test: xpending command failed
 test: xrange command passed
@@ -416,7 +416,7 @@ test: subscribe with RESET passed
 test: sunsubscribe command passed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 306, rate: 87.43%
+Summary: version: 7.0.0, total tests: 350, passed: 307, rate: 87.71%
 This is failed tests for 7.0.0:
 FailedTest(name='swapdb command', reason=server:ResponseError)
 FailedTest(name='expireat with NX / XX', reason=server:ResponseError)
@@ -441,7 +441,6 @@ FailedTest(name='function list command', reason=server:ResponseError)
 FailedTest(name='function load command', reason=server:ResponseError)
 FailedTest(name='function restore command', reason=server:ResponseError)
 FailedTest(name='function stats command', reason=server:ResponseError)
-FailedTest(name='xgroup setid with ENTRIESREAD', reason=server:ResponseError)
 FailedTest(name='pubsub shardchannels command', reason=server:ResponseError)
 FailedTest(name='pubsub shardnumsub command', reason=server:ResponseError)
 FailedTest(name='xpending command', reason="expected: [1, '1-0', '1-0', [['myconsumer', '1']]], result: [1, '1-0', '1-0', [['myconsumer', 1]]]")
