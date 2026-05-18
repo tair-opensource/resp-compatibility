@@ -190,7 +190,7 @@ test: zrangestore with LIMIT version skipped
 test: zrangestore with LIMIT tags skipped
 test: zrank command passed
 test: zrank with WITHSCORE version skipped
-test: zrem command passed
+test: zrem command failed
 test: zrem with multiple elements passed
 test: zremrangebylex command passed
 test: zremrangebyrank command passed
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 4.0.0, total tests: 189, passed: 155, rate: 82.01%
+Summary: version: 4.0.0, total tests: 189, passed: 154, rate: 81.48%
 This is failed tests for 4.0.0:
 FailedTest(name='rename command', reason=server:ResponseError)
 FailedTest(name='renamenx command', reason=server:ResponseError)
@@ -427,6 +427,7 @@ FailedTest(name='substr command', reason=server:ResponseError)
 FailedTest(name='flushall with async', reason=server:ResponseError)
 FailedTest(name='flushdb with async', reason=server:ResponseError)
 FailedTest(name='swapdb command', reason=server:ResponseError)
+FailedTest(name='zrem command', reason='expected: 1, result: 0')
 FailedTest(name='dump command', reason=server:ResponseError)
 FailedTest(name='restore command', reason=server:ResponseError)
 FailedTest(name='psetex command', reason=server:ResponseError)
