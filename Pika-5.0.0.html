@@ -283,7 +283,7 @@ test: hset command passed
 test: hset command with multiple field and value passed
 test: hsetnx command passed
 test: hstrlen command passed
-test: hvals command passed
+test: hvals command failed
 test: bitcount command passed
 test: bitcount with BYTE / BIT version skipped
 test: bitfield command failed
@@ -416,7 +416,7 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 213, passed: 165, rate: 77.46%
+Summary: version: 5.0.0, total tests: 213, passed: 164, rate: 77.00%
 This is failed tests for 5.0.0:
 FailedTest(name='rename command', reason=server:ResponseError)
 FailedTest(name='renamenx command', reason=server:ResponseError)
@@ -452,6 +452,7 @@ FailedTest(name='xgroup setid command', reason=server:ResponseError)
 FailedTest(name='xpending command', reason=server:ResponseError)
 FailedTest(name='xread command', reason="expected: None, result: [['mystream', []]]")
 FailedTest(name='xreadgroup command', reason=server:ResponseError)
+FailedTest(name='hvals command', reason='expected: 1, result: 0')
 FailedTest(name='psubscribe command', reason=server:ResponseError)
 FailedTest(name='bitfield command', reason=server:ResponseError)
 FailedTest(name='georadius command', reason="expected: ['Palermo', 'Catania'], result: ['Catania', 'Palermo']")
