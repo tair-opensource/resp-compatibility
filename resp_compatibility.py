@@ -377,16 +377,18 @@ def run_test_by_configfile():
 
 def create_client(host, port, password, ssl, cluster):
     global r
+    # CTS expectations are based on RESP2 replies; force RESP2 even if redis-py defaults to RESP3.
     if cluster:
         print(f"connecting to {host}:{port} use cluster client", file=logfile)
-        r = redis.RedisCluster(host=host, port=port, password=password, ssl=ssl, decode_responses=True)
+        r = redis.RedisCluster(host=host, port=port, password=password, ssl=ssl, decode_responses=True,
+                               protocol=2)
         for _, nodes in dict(r.nodes_manager.slots_cache).items():
             for node in nodes:
                 node.redis_connection.response_callbacks = {}
         assert r.ping()
     else:
         print(f"connecting to {host}:{port} use standalone client", file=logfile)
-        r = redis.Redis(host=host, port=port, password=password, ssl=ssl, decode_responses=True)
+        r = redis.Redis(host=host, port=port, password=password, ssl=ssl, decode_responses=True, protocol=2)
         r.response_callbacks = {}
         assert r.ping()
 
