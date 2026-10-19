@@ -317,6 +317,55 @@
     ACL、OOM check --> block command --> unblock --> ACL、OOM recheck --> execute
     ```
 
+## 7.2 版本升级到 8.0 版本
+
+1.  给 `MULTI` 和 `WATCH` 命令新增 `NO_MULTI` flag，当在 `MULTI` 中添加 `NO_MULTI` 命令时，会报错并且导致 `EXEC` 命令执行失败，而不是像原来报错但是可以继续添加命令并且 `EXEC`
+    -   社区 PR：[https://github.com/valkey-io/valkey/pull/723](https://github.com/valkey-io/valkey/pull/723)
+    
+    ```plaintext
+    原来的行为：
+    127.0.0.1:6379> multi
+    OK
+    127.0.0.1:6379(TX)> multi
+    (error) ERR MULTI calls can not be nested
+    127.0.0.1:6379(TX)> set key value
+    QUEUED
+    127.0.0.1:6379(TX)> exec
+    1) OK
+
+    127.0.0.1:6379> multi
+    OK
+    127.0.0.1:6379(TX)> watch key
+    (error) ERR WATCH inside MULTI is not allowed
+    127.0.0.1:6379(TX)> set key value
+    QUEUED
+    127.0.0.1:6379(TX)> exec
+    1) OK
+
+    改动后：
+    127.0.0.1:6379> multi
+    OK
+    127.0.0.1:6379(TX)> multi
+    (error) ERR Command not allowed inside a transaction
+    127.0.0.1:6379(TX)> set key value
+    QUEUED
+    127.0.0.1:6379(TX)> exec
+    (error) EXECABORT Transaction discarded because of previous errors.
+
+    127.0.0.1:6379> multi
+    OK
+    127.0.0.1:6379(TX)> watch key
+    (error) ERR Command not allowed inside a transaction
+    127.0.0.1:6379(TX)> set key value
+    QUEUED
+    127.0.0.1:6379(TX)> exec
+    (error) EXECABORT Transaction discarded because of previous errors.
+    ```
+
+## 8.0 版本升级到 8.1 版本
+
+暂无兼容性差异
+
 # 重要 Bugfix：
 
 ## 5.0 版本
@@ -426,3 +475,28 @@
 3.  `LSET` 命令将 List 中大量的小元素换成大元素时，极端情况下可能导致 crash（7.0 版本仍有问题）
     -   社区 PR：[https://github.com/redis/redis/pull/12955](https://github.com/redis/redis/pull/12955)
     -   命令文档：[https://redis.io/docs/latest/commands/lset/](https://redis.io/docs/latest/commands/lset/)
+
+## 8.0 版本
+
+1.  修复共享对象的 LRU/LFU 可能被错误展示的问题
+    -   社区 PR：[https://github.com/valkey-io/valkey/pull/250](https://github.com/valkey-io/valkey/pull/250)
+
+## 8.1 版本
+
+1.  修复 `RANDOMKEY` 命令在所有数据都过期时，可能持续阻塞直到 `CLIENT PAUSE` 命令解除禁写的问题
+    -   社区 PR：[https://github.com/valkey-io/valkey/pull/1850](https://github.com/valkey-io/valkey/pull/1850)
+
+2.  修复了 `raxRemove` 触发节点合并时可能在特殊场景下因为 `memcpy` 超过 512MB 而 crash 的问题
+    -   社区 PR：[https://github.com/valkey-io/valkey/pull/1722](https://github.com/valkey-io/valkey/pull/1722)
+
+3.  降低了 Lua 使用 cjson 时 OOM 的风险，cjson 库在分配 buffer 的时候会假设整个字符串都需要 Unicode 转义，分配 6 倍的内存，容易导致 OOM，现在改为不够的时候再扩 buffer
+    -   社区 PR：[https://github.com/valkey-io/valkey/pull/1785](https://github.com/valkey-io/valkey/pull/1785)
+
+4.  修复了 STREAM 当 tombstone 出现在消费者组的 `last_id` 之后时，可能出现 lag 计算错误的问题
+    -   社区 PR：[https://github.com/valkey-io/valkey/pull/1952](https://github.com/valkey-io/valkey/pull/1952)
+
+5.  修复了 `CLIENT PAUSE` 时执行 key 的阻塞命令（如 `BLPOP`）的 timeout 参数可能被忽略，导致永久等待唤醒的问题
+    -   社区 PR：[https://github.com/valkey-io/valkey/pull/2109](https://github.com/valkey-io/valkey/pull/2109)
+
+6.  修复了 `CLIENT UNBLOCK` 命令会错误解除被 `CLIENT PAUSE` 命令 pause 住的客户端
+    -   社区 PR：[https://github.com/valkey-io/valkey/pull/2117](https://github.com/valkey-io/valkey/pull/2117)
