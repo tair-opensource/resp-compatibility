@@ -310,6 +310,55 @@ This document is compiled from the official Release Notes of the Redis community
     // Check ACL/OOM -> Block -> Unblock -> Re-check ACL/OOM -> Execute
     ```
 
+## Upgrading from Version 7.2 to 8.0
+
+1.  **`NO_MULTI` Flag for `MULTI` and `WATCH`:** Added the `NO_MULTI` flag to the `MULTI` and `WATCH` commands. When a `NO_MULTI` command is added inside `MULTI`, it now returns an error and causes `EXEC` to fail, instead of returning an error but allowing further commands to be queued and executed by `EXEC`.
+    -   PR: [https://github.com/valkey-io/valkey/pull/723](https://github.com/valkey-io/valkey/pull/723)
+
+    ```plaintext
+    // Previous Behavior:
+    127.0.0.1:6379> multi
+    OK
+    127.0.0.1:6379(TX)> multi
+    (error) ERR MULTI calls can not be nested
+    127.0.0.1:6379(TX)> set key value
+    QUEUED
+    127.0.0.1:6379(TX)> exec
+    1) OK
+
+    127.0.0.1:6379> multi
+    OK
+    127.0.0.1:6379(TX)> watch key
+    (error) ERR WATCH inside MULTI is not allowed
+    127.0.0.1:6379(TX)> set key value
+    QUEUED
+    127.0.0.1:6379(TX)> exec
+    1) OK
+
+    // New Behavior:
+    127.0.0.1:6379> multi
+    OK
+    127.0.0.1:6379(TX)> multi
+    (error) ERR Command not allowed inside a transaction
+    127.0.0.1:6379(TX)> set key value
+    QUEUED
+    127.0.0.1:6379(TX)> exec
+    (error) EXECABORT Transaction discarded because of previous errors.
+
+    127.0.0.1:6379> multi
+    OK
+    127.0.0.1:6379(TX)> watch key
+    (error) ERR Command not allowed inside a transaction
+    127.0.0.1:6379(TX)> set key value
+    QUEUED
+    127.0.0.1:6379(TX)> exec
+    (error) EXECABORT Transaction discarded because of previous errors.
+    ```
+
+## Upgrading from Version 8.0 to 8.1
+
+No compatibility differences.
+
 # Important Bugfixes
 
 ## Version 5.0
@@ -420,3 +469,28 @@ This document is compiled from the official Release Notes of the Redis community
 3.  **`LSET` Crash on Large Element Replacement:** Fixed a potential crash with `LSET` in extreme cases when replacing many small list elements with a large one. (Affects 7.0)
     -   PR: [https://github.com/redis/redis/pull/12955](https://github.com/redis/redis/pull/12955)
     -   Doc: [https://redis.io/docs/latest/commands/lset/](https://redis.io/docs/latest/commands/lset/)
+
+## Version 8.0
+
+1.  **Shared Object LRU/LFU Display:** Fixed an issue where the LRU/LFU information of shared objects could be displayed incorrectly.
+    -   PR: [https://github.com/valkey-io/valkey/pull/250](https://github.com/valkey-io/valkey/pull/250)
+
+## Version 8.1
+
+1.  **`RANDOMKEY` Blocking after Expiration:** Fixed an issue where `RANDOMKEY` could keep blocking when all data had expired, until the write pause imposed by `CLIENT PAUSE` was lifted.
+    -   PR: [https://github.com/valkey-io/valkey/pull/1850](https://github.com/valkey-io/valkey/pull/1850)
+
+2.  **`raxRemove` Crash during Node Merge:** Fixed a crash in `raxRemove` caused by `memcpy` exceeding 512MB in special scenarios when node merging is triggered.
+    -   PR: [https://github.com/valkey-io/valkey/pull/1722](https://github.com/valkey-io/valkey/pull/1722)
+
+3.  **Lua cjson OOM Risk:** Reduced the OOM risk when Lua uses cjson. When allocating a buffer, the cjson library assumes the entire string needs Unicode escaping and allocates 6 times the memory, which can easily cause OOM. It now expands the buffer only when necessary.
+    -   PR: [https://github.com/valkey-io/valkey/pull/1785](https://github.com/valkey-io/valkey/pull/1785)
+
+4.  **STREAM Lag Calculation:** Fixed an issue in STREAM where the lag could be calculated incorrectly when a tombstone appears after the consumer group's `last_id`.
+    -   PR: [https://github.com/valkey-io/valkey/pull/1952](https://github.com/valkey-io/valkey/pull/1952)
+
+5.  **Blocking Command Timeout during `CLIENT PAUSE`:** Fixed an issue where the `timeout` parameter of key-blocking commands (such as `BLPOP`) executed during `CLIENT PAUSE` could be ignored, causing the client to wait indefinitely to be woken up.
+    -   PR: [https://github.com/valkey-io/valkey/pull/2109](https://github.com/valkey-io/valkey/pull/2109)
+
+6.  **`CLIENT UNBLOCK` and Paused Clients:** Fixed a bug where `CLIENT UNBLOCK` could incorrectly unblock clients paused by the `CLIENT PAUSE` command.
+    -   PR: [https://github.com/valkey-io/valkey/pull/2117](https://github.com/valkey-io/valkey/pull/2117)
