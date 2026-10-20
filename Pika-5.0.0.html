@@ -7,8 +7,8 @@ test: renamenx command failed
 test: renamenx command tags skipped
 test: randomkey command failed
 test: exists command passed
-test: ttl command passed
-test: pttl command passed
+test: ttl command failed
+test: pttl command failed
 test: expire command passed
 test: expire with NX / XX version skipped
 test: expire with GT / LT version skipped
@@ -110,7 +110,7 @@ test: smembers command passed
 test: smismember command version skipped
 test: smove command passed
 test: smove command tags skipped
-test: spop command passed
+test: spop command failed
 test: spop with COUNT passed
 test: srandmember command passed
 test: srandmember with COUNT passed
@@ -250,9 +250,9 @@ test: mset command passed
 test: mset command tags skipped
 test: msetnx command passed
 test: msetnx command tags skipped
-test: psetex command failed
+test: psetex command passed
 test: set command passed
-test: set with EX / PX failed
+test: set with EX / PX passed
 test: set with NX / XX passed
 test: set with KEEPTTL version skipped
 test: set with GET version skipped
@@ -280,7 +280,7 @@ test: hrandfield with WITHVALUES version skipped
 test: hscan command passed
 test: hscan with MATCH and COUNT passed
 test: hset command passed
-test: hset command with multiple field and value passed
+test: hset command with multiple field and value failed
 test: hsetnx command passed
 test: hstrlen command passed
 test: hvals command passed
@@ -416,20 +416,23 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command run test error only (P)SUBSCRIBE / (P)UNSUBSCRIBE / PING / QUIT allowed in this context
 -------- The result of tests --------
-Summary: version: 5.0.0, total tests: 213, passed: 165, rate: 77.46%
+Summary: version: 5.0.0, total tests: 213, passed: 163, rate: 76.53%
 This is failed tests for 5.0.0:
 FailedTest(name='rename command', reason=server:ResponseError)
 FailedTest(name='renamenx command', reason=server:ResponseError)
 FailedTest(name='randomkey command', reason=server:ResponseError)
+FailedTest(name='ttl command', reason='expected: -2, result: 0')
+FailedTest(name='pttl command', reason='expected: -2, result: 0')
 FailedTest(name='move command', reason=server:ResponseError)
 FailedTest(name='sort command', reason=server:ResponseError)
+FailedTest(name='spop command', reason="expected: 0, result: ['0']")
 FailedTest(name='substr command', reason=server:ResponseError)
+FailedTest(name='hset command with multiple field and value', reason=server:ResponseError)
 FailedTest(name='flushall with async', reason=server:ResponseError)
 FailedTest(name='flushdb with async', reason=server:ResponseError)
 FailedTest(name='swapdb command', reason=server:ResponseError)
 FailedTest(name='dump command', reason=server:ResponseError)
 FailedTest(name='restore command', reason=server:ResponseError)
-FailedTest(name='psetex command', reason=server:ResponseError)
 FailedTest(name='eval command', reason=server:ResponseError)
 FailedTest(name='evalsha command', reason=server:ResponseError)
 FailedTest(name='script exists command', reason=server:ResponseError)
@@ -461,7 +464,6 @@ FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason=serv
 FailedTest(name='georadius_ro with COUNT', reason=server:ResponseError)
 FailedTest(name='georadius_ro with ASC / DESC', reason=server:ResponseError)
 FailedTest(name='zadd with XX / NX / CH / INCR', reason=server:ResponseError)
-FailedTest(name='set with EX / PX', reason=server:ResponseError)
 FailedTest(name='georadiusbymember_ro command', reason=server:ResponseError)
 FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason=server:ResponseError)
 FailedTest(name='georadiusbymember_ro with COUNT', reason=server:ResponseError)

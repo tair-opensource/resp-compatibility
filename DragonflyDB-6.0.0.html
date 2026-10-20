@@ -306,7 +306,7 @@ test: geohash command passed
 test: geopos command passed
 test: georadius command passed
 test: georadius with WITHCOORD / WITHDIST / WITHHASH failed
-test: georadius with COUNT failed
+test: georadius with COUNT passed
 test: georadius with ASC / DESC passed
 test: georadius with STORE / STOREDIST passed
 test: georadius with STORE / STOREDIST tags skipped
@@ -314,7 +314,7 @@ test: georadius with ANY option for COUNT version skipped
 test: georadius with support for uppercase unit names version skipped
 test: georadius_ro command passed
 test: georadius_ro with WITHCOORD / WITHDIST / WITHHASH failed
-test: georadius_ro with COUNT failed
+test: georadius_ro with COUNT passed
 test: georadius_ro with ASC / DESC passed
 test: georadius_ro with ANY option for COUNT version skipped
 test: georadiusbymember command passed
@@ -416,16 +416,14 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 228, passed: 218, rate: 95.61%
+Summary: version: 6.0.0, total tests: 228, passed: 220, rate: 96.49%
 This is failed tests for 6.0.0:
 FailedTest(name='swapdb command', reason=server:ResponseError)
 FailedTest(name='xpending command', reason="expected: [1, '1-0', '1-0', [['myconsumer', '1']]], result: [1, '1-0', '1-0', [['myconsumer', 1]]]")
 FailedTest(name='geodist command', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='geodist with M / KM / FT / MI', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', 3479099956230698], ['Catania', 3479447370796909]], result: [['Palermo', '3479099956230698'], ['Catania', '3479447370796909']]")
-FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', 3479099956230698], ['Catania', 3479447370796909]], result: [['Palermo', '3479099956230698'], ['Catania', '3479447370796909']]")
-FailedTest(name='georadius_ro with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
 FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', 3479030013248308], ['Palermo', 3479099956230698]], result: [['Agrigento', '3479030013248308'], ['Palermo', '3479099956230698']]")
 FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', 3479030013248308], ['Palermo', 3479099956230698]], result: [['Agrigento', '3479030013248308'], ['Palermo', '3479099956230698']]")
 </pre>

@@ -112,7 +112,7 @@ test: smove command passed
 test: smove command tags skipped
 test: spop command passed
 test: spop with COUNT passed
-test: srandmember command failed
+test: srandmember command passed
 test: srandmember with COUNT passed
 test: srem command passed
 test: srem with multiple member passed
@@ -233,7 +233,7 @@ test: getrange command passed
 test: getset command passed
 test: incr command passed
 test: incrby command passed
-test: incrbyfloat command failed
+test: incrbyfloat command passed
 test: lcs command version skipped
 test: lcs command tags skipped
 test: lcs with LEN version skipped
@@ -398,7 +398,7 @@ test: xread command passed
 test: xreadgroup command passed
 test: xrevrange command passed
 test: xrevrange command with EXCLUSIVE RANGES version skipped
-test: xtrim command failed
+test: xtrim command passed
 test: xtrim command with MINID/LIMIT version skipped
 test: psubscribe command passed
 test: psubscribe with RESET version skipped
@@ -416,17 +416,14 @@ test: subscribe with RESET version skipped
 test: sunsubscribe command version skipped
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 6.0.0, total tests: 228, passed: 212, rate: 92.98%
+Summary: version: 6.0.0, total tests: 228, passed: 215, rate: 94.30%
 This is failed tests for 6.0.0:
-FailedTest(name='srandmember command', reason="expected: 0, result: ['0']")
 FailedTest(name='flushall with async', reason=server:ResponseError)
 FailedTest(name='flushdb with async', reason=server:ResponseError)
 FailedTest(name='swapdb command', reason=server:ResponseError)
-FailedTest(name='incrbyfloat command', reason='expected: 1.623, result: 1.623000')
 FailedTest(name='bitop command', reason=server:ResponseError)
 FailedTest(name='brpoplpush command', reason=server:ResponseError)
 FailedTest(name='touch command', reason=server:ResponseError)
-FailedTest(name='xtrim command', reason=server:ResponseError)
 FailedTest(name='brpoplpush with double timeout', reason=server:ResponseError)
 FailedTest(name='geodist command', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='geodist with M / KM / FT / MI', reason='expected: 166274.1516, result: 166274.15156960033')

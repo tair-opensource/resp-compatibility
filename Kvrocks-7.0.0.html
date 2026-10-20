@@ -112,7 +112,7 @@ test: smove command passed
 test: smove command tags skipped
 test: spop command passed
 test: spop with COUNT passed
-test: srandmember command failed
+test: srandmember command passed
 test: srandmember with COUNT passed
 test: srem command passed
 test: srem with multiple member passed
@@ -233,7 +233,7 @@ test: getrange command passed
 test: getset command passed
 test: incr command passed
 test: incrby command passed
-test: incrbyfloat command failed
+test: incrbyfloat command passed
 test: lcs command passed
 test: lcs command tags skipped
 test: lcs with LEN passed
@@ -379,7 +379,7 @@ test: script flush with ASYNC failed
 test: script load command passed
 test: xack command passed
 test: xadd command passed
-test: xadd with NOMKSTREAM/MINID/LIMIT failed
+test: xadd with NOMKSTREAM/MINID/LIMIT passed
 test: xadd with EXPLICIT ID passed
 test: xclaim command passed
 test: xdel command passed
@@ -398,7 +398,7 @@ test: xread command passed
 test: xreadgroup command passed
 test: xrevrange command passed
 test: xrevrange command with EXCLUSIVE RANGES passed
-test: xtrim command failed
+test: xtrim command passed
 test: xtrim command with MINID/LIMIT failed
 test: psubscribe command passed
 test: psubscribe with RESET passed
@@ -416,9 +416,8 @@ test: subscribe with RESET passed
 test: sunsubscribe command passed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 296, rate: 84.57%
+Summary: version: 7.0.0, total tests: 350, passed: 300, rate: 85.71%
 This is failed tests for 7.0.0:
-FailedTest(name='srandmember command', reason="expected: 0, result: ['0']")
 FailedTest(name='flushall with async', reason=server:ResponseError)
 FailedTest(name='flushdb with async', reason=server:ResponseError)
 FailedTest(name='swapdb command', reason=server:ResponseError)
@@ -443,11 +442,9 @@ FailedTest(name='function load command', reason='expected: mylib, result: ')
 FailedTest(name='function restore command', reason=server:ResponseError)
 FailedTest(name='function stats command', reason=server:ResponseError)
 FailedTest(name='spublish command', reason=server:ResponseError)
-FailedTest(name='incrbyfloat command', reason='expected: 1.623, result: 1.623000')
 FailedTest(name='bitop command', reason=server:ResponseError)
 FailedTest(name='brpoplpush command', reason=server:ResponseError)
 FailedTest(name='touch command', reason=server:ResponseError)
-FailedTest(name='xtrim command', reason=server:ResponseError)
 FailedTest(name='brpoplpush with double timeout', reason=server:ResponseError)
 FailedTest(name='geoadd with CH / NX / XX', reason=server:ResponseError)
 FailedTest(name='georadius with ANY option for COUNT', reason=server:ResponseError)
@@ -457,12 +454,11 @@ FailedTest(name='georadiusbymember_ro with ANY option for COUNT', reason=server:
 FailedTest(name='geosearch with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
 FailedTest(name='geosearch with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', 3479099956230698], ['Catania', 3479447370796909]], result: [['Palermo', '3479099956230698'], ['Catania', '3479447370796909']]")
 FailedTest(name='geosearchstore command', reason=server:ResponseError)
-FailedTest(name='geosearchstore with COUNT', reason='expected: 1, result: 2')
+FailedTest(name='geosearchstore with COUNT', reason=server:ResponseError)
 FailedTest(name='flushall with sync', reason=server:ResponseError)
 FailedTest(name='flushdb with sync', reason=server:ResponseError)
 FailedTest(name='script flush with SYNC', reason=server:ResponseError)
 FailedTest(name='script flush with ASYNC', reason=server:ResponseError)
-FailedTest(name='xadd with NOMKSTREAM/MINID/LIMIT', reason=server:ResponseError)
 FailedTest(name='xtrim command with MINID/LIMIT', reason=server:ResponseError)
 FailedTest(name='lpos with COUNT', reason="expected: [2, 6], result: ['2', '6']")
 FailedTest(name='lpos with RANK, COUNT and MAXLEN', reason="expected: [7, 6, 2], result: ['7', '6', '2']")

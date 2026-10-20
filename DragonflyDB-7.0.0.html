@@ -101,7 +101,7 @@ test: sinter command passed
 test: sinter command tags skipped
 test: sintercard command passed
 test: sintercard command tags skipped
-test: sintercard with LIMIT failed
+test: sintercard with LIMIT passed
 test: sintercard with LIMIT tags skipped
 test: sinterstore command passed
 test: sinterstore command tags skipped
@@ -151,7 +151,7 @@ test: zinter WITHSCORES passed
 test: zinter WITHSCORES tags skipped
 test: zintercard command passed
 test: zintercard command tags skipped
-test: zintercard with LIMIT failed
+test: zintercard with LIMIT passed
 test: zintercard with LIMIT tags skipped
 test: zinterstore command passed
 test: zinterstore command tags skipped
@@ -306,15 +306,15 @@ test: geohash command passed
 test: geopos command passed
 test: georadius command passed
 test: georadius with WITHCOORD / WITHDIST / WITHHASH failed
-test: georadius with COUNT failed
+test: georadius with COUNT passed
 test: georadius with ASC / DESC passed
 test: georadius with STORE / STOREDIST passed
 test: georadius with STORE / STOREDIST tags skipped
 test: georadius with ANY option for COUNT passed
-test: georadius with support for uppercase unit names failed
+test: georadius with support for uppercase unit names passed
 test: georadius_ro command passed
 test: georadius_ro with WITHCOORD / WITHDIST / WITHHASH failed
-test: georadius_ro with COUNT failed
+test: georadius_ro with COUNT passed
 test: georadius_ro with ASC / DESC passed
 test: georadius_ro with ANY option for COUNT passed
 test: georadiusbymember command passed
@@ -323,27 +323,27 @@ test: georadiusbymember with COUNT passed
 test: georadiusbymember with ASC / DESC passed
 test: georadiusbymember with STORE / STOREDIST passed
 test: georadiusbymember with STORE / STOREDIST tags skipped
-test: georadiusbymember with ANY option for COUNT failed
+test: georadiusbymember with ANY option for COUNT passed
 test: georadiusbymember with support for uppercase unit names passed
 test: georadiusbymember_ro command passed
 test: georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH failed
 test: georadiusbymember_ro with COUNT passed
 test: georadiusbymember_ro with ASC / DESC passed
-test: georadiusbymember_ro with ANY option for COUNT failed
+test: georadiusbymember_ro with ANY option for COUNT passed
 test: geosearch command passed
 test: geosearch with ASC / DESC passed
-test: geosearch with COUNT failed
+test: geosearch with COUNT passed
 test: geosearch with WITHCOORD / WITHDIST / WITHHASH failed
 test: geosearch with support for uppercase unit names passed
-test: geosearchstore command failed
+test: geosearchstore command passed
 test: geosearchstore command tags skipped
-test: geosearchstore with ASC / DESC failed
+test: geosearchstore with ASC / DESC passed
 test: geosearchstore with ASC / DESC tags skipped
-test: geosearchstore with COUNT failed
+test: geosearchstore with COUNT passed
 test: geosearchstore with COUNT tags skipped
-test: geosearchstore with STOREDIST failed
+test: geosearchstore with STOREDIST passed
 test: geosearchstore with STOREDIST tags skipped
-test: geosearchstore with support for uppercase unit names failed
+test: geosearchstore with support for uppercase unit names passed
 test: geosearchstore with support for uppercase unit names tags skipped
 test: dbsize command passed
 test: flushall command passed
@@ -416,22 +416,18 @@ test: subscribe with RESET passed
 test: sunsubscribe command passed
 test: unsubscribe command passed
 -------- The result of tests --------
-Summary: version: 7.0.0, total tests: 350, passed: 307, rate: 87.71%
+Summary: version: 7.0.0, total tests: 350, passed: 320, rate: 91.43%
 This is failed tests for 7.0.0:
 FailedTest(name='swapdb command', reason=server:ResponseError)
 FailedTest(name='expireat with NX / XX', reason=server:ResponseError)
 FailedTest(name='expireat with GT / LT', reason=server:ResponseError)
 FailedTest(name='pexpireat with NX / XX', reason=server:ResponseError)
 FailedTest(name='pexpireat with GT / LT', reason=server:ResponseError)
-FailedTest(name='sintercard with LIMIT', reason=server:ResponseError)
-FailedTest(name='zintercard with LIMIT', reason=server:ResponseError)
 FailedTest(name='lcs command', reason=server:ResponseError)
 FailedTest(name='lcs with LEN', reason=server:ResponseError)
 FailedTest(name='lcs with IDX', reason=server:ResponseError)
 FailedTest(name='lcs with MINMATCHLEN', reason=server:ResponseError)
 FailedTest(name='lcs with WITHMATCHLEN', reason=server:ResponseError)
-FailedTest(name='georadius with support for uppercase unit names', reason="expected: ['Catania'], result: ['Palermo']")
-FailedTest(name='geosearchstore with support for uppercase unit names', reason=server:ResponseError)
 FailedTest(name='fcall command', reason=server:ResponseError)
 FailedTest(name='fcall_ro command', reason=server:ResponseError)
 FailedTest(name='function delete command', reason=server:ResponseError)
@@ -445,20 +441,11 @@ FailedTest(name='pubsub shardchannels command', reason=server:ResponseError)
 FailedTest(name='pubsub shardnumsub command', reason=server:ResponseError)
 FailedTest(name='xpending command', reason="expected: [1, '1-0', '1-0', [['myconsumer', '1']]], result: [1, '1-0', '1-0', [['myconsumer', 1]]]")
 FailedTest(name='zrandmember command', reason="expected: a, result: ['a']")
-FailedTest(name='georadiusbymember with ANY option for COUNT', reason=server:ResponseError)
-FailedTest(name='georadiusbymember_ro with ANY option for COUNT', reason=server:ResponseError)
-FailedTest(name='geosearch with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
 FailedTest(name='geosearch with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', 3479099956230698], ['Catania', 3479447370796909]], result: [['Palermo', '3479099956230698'], ['Catania', '3479447370796909']]")
-FailedTest(name='geosearchstore command', reason=server:ResponseError)
-FailedTest(name='geosearchstore with ASC / DESC', reason=server:ResponseError)
-FailedTest(name='geosearchstore with COUNT', reason=server:ResponseError)
-FailedTest(name='geosearchstore with STOREDIST', reason=server:ResponseError)
 FailedTest(name='geodist command', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='geodist with M / KM / FT / MI', reason='expected: 166274.1516, result: 166274.15156960033')
 FailedTest(name='georadius with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', 3479099956230698], ['Catania', 3479447370796909]], result: [['Palermo', '3479099956230698'], ['Catania', '3479447370796909']]")
-FailedTest(name='georadius with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
 FailedTest(name='georadius_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Palermo', 3479099956230698], ['Catania', 3479447370796909]], result: [['Palermo', '3479099956230698'], ['Catania', '3479447370796909']]")
-FailedTest(name='georadius_ro with COUNT', reason="expected: ['Catania'], result: ['Palermo']")
 FailedTest(name='georadiusbymember with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', 3479030013248308], ['Palermo', 3479099956230698]], result: [['Agrigento', '3479030013248308'], ['Palermo', '3479099956230698']]")
 FailedTest(name='georadiusbymember_ro with WITHCOORD / WITHDIST / WITHHASH', reason="expected: [['Agrigento', 3479030013248308], ['Palermo', 3479099956230698]], result: [['Agrigento', '3479030013248308'], ['Palermo', '3479099956230698']]")
 </pre>
